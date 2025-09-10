@@ -2,7 +2,10 @@
   "name": "@pixelverse/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "npx nx build pixelverse",
+    "start": "npx nx serve pixelverse"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "11.11.1",
