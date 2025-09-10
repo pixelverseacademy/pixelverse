@@ -1,12 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Pixelverse</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1976d2" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Pixelverse Academy - Kids Coding & Robotics Classes in Durham & Holly Springs, NC</title>
+  <meta name="title" content="Pixelverse Academy - Kids Coding & Robotics Classes in Durham & Holly Springs, NC" />
+  <meta name="description" content="Leading technology education academy in Durham and Holly Springs, NC. Expert coding, robotics, AI, and STEM classes for kids ages 6-17. Free trial sessions available!" />
+  <meta name="keywords" content="kids coding Durham, robotics classes Holly Springs, STEM education North Carolina, programming for kids, AI classes children, Minecraft coding, Python programming kids" />
+  <meta name="author" content="Pixelverse Academy" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pixelverseacademy.com/" />
+  <meta property="og:title" content="Pixelverse Academy - Kids Coding & Robotics Classes in Durham & Holly Springs, NC" />
+  <meta property="og:description" content="Leading technology education academy in Durham and Holly Springs, NC. Expert coding, robotics, AI, and STEM classes for kids ages 6-17. Free trial sessions available!" />
+  <meta property="og:image" content="https://pixelverseacademy.com/og-image.jpg" />
+  <meta property="og:site_name" content="Pixelverse Academy" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://pixelverseacademy.com/" />
+  <meta property="twitter:title" content="Pixelverse Academy - Kids Coding & Robotics Classes in Durham & Holly Springs, NC" />
+  <meta property="twitter:description" content="Leading technology education academy in Durham and Holly Springs, NC. Expert coding, robotics, AI, and STEM classes for kids ages 6-17. Free trial sessions available!" />
+  <meta property="twitter:image" content="https://pixelverseacademy.com/twitter-image.jpg" />
+  <meta property="twitter:site" content="@pixelverseacademy" />
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Pixelverse Academy" />
+  <meta name="msapplication-TileColor" content="#1976d2" />
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://pixelverseacademy.com/" />
+  
+  <!-- Preconnect to external domains for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Favicon and App Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  <!-- Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Pixelverse Academy",
+    "description": "Leading technology education academy in Durham and Holly Springs, NC. Expert coding, robotics, AI, and STEM classes for kids ages 6-17.",
+    "url": "https://pixelverseacademy.com",
+    "logo": "https://pixelverseacademy.com/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-919-555-0123",
+      "contactType": "customer service",
+      "email": "vinodht@pixelverseacademy.com",
+      "availableLanguage": "English"
+    },
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main Street",
+        "addressLocality": "Durham",
+        "addressRegion": "NC",
+        "postalCode": "27701",
+        "addressCountry": "US"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "456 Oak Avenue",
+        "addressLocality": "Holly Springs",
+        "addressRegion": "NC",
+        "postalCode": "27540",
+        "addressCountry": "US"
+      }
+    ],
+    "geo": [
+      {
+        "@type": "GeoCoordinates",
+        "latitude": "35.9940",
+        "longitude": "-78.8986"
+      },
+      {
+        "@type": "GeoCoordinates",
+        "latitude": "35.6513",
+        "longitude": "-78.8336"
+      }
+    ],
+    "openingHours": "Mo-Fr 15:00-20:00,Sa 09:00-17:00,Su 10:00-16:00",
+    "sameAs": [
+      "https://www.facebook.com/pixelverseacademy",
+      "https://www.instagram.com/pixelverseacademy",
+      "https://www.linkedin.com/company/pixelverseacademy"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "description": "Technology education classes for kids ages 6-17",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Technology Education Programs",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Course",
+            "name": "Engineering & Robotics",
+            "description": "Build and program robots using LEGO, VEX, and micro:bit"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Course",
+            "name": "Python Programming",
+            "description": "Master Python from basics to advanced concepts"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Course",
+            "name": "AI & Machine Learning",
+            "description": "Explore artificial intelligence and machine learning concepts"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
 </html>

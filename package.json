@@ -4,12 +4,17 @@
   "license": "MIT",
   "scripts": {
     "build": "npx nx build pixelverse",
-    "start": "npx nx serve pixelverse"
+    "start": "npx nx serve pixelverse",
+    "lint": "npx nx lint pixelverse"
   },
   "private": true,
   "dependencies": {
-    "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.2",
+    "@mui/lab": "^7.0.0-beta.17",
+    "@mui/material": "^7.3.2",
+    "@mui/x-date-pickers": "^8.11.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router-dom": "6.29.0"
