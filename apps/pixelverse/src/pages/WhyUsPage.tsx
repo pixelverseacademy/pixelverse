@@ -1,4 +1,5 @@
 import React from 'react';
+import ThreeBackground from '../components/InteractiveBackground';
 import {
   Box,
   Container,
@@ -28,7 +29,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Project-Based Learning Approach',
       description: 'Students learn through hands-on projects that solve real-world problems, making learning engaging and practical.',
-      icon: <BuildIcon sx={{ fontSize: 50, color: '#ff6b35' }} />,
+      icon: <BuildIcon sx={{ fontSize: 50, color: '#3498db' }} />,
       benefits: [
         'Real-world problem solving',
         'Enhanced creativity and innovation',
@@ -39,7 +40,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Expert Instructors',
       description: 'Learn from experienced professionals who are passionate about technology education and student success.',
-      icon: <CodeIcon sx={{ fontSize: 50, color: '#ff6b35' }} />,
+      icon: <CodeIcon sx={{ fontSize: 50, color: '#3498db' }} />,
       benefits: [
         'Industry experience and expertise',
         'Personalized teaching approach',
@@ -50,7 +51,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Comprehensive Curriculum',
       description: 'From coding fundamentals to advanced AI and robotics, our curriculum covers all aspects of modern technology.',
-      icon: <SchoolIcon sx={{ fontSize: 50, color: '#ff6b35' }} />,
+      icon: <SchoolIcon sx={{ fontSize: 50, color: '#3498db' }} />,
       benefits: [
         'K-12 Computer Science Standards aligned',
         'Progressive skill building',
@@ -61,7 +62,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Small Class Sizes',
       description: 'Personalized attention with small class sizes ensures every student gets the support they need to succeed.',
-      icon: <GroupIcon sx={{ fontSize: 50, color: '#ff6b35' }} />,
+      icon: <GroupIcon sx={{ fontSize: 50, color: '#3498db' }} />,
       benefits: [
         'Individual attention and support',
         'Collaborative learning environment',
@@ -72,7 +73,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Cutting-Edge Technology',
       description: 'Access to the latest tools and technologies including robotics kits, VR headsets, and professional software.',
-      icon: <AIIcon sx={{ fontSize: 50, color: '#ff6b35' }} />,
+      icon: <AIIcon sx={{ fontSize: 50, color: '#3498db' }} />,
       benefits: [
         'Latest hardware and software',
         'Industry-standard tools',
@@ -83,7 +84,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Competition Preparation',
       description: 'Prepare students for prestigious competitions like First LEGO League, VEX Robotics, and coding competitions.',
-      icon: <AwardIcon sx={{ fontSize: 50, color: '#ff6b35' }} />,
+      icon: <AwardIcon sx={{ fontSize: 50, color: '#3498db' }} />,
       benefits: [
         'Competition strategy and skills',
         'Team building and leadership',
@@ -101,11 +102,11 @@ const WhyUsPage: React.FC = () => {
   ];
 
   return (
-    <Box sx={{ backgroundColor: '#121212' }}>
+    <Box sx={{ backgroundColor: '#f0f8f0' }}>
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #ff6b35 0%, #ff8a65 50%, #ffa726 100%)',
+          background: 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 50%, #E91E63 100%)',
           color: 'white',
           py: { xs: 6, md: 8 },
           textAlign: 'center',
@@ -113,6 +114,7 @@ const WhyUsPage: React.FC = () => {
           overflow: 'hidden',
         }}
       >
+        <ThreeBackground page="why-us" />
         {/* Cosmic background effect */}
         <Box
           sx={{
@@ -122,14 +124,14 @@ const WhyUsPage: React.FC = () => {
             right: 0,
             bottom: 0,
             background: `
-              radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(255, 138, 101, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 40% 80%, rgba(255, 167, 38, 0.3) 0%, transparent 50%)
+              radial-gradient(circle at 20% 50%, rgba(52, 152, 219, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(46, 204, 113, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 40% 80%, rgba(243, 156, 18, 0.3) 0%, transparent 50%)
             `,
           }}
         />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
             Why Choose PixelVerse Learning Academy?
           </Typography>
           <Typography variant="h5" sx={{ mb: 4, opacity: 0.9, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
@@ -144,7 +146,7 @@ const WhyUsPage: React.FC = () => {
       </Box>
 
       {/* Statistics - Centered Layout */}
-      <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#121212' }}>
+      <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f0f8f0' }}>
         <Grid container spacing={4} justifyContent="center">
           {stats.map((stat, index) => (
             <Grid item xs={6} sm={4} md={3} key={index}>
@@ -158,12 +160,12 @@ const WhyUsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
-                <Typography variant="h3" component="div" sx={{ fontWeight: 'bold', color: '#ff6b35' }}>
+                <Typography variant="h3" component="div" sx={{ fontWeight: 'bold', color: '#3498db' }}>
                   {stat.number}
                 </Typography>
                 <Typography variant="h6" sx={{ color: '#b0b0b0' }}>
@@ -178,7 +180,7 @@ const WhyUsPage: React.FC = () => {
       {/* Features - Two Rows, Three Columns */}
       <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             What Makes Us Different
           </Typography>
           
@@ -199,8 +201,8 @@ const WhyUsPage: React.FC = () => {
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                      border: '1px solid #ff6b35',
+                      boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                      border: '1px solid #3498db',
                     },
                   }}
                 >
@@ -218,7 +220,7 @@ const WhyUsPage: React.FC = () => {
                       {feature.benefits.map((benefit, idx) => (
                         <ListItem key={idx} sx={{ px: 0 }}>
                           <ListItemIcon>
-                            <CheckIcon sx={{ color: '#ff6b35' }} />
+                            <CheckIcon sx={{ color: '#3498db' }} />
                           </ListItemIcon>
                           <ListItemText primary={benefit} sx={{ color: '#b0b0b0' }} />
                         </ListItem>
@@ -233,8 +235,8 @@ const WhyUsPage: React.FC = () => {
       </Box>
 
       {/* Why Choose Us - One Row, Three Cards */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#121212' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8f0' }}>
+        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Why Choose PixelVerse Learning Academy?
         </Typography>
         
@@ -253,12 +255,12 @@ const WhyUsPage: React.FC = () => {
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                  border: '1px solid #ff6b35',
+                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                  border: '1px solid #3498db',
                 },
               }}
             >
-              <SchoolIcon sx={{ fontSize: 50, color: '#ff6b35', mb: 2 }} />
+              <SchoolIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
                 Project-Based Learning
               </Typography>
@@ -282,12 +284,12 @@ const WhyUsPage: React.FC = () => {
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                  border: '1px solid #ff6b35',
+                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                  border: '1px solid #3498db',
                 },
               }}
             >
-              <CodeIcon sx={{ fontSize: 50, color: '#ff6b35', mb: 2 }} />
+              <CodeIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
                 Expert Instructors
               </Typography>
@@ -311,12 +313,12 @@ const WhyUsPage: React.FC = () => {
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                  border: '1px solid #ff6b35',
+                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                  border: '1px solid #3498db',
                 },
               }}
             >
-              <GroupIcon sx={{ fontSize: 50, color: '#ff6b35', mb: 2 }} />
+              <GroupIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
                 Small Class Sizes
               </Typography>
@@ -331,7 +333,7 @@ const WhyUsPage: React.FC = () => {
       {/* Why Our Instructors Make the Difference - One Row, Three Cards */}
       <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Why Our Instructors Make the Difference
           </Typography>
           
@@ -350,8 +352,8 @@ const WhyUsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -378,8 +380,8 @@ const WhyUsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -406,8 +408,8 @@ const WhyUsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -424,8 +426,8 @@ const WhyUsPage: React.FC = () => {
       </Box>
 
       {/* What We Believe - Full Width */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#121212' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8f0' }}>
+        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           What We Believe
         </Typography>
         
@@ -438,12 +440,12 @@ const WhyUsPage: React.FC = () => {
             transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
             '&:hover': {
               transform: 'translateY(-8px)',
-              boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-              border: '1px solid #ff6b35',
+              boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+              border: '1px solid #3498db',
             },
           }}
         >
-          <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#ff6b35', textAlign: 'center', mb: 4 }}>
+          <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#3498db', textAlign: 'center', mb: 4 }}>
             Our Mission and Values
           </Typography>
           <Typography variant="body1" paragraph sx={{ color: '#b0b0b0', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
@@ -474,15 +476,15 @@ const WhyUsPage: React.FC = () => {
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Chip
               label="Free Trial Session"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff6b35', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
             />
             <Chip
               label="Small Class Sizes"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ffa726', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2ecc71', color: 'white' }}
             />
             <Chip
               label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff6b35', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
             />
           </Box>
         </Container>

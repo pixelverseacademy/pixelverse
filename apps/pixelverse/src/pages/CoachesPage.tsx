@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Box,
   Container,
@@ -132,11 +133,11 @@ const CoachesPage: React.FC = () => {
   ];
 
   return (
-    <Box sx={{ backgroundColor: '#121212' }}>
+    <Box sx={{ backgroundColor: '#f5f8ff' }}>
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #ff6b35 0%, #ff8a65 50%, #ffa726 100%)',
+          background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #E91E63 100%)',
           color: 'white',
           py: { xs: 6, md: 8 },
           textAlign: 'center',
@@ -144,23 +145,9 @@ const CoachesPage: React.FC = () => {
           overflow: 'hidden',
         }}
       >
-        {/* Cosmic background effect */}
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: `
-              radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(255, 138, 101, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 40% 80%, rgba(255, 167, 38, 0.3) 0%, transparent 50%)
-            `,
-          }}
-        />
+        <ThreeBackground page="coaches" />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
             Meet Our Expert Instructors
           </Typography>
           <Typography variant="h5" sx={{ mb: 4, opacity: 0.9, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
@@ -175,8 +162,8 @@ const CoachesPage: React.FC = () => {
       </Box>
 
       {/* Instructors Grid */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#121212' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
+        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Our Expert Team
         </Typography>
         
@@ -192,8 +179,8 @@ const CoachesPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -206,14 +193,14 @@ const CoachesPage: React.FC = () => {
                 />
                 <CardContent sx={{ p: 4 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <Avatar sx={{ bgcolor: '#ff6b35', mr: 2 }}>
+                    <Avatar sx={{ bgcolor: '#3498db', mr: 2 }}>
                       {coach.name.split(' ').map(n => n[0]).join('')}
                     </Avatar>
                     <Box>
                       <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold', color: '#ffffff' }}>
                         {coach.name}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: '#ff6b35' }}>
+                      <Typography variant="body2" sx={{ color: '#3498db' }}>
                         {coach.title}
                       </Typography>
                     </Box>
@@ -243,7 +230,7 @@ const CoachesPage: React.FC = () => {
                           label={specialty}
                           size="small"
                           sx={{ 
-                            backgroundColor: '#ff6b35', 
+                            backgroundColor: '#3498db', 
                             color: 'white',
                             fontSize: '0.75rem'
                           }}
@@ -260,7 +247,7 @@ const CoachesPage: React.FC = () => {
                       {coach.achievements.map((achievement, idx) => (
                         <ListItem key={idx} sx={{ px: 0, py: 0.5 }}>
                           <ListItemIcon>
-                            <CheckIcon sx={{ color: '#ff6b35', fontSize: 16 }} />
+                            <CheckIcon sx={{ color: '#3498db', fontSize: 16 }} />
                           </ListItemIcon>
                           <ListItemText 
                             primary={achievement} 
@@ -285,7 +272,7 @@ const CoachesPage: React.FC = () => {
       {/* Teaching Philosophy - One Row, Two Cards */}
       <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Our Teaching Philosophy
           </Typography>
           
@@ -303,8 +290,8 @@ const CoachesPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -315,7 +302,7 @@ const CoachesPage: React.FC = () => {
                   {teachingPhilosophy.map((principle, index) => (
                     <ListItem key={index} sx={{ px: 0 }}>
                       <ListItemIcon>
-                        <CheckIcon sx={{ color: '#ff6b35' }} />
+                        <CheckIcon sx={{ color: '#3498db' }} />
                       </ListItemIcon>
                       <ListItemText primary={principle} sx={{ color: '#b0b0b0' }} />
                     </ListItem>
@@ -337,8 +324,8 @@ const CoachesPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -368,8 +355,8 @@ const CoachesPage: React.FC = () => {
       </Box>
 
       {/* Why Our Instructors Matter - One Row, Three Cards */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#121212' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
+        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Why Our Instructors Make the Difference
         </Typography>
         
@@ -388,12 +375,12 @@ const CoachesPage: React.FC = () => {
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                  border: '1px solid #ff6b35',
+                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                  border: '1px solid #3498db',
                 },
               }}
             >
-              <CodeIcon sx={{ fontSize: 50, color: '#ff6b35', mb: 2 }} />
+              <CodeIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
                 Industry Experience
               </Typography>
@@ -418,12 +405,12 @@ const CoachesPage: React.FC = () => {
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                  border: '1px solid #ff6b35',
+                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                  border: '1px solid #3498db',
                 },
               }}
             >
-              <SchoolIcon sx={{ fontSize: 50, color: '#ff6b35', mb: 2 }} />
+              <SchoolIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
                 Educational Expertise
               </Typography>
@@ -448,12 +435,12 @@ const CoachesPage: React.FC = () => {
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                  border: '1px solid #ff6b35',
+                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                  border: '1px solid #3498db',
                 },
               }}
             >
-              <AwardIcon sx={{ fontSize: 50, color: '#ff6b35', mb: 2 }} />
+              <AwardIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
                 Proven Results
               </Typography>
@@ -479,15 +466,15 @@ const CoachesPage: React.FC = () => {
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Chip
               label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff6b35', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
             />
             <Chip
               label="Industry Experience"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ffa726', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2ecc71', color: 'white' }}
             />
             <Chip
               label="Proven Results"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff6b35', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
             />
           </Box>
         </Container>

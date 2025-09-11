@@ -1,4 +1,5 @@
 import React from 'react';
+import ThreeBackground from '../components/InteractiveBackground';
 import {
   Box,
   Container,
@@ -69,11 +70,11 @@ const LocationsPage: React.FC = () => {
   ];
 
   return (
-    <Box sx={{ backgroundColor: '#121212' }}>
+    <Box sx={{ backgroundColor: '#fff8f0' }}>
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #ff6b35 0%, #ff8a65 50%, #ffa726 100%)',
+          background: 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 50%, #9C27B0 100%)',
           color: 'white',
           py: { xs: 6, md: 8 },
           textAlign: 'center',
@@ -81,23 +82,9 @@ const LocationsPage: React.FC = () => {
           overflow: 'hidden',
         }}
       >
-        {/* Cosmic background effect */}
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: `
-              radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(255, 138, 101, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 40% 80%, rgba(255, 167, 38, 0.3) 0%, transparent 50%)
-            `,
-          }}
-        />
+        <ThreeBackground page="locations" />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
             Our Locations
           </Typography>
           <Typography variant="h5" sx={{ mb: 4, opacity: 0.9, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
@@ -111,8 +98,8 @@ const LocationsPage: React.FC = () => {
       </Box>
 
       {/* Locations */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#121212' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#fff8f0' }}>
+        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Our Facilities
         </Typography>
         
@@ -130,8 +117,8 @@ const LocationsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -142,28 +129,28 @@ const LocationsPage: React.FC = () => {
                   
                   <Box sx={{ mb: 3 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                      <LocationIcon sx={{ color: '#ff6b35', mr: 1, fontSize: 20 }} />
+                      <LocationIcon sx={{ color: '#3498db', mr: 1, fontSize: 20 }} />
                       <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
                         {location.address}
                       </Typography>
                     </Box>
                     
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                      <PhoneIcon sx={{ color: '#ff6b35', mr: 1, fontSize: 20 }} />
+                      <PhoneIcon sx={{ color: '#3498db', mr: 1, fontSize: 20 }} />
                       <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
                         {location.phone}
                       </Typography>
                     </Box>
                     
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                      <EmailIcon sx={{ color: '#ff6b35', mr: 1, fontSize: 20 }} />
+                      <EmailIcon sx={{ color: '#3498db', mr: 1, fontSize: 20 }} />
                       <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
                         {location.email}
                       </Typography>
                     </Box>
                     
                     <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
-                      <TimeIcon sx={{ color: '#ff6b35', mr: 1, fontSize: 20, mt: 0.5 }} />
+                      <TimeIcon sx={{ color: '#3498db', mr: 1, fontSize: 20, mt: 0.5 }} />
                       <Typography variant="body2" sx={{ color: '#b0b0b0', whiteSpace: 'pre-line' }}>
                         {location.hours}
                       </Typography>
@@ -181,7 +168,7 @@ const LocationsPage: React.FC = () => {
                     {location.amenities.map((amenity, idx) => (
                       <ListItem key={idx} sx={{ px: 0 }}>
                         <ListItemIcon>
-                          <LocationIcon sx={{ color: '#ff6b35', fontSize: 16 }} />
+                          <LocationIcon sx={{ color: '#3498db', fontSize: 16 }} />
                         </ListItemIcon>
                         <ListItemText primary={amenity} sx={{ color: '#b0b0b0' }} />
                       </ListItem>
@@ -197,7 +184,7 @@ const LocationsPage: React.FC = () => {
       {/* Getting Here */}
       <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Getting Here
           </Typography>
           
@@ -216,12 +203,12 @@ const LocationsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
-                <ParkingIcon sx={{ fontSize: 50, color: '#ff6b35', mb: 2 }} />
+                <ParkingIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
                 <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
                   Free Parking
                 </Typography>
@@ -245,12 +232,12 @@ const LocationsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
-                <AccessibleIcon sx={{ fontSize: 50, color: '#ff6b35', mb: 2 }} />
+                <AccessibleIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
                 <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
                   Accessible Facilities
                 </Typography>
@@ -274,12 +261,12 @@ const LocationsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
-                <WifiIcon sx={{ fontSize: 50, color: '#ff6b35', mb: 2 }} />
+                <WifiIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
                 <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
                   High-Speed Internet
                 </Typography>
@@ -293,8 +280,8 @@ const LocationsPage: React.FC = () => {
       </Box>
 
       {/* General Amenities */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#121212' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#fff8f0' }}>
+        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Additional Amenities
         </Typography>
         
@@ -312,7 +299,7 @@ const LocationsPage: React.FC = () => {
                   '&:hover': {
                     transform: 'translateY(-4px)',
                     boxShadow: '0 8px 25px rgba(255, 107, 53, 0.2)',
-                    border: '1px solid #ff6b35',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -339,7 +326,7 @@ const LocationsPage: React.FC = () => {
               elevation={2}
               sx={{
                 p: 2,
-                backgroundColor: '#ff6b35',
+                backgroundColor: '#3498db',
                 color: 'white',
                 display: 'flex',
                 alignItems: 'center',
@@ -355,7 +342,7 @@ const LocationsPage: React.FC = () => {
               elevation={2}
               sx={{
                 p: 2,
-                backgroundColor: '#ffa726',
+                backgroundColor: '#2ecc71',
                 color: 'white',
                 display: 'flex',
                 alignItems: 'center',

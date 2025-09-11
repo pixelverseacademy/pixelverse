@@ -1,4 +1,5 @@
 import React from 'react';
+import ThreeBackground from '../components/InteractiveBackground';
 import {
   Box,
   Container,
@@ -34,7 +35,7 @@ const CurriculumPage: React.FC = () => {
   const programs = [
     {
       title: 'Engineering & Robotics',
-      icon: <BuildIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <BuildIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
       description: 'Build and program robots using LEGO Mindstorms, Arduino, and advanced robotics kits. Learn mechanical engineering principles, sensors, and automation.',
       highlights: [
         'LEGO Mindstorms EV3 Programming',
@@ -46,7 +47,7 @@ const CurriculumPage: React.FC = () => {
     },
     {
       title: 'Coding, Designing & Modding with Minecraft',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <CodeIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
       description: 'Learn programming concepts through Minecraft modding, custom world creation, and game design. Perfect introduction to coding for young learners.',
       highlights: [
         'Minecraft Education Edition',
@@ -58,7 +59,7 @@ const CurriculumPage: React.FC = () => {
     },
     {
       title: 'Programming in Python',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <CodeIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
       description: 'Master Python programming from basics to advanced concepts. Build games, web applications, and data analysis projects.',
       highlights: [
         'Python Fundamentals & Syntax',
@@ -70,7 +71,7 @@ const CurriculumPage: React.FC = () => {
     },
     {
       title: 'AR and VR Coding',
-      icon: <PsychologyIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <PsychologyIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
       description: 'Create immersive augmented and virtual reality experiences. Learn Unity, Unreal Engine, and AR development platforms.',
       highlights: [
         'Unity 3D Development',
@@ -82,7 +83,7 @@ const CurriculumPage: React.FC = () => {
     },
     {
       title: 'Transform Your Imagination into Interactive Roblox Games',
-      icon: <SmartToyIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <SmartToyIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
       description: 'Design, build, and publish your own Roblox games. Learn Lua scripting, game mechanics, and monetization strategies.',
       highlights: [
         'Roblox Studio Development',
@@ -94,7 +95,7 @@ const CurriculumPage: React.FC = () => {
     },
     {
       title: 'Artificial Intelligence & Machine Learning',
-      icon: <PsychologyIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <PsychologyIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
       description: 'Explore AI concepts through hands-on projects. Build chatbots, image recognition systems, and predictive models.',
       highlights: [
         'Machine Learning Fundamentals',
@@ -106,7 +107,7 @@ const CurriculumPage: React.FC = () => {
     },
     {
       title: 'Ignite Innovation with 3D Modeling, Design & Printing',
-      icon: <PaletteIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <PaletteIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
       description: 'Master 3D design software and bring your creations to life with 3D printing. Learn CAD, modeling, and prototyping.',
       highlights: [
         'Tinkercad & Fusion 360',
@@ -118,7 +119,7 @@ const CurriculumPage: React.FC = () => {
     },
     {
       title: 'Scratch-based Programming',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <CodeIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
       description: 'Perfect introduction to programming for young learners. Create interactive stories, games, and animations using visual programming.',
       highlights: [
         'Visual Programming Concepts',
@@ -130,7 +131,7 @@ const CurriculumPage: React.FC = () => {
     },
     {
       title: 'Code, Control & Fly Drones',
-      icon: <FlightIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <FlightIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
       description: 'Learn to program and control drones for various applications. Explore aerial photography, autonomous flight, and drone racing.',
       highlights: [
         'Drone Programming & Control',
@@ -142,7 +143,7 @@ const CurriculumPage: React.FC = () => {
     },
     {
       title: 'Mobile App Development',
-      icon: <PhoneIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <PhoneIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
       description: 'Create mobile applications for iOS and Android. Learn app design, development, and publishing processes.',
       highlights: [
         'React Native Development',
@@ -154,7 +155,7 @@ const CurriculumPage: React.FC = () => {
     },
     {
       title: 'E-sports',
-      icon: <EsportsIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <EsportsIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
       description: 'Develop gaming skills, strategy, and teamwork through competitive gaming. Learn about the esports industry and career opportunities.',
       highlights: [
         'Competitive Gaming Strategies',
@@ -169,14 +170,17 @@ const CurriculumPage: React.FC = () => {
   return (
     <Box>
       {/* Hero Section */}
-      <Box sx={{ 
-        background: 'linear-gradient(135deg, #ff6b35 0%, #ffa726 100%)',
+      <Box sx={{
+        background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 100%)',
         py: 12,
         textAlign: 'center',
-        color: 'white'
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
+        <ThreeBackground page="curriculum" />
         <Container maxWidth="lg">
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', mb: 4 }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', mb: 4 }}>
             Comprehensive STEM Curriculum
           </Typography>
           <Typography variant="h5" sx={{ mb: 6, opacity: 0.9 }}>
@@ -200,9 +204,9 @@ const CurriculumPage: React.FC = () => {
       </Box>
 
       {/* Explore Our Programs */}
-      <Box sx={{ py: 8, backgroundColor: '#121212' }}>
+      <Box sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Explore Our Programs
           </Typography>
           
@@ -219,8 +223,8 @@ const CurriculumPage: React.FC = () => {
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                      border: '1px solid #ff6b35',
+                      boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                      border: '1px solid #3498db',
                     },
                   }}
                 >
@@ -236,7 +240,7 @@ const CurriculumPage: React.FC = () => {
                     </Typography>
                     <Accordion sx={{ backgroundColor: '#2e2e2e', border: '1px solid #333333' }}>
                       <AccordionSummary
-                        expandIcon={<ExpandMoreIcon sx={{ color: '#ff6b35' }} />}
+                        expandIcon={<ExpandMoreIcon sx={{ color: '#3498db' }} />}
                         sx={{ '& .MuiAccordionSummary-content': { margin: '12px 0' } }}
                       >
                         <Typography sx={{ color: '#ffffff', fontWeight: 'bold' }}>
@@ -248,7 +252,7 @@ const CurriculumPage: React.FC = () => {
                           {program.highlights.map((highlight, highlightIndex) => (
                             <ListItem key={highlightIndex} sx={{ px: 0 }}>
                               <ListItemIcon>
-                                <CheckIcon sx={{ color: '#ff6b35' }} />
+                                <CheckIcon sx={{ color: '#3498db' }} />
                               </ListItemIcon>
                               <ListItemText primary={highlight} sx={{ color: '#b0b0b0' }} />
                             </ListItem>
@@ -267,7 +271,7 @@ const CurriculumPage: React.FC = () => {
       {/* Learning Paths */}
       <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Learning Paths
           </Typography>
           
@@ -285,8 +289,8 @@ const CurriculumPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -305,7 +309,7 @@ const CurriculumPage: React.FC = () => {
                   ].map((item, index) => (
                     <ListItem key={index} sx={{ px: 0 }}>
                       <ListItemIcon>
-                        <CheckIcon sx={{ color: '#ff6b35' }} />
+                        <CheckIcon sx={{ color: '#3498db' }} />
                       </ListItemIcon>
                       <ListItemText primary={item} sx={{ color: '#b0b0b0' }} />
                     </ListItem>
@@ -327,8 +331,8 @@ const CurriculumPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -347,7 +351,7 @@ const CurriculumPage: React.FC = () => {
                   ].map((item, index) => (
                     <ListItem key={index} sx={{ px: 0 }}>
                       <ListItemIcon>
-                        <CheckIcon sx={{ color: '#ff6b35' }} />
+                        <CheckIcon sx={{ color: '#3498db' }} />
                       </ListItemIcon>
                       <ListItemText primary={item} sx={{ color: '#b0b0b0' }} />
                     </ListItem>
@@ -369,8 +373,8 @@ const CurriculumPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -389,7 +393,7 @@ const CurriculumPage: React.FC = () => {
                   ].map((item, index) => (
                     <ListItem key={index} sx={{ px: 0 }}>
                       <ListItemIcon>
-                        <CheckIcon sx={{ color: '#ff6b35' }} />
+                        <CheckIcon sx={{ color: '#3498db' }} />
                       </ListItemIcon>
                       <ListItemText primary={item} sx={{ color: '#b0b0b0' }} />
                     </ListItem>
@@ -402,7 +406,7 @@ const CurriculumPage: React.FC = () => {
       </Box>
 
       {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#121212' }}>
+      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f5f8ff' }}>
         <Container maxWidth="md">
           <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
             Ready to Start Learning?
@@ -413,15 +417,15 @@ const CurriculumPage: React.FC = () => {
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Chip
               label="Free Trial Session"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff6b35', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
             />
             <Chip
               label="Small Class Sizes"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ffa726', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2ecc71', color: 'white' }}
             />
             <Chip
               label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff6b35', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
             />
           </Box>
         </Container>

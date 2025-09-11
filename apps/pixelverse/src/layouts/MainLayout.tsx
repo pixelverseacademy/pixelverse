@@ -44,11 +44,14 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   ];
 
   const drawer = (
-    <Box sx={{ width: 250, backgroundColor: '#1e1e1e', height: '100%' }}>
-      <Box sx={{ p: 2, borderBottom: '1px solid #333333' }}>
-        <Typography variant="h6" sx={{ color: '#ff6b35', fontWeight: 'bold' }}>
-          PixelVerse Learning Academy
-        </Typography>
+    <Box sx={{ width: 250, backgroundColor: '#ffffff', height: '100%' }}>
+      <Box sx={{ p: 2, borderBottom: '1px solid #e0e6ed' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+          <img src="/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '32px', width: '32px', marginRight: '8px', objectFit: 'cover', borderRadius: '50%', border: '2px solid #3498db' }} />
+          <Typography variant="h6" sx={{ color: '#3498db', fontWeight: 'bold' }}>
+            PixelVerse Learning Academy
+          </Typography>
+        </Box>
         <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
           (919) 446-4981
         </Typography>
@@ -59,20 +62,20 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <List>
         {navigationItems.map((item) => (
           <ListItem key={item.path} sx={{ px: 2 }}>
-            <ListItemIcon sx={{ color: location.pathname === item.path ? '#ff6b35' : '#b0b0b0' }}>
+            <ListItemIcon sx={{ color: location.pathname === item.path ? '#3498db' : '#b0b0b0' }}>
               {item.icon}
             </ListItemIcon>
             <Button
               component={RouterLink}
               to={item.path}
               sx={{
-                color: location.pathname === item.path ? '#ff6b35' : '#ffffff',
+                color: location.pathname === item.path ? '#3498db' : '#ffffff',
                 fontWeight: location.pathname === item.path ? 'bold' : 'normal',
                 textTransform: 'none',
                 justifyContent: 'flex-start',
                 px: 0,
                 '&:hover': {
-                  color: '#ff6b35',
+                  color: '#3498db',
                 },
               }}
             >
@@ -86,7 +89,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <AppBar position="sticky" sx={{ backgroundColor: '#1e1e1e' }}>
+      <AppBar position="sticky" sx={{ background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 100%)' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -98,9 +101,12 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             {mobileOpen ? <CloseIcon /> : <MenuIcon />}
           </IconButton>
           
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold', color: '#ff6b35' }}>
-            PixelVerse Learning Academy
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+            <img src="/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '40px', width: '40px', marginRight: '12px', objectFit: 'cover', borderRadius: '50%', border: '2px solid #3498db' }} />
+            <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
+                PixelVerse Learning Academy
+            </Typography>
+        </Box>
           
           {/* Desktop Navigation */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
@@ -110,7 +116,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 component={RouterLink}
                 to={item.path}
                 sx={{
-                  color: 'white',
+                  color: '#2c3e50',
                   fontWeight: location.pathname === item.path ? 'bold' : 'normal',
                   textTransform: 'none',
                   '&:hover': {
@@ -131,10 +137,10 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             ml: 4,
             textAlign: 'right'
           }}>
-            <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2 }}>
+            <Typography variant="body2" sx={{ color: '#2c3e50', fontSize: '0.875rem', lineHeight: 1.2 }}>
               (919) 446-4981
             </Typography>
-            <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2 }}>
+            <Typography variant="body2" sx={{ color: '#2c3e50', fontSize: '0.875rem', lineHeight: 1.2 }}>
               vinodht@pixelverseacademy.com
             </Typography>
           </Box>
@@ -154,7 +160,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             width: 250,
-            backgroundColor: '#1e1e1e',
+            backgroundColor: '#ffffff',
           },
         }}
       >
@@ -170,7 +176,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <Box
         component="footer"
         sx={{
-          backgroundColor: '#1e1e1e',
+          background: 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%)',
           borderTop: '1px solid #333333',
           py: 4,
           mt: 'auto',
@@ -179,13 +185,14 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <Container maxWidth="lg">
           <Grid container spacing={4}>
             <Grid item xs={12} md={4}>
-              <Typography variant="h6" gutterBottom sx={{ color: '#ff6b35', fontWeight: 'bold' }}>
-                PixelVerse Learning Academy
-              </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0', mb: 2 }}>
+                
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <Typography variant="h6" sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
+                  PixelVerse Learning Academy
+                </Typography>
+              </Box>
                 Empowering the next generation of innovators through comprehensive 
                 technology education in Durham and Holly Springs, NC.
-              </Typography>
             </Grid>
             
             <Grid item xs={12} md={4}>
@@ -222,7 +229,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                       px: 1,
                       py: 0.5,
                       '&:hover': {
-                        color: '#ff6b35',
+                        color: '#3498db',
                         backgroundColor: 'rgba(255, 107, 53, 0.1)',
                       },
                     }}

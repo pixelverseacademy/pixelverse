@@ -1,4 +1,5 @@
 import React from 'react';
+import ThreeBackground from '../components/InteractiveBackground';
 import {
   Box,
   Container,
@@ -26,7 +27,7 @@ const PartnershipsPage: React.FC = () => {
   const partnershipOpportunities = [
     {
       title: 'After-School Programs',
-      icon: <SchoolIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <SchoolIcon sx={{ fontSize: 40, color: '#3498db' }} />,
       description: 'Bring technology education directly to your school with our comprehensive after-school programs.',
       features: [
         'Customized curriculum for your school',
@@ -38,7 +39,7 @@ const PartnershipsPage: React.FC = () => {
     },
     {
       title: 'Summer Camps',
-      icon: <GroupIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <GroupIcon sx={{ fontSize: 40, color: '#3498db' }} />,
       description: 'Intensive technology camps during summer break to keep students engaged and learning.',
       features: [
         'Week-long intensive programs',
@@ -50,7 +51,7 @@ const PartnershipsPage: React.FC = () => {
     },
     {
       title: 'Teacher Training',
-      icon: <TrendingUpIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <TrendingUpIcon sx={{ fontSize: 40, color: '#3498db' }} />,
       description: 'Professional development workshops to help your teachers integrate technology into their classrooms.',
       features: [
         'Hands-on training sessions',
@@ -62,7 +63,7 @@ const PartnershipsPage: React.FC = () => {
     },
     {
       title: 'Competition Teams',
-      icon: <SupportIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <SupportIcon sx={{ fontSize: 40, color: '#3498db' }} />,
       description: 'Form and train robotics and coding competition teams to represent your school.',
       features: [
         'Team formation and management',
@@ -99,32 +100,32 @@ const PartnershipsPage: React.FC = () => {
 
   const benefits = [
     {
-      icon: <SchoolIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <SchoolIcon sx={{ fontSize: 40, color: '#3498db' }} />,
       title: 'Enhanced STEM Education',
       description: 'Provide your students with cutting-edge technology education that prepares them for the future.',
     },
     {
-      icon: <GroupIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <GroupIcon sx={{ fontSize: 40, color: '#3498db' }} />,
       title: 'Increased Student Engagement',
       description: 'Interactive, hands-on learning experiences that keep students motivated and excited about learning.',
     },
     {
-      icon: <TrendingUpIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <TrendingUpIcon sx={{ fontSize: 40, color: '#3498db' }} />,
       title: 'Competitive Advantage',
       description: 'Stand out from other schools by offering comprehensive technology education programs.',
     },
     {
-      icon: <SupportIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <SupportIcon sx={{ fontSize: 40, color: '#3498db' }} />,
       title: 'Professional Development',
       description: 'Support your teachers with training and resources to integrate technology into their teaching.',
     },
     {
-      icon: <HandshakeIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <HandshakeIcon sx={{ fontSize: 40, color: '#3498db' }} />,
       title: 'Community Partnerships',
       description: 'Build stronger relationships with parents and the community through innovative programs.',
     },
     {
-      icon: <CheckIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
+      icon: <CheckIcon sx={{ fontSize: 40, color: '#3498db' }} />,
       title: 'Proven Results',
       description: 'Join schools that have seen significant improvements in student performance and engagement.',
     },
@@ -133,14 +134,17 @@ const PartnershipsPage: React.FC = () => {
   return (
     <Box>
       {/* Hero Section */}
-      <Box sx={{ 
-        background: 'linear-gradient(135deg, #ff6b35 0%, #ffa726 100%)',
+      <Box sx={{
+        background: 'linear-gradient(135deg, #E91E63 0%, #9C27B0 100%)',
         py: 12,
         textAlign: 'center',
-        color: 'white'
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
+        <ThreeBackground page="partnerships" />
         <Container maxWidth="lg">
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', mb: 4 }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', mb: 4 }}>
             School Partnerships
           </Typography>
           <Typography variant="h5" sx={{ mb: 6, opacity: 0.9 }}>
@@ -164,9 +168,9 @@ const PartnershipsPage: React.FC = () => {
       </Box>
 
       {/* Partnership Opportunities */}
-      <Box sx={{ py: 8, backgroundColor: '#121212' }}>
+      <Box sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Partnership Opportunities
           </Typography>
           
@@ -183,8 +187,8 @@ const PartnershipsPage: React.FC = () => {
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                      border: '1px solid #ff6b35',
+                      boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                      border: '1px solid #3498db',
                     },
                   }}
                 >
@@ -202,7 +206,7 @@ const PartnershipsPage: React.FC = () => {
                       {opportunity.features.map((feature, featureIndex) => (
                         <ListItem key={featureIndex} sx={{ px: 0 }}>
                           <ListItemIcon>
-                            <CheckIcon sx={{ color: '#ff6b35' }} />
+                            <CheckIcon sx={{ color: '#3498db' }} />
                           </ListItemIcon>
                           <ListItemText primary={feature} sx={{ color: '#b0b0b0' }} />
                         </ListItem>
@@ -219,7 +223,7 @@ const PartnershipsPage: React.FC = () => {
       {/* Partnership Process */}
       <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Partnership Process
           </Typography>
           
@@ -238,8 +242,8 @@ const PartnershipsPage: React.FC = () => {
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                      border: '1px solid #ff6b35',
+                      boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                      border: '1px solid #3498db',
                     },
                   }}
                 >
@@ -249,7 +253,7 @@ const PartnershipsPage: React.FC = () => {
                         width: 40,
                         height: 40,
                         borderRadius: '50%',
-                        backgroundColor: '#ff6b35',
+                        backgroundColor: '#3498db',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -275,9 +279,9 @@ const PartnershipsPage: React.FC = () => {
       </Box>
 
       {/* Why Schools Choose to Partner with Us */}
-      <Box sx={{ py: 8, backgroundColor: '#121212' }}>
+      <Box sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Why Schools Choose to Partner with Us
           </Typography>
           
@@ -316,7 +320,7 @@ const PartnershipsPage: React.FC = () => {
       {/* Success Stories */}
       <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Success Stories
           </Typography>
           
@@ -334,8 +338,8 @@ const PartnershipsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -346,7 +350,7 @@ const PartnershipsPage: React.FC = () => {
                   "Our partnership with PixelVerse Learning Academy has transformed our STEM program. 
                   Students are more engaged and excited about learning technology."
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#ff6b35', fontWeight: 'bold' }}>
+                <Typography variant="body2" sx={{ color: '#3498db', fontWeight: 'bold' }}>
                   - Principal Sarah Johnson
                 </Typography>
               </Paper>
@@ -365,8 +369,8 @@ const PartnershipsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -377,7 +381,7 @@ const PartnershipsPage: React.FC = () => {
                   "The after-school robotics program has been a huge success. Our students 
                   won the regional competition and are now more confident in STEM subjects."
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#ff6b35', fontWeight: 'bold' }}>
+                <Typography variant="body2" sx={{ color: '#3498db', fontWeight: 'bold' }}>
                   - STEM Coordinator Mike Chen
                 </Typography>
               </Paper>
@@ -396,8 +400,8 @@ const PartnershipsPage: React.FC = () => {
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                    border: '1px solid #3498db',
                   },
                 }}
               >
@@ -408,7 +412,7 @@ const PartnershipsPage: React.FC = () => {
                   "The teacher training program has been invaluable. Our staff now feels 
                   confident teaching coding and robotics to our students."
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#ff6b35', fontWeight: 'bold' }}>
+                <Typography variant="body2" sx={{ color: '#3498db', fontWeight: 'bold' }}>
                   - Technology Director Lisa Park
                 </Typography>
               </Paper>
@@ -418,7 +422,7 @@ const PartnershipsPage: React.FC = () => {
       </Box>
 
       {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#121212' }}>
+      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f5f8ff' }}>
         <Container maxWidth="md">
           <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
             Ready to Partner with Us?
@@ -429,15 +433,15 @@ const PartnershipsPage: React.FC = () => {
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Chip
               label="Free Consultation"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff6b35', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
             />
             <Chip
               label="Custom Programs"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ffa726', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2ecc71', color: 'white' }}
             />
             <Chip
               label="Expert Support"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff6b35', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
             />
           </Box>
         </Container>

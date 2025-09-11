@@ -13,26 +13,26 @@ import ContactPage from '../pages/ContactPage';
 // Create a cosmic orange and dark theme
 const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
-      main: '#ff6b35', // Cosmic orange
+      main: '#3498db', // Cosmic orange
       light: '#ff8a65',
       dark: '#e64a19',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#ffa726', // Amber orange
+      main: '#2ecc71', // Amber orange
       light: '#ffb74d',
       dark: '#f57c00',
       contrastText: '#000000',
     },
     background: {
-      default: '#121212', // Dark grey
-      paper: '#1e1e1e', // Slightly lighter grey
+      default: '#f8f9ff', // Dark grey
+      paper: '#ffffff', // Slightly lighter grey
     },
     text: {
-      primary: '#ffffff',
-      secondary: '#b0b0b0',
+      primary: '#2c3e50',
+      secondary: '#7f8c8d',
     },
     grey: {
       50: '#fafafa',
@@ -51,30 +51,30 @@ const theme = createTheme({
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontWeight: 700,
-      color: '#ffffff',
+      color: '#2c3e50',
     },
     h2: {
       fontWeight: 700,
-      color: '#ffffff',
+      color: '#2c3e50',
     },
     h3: {
       fontWeight: 600,
-      color: '#ffffff',
+      color: '#2c3e50',
     },
     h4: {
       fontWeight: 600,
-      color: '#ffffff',
+      color: '#2c3e50',
     },
     h5: {
       fontWeight: 600,
-      color: '#ffffff',
+      color: '#2c3e50',
     },
     h6: {
       fontWeight: 600,
-      color: '#ffffff',
+      color: '#2c3e50',
     },
     body1: {
-      color: '#ffffff',
+      color: '#2c3e50',
     },
     body2: {
       color: '#b0b0b0',
@@ -118,12 +118,12 @@ const theme = createTheme({
     MuiChip: {
       styleOverrides: {
         root: {
-          backgroundColor: '#ff6b35',
-          color: '#ffffff',
+          backgroundColor: '#3498db',
+          color: '#2c3e50',
           '&.MuiChip-outlined': {
             backgroundColor: 'transparent',
-            borderColor: '#ff6b35',
-            color: '#ff6b35',
+            borderColor: '#3498db',
+            color: '#3498db',
           },
         },
       },
