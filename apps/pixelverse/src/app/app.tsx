@@ -95,15 +95,15 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 12,
-          backgroundColor: '#1e1e1e',
-          border: '1px solid #333333',
+          backgroundColor: '#f8f9ff',
+          border: '1px solid #e0e6ed',
         },
       },
     },
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#1e1e1e',
+          backgroundColor: '#f8f9ff',
           borderBottom: '1px solid #333333',
         },
       },
@@ -111,8 +111,8 @@ const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: '#1e1e1e',
-          border: '1px solid #333333',
+          backgroundColor: '#f8f9ff',
+          border: '1px solid #e0e6ed',
         },
       },
     },

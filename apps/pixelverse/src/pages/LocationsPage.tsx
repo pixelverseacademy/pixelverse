@@ -112,8 +112,8 @@ const LocationsPage: React.FC = () => {
                   height: '100%', 
                   maxWidth: '500px',
                   mx: 'auto',
-                  backgroundColor: '#1e1e1e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f8f9ff', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -123,45 +123,45 @@ const LocationsPage: React.FC = () => {
                 }}
               >
                 <CardContent sx={{ p: 4 }}>
-                  <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff', textAlign: 'center' }}>
+                  <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', textAlign: 'center' }}>
                     {location.name}
                   </Typography>
                   
                   <Box sx={{ mb: 3 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                       <LocationIcon sx={{ color: '#3498db', mr: 1, fontSize: 20 }} />
-                      <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                      <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                         {location.address}
                       </Typography>
                     </Box>
                     
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                       <PhoneIcon sx={{ color: '#3498db', mr: 1, fontSize: 20 }} />
-                      <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                      <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                         {location.phone}
                       </Typography>
                     </Box>
                     
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                       <EmailIcon sx={{ color: '#3498db', mr: 1, fontSize: 20 }} />
-                      <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                      <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                         {location.email}
                       </Typography>
                     </Box>
                     
                     <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
                       <TimeIcon sx={{ color: '#3498db', mr: 1, fontSize: 20, mt: 0.5 }} />
-                      <Typography variant="body2" sx={{ color: '#b0b0b0', whiteSpace: 'pre-line' }}>
+                      <Typography variant="body2" sx={{ color: '#7f8c8d', whiteSpace: 'pre-line' }}>
                         {location.hours}
                       </Typography>
                     </Box>
                   </Box>
                   
-                  <Typography variant="body1" sx={{ mb: 3, color: '#b0b0b0' }}>
+                  <Typography variant="body1" sx={{ mb: 3, color: '#7f8c8d' }}>
                     {location.description}
                   </Typography>
                   
-                  <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff', mb: 2 }}>
+                  <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', mb: 2 }}>
                     Facility Features:
                   </Typography>
                   <List dense>
@@ -170,7 +170,7 @@ const LocationsPage: React.FC = () => {
                         <ListItemIcon>
                           <LocationIcon sx={{ color: '#3498db', fontSize: 16 }} />
                         </ListItemIcon>
-                        <ListItemText primary={amenity} sx={{ color: '#b0b0b0' }} />
+                        <ListItemText primary={amenity} sx={{ color: '#7f8c8d' }} />
                       </ListItem>
                     ))}
                   </List>
@@ -182,7 +182,7 @@ const LocationsPage: React.FC = () => {
       </Container>
 
       {/* Getting Here */}
-      <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
+      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Getting Here
@@ -198,8 +198,8 @@ const LocationsPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '350px',
                   mx: 'auto',
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -209,10 +209,10 @@ const LocationsPage: React.FC = () => {
                 }}
               >
                 <ParkingIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                   Free Parking
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                   Convenient free parking available at both locations for easy drop-off and pick-up.
                 </Typography>
               </Paper>
@@ -227,8 +227,8 @@ const LocationsPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '350px',
                   mx: 'auto',
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -238,10 +238,10 @@ const LocationsPage: React.FC = () => {
                 }}
               >
                 <AccessibleIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                   Accessible Facilities
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                   Both locations are fully wheelchair accessible with ADA-compliant facilities.
                 </Typography>
               </Paper>
@@ -256,8 +256,8 @@ const LocationsPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '350px',
                   mx: 'auto',
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -267,10 +267,10 @@ const LocationsPage: React.FC = () => {
                 }}
               >
                 <WifiIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                   High-Speed Internet
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                   Reliable high-speed internet throughout both facilities for seamless learning.
                 </Typography>
               </Paper>
@@ -293,8 +293,8 @@ const LocationsPage: React.FC = () => {
                 sx={{ 
                   p: 3, 
                   textAlign: 'center', 
-                  backgroundColor: '#1e1e1e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f8f9ff', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-4px)',
@@ -303,7 +303,7 @@ const LocationsPage: React.FC = () => {
                   },
                 }}
               >
-                <Typography variant="body1" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body1" sx={{ color: '#7f8c8d' }}>
                   {amenity}
                 </Typography>
               </Paper>
@@ -313,12 +313,12 @@ const LocationsPage: React.FC = () => {
       </Container>
 
       {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#1e1e1e', borderTop: '1px solid #333333' }}>
+      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f8f9ff', borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
             Visit Us Today
           </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#b0b0b0' }}>
+          <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
             Schedule a tour of our facilities and see why students love learning at PixelVerse Learning Academy.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>

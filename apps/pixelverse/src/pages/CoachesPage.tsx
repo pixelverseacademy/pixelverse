@@ -174,8 +174,8 @@ const CoachesPage: React.FC = () => {
                 elevation={2} 
                 sx={{ 
                   height: '100%', 
-                  backgroundColor: '#1e1e1e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f8f9ff', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -197,7 +197,7 @@ const CoachesPage: React.FC = () => {
                       {coach.name.split(' ').map(n => n[0]).join('')}
                     </Avatar>
                     <Box>
-                      <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                      <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                         {coach.name}
                       </Typography>
                       <Typography variant="body2" sx={{ color: '#3498db' }}>
@@ -206,21 +206,21 @@ const CoachesPage: React.FC = () => {
                     </Box>
                   </Box>
                   
-                  <Typography variant="body2" sx={{ mb: 2, color: '#b0b0b0' }}>
+                  <Typography variant="body2" sx={{ mb: 2, color: '#7f8c8d' }}>
                     {coach.bio}
                   </Typography>
                   
                   <Box sx={{ mb: 2 }}>
-                    <Typography variant="body2" sx={{ color: '#ffffff', fontWeight: 'bold', mb: 1 }}>
+                    <Typography variant="body2" sx={{ color: '#2c3e50', fontWeight: 'bold', mb: 1 }}>
                       Experience: {coach.experience}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: '#b0b0b0', mb: 2 }}>
+                    <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 2 }}>
                       {coach.education}
                     </Typography>
                   </Box>
                   
                   <Box sx={{ mb: 3 }}>
-                    <Typography variant="body2" sx={{ color: '#ffffff', fontWeight: 'bold', mb: 1 }}>
+                    <Typography variant="body2" sx={{ color: '#2c3e50', fontWeight: 'bold', mb: 1 }}>
                       Specialties:
                     </Typography>
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
@@ -240,7 +240,7 @@ const CoachesPage: React.FC = () => {
                   </Box>
                   
                   <Box>
-                    <Typography variant="body2" sx={{ color: '#ffffff', fontWeight: 'bold', mb: 1 }}>
+                    <Typography variant="body2" sx={{ color: '#2c3e50', fontWeight: 'bold', mb: 1 }}>
                       Key Achievements:
                     </Typography>
                     <List dense>
@@ -252,7 +252,7 @@ const CoachesPage: React.FC = () => {
                           <ListItemText 
                             primary={achievement} 
                             sx={{ 
-                              color: '#b0b0b0',
+                              color: '#7f8c8d',
                               '& .MuiListItemText-primary': {
                                 fontSize: '0.875rem'
                               }
@@ -270,7 +270,7 @@ const CoachesPage: React.FC = () => {
       </Container>
 
       {/* Teaching Philosophy - One Row, Two Cards */}
-      <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
+      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Our Teaching Philosophy
@@ -285,8 +285,8 @@ const CoachesPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '500px',
                   mx: 'auto',
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -295,7 +295,7 @@ const CoachesPage: React.FC = () => {
                   },
                 }}
               >
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', mb: 3, color: '#ffffff' }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', mb: 3, color: '#2c3e50' }}>
                   What We Believe
                 </Typography>
                 <List>
@@ -304,7 +304,7 @@ const CoachesPage: React.FC = () => {
                       <ListItemIcon>
                         <CheckIcon sx={{ color: '#3498db' }} />
                       </ListItemIcon>
-                      <ListItemText primary={principle} sx={{ color: '#b0b0b0' }} />
+                      <ListItemText primary={principle} sx={{ color: '#7f8c8d' }} />
                     </ListItem>
                   ))}
                 </List>
@@ -319,8 +319,8 @@ const CoachesPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '500px',
                   mx: 'auto',
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -329,21 +329,21 @@ const CoachesPage: React.FC = () => {
                   },
                 }}
               >
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', mb: 3, color: '#ffffff' }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', mb: 3, color: '#2c3e50' }}>
                   Our Approach
                 </Typography>
-                <Typography variant="body1" paragraph sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body1" paragraph sx={{ color: '#7f8c8d' }}>
                   We believe that the best learning happens when students are engaged, 
                   challenged, and supported. Our instructors use a variety of teaching 
                   methods to accommodate different learning styles and ensure every 
                   student can succeed.
                 </Typography>
-                <Typography variant="body1" paragraph sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body1" paragraph sx={{ color: '#7f8c8d' }}>
                   We focus on building not just technical skills, but also critical 
                   thinking, creativity, and collaboration skills that will serve 
                   students throughout their lives.
                 </Typography>
-                <Typography variant="body1" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body1" sx={{ color: '#7f8c8d' }}>
                   Our small class sizes allow for personalized attention and ensure 
                   that no student is left behind while advanced students are 
                   appropriately challenged.
@@ -370,8 +370,8 @@ const CoachesPage: React.FC = () => {
                 height: '100%',
                 maxWidth: '350px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -381,10 +381,10 @@ const CoachesPage: React.FC = () => {
               }}
             >
               <CodeIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                 Industry Experience
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+              <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                 Our instructors bring real-world experience from top tech companies, 
                 ensuring students learn current, relevant skills.
               </Typography>
@@ -400,8 +400,8 @@ const CoachesPage: React.FC = () => {
                 height: '100%',
                 maxWidth: '350px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -411,10 +411,10 @@ const CoachesPage: React.FC = () => {
               }}
             >
               <SchoolIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                 Educational Expertise
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+              <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                 With advanced degrees in education and years of teaching experience, 
                 our instructors know how to make complex concepts accessible.
               </Typography>
@@ -430,8 +430,8 @@ const CoachesPage: React.FC = () => {
                 height: '100%',
                 maxWidth: '350px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -441,10 +441,10 @@ const CoachesPage: React.FC = () => {
               }}
             >
               <AwardIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                 Proven Results
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+              <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                 Our instructors have helped hundreds of students achieve their goals, 
                 from learning their first programming language to winning competitions.
               </Typography>
@@ -454,12 +454,12 @@ const CoachesPage: React.FC = () => {
       </Container>
 
       {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#1e1e1e', borderTop: '1px solid #333333' }}>
+      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f8f9ff', borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
             Ready to Learn from the Best?
           </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#b0b0b0' }}>
+          <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
             Meet our instructors in person and see why students love learning with us. 
             Schedule a free trial session today!
           </Typography>

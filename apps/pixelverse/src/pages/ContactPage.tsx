@@ -62,8 +62,8 @@ const ContactPage: React.FC = () => {
                 height: '100%',
                 maxWidth: '350px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -73,10 +73,10 @@ const ContactPage: React.FC = () => {
               }}
             >
               <EmailIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                 Email Us
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0', mb: 2 }}>
+              <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 2 }}>
                 Send us an email anytime
               </Typography>
               <Typography variant="body1" sx={{ color: '#3498db', fontWeight: 'bold' }}>
@@ -94,8 +94,8 @@ const ContactPage: React.FC = () => {
                 height: '100%',
                 maxWidth: '350px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -105,10 +105,10 @@ const ContactPage: React.FC = () => {
               }}
             >
               <PhoneIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                 Call Us
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0', mb: 2 }}>
+              <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 2 }}>
                 Speak with our team directly
               </Typography>
               <Typography variant="body1" sx={{ color: '#3498db', fontWeight: 'bold' }}>
@@ -126,8 +126,8 @@ const ContactPage: React.FC = () => {
                 height: '100%',
                 maxWidth: '350px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -137,10 +137,10 @@ const ContactPage: React.FC = () => {
               }}
             >
               <LocationIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                 Visit Us
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0', mb: 2 }}>
+              <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 2 }}>
                 Come see our facilities
               </Typography>
               <Typography variant="body1" sx={{ color: '#3498db', fontWeight: 'bold' }}>
@@ -152,7 +152,7 @@ const ContactPage: React.FC = () => {
       </Container>
 
       {/* Inquiry Form */}
-      <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
+      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Send Us a Message
@@ -164,8 +164,8 @@ const ContactPage: React.FC = () => {
                 elevation={2} 
                 sx={{ 
                   p: 4, 
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -174,10 +174,10 @@ const ContactPage: React.FC = () => {
                   },
                 }}
               >
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', mb: 3, color: '#ffffff', textAlign: 'center' }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', mb: 3, color: '#2c3e50', textAlign: 'center' }}>
                   Program Information Request
                 </Typography>
-                <Typography variant="body1" sx={{ color: '#b0b0b0', mb: 4, textAlign: 'center' }}>
+                <Typography variant="body1" sx={{ color: '#7f8c8d', mb: 4, textAlign: 'center' }}>
                   Fill out the form below to learn more about our programs, pricing, and availability. 
                   We'll get back to you within 24 hours!
                 </Typography>
@@ -226,8 +226,8 @@ const ContactPage: React.FC = () => {
                 height: '100%', 
                 maxWidth: '400px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -237,10 +237,10 @@ const ContactPage: React.FC = () => {
               }}
             >
               <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                   Free Trial Session
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                   Experience our teaching methods and meet our instructors with a complimentary trial session.
                 </Typography>
               </CardContent>
@@ -254,8 +254,8 @@ const ContactPage: React.FC = () => {
                 height: '100%', 
                 maxWidth: '400px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -265,10 +265,10 @@ const ContactPage: React.FC = () => {
               }}
             >
               <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                   Flexible Scheduling
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                   We offer classes on weekends and after school to fit your family's schedule.
                 </Typography>
               </CardContent>
@@ -282,8 +282,8 @@ const ContactPage: React.FC = () => {
                 height: '100%', 
                 maxWidth: '400px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -293,10 +293,10 @@ const ContactPage: React.FC = () => {
               }}
             >
               <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                   Small Class Sizes
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                   Maximum 8 students per class ensures personalized attention and optimal learning.
                 </Typography>
               </CardContent>
@@ -306,12 +306,12 @@ const ContactPage: React.FC = () => {
       </Container>
 
       {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#1e1e1e', borderTop: '1px solid #333333' }}>
+      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f8f9ff', borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
             Ready to Get Started?
           </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#b0b0b0' }}>
+          <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
             Contact us today to schedule your free trial session and see why students 
             love learning with PixelVerse Learning Academy.
           </Typography>

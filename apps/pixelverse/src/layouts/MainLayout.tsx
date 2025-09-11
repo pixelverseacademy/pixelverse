@@ -52,10 +52,10 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             PixelVerse Learning Academy
           </Typography>
         </Box>
-        <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+        <Typography variant="body2" sx={{ color: '#2c3e50' }}>
           (919) 446-4981
         </Typography>
-        <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+        <Typography variant="body2" sx={{ color: '#2c3e50' }}>
           vinodht@pixelverseacademy.com
         </Typography>
       </Box>
@@ -196,22 +196,22 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Grid>
             
             <Grid item xs={12} md={4}>
-              <Typography variant="h6" gutterBottom sx={{ color: '#ffffff', fontWeight: 'bold' }}>
+              <Typography variant="h6" gutterBottom sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
                 Contact Info
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+              <Typography variant="body2" sx={{ color: '#2c3e50' }}>
                 Phone: (919) 446-4981
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+              <Typography variant="body2" sx={{ color: '#2c3e50' }}>
                 Email: vinodht@pixelverseacademy.com
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+              <Typography variant="body2" sx={{ color: '#2c3e50' }}>
                 Locations: Durham & Holly Springs, NC
               </Typography>
             </Grid>
             
             <Grid item xs={12} md={4}>
-              <Typography variant="h6" gutterBottom sx={{ color: '#ffffff', fontWeight: 'bold' }}>
+              <Typography variant="h6" gutterBottom sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
                 Quick Links
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 1 }}>
@@ -222,7 +222,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     to={item.path}
                     size="small"
                     sx={{
-                      color: '#b0b0b0',
+                      color: '#2c3e50',
                       textTransform: 'none',
                       fontSize: '0.875rem',
                       minWidth: 'auto',
@@ -242,7 +242,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </Grid>
           
           <Box sx={{ borderTop: '1px solid #333333', mt: 4, pt: 2, textAlign: 'center' }}>
-            <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+            <Typography variant="body2" sx={{ color: '#2c3e50' }}>
               © 2024 PixelVerse Learning Academy. All rights reserved.
             </Typography>
           </Box>

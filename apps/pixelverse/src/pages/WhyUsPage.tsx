@@ -155,8 +155,8 @@ const WhyUsPage: React.FC = () => {
                 sx={{ 
                   p: 3, 
                   textAlign: 'center', 
-                  backgroundColor: '#1e1e1e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f8f9ff', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -168,7 +168,7 @@ const WhyUsPage: React.FC = () => {
                 <Typography variant="h3" component="div" sx={{ fontWeight: 'bold', color: '#3498db' }}>
                   {stat.number}
                 </Typography>
-                <Typography variant="h6" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="h6" sx={{ color: '#7f8c8d' }}>
                   {stat.label}
                 </Typography>
               </Paper>
@@ -178,7 +178,7 @@ const WhyUsPage: React.FC = () => {
       </Container>
 
       {/* Features - Two Rows, Three Columns */}
-      <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
+      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             What Makes Us Different
@@ -196,8 +196,8 @@ const WhyUsPage: React.FC = () => {
                     mx: 'auto',
                     display: 'flex',
                     flexDirection: 'column',
-                    backgroundColor: '#2e2e2e', 
-                    border: '1px solid #333333',
+                    backgroundColor: '#f0f8f0', 
+                    border: '1px solid #e0e6ed',
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
@@ -210,10 +210,10 @@ const WhyUsPage: React.FC = () => {
                     <Box sx={{ textAlign: 'center', mb: 3 }}>
                       {feature.icon}
                     </Box>
-                    <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', textAlign: 'center', color: '#ffffff' }}>
+                    <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', textAlign: 'center', color: '#2c3e50' }}>
                       {feature.title}
                     </Typography>
-                    <Typography variant="body1" sx={{ mb: 3, textAlign: 'center', color: '#b0b0b0' }}>
+                    <Typography variant="body1" sx={{ mb: 3, textAlign: 'center', color: '#7f8c8d' }}>
                       {feature.description}
                     </Typography>
                     <List dense>
@@ -222,7 +222,7 @@ const WhyUsPage: React.FC = () => {
                           <ListItemIcon>
                             <CheckIcon sx={{ color: '#3498db' }} />
                           </ListItemIcon>
-                          <ListItemText primary={benefit} sx={{ color: '#b0b0b0' }} />
+                          <ListItemText primary={benefit} sx={{ color: '#7f8c8d' }} />
                         </ListItem>
                       ))}
                     </List>
@@ -250,8 +250,8 @@ const WhyUsPage: React.FC = () => {
                 height: '100%',
                 maxWidth: '350px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -261,10 +261,10 @@ const WhyUsPage: React.FC = () => {
               }}
             >
               <SchoolIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                 Project-Based Learning
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+              <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                 Students learn through hands-on projects that solve real-world problems.
               </Typography>
             </Paper>
@@ -279,8 +279,8 @@ const WhyUsPage: React.FC = () => {
                 height: '100%',
                 maxWidth: '350px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -290,10 +290,10 @@ const WhyUsPage: React.FC = () => {
               }}
             >
               <CodeIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                 Expert Instructors
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+              <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                 Learn from experienced professionals passionate about technology education.
               </Typography>
             </Paper>
@@ -308,8 +308,8 @@ const WhyUsPage: React.FC = () => {
                 height: '100%',
                 maxWidth: '350px',
                 mx: 'auto',
-                backgroundColor: '#1e1e1e', 
-                border: '1px solid #333333',
+                backgroundColor: '#f8f9ff', 
+                border: '1px solid #e0e6ed',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 '&:hover': {
                   transform: 'translateY(-8px)',
@@ -319,10 +319,10 @@ const WhyUsPage: React.FC = () => {
               }}
             >
               <GroupIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                 Small Class Sizes
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+              <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                 Personalized attention with small class sizes for optimal learning.
               </Typography>
             </Paper>
@@ -331,7 +331,7 @@ const WhyUsPage: React.FC = () => {
       </Container>
 
       {/* Why Our Instructors Make the Difference - One Row, Three Cards */}
-      <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
+      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Why Our Instructors Make the Difference
@@ -347,8 +347,8 @@ const WhyUsPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '350px',
                   mx: 'auto',
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -357,10 +357,10 @@ const WhyUsPage: React.FC = () => {
                   },
                 }}
               >
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                   Industry Experience
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                   Our instructors bring real-world experience from top tech companies, ensuring students learn current, relevant skills.
                 </Typography>
               </Paper>
@@ -375,8 +375,8 @@ const WhyUsPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '350px',
                   mx: 'auto',
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -385,10 +385,10 @@ const WhyUsPage: React.FC = () => {
                   },
                 }}
               >
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                   Educational Expertise
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                   With advanced degrees in education and years of teaching experience, our instructors know how to make complex concepts accessible.
                 </Typography>
               </Paper>
@@ -403,8 +403,8 @@ const WhyUsPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '350px',
                   mx: 'auto',
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
@@ -413,10 +413,10 @@ const WhyUsPage: React.FC = () => {
                   },
                 }}
               >
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                   Proven Results
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
                   Our instructors have helped hundreds of students achieve their goals, from learning their first programming language to winning competitions.
                 </Typography>
               </Paper>
@@ -435,8 +435,8 @@ const WhyUsPage: React.FC = () => {
           elevation={2} 
           sx={{ 
             p: 6, 
-            backgroundColor: '#1e1e1e', 
-            border: '1px solid #333333',
+            backgroundColor: '#f8f9ff', 
+            border: '1px solid #e0e6ed',
             transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
             '&:hover': {
               transform: 'translateY(-8px)',
@@ -448,15 +448,15 @@ const WhyUsPage: React.FC = () => {
           <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#3498db', textAlign: 'center', mb: 4 }}>
             Our Mission and Values
           </Typography>
-          <Typography variant="body1" paragraph sx={{ color: '#b0b0b0', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
+          <Typography variant="body1" paragraph sx={{ color: '#7f8c8d', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
             We believe that every child has the potential to become a creator, innovator, and problem-solver. 
             Technology education should be accessible, engaging, and empowering for all students.
           </Typography>
-          <Typography variant="body1" paragraph sx={{ color: '#b0b0b0', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
+          <Typography variant="body1" paragraph sx={{ color: '#7f8c8d', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
             Our mission is to prepare students for the future by teaching them not just how to use technology, 
             but how to think critically, solve problems creatively, and build solutions that make a difference.
           </Typography>
-          <Typography variant="body1" paragraph sx={{ color: '#b0b0b0', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
+          <Typography variant="body1" paragraph sx={{ color: '#7f8c8d', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
             We believe in the power of hands-on learning, where students don't just consume information 
             but actively create, experiment, and discover through meaningful projects.
           </Typography>
@@ -464,12 +464,12 @@ const WhyUsPage: React.FC = () => {
       </Container>
 
       {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#1e1e1e', borderTop: '1px solid #333333' }}>
+      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f8f9ff', borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
             Ready to Join Our Community?
           </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#b0b0b0' }}>
+          <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
             Experience the difference that expert instruction, hands-on learning, 
             and personalized attention can make in your child's education.
           </Typography>

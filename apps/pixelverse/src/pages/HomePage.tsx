@@ -139,15 +139,15 @@ const HomePage: React.FC = () => {
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', mb: 4 }}>
             <Chip
               label="Free Trial Session"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255,255,255,0.2)', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255,255,255,0.3)', color: '#2c3e50' }}
             />
             <Chip
               label="Small Class Sizes"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255,255,255,0.2)', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255,255,255,0.3)', color: '#2c3e50' }}
             />
             <Chip
               label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255,255,255,0.2)', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255,255,255,0.3)', color: '#2c3e50' }}
             />
           </Box>
           <Button

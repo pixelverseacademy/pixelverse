@@ -189,15 +189,15 @@ const CurriculumPage: React.FC = () => {
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Chip
               label="Ages 6-17"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#2c3e50' }}
             />
             <Chip
               label="11+ Programs"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#2c3e50' }}
             />
             <Chip
               label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#2c3e50' }}
             />
           </Box>
         </Container>
@@ -218,8 +218,8 @@ const CurriculumPage: React.FC = () => {
                     maxWidth: '500px',
                     mx: 'auto',
                     height: '100%',
-                    backgroundColor: '#1e1e1e',
-                    border: '1px solid #333333',
+                    backgroundColor: '#f8f9ff',
+                    border: '1px solid #e0e6ed',
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
@@ -232,18 +232,18 @@ const CurriculumPage: React.FC = () => {
                     <Box sx={{ textAlign: 'center', mb: 3 }}>
                       {program.icon}
                     </Box>
-                    <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff', textAlign: 'center' }}>
+                    <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', textAlign: 'center' }}>
                       {program.title}
                     </Typography>
-                    <Typography variant="body1" sx={{ color: '#b0b0b0', textAlign: 'center', mb: 3 }}>
+                    <Typography variant="body1" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
                       {program.description}
                     </Typography>
-                    <Accordion sx={{ backgroundColor: '#2e2e2e', border: '1px solid #333333' }}>
+                    <Accordion sx={{ backgroundColor: '#f0f8f0', border: '1px solid #e0e6ed' }}>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon sx={{ color: '#3498db' }} />}
                         sx={{ '& .MuiAccordionSummary-content': { margin: '12px 0' } }}
                       >
-                        <Typography sx={{ color: '#ffffff', fontWeight: 'bold' }}>
+                        <Typography sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
                           Program Highlights
                         </Typography>
                       </AccordionSummary>
@@ -254,7 +254,7 @@ const CurriculumPage: React.FC = () => {
                               <ListItemIcon>
                                 <CheckIcon sx={{ color: '#3498db' }} />
                               </ListItemIcon>
-                              <ListItemText primary={highlight} sx={{ color: '#b0b0b0' }} />
+                              <ListItemText primary={highlight} sx={{ color: '#7f8c8d' }} />
                             </ListItem>
                           ))}
                         </List>
@@ -269,7 +269,7 @@ const CurriculumPage: React.FC = () => {
       </Box>
 
       {/* Learning Paths */}
-      <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
+      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Learning Paths
@@ -282,8 +282,8 @@ const CurriculumPage: React.FC = () => {
                 sx={{ 
                   p: 4, 
                   height: '100%', 
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   maxWidth: '400px',
                   mx: 'auto',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
@@ -294,10 +294,10 @@ const CurriculumPage: React.FC = () => {
                   },
                 }}
               >
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff', textAlign: 'center' }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', textAlign: 'center' }}>
                   Beginner Path
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0', textAlign: 'center', mb: 3 }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
                   Ages 6-12
                 </Typography>
                 <List dense>
@@ -311,7 +311,7 @@ const CurriculumPage: React.FC = () => {
                       <ListItemIcon>
                         <CheckIcon sx={{ color: '#3498db' }} />
                       </ListItemIcon>
-                      <ListItemText primary={item} sx={{ color: '#b0b0b0' }} />
+                      <ListItemText primary={item} sx={{ color: '#7f8c8d' }} />
                     </ListItem>
                   ))}
                 </List>
@@ -324,8 +324,8 @@ const CurriculumPage: React.FC = () => {
                 sx={{ 
                   p: 4, 
                   height: '100%', 
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   maxWidth: '400px',
                   mx: 'auto',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
@@ -336,10 +336,10 @@ const CurriculumPage: React.FC = () => {
                   },
                 }}
               >
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff', textAlign: 'center' }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', textAlign: 'center' }}>
                   Intermediate Path
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0', textAlign: 'center', mb: 3 }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
                   Ages 12-15
                 </Typography>
                 <List dense>
@@ -353,7 +353,7 @@ const CurriculumPage: React.FC = () => {
                       <ListItemIcon>
                         <CheckIcon sx={{ color: '#3498db' }} />
                       </ListItemIcon>
-                      <ListItemText primary={item} sx={{ color: '#b0b0b0' }} />
+                      <ListItemText primary={item} sx={{ color: '#7f8c8d' }} />
                     </ListItem>
                   ))}
                 </List>
@@ -366,8 +366,8 @@ const CurriculumPage: React.FC = () => {
                 sx={{ 
                   p: 4, 
                   height: '100%', 
-                  backgroundColor: '#2e2e2e', 
-                  border: '1px solid #333333',
+                  backgroundColor: '#f0f8f0', 
+                  border: '1px solid #e0e6ed',
                   maxWidth: '400px',
                   mx: 'auto',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
@@ -378,10 +378,10 @@ const CurriculumPage: React.FC = () => {
                   },
                 }}
               >
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff', textAlign: 'center' }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', textAlign: 'center' }}>
                   Advanced Path
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#b0b0b0', textAlign: 'center', mb: 3 }}>
+                <Typography variant="body2" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
                   Ages 14-17
                 </Typography>
                 <List dense>
@@ -395,7 +395,7 @@ const CurriculumPage: React.FC = () => {
                       <ListItemIcon>
                         <CheckIcon sx={{ color: '#3498db' }} />
                       </ListItemIcon>
-                      <ListItemText primary={item} sx={{ color: '#b0b0b0' }} />
+                      <ListItemText primary={item} sx={{ color: '#7f8c8d' }} />
                     </ListItem>
                   ))}
                 </List>
@@ -408,10 +408,10 @@ const CurriculumPage: React.FC = () => {
       {/* Call to Action */}
       <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f5f8ff' }}>
         <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
             Ready to Start Learning?
           </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#b0b0b0' }}>
+          <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
             Choose the perfect program for your child and begin their technology education journey today.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
