@@ -125,7 +125,7 @@ const ContactPage: React.FC = () => {
                 Speak with our team directly
               </Typography>
               <Typography variant="body1" sx={{ color: '#ff6b35', fontWeight: 'bold' }}>
-                (919) 555-0123
+                (919) 446-4981
               </Typography>
             </Paper>
           </Grid>
@@ -326,7 +326,7 @@ const ContactPage: React.FC = () => {
           </Typography>
           <Typography variant="h6" sx={{ mb: 4, color: '#b0b0b0' }}>
             Contact us today to schedule your free trial session and see why students 
-            love learning with Pixelverse Academy.
+            love learning with PixelVerse Learning Academy.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button
@@ -353,7 +353,7 @@ const ContactPage: React.FC = () => {
               variant="outlined"
               size="large"
               startIcon={<PhoneIcon />}
-              href="tel:+19195550123"
+              href="tel:+19194464981"
               sx={{ 
                 px: 4, 
                 py: 2, 

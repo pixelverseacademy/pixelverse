@@ -48,10 +48,10 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <Box sx={{ width: 250, backgroundColor: '#1e1e1e', height: '100%' }}>
       <Box sx={{ p: 2, borderBottom: '1px solid #333333' }}>
         <Typography variant="h6" sx={{ color: '#ff6b35', fontWeight: 'bold' }}>
-          Pixelverse Academy
+          PixelVerse Learning Academy
         </Typography>
         <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
-          (919) 555-0123
+          (919) 446-4981
         </Typography>
         <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
           vinodht@pixelverseacademy.com
@@ -100,7 +100,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </IconButton>
           
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold', color: '#ff6b35' }}>
-            Pixelverse Academy
+            PixelVerse Learning Academy
           </Typography>
           
           {/* Desktop Navigation */}
@@ -133,7 +133,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             textAlign: 'right'
           }}>
             <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2 }}>
-              (919) 555-0123
+              (919) 446-4981
             </Typography>
             <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2 }}>
               vinodht@pixelverseacademy.com
@@ -181,7 +181,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <Grid container spacing={4}>
             <Grid item xs={12} md={4}>
               <Typography variant="h6" gutterBottom sx={{ color: '#ff6b35', fontWeight: 'bold' }}>
-                Pixelverse Academy
+                PixelVerse Learning Academy
               </Typography>
               <Typography variant="body2" sx={{ color: '#b0b0b0', mb: 2 }}>
                 Empowering the next generation of innovators through comprehensive 
@@ -194,7 +194,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 Contact Info
               </Typography>
               <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
-                Phone: (919) 555-0123
+                Phone: (919) 446-4981
               </Typography>
               <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
                 Email: vinodht@pixelverseacademy.com
@@ -237,7 +237,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           
           <Box sx={{ borderTop: '1px solid #333333', mt: 4, pt: 2, textAlign: 'center' }}>
             <Typography variant="body2" sx={{ color: '#b0b0b0' }}>
-              © 2024 Pixelverse Academy. All rights reserved.
+              © 2024 PixelVerse Learning Academy. All rights reserved.
             </Typography>
           </Box>
         </Container>

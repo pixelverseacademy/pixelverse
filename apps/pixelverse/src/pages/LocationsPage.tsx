@@ -28,7 +28,7 @@ const LocationsPage: React.FC = () => {
     {
       name: 'Durham Location',
       address: '123 Main Street, Durham, NC 27701',
-      phone: '(919) 555-0123',
+      phone: '(919) 446-4981',
       email: 'durham@pixelverseacademy.com',
       hours: 'Mon-Fri: 3:00 PM - 8:00 PM\nSat-Sun: 9:00 AM - 5:00 PM',
       description: 'Our flagship location in the heart of Durham features state-of-the-art computer labs, robotics workshops, and 3D printing facilities.',
@@ -44,7 +44,7 @@ const LocationsPage: React.FC = () => {
     {
       name: 'Holly Springs Location',
       address: '456 Technology Drive, Holly Springs, NC 27540',
-      phone: '(919) 555-0124',
+      phone: '(919) 446-4981',
       email: 'hollysprings@pixelverseacademy.com',
       hours: 'Mon-Fri: 3:00 PM - 8:00 PM\nSat-Sun: 9:00 AM - 5:00 PM',
       description: 'Our newest location offers the same high-quality education in a modern, spacious facility designed for optimal learning.',
@@ -332,7 +332,7 @@ const LocationsPage: React.FC = () => {
             Visit Us Today
           </Typography>
           <Typography variant="h6" sx={{ mb: 4, color: '#b0b0b0' }}>
-            Schedule a tour of our facilities and see why students love learning at Pixelverse Academy.
+            Schedule a tour of our facilities and see why students love learning at PixelVerse Learning Academy.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Paper

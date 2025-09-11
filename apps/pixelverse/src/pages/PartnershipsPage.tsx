@@ -343,7 +343,7 @@ const PartnershipsPage: React.FC = () => {
                   Durham Elementary School
                 </Typography>
                 <Typography variant="body2" sx={{ color: '#b0b0b0', mb: 2 }}>
-                  "Our partnership with Pixelverse Academy has transformed our STEM program. 
+                  "Our partnership with PixelVerse Learning Academy has transformed our STEM program. 
                   Students are more engaged and excited about learning technology."
                 </Typography>
                 <Typography variant="body2" sx={{ color: '#ff6b35', fontWeight: 'bold' }}>

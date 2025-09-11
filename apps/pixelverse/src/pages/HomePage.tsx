@@ -132,7 +132,7 @@ const HomePage: React.FC = () => {
         />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Typography variant="h1" component="h1" gutterBottom sx={{ fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
-            Welcome to Pixelverse Academy
+            PixelVerse Learning Academy
           </Typography>
           <Typography variant="h4" sx={{ mb: 4, opacity: 0.9, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
             Where Young Minds Build the Future
@@ -283,7 +283,7 @@ const HomePage: React.FC = () => {
             gutterBottom
             sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}
           >
-            Why Choose Pixelverse Academy?
+            Why Choose PixelVerse Learning Academy?
           </Typography>
           <Grid container spacing={4} justifyContent="center" alignItems="stretch">
             {[
