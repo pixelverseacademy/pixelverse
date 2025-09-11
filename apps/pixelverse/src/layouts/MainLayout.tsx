@@ -39,7 +39,6 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     { label: 'Why Us', path: '/why-us', icon: <CodeIcon /> },
     { label: 'Curriculum', path: '/curriculum', icon: <BuildIcon /> },
     { label: 'Locations', path: '/locations', icon: <LocationIcon /> },
-    { label: 'Coaches', path: '/coaches', icon: <PeopleIcon /> },
     { label: 'Partnerships', path: '/partnerships', icon: <PartnershipIcon /> },
     { label: 'Contact', path: '/contact', icon: <ContactIcon /> },
   ];

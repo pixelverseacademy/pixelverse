@@ -7,7 +7,6 @@ import HomePage from '../pages/HomePage';
 import WhyUsPage from '../pages/WhyUsPage';
 import CurriculumPage from '../pages/CurriculumPage';
 import LocationsPage from '../pages/LocationsPage';
-import CoachesPage from '../pages/CoachesPage';
 import PartnershipsPage from '../pages/PartnershipsPage';
 import ContactPage from '../pages/ContactPage';
 
@@ -254,16 +253,6 @@ const LocationsPageWithSEO = () => (
   </>
 );
 
-const CoachesPageWithSEO = () => (
-  <>
-    <SEOHead 
-      title="Meet Our Expert Instructors - Industry Professionals Teaching Kids Technology"
-      description="Learn from experienced professionals with industry backgrounds. PhD engineers, former Google developers, and certified trainers teaching coding, robotics, and AI."
-      keywords="coding instructors Durham, robotics teachers, expert STEM educators, industry professionals teaching kids, certified coding instructors"
-    />
-    <CoachesPage />
-  </>
-);
 
 const PartnershipsPageWithSEO = () => (
   <>
@@ -298,7 +287,6 @@ export function App() {
             <Route path="/why-us" element={<WhyUsPageWithSEO />} />
             <Route path="/curriculum" element={<CurriculumPageWithSEO />} />
             <Route path="/locations" element={<LocationsPageWithSEO />} />
-            <Route path="/coaches" element={<CoachesPageWithSEO />} />
             <Route path="/partnerships" element={<PartnershipsPageWithSEO />} />
             <Route path="/contact" element={<ContactPageWithSEO />} />
           </Routes>
