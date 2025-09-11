@@ -9,6 +9,7 @@ import CurriculumPage from '../pages/CurriculumPage';
 import LocationsPage from '../pages/LocationsPage';
 import PartnershipsPage from '../pages/PartnershipsPage';
 import ContactPage from '../pages/ContactPage';
+import CoachesPage from '../pages/CoachesPage';
 
 // Create a cosmic orange and dark theme
 const theme = createTheme({
@@ -267,12 +268,23 @@ const PartnershipsPageWithSEO = () => (
 
 const ContactPageWithSEO = () => (
   <>
-    <SEOHead 
+    <SEOHead
       title="Contact PixelVerse Learning Academy - Durham & Holly Springs Technology Education"
       description="Get in touch with PixelVerse Learning Academy. Call (919) 446-4981 or email vinodht@pixelverseacademy.com. Free trial sessions available. Serving Durham and Holly Springs, NC."
       keywords="contact coding school Durham, technology education contact, free trial coding classes, Durham STEM education, Holly Springs robotics classes"
     />
     <ContactPage />
+  </>
+);
+
+const CoachesPageWithSEO = () => (
+  <>
+    <SEOHead
+      title="Meet Our Expert Instructors - PixelVerse Learning Academy"
+      description="Learn from industry professionals and experienced educators at PixelVerse Learning Academy. Meet our expert coding, robotics, and STEM instructors in Durham and Holly Springs."
+      keywords="coding instructors Durham, robotics teachers Holly Springs, STEM educators, expert technology teachers, coding coaches"
+    />
+    <CoachesPage />
   </>
 );
 
@@ -289,6 +301,7 @@ export function App() {
             <Route path="/locations" element={<LocationsPageWithSEO />} />
             <Route path="/partnerships" element={<PartnershipsPageWithSEO />} />
             <Route path="/contact" element={<ContactPageWithSEO />} />
+            <Route path="/coaches" element={<CoachesPageWithSEO />} />
           </Routes>
         </MainLayout>
       </Router>
