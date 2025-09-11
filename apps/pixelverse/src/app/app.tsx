@@ -78,7 +78,7 @@ const theme = createTheme({
       color: '#2c3e50',
     },
     body2: {
-      color: '#b0b0b0',
+      color: '#7f8c8d',
     },
   },
   components: {

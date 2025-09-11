@@ -104,7 +104,7 @@ const courseHighlights = [
 
 const HomePage: React.FC = () => {
   return (
-    <Box sx={{ backgroundColor: '#2e2e2e' }}>
+    <Box sx={{ backgroundColor: '#f0f8f0' }}>
       {/* Hero Section */}
       <Box
         sx={{
@@ -177,7 +177,7 @@ const HomePage: React.FC = () => {
       </Box>
 
       {/* Quick Links */}
-      <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#2e2e2e' }}>
+      <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f0f8f0' }}>
         <Grid container spacing={3} justifyContent="center">
           {[
             { title: 'Our Programs', link: '/curriculum', icon: <SchoolIcon /> },
@@ -212,12 +212,12 @@ const HomePage: React.FC = () => {
       </Container>
 
       {/* Mission Statement */}
-      <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
+      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="lg">
           <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 4, color: '#3498db' }}>
             Our Mission
           </Typography>
-          <Typography variant="h5" textAlign="center" sx={{ maxWidth: '900px', mx: 'auto', color: '#b0b0b0', lineHeight: 1.6 }}>
+          <Typography variant="h5" textAlign="center" sx={{ maxWidth: '900px', mx: 'auto', color: '#7f8c8d', lineHeight: 1.6 }}>
             To inspire and empower the next generation of innovators through comprehensive technology education, 
             fostering creativity, critical thinking, and problem-solving skills that prepare students for the future.
           </Typography>
@@ -225,7 +225,7 @@ const HomePage: React.FC = () => {
       </Box>
 
       {/* Course Highlights */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#2e2e2e' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8f0' }}>
         <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Our Programs
         </Typography>
@@ -269,7 +269,7 @@ const HomePage: React.FC = () => {
       </Container>
 
       {/* Why Choose Us */}
-      <Box sx={{ backgroundColor: '#1e1e1e', py: 8, borderTop: '1px solid #333333' }}>
+      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="lg">
           <Typography
             variant="h3"
@@ -307,8 +307,8 @@ const HomePage: React.FC = () => {
                     height: '100%',
                     maxWidth: '350px',
                     mx: 'auto',
-                    backgroundColor: '#2e2e2e', 
-                    border: '1px solid #333333',
+                    backgroundColor: '#f0f8f0', 
+                    border: '1px solid #e0e6ed',
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
@@ -318,10 +318,10 @@ const HomePage: React.FC = () => {
                   }}
                 >
                   <Box sx={{ mb: 2 }}>{feature.icon}</Box>
-                  <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                  <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                     {feature.title}
                   </Typography>
-                  <Typography variant="body1" sx={{ color: '#b0b0b0' }}>
+                  <Typography variant="body1" sx={{ color: '#7f8c8d' }}>
                     {feature.description}
                   </Typography>
                 </Paper>
@@ -332,12 +332,12 @@ const HomePage: React.FC = () => {
       </Box>
 
       {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#2e2e2e' }}>
+      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f0f8f0' }}>
         <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
             Ready to Start Your Journey?
           </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#b0b0b0' }}>
+          <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
             Join hundreds of students who are already building the future with technology.
           </Typography>
           <Button

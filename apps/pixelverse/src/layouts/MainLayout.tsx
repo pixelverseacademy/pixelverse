@@ -62,7 +62,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <List>
         {navigationItems.map((item) => (
           <ListItem key={item.path} sx={{ px: 2 }}>
-            <ListItemIcon sx={{ color: location.pathname === item.path ? '#3498db' : '#b0b0b0' }}>
+            <ListItemIcon sx={{ color: location.pathname === item.path ? '#3498db' : '#7f8c8d' }}>
               {item.icon}
             </ListItemIcon>
             <Button
