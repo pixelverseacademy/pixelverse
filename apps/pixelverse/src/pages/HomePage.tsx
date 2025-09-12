@@ -90,8 +90,8 @@ const courseHighlights = [
     backgroundImage: '/public/programCardImages/Scratch programming.png',
   },
   {
-    title: 'Drone Programming',
-    description: 'Code, control, and fly drones while learning about aerodynamics and flight principles.',
+    title: 'Content Creation with Drone',
+    description: 'Learn aerial photography, videography, and content creation using drones. Master flight control, camera techniques, and editing software for professional content production.',
     icon: <DroneIcon sx={{ fontSize: 40 }} />,
     color: '#2ecc71',
     backgroundImage: '/public/programCardImages/drone programming.png',
@@ -126,8 +126,6 @@ const carouselImages = [
   '/public/carousel/sgpvppzrrh984epq4zrb.png',
   '/public/carousel/IMG_9314.png',
   '/public/carousel/IMG_9316.png',
-  '/public/carousel/IMG_9330.png',
-  '/public/carousel/IMG_9339.png',
 ];
 
 const HomePage: React.FC = () => {

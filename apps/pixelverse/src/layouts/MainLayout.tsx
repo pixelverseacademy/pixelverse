@@ -197,12 +197,23 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Grid item xs={12} md={4}>
                 
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold' }}>
-                  PixelVerse Learning Academy
-                </Typography>
-              </Box>
+              <Typography variant="h6" sx={{ color: '#3498db', fontWeight: 'bold' }}>
+                PixelVerse Learning Academy
+              </Typography>
+            </Box>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: '#ffffff',
+                  fontWeight: '500',
+                  textShadow: '1px 1px 3px rgba(0,0,0,0.8)',
+                  lineHeight: 1.6,
+                  mb: 2
+                }}
+              >
                 Empowering the next generation of innovators through comprehensive
                 technology education in Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC.
+              </Typography>
             </Grid>
             
             <Grid item xs={12} md={4}>
