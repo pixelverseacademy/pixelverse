@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ThreeBackground from '../components/InteractiveBackground';
 import {
   Box,
@@ -10,7 +10,12 @@ import {
   CardContent,
   Chip,
   Paper,
+  IconButton,
 } from '@mui/material';
+import {
+  ArrowBack as ArrowBackIcon,
+  ArrowForward as ArrowForwardIcon,
+} from '@mui/icons-material';
 import {
   School as SchoolIcon,
   Code as CodeIcon,
@@ -33,76 +38,113 @@ const courseHighlights = [
     description: 'Build and program robots using LEGO, VEX, and micro:bit. Learn engineering principles through hands-on projects.',
     icon: <BuildIcon sx={{ fontSize: 40 }} />,
     color: '#3498db',
+    backgroundImage: '/programCardImages/robotics 2.jpeg',
   },
   {
     title: 'Minecraft Coding & Modding',
     description: 'Learn programming by creating mods, designing worlds, and automating tasks in Minecraft.',
     icon: <MinecraftIcon sx={{ fontSize: 40 }} />,
     color: '#ff8a65',
+    backgroundImage: '/programCardImages/minecraft.png',
   },
   {
     title: 'Python Programming',
     description: 'Master Python from basics to advanced concepts. Create games, apps, and solve real-world problems.',
     icon: <CodeIcon sx={{ fontSize: 40 }} />,
     color: '#2ecc71',
+    backgroundImage: '/programCardImages/Python programming.jpg',
   },
   {
     title: 'AR and VR Coding',
     description: 'Create immersive experiences using augmented and virtual reality technologies.',
     icon: <ARIcon sx={{ fontSize: 40 }} />,
     color: '#3498db',
+    backgroundImage: '/programCardImages/Ar and VR coding.jpg',
   },
   {
     title: 'Roblox Game Development',
     description: 'Transform your imagination into interactive Roblox games and share them with the world.',
     icon: <EsportsIcon sx={{ fontSize: 40 }} />,
     color: '#ff8a65',
+    backgroundImage: '/programCardImages/Roblox game development.png',
   },
   {
     title: 'AI & Machine Learning',
     description: 'Explore artificial intelligence and machine learning concepts through hands-on projects.',
     icon: <AIIcon sx={{ fontSize: 40 }} />,
     color: '#2ecc71',
+    backgroundImage: '/programCardImages/Ai and machine learning.png',
   },
   {
     title: '3D Modeling & Printing',
     description: 'Design and print 3D objects using professional modeling software and 3D printers.',
     icon: <PrintIcon sx={{ fontSize: 40 }} />,
     color: '#3498db',
+    backgroundImage: '/programCardImages/3d modeling and printing.png',
   },
   {
     title: 'Scratch Programming',
     description: 'Learn programming fundamentals through visual, block-based coding with Scratch.',
     icon: <ScratchIcon sx={{ fontSize: 40 }} />,
     color: '#ff8a65',
+    backgroundImage: '/programCardImages/Scratch programming.png',
   },
   {
     title: 'Drone Programming',
     description: 'Code, control, and fly drones while learning about aerodynamics and flight principles.',
     icon: <DroneIcon sx={{ fontSize: 40 }} />,
     color: '#2ecc71',
+    backgroundImage: '/programCardImages/drone programming.png',
   },
   {
     title: 'Mobile App Development',
     description: 'Create mobile applications for iOS and Android using modern development tools.',
     icon: <MobileIcon sx={{ fontSize: 40 }} />,
     color: '#3498db',
+    backgroundImage: '/programCardImages/mobile app development.png',
   },
   {
     title: 'E-sports & Gaming',
     description: 'Learn game design, competitive gaming strategies, and esports team management.',
     icon: <EsportsIcon sx={{ fontSize: 40 }} />,
     color: '#ff8a65',
+    backgroundImage: '/programCardImages/esports.png',
   },
   {
     title: 'Web Development',
     description: 'Build interactive websites and web applications using HTML, CSS, and JavaScript.',
     icon: <CodeIcon sx={{ fontSize: 40 }} />,
     color: '#2ecc71',
+    backgroundImage: '/programCardImages/web development.png',
   },
 ];
 
+const carouselImages = [
+  '/carousel/degorddg33dc0iqx1utg.png',
+  '/carousel/dycbqxgwtt7bewwncgnj.png',
+  '/carousel/lylfl41k6b06xaapnffa.png',
+  '/carousel/sgpvppzrrh984epq4zrb.png',
+  '/carousel/IMG_9314.png',
+  '/carousel/IMG_9316.png',
+  '/carousel/IMG_9330.png',
+  '/carousel/IMG_9339.png',
+];
+
 const HomePage: React.FC = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
     <Box sx={{ backgroundColor: '#f0f8ff' }}>
       {/* Hero Section */}
@@ -176,6 +218,90 @@ const HomePage: React.FC = () => {
         </Container>
       </Box>
 
+      {/* Image Carousel */}
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
+        <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
+          Our Robotics and Coding Programs in Action
+        </Typography>
+
+        <Box sx={{ position: 'relative', maxWidth: '800px', mx: 'auto' }}>
+          <Box
+            component="img"
+            src={carouselImages[currentImageIndex]}
+            alt={`Robotics program image ${currentImageIndex + 1}`}
+            sx={{
+              width: '100%',
+              height: '400px',
+              objectFit: 'cover',
+              borderRadius: '12px',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+              transition: 'transform 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.02)',
+              },
+            }}
+          />
+
+          {/* Navigation Buttons */}
+          <IconButton
+            onClick={prevImage}
+            sx={{
+              position: 'absolute',
+              left: 16,
+              top: '50%',
+              transform: 'translateY(-50%)',
+              backgroundColor: 'rgba(255,255,255,0.9)',
+              color: '#3498db',
+              '&:hover': {
+                backgroundColor: '#3498db',
+                color: 'white',
+              },
+            }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+
+          <IconButton
+            onClick={nextImage}
+            sx={{
+              position: 'absolute',
+              right: 16,
+              top: '50%',
+              transform: 'translateY(-50%)',
+              backgroundColor: 'rgba(255,255,255,0.9)',
+              color: '#3498db',
+              '&:hover': {
+                backgroundColor: '#3498db',
+                color: 'white',
+              },
+            }}
+          >
+            <ArrowForwardIcon />
+          </IconButton>
+
+          {/* Dots Indicator */}
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3, gap: 1 }}>
+            {carouselImages.map((_, index) => (
+              <Box
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                sx={{
+                  width: 12,
+                  height: 12,
+                  borderRadius: '50%',
+                  backgroundColor: index === currentImageIndex ? '#3498db' : '#e0e6ed',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#3498db',
+                  },
+                }}
+              />
+            ))}
+          </Box>
+        </Box>
+      </Container>
+
       {/* Quick Links */}
       <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f0f8ff' }}>
         <Grid container spacing={3} justifyContent="center">
@@ -232,11 +358,11 @@ const HomePage: React.FC = () => {
         <Grid container spacing={4} justifyContent="center">
           {courseHighlights.map((course, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card 
-                elevation={2} 
-                sx={{ 
-                  height: '100%', 
-                  minHeight: '200px',
+              <Card
+                elevation={2}
+                sx={{
+                  height: '100%',
+                  minHeight: '350px',
                   maxWidth: '350px',
                   mx: 'auto',
                   display: 'flex',
@@ -251,14 +377,27 @@ const HomePage: React.FC = () => {
                   },
                 }}
               >
-                <CardContent sx={{ flexGrow: 1, p: 4, textAlign: 'center' }}>
+                {course.backgroundImage && (
+                  <Box
+                    component="img"
+                    src={course.backgroundImage}
+                    alt={`${course.title} program`}
+                    sx={{
+                      width: '100%',
+                      height: '180px',
+                      objectFit: 'cover',
+                      borderRadius: '4px 4px 0 0',
+                    }}
+                  />
+                )}
+                <CardContent sx={{ flexGrow: 1, p: 3, textAlign: 'center' }}>
                   <Box sx={{ mb: 2, color: course.color }}>
                     {course.icon}
                   </Box>
                   <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#1565C0' }}>
                     {course.title}
                   </Typography>
-                  <Typography variant="body1" sx={{ color: '#424242' }}>
+                  <Typography variant="body1" sx={{ color: '#424242', lineHeight: 1.5 }}>
                     {course.description}
                   </Typography>
                 </CardContent>
