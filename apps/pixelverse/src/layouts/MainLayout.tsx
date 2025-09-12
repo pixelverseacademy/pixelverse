@@ -47,7 +47,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <Box sx={{ width: 250, backgroundColor: '#0a1929', height: '100%' }}>
       <Box sx={{ p: 2, borderBottom: '1px solid #e0e6ed' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-          <img src="/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '32px', width: '32px', marginRight: '8px', objectFit: 'cover', borderRadius: '50%' }} />
+          <img src="/public/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '32px', width: '32px', marginRight: '8px', objectFit: 'cover', borderRadius: '50%' }} />
           <Typography variant="h6" sx={{ color: '#3498db', fontWeight: 'bold' }}>
             PixelVerse Learning Academy
           </Typography>
@@ -112,7 +112,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </IconButton>
           
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-            <img src="/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '40px', width: '40px', marginRight: '12px', marginTop: '-2px', objectFit: 'cover', borderRadius: '50%' }} />
+            <img src="/public/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '40px', width: '40px', marginRight: '12px', marginTop: '-2px', objectFit: 'cover', borderRadius: '50%' }} />
             <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: 'white' }}>
                 PixelVerse Learning Academy
             </Typography>
