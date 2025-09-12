@@ -37,7 +37,7 @@ const CurriculumPage: React.FC = () => {
       title: 'Engineering & Robotics',
       icon: <BuildIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
       description: 'Build and program robots using LEGO Mindstorms, Arduino, and advanced robotics kits. Learn mechanical engineering principles, sensors, and automation.',
-      backgroundImage: '/programCardImages/robotics 2.jpeg',
+      backgroundImage: '/public/programCardImages/robotics 2.jpeg',
       highlights: [
         'LEGO Mindstorms EV3 Programming',
         'Arduino Microcontroller Projects',
@@ -50,7 +50,7 @@ const CurriculumPage: React.FC = () => {
       title: 'Coding, Designing & Modding with Minecraft',
       icon: <CodeIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
       description: 'Learn programming concepts through Minecraft modding, custom world creation, and game design. Perfect introduction to coding for young learners.',
-      backgroundImage: '/programCardImages/minecraft.png',
+      backgroundImage: '/public/programCardImages/minecraft.png',
       highlights: [
         'Minecraft Education Edition',
         'JavaScript & Python Scripting',
@@ -63,7 +63,7 @@ const CurriculumPage: React.FC = () => {
       title: 'Programming in Python',
       icon: <CodeIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
       description: 'Master Python programming from basics to advanced concepts. Build games, web applications, and data analysis projects.',
-      backgroundImage: '/programCardImages/Python programming.jpg',
+      backgroundImage: '/public/programCardImages/Python programming.jpg',
       highlights: [
         'Python Fundamentals & Syntax',
         'Object-Oriented Programming',
@@ -76,7 +76,7 @@ const CurriculumPage: React.FC = () => {
       title: 'AR and VR Coding',
       icon: <PsychologyIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
       description: 'Create immersive augmented and virtual reality experiences. Learn Unity, Unreal Engine, and AR development platforms.',
-      backgroundImage: '/programCardImages/Ar and VR coding.jpg',
+      backgroundImage: '/public/programCardImages/Ar and VR coding.jpg',
       highlights: [
         'Unity 3D Development',
         'ARCore & ARKit Integration',
@@ -89,7 +89,7 @@ const CurriculumPage: React.FC = () => {
       title: 'Transform Your Imagination into Interactive Roblox Games',
       icon: <SmartToyIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
       description: 'Design, build, and publish your own Roblox games. Learn Lua scripting, game mechanics, and monetization strategies.',
-      backgroundImage: '/programCardImages/Roblox game development.png',
+      backgroundImage: '/public/programCardImages/Roblox game development.png',
       highlights: [
         'Roblox Studio Development',
         'Lua Programming Language',
@@ -102,7 +102,7 @@ const CurriculumPage: React.FC = () => {
       title: 'Artificial Intelligence & Machine Learning',
       icon: <PsychologyIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
       description: 'Explore AI concepts through hands-on projects. Build chatbots, image recognition systems, and predictive models.',
-      backgroundImage: '/programCardImages/Ai and machine learning.png',
+      backgroundImage: '/public/programCardImages/Ai and machine learning.png',
       highlights: [
         'Machine Learning Fundamentals',
         'Neural Networks & Deep Learning',
@@ -115,7 +115,7 @@ const CurriculumPage: React.FC = () => {
       title: 'Ignite Innovation with 3D Modeling, Design & Printing',
       icon: <PaletteIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
       description: 'Master 3D design software and bring your creations to life with 3D printing. Learn CAD, modeling, and prototyping.',
-      backgroundImage: '/programCardImages/3d modeling and printing.png',
+      backgroundImage: '/public/programCardImages/3d modeling and printing.png',
       highlights: [
         'Tinkercad & Fusion 360',
         '3D Modeling Techniques',
@@ -128,7 +128,7 @@ const CurriculumPage: React.FC = () => {
       title: 'Scratch-based Programming',
       icon: <CodeIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
       description: 'Perfect introduction to programming for young learners. Create interactive stories, games, and animations using visual programming.',
-      backgroundImage: '/programCardImages/Scratch programming.png',
+      backgroundImage: '/public/programCardImages/Scratch programming.png',
       highlights: [
         'Visual Programming Concepts',
         'Interactive Story Creation',
@@ -141,7 +141,7 @@ const CurriculumPage: React.FC = () => {
       title: 'Code, Control & Fly Drones',
       icon: <FlightIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
       description: 'Learn to program and control drones for various applications. Explore aerial photography, autonomous flight, and drone racing.',
-      backgroundImage: '/programCardImages/drone programming.png',
+      backgroundImage: '/public/programCardImages/drone programming.png',
       highlights: [
         'Drone Programming & Control',
         'Aerial Photography & Videography',
@@ -154,7 +154,7 @@ const CurriculumPage: React.FC = () => {
       title: 'Mobile App Development',
       icon: <PhoneIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
       description: 'Create mobile applications for iOS and Android. Learn app design, development, and publishing processes.',
-      backgroundImage: '/programCardImages/mobile app development.png',
+      backgroundImage: '/public/programCardImages/mobile app development.png',
       highlights: [
         'React Native Development',
         'iOS & Android App Creation',
@@ -167,7 +167,7 @@ const CurriculumPage: React.FC = () => {
       title: 'E-sports',
       icon: <EsportsIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
       description: 'Develop gaming skills, strategy, and teamwork through competitive gaming. Learn about the esports industry and career opportunities.',
-      backgroundImage: '/programCardImages/esports.png',
+      backgroundImage: '/public/programCardImages/esports.png',
       highlights: [
         'Competitive Gaming Strategies',
         'Team Communication & Leadership',
