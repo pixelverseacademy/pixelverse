@@ -112,7 +112,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </IconButton>
           
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-            <img src="/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '40px', width: '40px', marginRight: '12px', objectFit: 'cover', borderRadius: '50%' }} />
+            <img src="/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '40px', width: '40px', marginRight: '12px', marginTop: '-2px', objectFit: 'cover', borderRadius: '50%' }} />
             <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: 'white' }}>
                 PixelVerse Learning Academy
             </Typography>

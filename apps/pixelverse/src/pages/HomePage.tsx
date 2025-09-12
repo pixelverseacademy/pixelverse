@@ -166,7 +166,17 @@ const HomePage: React.FC = () => {
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
             
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
-            <Typography variant="h1" component="h1" sx={{ fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+            <Typography
+              variant="h1"
+              component="h1"
+              sx={{
+                fontWeight: 'bold',
+                color: 'white',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
+                lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 }
+              }}
+            >
               PixelVerse Learning Academy
             </Typography>
           </Box>
