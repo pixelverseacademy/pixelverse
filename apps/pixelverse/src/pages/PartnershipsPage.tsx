@@ -351,7 +351,7 @@ const PartnershipsPage: React.FC = () => {
                   Students are more engaged and excited about learning technology."
                 </Typography>
                 <Typography variant="body2" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-                  - Principal Sarah Johnson
+                  - Principal
                 </Typography>
               </Paper>
             </Grid>
@@ -382,7 +382,7 @@ const PartnershipsPage: React.FC = () => {
                   won the regional competition and are now more confident in STEM subjects."
                 </Typography>
                 <Typography variant="body2" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-                  - STEM Coordinator Mike Chen
+                  - STEM Coordinator
                 </Typography>
               </Paper>
             </Grid>
@@ -413,7 +413,7 @@ const PartnershipsPage: React.FC = () => {
                   confident teaching coding and robotics to our students."
                 </Typography>
                 <Typography variant="body2" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-                  - Technology Director Lisa Park
+                  - Technology Director
                 </Typography>
               </Paper>
             </Grid>
