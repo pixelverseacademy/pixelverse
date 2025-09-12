@@ -133,11 +133,11 @@ const CoachesPage: React.FC = () => {
   ];
 
   return (
-    <Box sx={{ backgroundColor: '#f5f8ff' }}>
+    <Box sx={{ backgroundColor: '#f0f8ff' }}>
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #E91E63 100%)',
+          background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #64B5F6 100%)',
           color: 'white',
           py: { xs: 6, md: 8 },
           textAlign: 'center',
@@ -162,7 +162,7 @@ const CoachesPage: React.FC = () => {
       </Box>
 
       {/* Instructors Grid */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Our Expert Team
         </Typography>
@@ -355,7 +355,7 @@ const CoachesPage: React.FC = () => {
       </Box>
 
       {/* Why Our Instructors Matter - One Row, Three Cards */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Why Our Instructors Make the Difference
         </Typography>

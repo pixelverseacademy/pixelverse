@@ -33,11 +33,11 @@ const LocationsPage: React.FC = () => {
     },
   ];
   return (
-    <Box sx={{ backgroundColor: '#fff8f0' }}>
+    <Box sx={{ backgroundColor: '#f0f8ff' }}>
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 50%, #9C27B0 100%)',
+          background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #64B5F6 100%)',
           color: 'white',
           py: { xs: 6, md: 8 },
           textAlign: 'center',
@@ -60,7 +60,7 @@ const LocationsPage: React.FC = () => {
         </Container>
       </Box>
       {/* Locations */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#fff8f0' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Our Facilities
         </Typography>

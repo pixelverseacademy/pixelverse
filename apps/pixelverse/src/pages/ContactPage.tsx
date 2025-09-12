@@ -19,11 +19,11 @@ import {
 
 const ContactPage: React.FC = () => {
   return (
-    <Box sx={{ backgroundColor: '#f5f8ff' }}>
+    <Box sx={{ backgroundColor: '#f0f8ff' }}>
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #9C27B0 0%, #BA68C8 50%, #E91E63 100%)',
+          background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #64B5F6 100%)',
           color: 'white',
           py: { xs: 6, md: 8 },
           textAlign: 'center',
@@ -47,7 +47,7 @@ const ContactPage: React.FC = () => {
       </Box>
 
       {/* Contact Information */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white', mb: 6 }}>
           Get in Touch
         </Typography>
@@ -213,7 +213,7 @@ const ContactPage: React.FC = () => {
       </Box>
 
       {/* Program Information */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Program Information
         </Typography>

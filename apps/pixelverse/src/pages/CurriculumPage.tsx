@@ -204,7 +204,7 @@ const CurriculumPage: React.FC = () => {
       </Box>
 
       {/* Explore Our Programs */}
-      <Box sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
+      <Box sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Explore Our Programs
@@ -406,7 +406,7 @@ const CurriculumPage: React.FC = () => {
       </Box>
 
       {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f5f8ff' }}>
+      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f0f8ff' }}>
         <Container maxWidth="md">
           <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
             Ready to Start Learning?

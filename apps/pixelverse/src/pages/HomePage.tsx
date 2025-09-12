@@ -104,12 +104,12 @@ const courseHighlights = [
 
 const HomePage: React.FC = () => {
   return (
-    <Box sx={{ backgroundColor: '#f0f8f0' }}>
+    <Box sx={{ backgroundColor: '#f0f8ff' }}>
       {/* Hero Section */}
       <Box
         sx={{
           minHeight: { xs: '80vh', md: '100vh' },
-          background: 'linear-gradient(135deg, #FF6B35 0%, #FF8A65 50%, #FFA726 100%)',
+          background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #64B5F6 100%)',
           color: 'white',
           py: { xs: 6, md: 10 },
           textAlign: 'center',
@@ -177,7 +177,7 @@ const HomePage: React.FC = () => {
       </Box>
 
       {/* Quick Links */}
-      <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f0f8f0' }}>
+      <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f0f8ff' }}>
         <Grid container spacing={3} justifyContent="center">
           {[
             { title: 'Our Programs', link: '/curriculum', icon: <SchoolIcon /> },
@@ -225,7 +225,7 @@ const HomePage: React.FC = () => {
       </Box>
 
       {/* Course Highlights */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8f0' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Our Programs
         </Typography>
@@ -307,7 +307,7 @@ const HomePage: React.FC = () => {
                     height: '100%',
                     maxWidth: '350px',
                     mx: 'auto',
-                    backgroundColor: '#f0f8f0', 
+                    backgroundColor: '#f0f8ff', 
                     border: '1px solid #e0e6ed',
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
@@ -332,7 +332,7 @@ const HomePage: React.FC = () => {
       </Box>
 
       {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f0f8f0' }}>
+      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f0f8ff' }}>
         <Container maxWidth="md">
           <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
             Ready to Start Your Journey?

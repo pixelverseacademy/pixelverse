@@ -135,7 +135,7 @@ const PartnershipsPage: React.FC = () => {
     <Box>
       {/* Hero Section */}
       <Box sx={{
-        background: 'linear-gradient(135deg, #E91E63 0%, #9C27B0 100%)',
+        background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #64B5F6 100%)',
         py: 12,
         textAlign: 'center',
         color: 'white',
@@ -168,7 +168,7 @@ const PartnershipsPage: React.FC = () => {
       </Box>
 
       {/* Partnership Opportunities */}
-      <Box sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
+      <Box sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Partnership Opportunities
@@ -279,7 +279,7 @@ const PartnershipsPage: React.FC = () => {
       </Box>
 
       {/* Why Schools Choose to Partner with Us */}
-      <Box sx={{ py: 8, backgroundColor: '#f5f8ff' }}>
+      <Box sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Why Schools Choose to Partner with Us
@@ -422,7 +422,7 @@ const PartnershipsPage: React.FC = () => {
       </Box>
 
       {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f5f8ff' }}>
+      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f0f8ff' }}>
         <Container maxWidth="md">
           <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
             Ready to Partner with Us?

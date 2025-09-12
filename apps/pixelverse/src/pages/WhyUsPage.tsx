@@ -102,11 +102,11 @@ const WhyUsPage: React.FC = () => {
   ];
 
   return (
-    <Box sx={{ backgroundColor: '#f0f8f0' }}>
+    <Box sx={{ backgroundColor: '#f0f8ff' }}>
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 50%, #E91E63 100%)',
+          background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #64B5F6 100%)',
           color: 'white',
           py: { xs: 6, md: 8 },
           textAlign: 'center',
@@ -146,7 +146,7 @@ const WhyUsPage: React.FC = () => {
       </Box>
 
       {/* Statistics - Centered Layout */}
-      <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f0f8f0' }}>
+      <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f0f8ff' }}>
         <Grid container spacing={4} justifyContent="center">
           {stats.map((stat, index) => (
             <Grid item xs={6} sm={4} md={3} key={index}>
@@ -196,7 +196,7 @@ const WhyUsPage: React.FC = () => {
                     mx: 'auto',
                     display: 'flex',
                     flexDirection: 'column',
-                    backgroundColor: '#f0f8f0', 
+                    backgroundColor: '#f0f8ff', 
                     border: '1px solid #e0e6ed',
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
@@ -235,7 +235,7 @@ const WhyUsPage: React.FC = () => {
       </Box>
 
       {/* Why Choose Us - One Row, Three Cards */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8f0' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Why Choose PixelVerse Learning Academy?
         </Typography>
@@ -347,7 +347,7 @@ const WhyUsPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '350px',
                   mx: 'auto',
-                  backgroundColor: '#f0f8f0', 
+                  backgroundColor: '#f0f8ff', 
                   border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
@@ -375,7 +375,7 @@ const WhyUsPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '350px',
                   mx: 'auto',
-                  backgroundColor: '#f0f8f0', 
+                  backgroundColor: '#f0f8ff', 
                   border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
@@ -403,7 +403,7 @@ const WhyUsPage: React.FC = () => {
                   height: '100%',
                   maxWidth: '350px',
                   mx: 'auto',
-                  backgroundColor: '#f0f8f0', 
+                  backgroundColor: '#f0f8ff', 
                   border: '1px solid #e0e6ed',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
@@ -426,7 +426,7 @@ const WhyUsPage: React.FC = () => {
       </Box>
 
       {/* What We Believe - Full Width */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8f0' }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           What We Believe
         </Typography>

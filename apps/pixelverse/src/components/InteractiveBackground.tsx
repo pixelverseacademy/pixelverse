@@ -3,53 +3,145 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, Box, Torus, Float, Octahedron, Icosahedron, Dodecahedron } from '@react-three/drei';
 import * as THREE from 'three';
 
-const FloatingGeometry = ({ position, color, shape, scale = 1 }: { position: [number, number, number], color: string, shape: string, scale?: number }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
+const ParticleSystem = ({ count = 100, colors }: { count?: number, colors: string[] }) => {
+  const meshRef = useRef<THREE.Points>(null);
+  const positions = useMemo(() => new Float32Array(count * 3), [count]);
+  const velocities = useMemo(() => new Float32Array(count * 3), [count]);
+  const colorsArray = useMemo(() => new Float32Array(count * 3), [count]);
+
+  // Initialize particles
+  useEffect(() => {
+    for (let i = 0; i < count; i++) {
+      const i3 = i * 3;
+
+      // Random positions in a sphere
+      const radius = Math.random() * 15 + 5;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.random() * Math.PI;
+
+      positions[i3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      positions[i3 + 2] = radius * Math.cos(phi);
+
+      // Random velocities
+      velocities[i3] = (Math.random() - 0.5) * 0.02;
+      velocities[i3 + 1] = (Math.random() - 0.5) * 0.02;
+      velocities[i3 + 2] = (Math.random() - 0.5) * 0.02;
+
+      // Random colors
+      const color = new THREE.Color(colors[Math.floor(Math.random() * colors.length)]);
+      colorsArray[i3] = color.r;
+      colorsArray[i3 + 1] = color.g;
+      colorsArray[i3 + 2] = color.b;
+    }
+  }, [count, positions, velocities, colorsArray, colors]);
 
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x += 0.003;
-      meshRef.current.rotation.y += 0.005;
-      meshRef.current.rotation.z += 0.002;
+    if (meshRef.current && meshRef.current.geometry.attributes.position) {
+      const time = state.clock.elapsedTime;
+      const posArray = meshRef.current.geometry.attributes.position.array as Float32Array;
+
+      for (let i = 0; i < count; i++) {
+        const i3 = i * 3;
+
+        // Update positions with velocities
+        posArray[i3] += velocities[i3];
+        posArray[i3 + 1] += velocities[i3 + 1];
+        posArray[i3 + 2] += velocities[i3 + 2];
+
+        // Add some wave motion
+        posArray[i3 + 1] += Math.sin(time + i * 0.1) * 0.01;
+
+        // Boundary check - wrap around
+        if (Math.abs(posArray[i3]) > 20) velocities[i3] *= -1;
+        if (Math.abs(posArray[i3 + 1]) > 20) velocities[i3 + 1] *= -1;
+        if (Math.abs(posArray[i3 + 2]) > 20) velocities[i3 + 2] *= -1;
+      }
+
+      meshRef.current.geometry.attributes.position.needsUpdate = true;
+
+      // Rotate the entire system
+      meshRef.current.rotation.y += 0.002;
+      meshRef.current.rotation.x += 0.001;
     }
   });
 
-  const geometry = shape === 'sphere' ? <sphereGeometry args={[0.5 * scale, 16, 16]} /> :
-                  shape === 'box' ? <boxGeometry args={[1 * scale, 1 * scale, 1 * scale]} /> :
-                  shape === 'torus' ? <torusGeometry args={[0.5 * scale, 0.2 * scale, 16, 100]} /> :
-                  shape === 'octahedron' ? <octahedronGeometry args={[0.5 * scale]} /> :
-                  shape === 'icosahedron' ? <icosahedronGeometry args={[0.5 * scale]} /> :
-                  <dodecahedronGeometry args={[0.5 * scale]} />;
+  return (
+    <points ref={meshRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          args={[positions, 3]}
+        />
+        <bufferAttribute
+          attach="attributes-color"
+          args={[colorsArray, 3]}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={3}
+        vertexColors
+        transparent
+        opacity={0.8}
+        sizeAttenuation={true}
+        blending={THREE.AdditiveBlending}
+      />
+    </points>
+  );
+};
+
+const FloatingShapes = ({ colors }: { colors: string[] }) => {
+  const shapes = useMemo(() => [
+    { type: 'box', position: [-6, 4, 0] as [number, number, number], scale: 1.5, color: colors[0] },
+    { type: 'sphere', position: [6, -3, 2] as [number, number, number], scale: 1.2, color: colors[1] },
+    { type: 'torus', position: [0, 6, -1] as [number, number, number], scale: 2, color: colors[2] },
+    { type: 'octahedron', position: [-4, -5, 1] as [number, number, number], scale: 1.8, color: colors[3] },
+    { type: 'icosahedron', position: [4, 2, -2] as [number, number, number], scale: 1.3, color: colors[4] },
+  ], [colors]);
 
   return (
-    <Float speed={0.8} rotationIntensity={0.3} floatIntensity={0.8}>
-      <mesh ref={meshRef} position={position}>
-        {geometry}
-        <meshStandardMaterial color={color} transparent opacity={0.6} />
-      </mesh>
-    </Float>
+    <>
+      {shapes.map((shape, index) => (
+        <Float key={index} speed={0.8} rotationIntensity={0.5} floatIntensity={0.8}>
+          <mesh position={shape.position}>
+            {shape.type === 'box' && <boxGeometry args={[shape.scale, shape.scale, shape.scale]} />}
+            {shape.type === 'sphere' && <sphereGeometry args={[shape.scale * 0.5, 16, 16]} />}
+            {shape.type === 'torus' && <torusGeometry args={[shape.scale * 0.5, shape.scale * 0.2, 16, 100]} />}
+            {shape.type === 'octahedron' && <octahedronGeometry args={[shape.scale * 0.5]} />}
+            {shape.type === 'icosahedron' && <icosahedronGeometry args={[shape.scale * 0.5]} />}
+            <meshStandardMaterial
+              color={shape.color}
+              transparent
+              opacity={0.6}
+              emissive={shape.color}
+              emissiveIntensity={0.1}
+            />
+          </mesh>
+        </Float>
+      ))}
+    </>
   );
 };
 
 const HomePageScene = ({ reduceMotion }: { reduceMotion: boolean }) => {
   // Robotics theme - gears, circuits, robot parts
   const geometries = useMemo(() => [
-    // Robot head (sphere) - moved closer
-    { id: 1, position: [-4, 3, 2] as [number, number, number], color: '#FF6B35', shape: 'sphere', scale: 1.5 },
-    // Robot arms (cylinders represented as boxes) - moved closer
-    { id: 2, position: [3, -2, 3] as [number, number, number], color: '#FF8A65', shape: 'box', scale: 1.2 },
-    { id: 3, position: [-3, -2, 3] as [number, number, number], color: '#FF8A65', shape: 'box', scale: 1.2 },
-    // Gears (toruses) - moved closer
-    { id: 4, position: [-2, -3, 1] as [number, number, number], color: '#FFA726', shape: 'torus', scale: 2.0 },
-    { id: 5, position: [2, -3, 1] as [number, number, number], color: '#FFA726', shape: 'torus', scale: 1.8 },
-    // Circuit patterns (octahedrons) - moved closer
-    { id: 6, position: [4, 2, 4] as [number, number, number], color: '#FF5722', shape: 'octahedron', scale: 1.5 },
-    { id: 7, position: [-4, 2, 4] as [number, number, number], color: '#FF5722', shape: 'octahedron', scale: 1.3 },
-    // Robot body (larger box) - moved closer
-    { id: 8, position: [0, 4, 2] as [number, number, number], color: '#E65100', shape: 'box', scale: 2.5 },
-    // Additional robotic elements - moved closer
-    { id: 9, position: [-3, 1, 5] as [number, number, number], color: '#FF9800', shape: 'icosahedron', scale: 1.8 },
-    { id: 10, position: [3, -4, 2] as [number, number, number], color: '#FF6B35', shape: 'dodecahedron', scale: 1.2 },
+    // Robot head (sphere) - walking robot
+    { id: 1, position: [-4, 3, 2] as [number, number, number], color: '#FF6B35', shape: 'sphere', scale: 1.5, animation: 'robot' },
+    // Robot arms (cylinders represented as boxes) - moving
+    { id: 2, position: [3, -2, 3] as [number, number, number], color: '#FF8A65', shape: 'box', scale: 1.2, animation: 'robot' },
+    { id: 3, position: [-3, -2, 3] as [number, number, number], color: '#FF8A65', shape: 'box', scale: 1.2, animation: 'robot' },
+    // Gears (toruses) - rotating gears
+    { id: 4, position: [-2, -3, 1] as [number, number, number], color: '#FFA726', shape: 'torus', scale: 2.0, animation: 'gear' },
+    { id: 5, position: [2, -3, 1] as [number, number, number], color: '#FFA726', shape: 'torus', scale: 1.8, animation: 'gear' },
+    // Circuit patterns (octahedrons) - falling circuits
+    { id: 6, position: [4, 2, 4] as [number, number, number], color: '#FF5722', shape: 'octahedron', scale: 1.5, animation: 'fall' },
+    { id: 7, position: [-4, 2, 4] as [number, number, number], color: '#FF5722', shape: 'octahedron', scale: 1.3, animation: 'fall' },
+    // Robot body (larger box) - walking robot body
+    { id: 8, position: [0, 4, 2] as [number, number, number], color: '#E65100', shape: 'box', scale: 2.5, animation: 'robot' },
+    // Additional robotic elements - floating
+    { id: 9, position: [-3, 1, 5] as [number, number, number], color: '#FF9800', shape: 'icosahedron', scale: 1.8, animation: 'float' },
+    { id: 10, position: [3, -4, 2] as [number, number, number], color: '#FF6B35', shape: 'dodecahedron', scale: 1.2, animation: 'float' },
   ], []);
 
   return (
@@ -58,15 +150,12 @@ const HomePageScene = ({ reduceMotion }: { reduceMotion: boolean }) => {
       <pointLight position={[10, 10, 10]} color="#FF6B35" />
       <pointLight position={[-10, -10, -10]} color="#FFA726" />
       <pointLight position={[0, 0, 10]} color="#FF5722" />
-      {!reduceMotion && geometries.map((geo) => (
-        <FloatingGeometry
-          key={geo.id}
-          position={geo.position}
-          color={geo.color}
-          shape={geo.shape}
-          scale={geo.scale}
-        />
-      ))}
+      {!reduceMotion && (
+        <>
+          <ParticleSystem count={150} colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+          <FloatingShapes colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+        </>
+      )}
     </>
   );
 };
@@ -97,15 +186,12 @@ const WhyUsPageScene = ({ reduceMotion }: { reduceMotion: boolean }) => {
       <ambientLight intensity={0.5} />
       <pointLight position={[7, 7, 7]} color="#FFD54F" />
       <pointLight position={[-7, -7, -7]} color="#FFA726" />
-      {!reduceMotion && geometries.map((geo) => (
-        <FloatingGeometry
-          key={geo.id}
-          position={geo.position}
-          color={geo.color}
-          shape={geo.shape}
-          scale={geo.scale}
-        />
-      ))}
+      {!reduceMotion && (
+        <>
+          <ParticleSystem count={150} colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+          <FloatingShapes colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+        </>
+      )}
     </>
   );
 };
@@ -136,15 +222,12 @@ const CurriculumPageScene = ({ reduceMotion }: { reduceMotion: boolean }) => {
       <ambientLight intensity={0.6} />
       <pointLight position={[6, 6, 6]} color="#FFD54F" />
       <pointLight position={[-6, -6, -6]} color="#4CAF50" />
-      {!reduceMotion && geometries.map((geo) => (
-        <FloatingGeometry
-          key={geo.id}
-          position={geo.position}
-          color={geo.color}
-          shape={geo.shape}
-          scale={geo.scale}
-        />
-      ))}
+      {!reduceMotion && (
+        <>
+          <ParticleSystem count={150} colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+          <FloatingShapes colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+        </>
+      )}
     </>
   );
 };
@@ -175,15 +258,12 @@ const ContactPageScene = ({ reduceMotion }: { reduceMotion: boolean }) => {
       <ambientLight intensity={0.4} />
       <pointLight position={[9, 9, 9]} color="#2196F3" />
       <pointLight position={[-9, -9, -9]} color="#4CAF50" />
-      {!reduceMotion && geometries.map((geo) => (
-        <FloatingGeometry
-          key={geo.id}
-          position={geo.position}
-          color={geo.color}
-          shape={geo.shape}
-          scale={geo.scale}
-        />
-      ))}
+      {!reduceMotion && (
+        <>
+          <ParticleSystem count={150} colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+          <FloatingShapes colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+        </>
+      )}
     </>
   );
 };
@@ -216,15 +296,12 @@ const CoachesPageScene = ({ reduceMotion }: { reduceMotion: boolean }) => {
       <ambientLight intensity={0.5} />
       <pointLight position={[7, 7, 7]} color="#FFD54F" />
       <pointLight position={[-7, -7, -7]} color="#4CAF50" />
-      {!reduceMotion && geometries.map((geo) => (
-        <FloatingGeometry
-          key={geo.id}
-          position={geo.position}
-          color={geo.color}
-          shape={geo.shape}
-          scale={geo.scale}
-        />
-      ))}
+      {!reduceMotion && (
+        <>
+          <ParticleSystem count={150} colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+          <FloatingShapes colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+        </>
+      )}
     </>
   );
 };
@@ -256,15 +333,12 @@ const LocationsPageScene = ({ reduceMotion }: { reduceMotion: boolean }) => {
       <ambientLight intensity={0.6} />
       <pointLight position={[8, 8, 8]} color="#2196F3" />
       <pointLight position={[-8, -8, -8]} color="#4CAF50" />
-      {!reduceMotion && geometries.map((geo) => (
-        <FloatingGeometry
-          key={geo.id}
-          position={geo.position}
-          color={geo.color}
-          shape={geo.shape}
-          scale={geo.scale}
-        />
-      ))}
+      {!reduceMotion && (
+        <>
+          <ParticleSystem count={150} colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+          <FloatingShapes colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+        </>
+      )}
     </>
   );
 };
@@ -296,15 +370,12 @@ const PartnershipsPageScene = ({ reduceMotion }: { reduceMotion: boolean }) => {
       <ambientLight intensity={0.4} />
       <pointLight position={[9, 9, 9]} color="#2196F3" />
       <pointLight position={[-9, -9, -9]} color="#9C27B0" />
-      {!reduceMotion && geometries.map((geo) => (
-        <FloatingGeometry
-          key={geo.id}
-          position={geo.position}
-          color={geo.color}
-          shape={geo.shape}
-          scale={geo.scale}
-        />
-      ))}
+      {!reduceMotion && (
+        <>
+          <ParticleSystem count={150} colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+          <FloatingShapes colors={['#FF6B35', '#4CAF50', '#2196F3', '#9C27B0', '#FF9800']} />
+        </>
+      )}
     </>
   );
 };

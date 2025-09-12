@@ -44,18 +44,18 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   ];
 
   const drawer = (
-    <Box sx={{ width: 250, backgroundColor: '#ffffff', height: '100%' }}>
+    <Box sx={{ width: 250, backgroundColor: '#0a1929', height: '100%' }}>
       <Box sx={{ p: 2, borderBottom: '1px solid #e0e6ed' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-          <img src="/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '32px', width: '32px', marginRight: '8px', objectFit: 'cover', borderRadius: '50%', border: '2px solid #3498db' }} />
+          <img src="/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '32px', width: '32px', marginRight: '8px', objectFit: 'cover', borderRadius: '50%' }} />
           <Typography variant="h6" sx={{ color: '#3498db', fontWeight: 'bold' }}>
             PixelVerse Learning Academy
           </Typography>
         </Box>
-        <Typography variant="body2" sx={{ color: '#2c3e50' }}>
+        <Typography variant="body2" sx={{ color: 'white' }}>
           (919) 446-4981
         </Typography>
-        <Typography variant="body2" sx={{ color: '#2c3e50' }}>
+        <Typography variant="body2" sx={{ color: 'white' }}>
           vinodht@pixelverseacademy.com
         </Typography>
       </Box>
@@ -89,8 +89,18 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <AppBar position="sticky" sx={{ background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 100%)' }}>
-        <Toolbar>
+      <AppBar
+        position="sticky"
+        sx={{
+          background: 'rgba(10, 25, 41, 0.95)',
+          backdropFilter: 'blur(15px)',
+          borderBottom: 'none',
+          boxShadow: 'none',
+          margin: 0,
+          padding: 0,
+        }}
+      >
+        <Toolbar sx={{ minHeight: '64px', px: 0, py: 0 }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -102,8 +112,8 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </IconButton>
           
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-            <img src="/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '40px', width: '40px', marginRight: '12px', objectFit: 'cover', borderRadius: '50%', border: '2px solid #3498db' }} />
-            <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
+            <img src="/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '40px', width: '40px', marginRight: '12px', objectFit: 'cover', borderRadius: '50%' }} />
+            <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: 'white' }}>
                 PixelVerse Learning Academy
             </Typography>
         </Box>
@@ -116,7 +126,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 component={RouterLink}
                 to={item.path}
                 sx={{
-                  color: '#2c3e50',
+                  color: 'white',
                   fontWeight: location.pathname === item.path ? 'bold' : 'normal',
                   textTransform: 'none',
                   '&:hover': {
@@ -137,10 +147,10 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             ml: 4,
             textAlign: 'right'
           }}>
-            <Typography variant="body2" sx={{ color: '#2c3e50', fontSize: '0.875rem', lineHeight: 1.2 }}>
+            <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2 }}>
               (919) 446-4981
             </Typography>
-            <Typography variant="body2" sx={{ color: '#2c3e50', fontSize: '0.875rem', lineHeight: 1.2 }}>
+            <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2 }}>
               vinodht@pixelverseacademy.com
             </Typography>
           </Box>
@@ -160,7 +170,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             width: 250,
-            backgroundColor: '#ffffff',
+            backgroundColor: '#0a1929',
           },
         }}
       >
@@ -176,8 +186,8 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <Box
         component="footer"
         sx={{
-          background: 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%)',
-          borderTop: '1px solid #333333',
+          background: 'linear-gradient(135deg, #0a1929 0%, #0f1419 100%)',
+          borderTop: '1px solid #0a1929',
           py: 4,
           mt: 'auto',
         }}
@@ -187,7 +197,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Grid item xs={12} md={4}>
                 
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <Typography variant="h6" sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
+                <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold' }}>
                   PixelVerse Learning Academy
                 </Typography>
               </Box>
@@ -196,22 +206,22 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Grid>
             
             <Grid item xs={12} md={4}>
-              <Typography variant="h6" gutterBottom sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
+              <Typography variant="h6" gutterBottom sx={{ color: 'white', fontWeight: 'bold' }}>
                 Contact Info
               </Typography>
-              <Typography variant="body2" sx={{ color: '#2c3e50' }}>
+              <Typography variant="body2" sx={{ color: 'white' }}>
                 Phone: (919) 446-4981
               </Typography>
-              <Typography variant="body2" sx={{ color: '#2c3e50' }}>
+              <Typography variant="body2" sx={{ color: 'white' }}>
                 Email: vinodht@pixelverseacademy.com
               </Typography>
-              <Typography variant="body2" sx={{ color: '#2c3e50' }}>
+              <Typography variant="body2" sx={{ color: 'white' }}>
                 Locations: Durham & Holly Springs, NC
               </Typography>
             </Grid>
             
             <Grid item xs={12} md={4}>
-              <Typography variant="h6" gutterBottom sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
+              <Typography variant="h6" gutterBottom sx={{ color: 'white', fontWeight: 'bold' }}>
                 Quick Links
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 1 }}>
@@ -222,7 +232,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     to={item.path}
                     size="small"
                     sx={{
-                      color: '#2c3e50',
+                      color: 'white',
                       textTransform: 'none',
                       fontSize: '0.875rem',
                       minWidth: 'auto',
@@ -241,8 +251,8 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Grid>
           </Grid>
           
-          <Box sx={{ borderTop: '1px solid #333333', mt: 4, pt: 2, textAlign: 'center' }}>
-            <Typography variant="body2" sx={{ color: '#2c3e50' }}>
+          <Box sx={{ borderTop: '1px solid #0a1929', mt: 4, pt: 2, textAlign: 'center' }}>
+            <Typography variant="body2" sx={{ color: 'white' }}>
               © 2024 PixelVerse Learning Academy. All rights reserved.
             </Typography>
           </Box>
