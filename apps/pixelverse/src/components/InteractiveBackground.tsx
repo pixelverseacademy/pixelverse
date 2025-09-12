@@ -5,12 +5,15 @@ import * as THREE from 'three';
 
 const ParticleSystem = ({ count = 100, colors }: { count?: number, colors: string[] }) => {
   const meshRef = useRef<THREE.Points>(null);
-  const positions = useMemo(() => new Float32Array(count * 3), [count]);
-  const velocities = useMemo(() => new Float32Array(count * 3), [count]);
-  const colorsArray = useMemo(() => new Float32Array(count * 3), [count]);
+  const [positions] = useState(() => new Float32Array(count * 3));
+  const [velocities] = useState(() => new Float32Array(count * 3));
+  const [colorsArray] = useState(() => new Float32Array(count * 3));
+  const [initialized, setInitialized] = useState(false);
 
   // Initialize particles
   useEffect(() => {
+    if (initialized) return;
+
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;
 
@@ -28,52 +31,64 @@ const ParticleSystem = ({ count = 100, colors }: { count?: number, colors: strin
       velocities[i3 + 1] = (Math.random() - 0.5) * 0.02;
       velocities[i3 + 2] = (Math.random() - 0.5) * 0.02;
 
-      // Random colors
-      const color = new THREE.Color(colors[Math.floor(Math.random() * colors.length)]);
+      // Random colors - ensure we always have valid colors
+      const colorIndex = Math.floor(Math.random() * colors.length);
+      const color = new THREE.Color(colors[colorIndex] || '#FF6B35');
       colorsArray[i3] = color.r;
       colorsArray[i3 + 1] = color.g;
       colorsArray[i3 + 2] = color.b;
     }
-  }, [count, positions, velocities, colorsArray, colors]);
+
+    setInitialized(true);
+  }, [count, colors, positions, velocities, colorsArray, initialized]);
 
   useFrame((state) => {
-    if (meshRef.current && meshRef.current.geometry.attributes.position) {
-      const time = state.clock.elapsedTime;
-      const posArray = meshRef.current.geometry.attributes.position.array as Float32Array;
+    if (!meshRef.current || !meshRef.current.geometry || !initialized) return;
 
-      for (let i = 0; i < count; i++) {
-        const i3 = i * 3;
+    const geometry = meshRef.current.geometry;
+    const positionAttr = geometry.attributes.position;
+    const colorAttr = geometry.attributes.color;
 
-        // Update positions with velocities
-        posArray[i3] += velocities[i3];
-        posArray[i3 + 1] += velocities[i3 + 1];
-        posArray[i3 + 2] += velocities[i3 + 2];
+    if (!positionAttr || !colorAttr) return;
 
-        // Add some wave motion
-        posArray[i3 + 1] += Math.sin(time + i * 0.1) * 0.01;
+    const time = state.clock.elapsedTime;
+    const posArray = positionAttr.array as Float32Array;
 
-        // Boundary check - wrap around
-        if (Math.abs(posArray[i3]) > 20) velocities[i3] *= -1;
-        if (Math.abs(posArray[i3 + 1]) > 20) velocities[i3 + 1] *= -1;
-        if (Math.abs(posArray[i3 + 2]) > 20) velocities[i3 + 2] *= -1;
-      }
+    for (let i = 0; i < count; i++) {
+      const i3 = i * 3;
 
-      meshRef.current.geometry.attributes.position.needsUpdate = true;
+      // Update positions with velocities
+      posArray[i3] += velocities[i3];
+      posArray[i3 + 1] += velocities[i3 + 1];
+      posArray[i3 + 2] += velocities[i3 + 2];
 
-      // Rotate the entire system
-      meshRef.current.rotation.y += 0.002;
-      meshRef.current.rotation.x += 0.001;
+      // Add some wave motion
+      posArray[i3 + 1] += Math.sin(time + i * 0.1) * 0.01;
+
+      // Boundary check - wrap around
+      if (Math.abs(posArray[i3]) > 20) velocities[i3] *= -1;
+      if (Math.abs(posArray[i3 + 1]) > 20) velocities[i3 + 1] *= -1;
+      if (Math.abs(posArray[i3 + 2]) > 20) velocities[i3 + 2] *= -1;
     }
+
+    positionAttr.needsUpdate = true;
+    colorAttr.needsUpdate = true;
+
+    // Rotate the entire system
+    meshRef.current.rotation.y += 0.002;
+    meshRef.current.rotation.x += 0.001;
   });
 
   return (
-    <points ref={meshRef}>
-      <bufferGeometry>
+    <points key={`particles-${count}`} ref={meshRef}>
+      <bufferGeometry key={`geometry-${count}`}>
         <bufferAttribute
+          key={`position-${count}`}
           attach="attributes-position"
           args={[positions, 3]}
         />
         <bufferAttribute
+          key={`color-${count}`}
           attach="attributes-color"
           args={[colorsArray, 3]}
         />
@@ -418,19 +433,33 @@ const ThreeBackground = ({ page }: { page?: string }) => {
 
   return (
     <div
+      key={`background-${page || 'default'}`}
       style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
       aria-hidden="true"
     >
       <Canvas
+        key={`canvas-${page || 'default'}`}
         camera={{ position: [0, 0, 8], fov: 60 }}
         gl={{ antialias: true, alpha: true }}
         dpr={[1, 2]}
       >
         <Suspense fallback={
-          <mesh>
-            <boxGeometry args={[1, 1, 1]} />
-            <meshBasicMaterial color="#FF6B35" />
-          </mesh>
+          <group>
+            <mesh position={[-2, 0, 0]}>
+              <sphereGeometry args={[0.5, 16, 16]} />
+              <meshBasicMaterial color="#FF6B35" />
+            </mesh>
+            <mesh position={[0, 0, 0]}>
+              <boxGeometry args={[0.8, 0.8, 0.8]} />
+              <meshBasicMaterial color="#4CAF50" />
+            </mesh>
+            <mesh position={[2, 0, 0]}>
+              <sphereGeometry args={[0.5, 16, 16]} />
+              <meshBasicMaterial color="#2196F3" />
+            </mesh>
+            <ambientLight intensity={0.5} />
+            <pointLight position={[5, 5, 5]} color="#FF6B35" />
+          </group>
         }>
           {renderScene()}
         </Suspense>
