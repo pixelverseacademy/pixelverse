@@ -201,8 +201,8 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   PixelVerse Learning Academy
                 </Typography>
               </Box>
-                Empowering the next generation of innovators through comprehensive 
-                technology education in Durham and Holly Springs, NC.
+                Empowering the next generation of innovators through comprehensive
+                technology education in Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC.
             </Grid>
             
             <Grid item xs={12} md={4}>
@@ -216,7 +216,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 Email: vinodht@pixelverseacademy.com
               </Typography>
               <Typography variant="body2" sx={{ color: 'white' }}>
-                Locations: Durham & Holly Springs, NC
+                Locations: Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest & Chapel Hill, NC
               </Typography>
             </Grid>
             

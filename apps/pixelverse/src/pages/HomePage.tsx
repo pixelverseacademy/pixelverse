@@ -186,7 +186,7 @@ const HomePage: React.FC = () => {
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', mb: 6, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
             Empowering students ages 6-17 with cutting-edge technology education through
-            hands-on coding, robotics, AI, and STEM programs in Durham and Holly Springs, NC.
+            hands-on coding, robotics, AI, and STEM programs in Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', mb: 4 }}>
             <Chip
