@@ -270,7 +270,7 @@ const ContactPageWithSEO = () => (
   <>
     <SEOHead
       title="Contact PixelVerse Learning Academy - Durham & Holly Springs Technology Education"
-      description="Get in touch with PixelVerse Learning Academy. Call (919) 446-4981 or email vinodht@pixelverseacademy.com. Free trial sessions available. Serving Durham and Holly Springs, NC."
+      description="Get in touch with PixelVerse Learning Academy. Call (919) 446-4981 or email learning@pixelverseacademy.com. Free trial sessions available. Serving Durham and Holly Springs, NC."
       keywords="contact coding school Durham, technology education contact, free trial coding classes, Durham STEM education, Holly Springs robotics classes"
     />
     <ContactPage />

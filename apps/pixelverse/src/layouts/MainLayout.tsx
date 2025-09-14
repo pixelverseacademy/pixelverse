@@ -56,7 +56,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           (919) 446-4981
         </Typography>
         <Typography variant="body2" sx={{ color: 'white' }}>
-          vinodht@pixelverseacademy.com
+          learning@pixelverseacademy.com
         </Typography>
       </Box>
       <List>
@@ -151,7 +151,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               (919) 446-4981
             </Typography>
             <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2 }}>
-              vinodht@pixelverseacademy.com
+              learning@pixelverseacademy.com
             </Typography>
           </Box>
         </Toolbar>
@@ -224,7 +224,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 Phone: (919) 446-4981
               </Typography>
               <Typography variant="body2" sx={{ color: 'white' }}>
-                Email: vinodht@pixelverseacademy.com
+                Email: learning@pixelverseacademy.com
               </Typography>
               <Typography variant="body2" sx={{ color: 'white' }}>
                 Locations: Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest & Chapel Hill, NC

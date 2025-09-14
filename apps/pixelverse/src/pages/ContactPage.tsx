@@ -80,7 +80,7 @@ const ContactPage: React.FC = () => {
                 Send us an email anytime
               </Typography>
               <Typography variant="body1" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-                vinodht@pixelverseacademy.com
+                learning@pixelverseacademy.com
               </Typography>
             </Paper>
           </Grid>
@@ -320,7 +320,7 @@ const ContactPage: React.FC = () => {
               variant="contained"
               size="large"
               startIcon={<EmailIcon />}
-              href="mailto:vinodht@pixelverseacademy.com"
+              href="mailto:learning@pixelverseacademy.com"
               sx={{ 
                 px: 4, 
                 py: 2, 
