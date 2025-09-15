@@ -212,8 +212,8 @@ const SEOHead: React.FC<{ title: string; description: string; keywords?: string 
 // Page components with SEO
 const HomePageWithSEO = () => (
   <>
-    <SEOHead 
-      title="PixelVerse Learning Academy - Kids Coding & Robotics Classes in Durham & Holly Springs, NC"
+    <SEOHead
+      title="PathForge Learning - Kids Coding & Robotics Classes in Durham & Holly Springs, NC"
       description="Leading technology education academy in Durham and Holly Springs, NC. Expert coding, robotics, AI, and STEM classes for kids ages 6-17. Free trial sessions available!"
       keywords="kids coding Durham, robotics classes Holly Springs, STEM education North Carolina, programming for kids, AI classes children, Minecraft coding, Python programming kids"
     />
@@ -223,9 +223,9 @@ const HomePageWithSEO = () => (
 
 const WhyUsPageWithSEO = () => (
   <>
-    <SEOHead 
-      title="Why Choose PixelVerse Learning Academy - Expert STEM Education in Durham, NC"
-      description="Discover why PixelVerse Learning Academy is the top choice for technology education in Durham and Holly Springs. Expert instructors, project-based learning, and proven results."
+    <SEOHead
+      title="Why Choose PathForge Learning - Expert STEM Education in Durham, NC"
+      description="Discover why PathForge Learning is the top choice for technology education in Durham and Holly Springs. Expert instructors, project-based learning, and proven results."
       keywords="best coding school Durham, STEM education benefits, expert instructors, project-based learning, technology education advantages"
     />
     <WhyUsPage />
@@ -245,8 +245,8 @@ const CurriculumPageWithSEO = () => (
 
 const LocationsPageWithSEO = () => (
   <>
-    <SEOHead 
-      title="PixelVerse Learning Academy Locations - Durham & Holly Springs, NC"
+    <SEOHead
+      title="PathForge Learning Locations - Durham & Holly Springs, NC"
       description="Visit our state-of-the-art facilities in Durham and Holly Springs, NC. Modern computer labs, robotics workshops, and 3D printing facilities. Free parking available."
       keywords="coding classes Durham NC, robotics classes Holly Springs, STEM education locations, computer lab Durham, technology education facilities"
     />
@@ -257,9 +257,9 @@ const LocationsPageWithSEO = () => (
 
 const PartnershipsPageWithSEO = () => (
   <>
-    <SEOHead 
+    <SEOHead
       title="School Partnerships - Bring Technology Education to Your School"
-      description="Partner with PixelVerse Learning Academy to enhance your school's STEM offerings. After-school programs, summer camps, teacher training, and competition teams available."
+      description="Partner with PathForge Learning to enhance your school's STEM offerings. After-school programs, summer camps, teacher training, and competition teams available."
       keywords="school partnerships STEM, after-school coding programs, teacher training technology, robotics competition teams, school technology education"
     />
     <PartnershipsPage />
@@ -269,8 +269,8 @@ const PartnershipsPageWithSEO = () => (
 const ContactPageWithSEO = () => (
   <>
     <SEOHead
-      title="Contact PixelVerse Learning Academy - Durham & Holly Springs Technology Education"
-      description="Get in touch with PixelVerse Learning Academy. Call (919) 446-4981 or email learning@pixelverseacademy.com. Free trial sessions available. Serving Durham and Holly Springs, NC."
+      title="Contact PathForge Learning - Durham & Holly Springs Technology Education"
+      description="Get in touch with PathForge Learning. Call (919) 446-4981 or email info@pathforgelearning.com. Free trial sessions available. Serving Durham and Holly Springs, NC."
       keywords="contact coding school Durham, technology education contact, free trial coding classes, Durham STEM education, Holly Springs robotics classes"
     />
     <ContactPage />
@@ -280,8 +280,8 @@ const ContactPageWithSEO = () => (
 const CoachesPageWithSEO = () => (
   <>
     <SEOHead
-      title="Meet Our Expert Instructors - PixelVerse Learning Academy"
-      description="Learn from industry professionals and experienced educators at PixelVerse Learning Academy. Meet our expert coding, robotics, and STEM instructors in Durham and Holly Springs."
+      title="Meet Our Expert Instructors - PathForge Learning"
+      description="Learn from industry professionals and experienced educators at PathForge Learning. Meet our expert coding, robotics, and STEM instructors in Durham and Holly Springs."
       keywords="coding instructors Durham, robotics teachers Holly Springs, STEM educators, expert technology teachers, coding coaches"
     />
     <CoachesPage />
@@ -310,3 +310,4 @@ export function App() {
 }
 
 export default App;
+

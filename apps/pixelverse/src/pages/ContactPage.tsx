@@ -80,7 +80,7 @@ const ContactPage: React.FC = () => {
                 Send us an email anytime
               </Typography>
               <Typography variant="body1" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-                learning@pixelverseacademy.com
+                info@pathforgelearning.com
               </Typography>
             </Paper>
           </Grid>
@@ -313,14 +313,14 @@ const ContactPage: React.FC = () => {
           </Typography>
           <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
             Contact us today to schedule your free trial session and see why students 
-            love learning with PixelVerse Learning Academy.
+            love learning with PathForge Learning.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button
               variant="contained"
               size="large"
               startIcon={<EmailIcon />}
-              href="mailto:learning@pixelverseacademy.com"
+              href="mailto:info@pathforgelearning.com"
               sx={{ 
                 px: 4, 
                 py: 2, 

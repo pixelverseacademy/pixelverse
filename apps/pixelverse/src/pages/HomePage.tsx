@@ -175,7 +175,7 @@ const HomePage: React.FC = () => {
                 lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 }
               }}
             >
-              PixelVerse Learning Academy
+              PathForge Learning
             </Typography>
           </Box>
           </Box>
@@ -425,7 +425,7 @@ const HomePage: React.FC = () => {
             gutterBottom
             sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}
           >
-            Why Choose PixelVerse Learning Academy?
+            Why Choose PathForge Learning?
           </Typography>
           <Grid container spacing={4} justifyContent="center" alignItems="stretch">
             {[

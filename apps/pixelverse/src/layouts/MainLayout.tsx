@@ -47,16 +47,16 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <Box sx={{ width: 250, backgroundColor: '#0a1929', height: '100%' }}>
       <Box sx={{ p: 2, borderBottom: '1px solid #e0e6ed' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-          <img src="/public/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '32px', width: '32px', marginRight: '8px', objectFit: 'cover', borderRadius: '50%' }} />
+          <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '32px', width: '32px', marginRight: '8px', objectFit: 'cover', borderRadius: '50%' }} />
           <Typography variant="h6" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-            PixelVerse Learning Academy
+            PathForge Learning
           </Typography>
         </Box>
         <Typography variant="body2" sx={{ color: 'white' }}>
           (919) 446-4981
         </Typography>
         <Typography variant="body2" sx={{ color: 'white' }}>
-          learning@pixelverseacademy.com
+          info@pathforgelearning.com
         </Typography>
       </Box>
       <List>
@@ -112,9 +112,9 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </IconButton>
           
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-            <img src="/public/logo.png" alt="PixelVerse Learning Academy Logo" style={{ height: '40px', width: '40px', marginRight: '12px', marginTop: '-2px', objectFit: 'cover', borderRadius: '50%' }} />
+            <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '40px', width: '40px', marginRight: '12px', marginTop: '-2px', objectFit: 'cover', borderRadius: '50%' }} />
             <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: 'white' }}>
-                PixelVerse Learning Academy
+                PathForge Learning
             </Typography>
         </Box>
           
@@ -151,8 +151,8 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               (919) 446-4981
             </Typography>
             <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2 }}>
-              learning@pixelverseacademy.com
-            </Typography>
+            info@pathforgelearning.com
+          </Typography>
           </Box>
         </Toolbar>
       </AppBar>
@@ -198,7 +198,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <Typography variant="h6" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-                PixelVerse Learning Academy
+                PathForge Learning
               </Typography>
             </Box>
               <Typography
@@ -224,7 +224,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 Phone: (919) 446-4981
               </Typography>
               <Typography variant="body2" sx={{ color: 'white' }}>
-                Email: learning@pixelverseacademy.com
+                Email: info@pathforgelearning.com
               </Typography>
               <Typography variant="body2" sx={{ color: 'white' }}>
                 Locations: Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest & Chapel Hill, NC
@@ -264,7 +264,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           
           <Box sx={{ borderTop: '1px solid #0a1929', mt: 4, pt: 2, textAlign: 'center' }}>
             <Typography variant="body2" sx={{ color: 'white' }}>
-              © 2024 PixelVerse Learning Academy. All rights reserved.
+              © 2024 PathForge Learning. All rights reserved.
             </Typography>
           </Box>
         </Container>
