@@ -112,7 +112,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: '#f8f9ff',
-          border: '1px solid #e0e6ed',
+          // border: '1px solid #e0e6ed',
         },
       },
     },
