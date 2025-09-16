@@ -27,6 +27,7 @@ import {
   Instagram as InstagramIcon,
 } from '@mui/icons-material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
@@ -195,6 +196,9 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </Box>
         </Toolbar>
       </AppBar>
+
+      {/* Breadcrumb Navigation */}
+      <Breadcrumb />
 
       {/* Mobile Drawer */}
       <Drawer
