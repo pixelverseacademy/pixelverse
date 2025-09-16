@@ -1,5 +1,5 @@
 import React from 'react';
-import ThreeBackground from '../components/InteractiveBackground';
+import PathForgeBackground, { getThemeColors } from '../components/PathForgeBackground';
 import {
   Box,
   Container,
@@ -24,6 +24,7 @@ import {
 } from '@mui/icons-material';
 
 const PartnershipsPage: React.FC = () => {
+  const theme = getThemeColors('partnerships');
   const partnershipOpportunities = [
     {
       title: 'After-School Programs',
@@ -142,26 +143,26 @@ const PartnershipsPage: React.FC = () => {
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <ThreeBackground page="partnerships" />
-        <Container maxWidth="lg">
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', mb: 4 }}>
+        <PathForgeBackground page="partnerships" />
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: theme.text, mb: 4, position: 'relative', zIndex: 3 }}>
             School Partnerships
           </Typography>
-          <Typography variant="h5" sx={{ mb: 6, opacity: 0.9 }}>
+          <Typography variant="h5" sx={{ mb: 6, opacity: 0.9, color: theme.secondaryText, position: 'relative', zIndex: 3 }}>
             Bring cutting-edge technology education to your school
           </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 3 }}>
             <Chip
               label="Custom Programs"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#2c3e50' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
               label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#2c3e50' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
               label="Flexible Scheduling"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#2c3e50' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff9800', color: 'white', fontWeight: 'bold' }}
             />
           </Box>
         </Container>

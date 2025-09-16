@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ThreeBackground from '../components/InteractiveBackground';
+import PathForgeBackground, { getThemeColors } from '../components/PathForgeBackground';
 import {
   Box,
   Container,
@@ -130,6 +130,7 @@ const carouselImages = [
 
 const HomePage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const theme = getThemeColors('home');
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -159,7 +160,7 @@ const HomePage: React.FC = () => {
           alignItems: 'center',
         }}
       >
-        <ThreeBackground page="home" />
+        <PathForgeBackground page="home" />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 2 }}>
             
@@ -169,7 +170,7 @@ const HomePage: React.FC = () => {
               component="h1"
               sx={{
                 fontWeight: 'bold',
-                color: 'white',
+                color: theme.text,
                 textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
                 fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3.5rem' },
                 lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 }
@@ -179,25 +180,25 @@ const HomePage: React.FC = () => {
             </Typography>
           </Box>
           </Box>
-          <Typography variant="h4" sx={{ mb: 4, opacity: 0.9, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h4" sx={{ mb: 4, opacity: 0.9, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
             Where Young Minds Build the Future
           </Typography>
-          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', mb: 6, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', mb: 6, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
             Empowering students ages 6-17 with cutting-edge technology education through
             hands-on coding, robotics, AI, and STEM programs in Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', mb: 4 }}>
             <Chip
-              label="Free Trial Session"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255,255,255,0.3)', color: '#2c3e50' }}
+              label="Hands-On Learning"
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#9c27b0', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
               label="Small Class Sizes"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255,255,255,0.3)', color: '#2c3e50' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
               label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255,255,255,0.3)', color: '#2c3e50' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
             />
           </Box>
           <Button

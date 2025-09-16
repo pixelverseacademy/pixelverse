@@ -1,5 +1,5 @@
 import React from 'react';
-import ThreeBackground from '../components/InteractiveBackground';
+import PathForgeBackground, { getThemeColors } from '../components/PathForgeBackground';
 import {
   Box,
   Container,
@@ -25,6 +25,7 @@ import {
 } from '@mui/icons-material';
 
 const WhyUsPage: React.FC = () => {
+  const theme = getThemeColors('why-us');
   const features = [
     {
       title: 'Project-Based Learning Approach',
@@ -114,7 +115,7 @@ const WhyUsPage: React.FC = () => {
           overflow: 'hidden',
         }}
       >
-        <ThreeBackground page="why-us" />
+        <PathForgeBackground page="why-us" />
         {/* Cosmic background effect */}
         <Box
           sx={{
@@ -131,10 +132,10 @@ const WhyUsPage: React.FC = () => {
           }}
         />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: theme.text, textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
             Why Choose PathForge Learning?
           </Typography>
-          <Typography variant="h5" sx={{ mb: 4, opacity: 0.9, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h5" sx={{ mb: 4, opacity: 0.9, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
             Empowering the Next Generation of Innovators
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>

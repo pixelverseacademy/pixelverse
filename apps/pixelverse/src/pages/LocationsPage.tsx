@@ -1,5 +1,5 @@
 import React from 'react';
-import ThreeBackground from '../components/InteractiveBackground';
+import PathForgeBackground from '../components/PathForgeBackground';
 import {
   Box,
   Container,
@@ -93,7 +93,7 @@ const LocationsPage: React.FC = () => {
           overflow: 'hidden',
         }}
       >
-        <ThreeBackground page="locations" />
+        <PathForgeBackground page="locations" />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
             Our Locations

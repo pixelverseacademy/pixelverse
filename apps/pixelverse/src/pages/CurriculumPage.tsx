@@ -1,5 +1,5 @@
 import React from 'react';
-import ThreeBackground from '../components/InteractiveBackground';
+import PathForgeBackground, { getThemeColors } from '../components/PathForgeBackground';
 import {
   Box,
   Container,
@@ -32,6 +32,7 @@ import {
 } from '@mui/icons-material';
 
 const CurriculumPage: React.FC = () => {
+  const theme = getThemeColors('curriculum');
   const programs = [
     {
       title: 'Engineering & Robotics',
@@ -190,26 +191,26 @@ const CurriculumPage: React.FC = () => {
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <ThreeBackground page="curriculum" />
-        <Container maxWidth="lg">
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', mb: 4 }}>
+        <PathForgeBackground page="curriculum" />
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: theme.text, mb: 4, position: 'relative', zIndex: 3 }}>
             Comprehensive STEM Curriculum
           </Typography>
-          <Typography variant="h5" sx={{ mb: 6, opacity: 0.9 }}>
+          <Typography variant="h5" sx={{ mb: 6, opacity: 0.9, color: theme.secondaryText, position: 'relative', zIndex: 3 }}>
             Empowering young minds with cutting-edge technology education
           </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 3 }}>
             <Chip
               label="Ages 6-17"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#2c3e50' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
               label="11+ Programs"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#2c3e50' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
               label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#2c3e50' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff9800', color: 'white', fontWeight: 'bold' }}
             />
           </Box>
         </Container>
@@ -441,16 +442,16 @@ const CurriculumPage: React.FC = () => {
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Chip
-              label="Free Trial Session"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
+              label="Hands-On Learning"
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
               label="Small Class Sizes"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2ecc71', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
               label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff9800', color: 'white', fontWeight: 'bold' }}
             />
           </Box>
         </Container>

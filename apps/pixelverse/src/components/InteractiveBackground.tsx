@@ -1,7 +1,4 @@
-import React, { Suspense, useRef, useMemo, useState, useEffect } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Sphere, Box, Torus, Float, Octahedron, Icosahedron, Dodecahedron } from '@react-three/drei';
-import * as THREE from 'three';
+import React, { useEffect, useState, useRef } from 'react';
 
 const ParticleSystem = ({ count = 100, colors }: { count?: number, colors: string[] }) => {
   const meshRef = useRef<THREE.Points>(null);
