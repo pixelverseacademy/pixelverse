@@ -15,6 +15,8 @@ import {
   Phone as PhoneIcon,
   LocationOn as LocationIcon,
   Send as SendIcon,
+  Facebook as FacebookIcon,
+  Instagram as InstagramIcon,
 } from '@mui/icons-material';
 
 const ContactPage: React.FC = () => {
@@ -321,9 +323,9 @@ const ContactPage: React.FC = () => {
               size="large"
               startIcon={<EmailIcon />}
               href="mailto:info@pathforgelearning.com"
-              sx={{ 
-                px: 4, 
-                py: 2, 
+              sx={{
+                px: 4,
+                py: 2,
                 fontSize: '1rem',
                 backgroundColor: '#3498db',
                 '&:hover': {
@@ -341,9 +343,9 @@ const ContactPage: React.FC = () => {
               size="large"
               startIcon={<PhoneIcon />}
               href="tel:+19194464981"
-              sx={{ 
-                px: 4, 
-                py: 2, 
+              sx={{
+                px: 4,
+                py: 2,
                 fontSize: '1rem',
                 borderColor: '#3498db',
                 color: '#3498db',
@@ -357,6 +359,53 @@ const ContactPage: React.FC = () => {
             >
               Call Us
             </Button>
+          </Box>
+
+          {/* Social Media Links */}
+          <Box sx={{ mt: 4, textAlign: 'center' }}>
+            <Typography variant="h6" sx={{ mb: 2, color: '#2c3e50' }}>
+              Follow Us on Social Media
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
+              <Button
+                variant="outlined"
+                startIcon={<FacebookIcon sx={{ color: '#1877f2' }} />}
+                href="https://www.facebook.com/people/PathForge-Learning/61581136042625/"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  borderColor: '#1877f2',
+                  color: '#1877f2',
+                  '&:hover': {
+                    borderColor: '#1877f2',
+                    backgroundColor: 'rgba(24, 119, 242, 0.1)',
+                    transform: 'translateY(-2px)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                Facebook
+              </Button>
+              <Button
+                variant="outlined"
+                startIcon={<InstagramIcon sx={{ color: '#e4405f' }} />}
+                href="https://www.instagram.com/pathforgelearning/"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  borderColor: '#e4405f',
+                  color: '#e4405f',
+                  '&:hover': {
+                    borderColor: '#e4405f',
+                    backgroundColor: 'rgba(228, 64, 95, 0.1)',
+                    transform: 'translateY(-2px)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                Instagram
+              </Button>
+            </Box>
           </Box>
         </Container>
       </Box>

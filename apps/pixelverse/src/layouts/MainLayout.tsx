@@ -23,6 +23,8 @@ import {
   People as PeopleIcon,
   Handshake as PartnershipIcon,
   ContactMail as ContactIcon,
+  Facebook as FacebookIcon,
+  Instagram as InstagramIcon,
 } from '@mui/icons-material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 
@@ -119,30 +121,67 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </Box>
           
           {/* Desktop Navigation */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1, alignItems: 'center' }}>
             {navigationItems.map((item) => (
-              <Button
-                key={item.path}
-                startIcon={item.icon} component={RouterLink}
-                to={item.path}
-                sx={{
-                  color: 'white',
-                  fontWeight: location.pathname === item.path ? 'bold' : 'normal',
-                  textTransform: 'none',
-                  '&:hover': {
-                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
-                  },
-                }}
-              >
-                {item.label}
-              </Button>
+              <Box key={item.path} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Button
+                  startIcon={item.icon} component={RouterLink}
+                  to={item.path}
+                  sx={{
+                    color: 'white',
+                    fontWeight: location.pathname === item.path ? 'bold' : 'normal',
+                    textTransform: 'none',
+                    '&:hover': {
+                      backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                    },
+                  }}
+                >
+                  {item.label}
+                </Button>
+                {item.label === 'Contact' && (
+                  <Box sx={{ display: 'flex', gap: 0.5, ml: 1 }}>
+                    <IconButton
+                      href="https://www.instagram.com/pathforgelearning/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        color: '#e4405f',
+                        p: 0.5,
+                        '&:hover': {
+                          color: '#e4405f',
+                          backgroundColor: 'rgba(228, 64, 95, 0.1)',
+                        },
+                      }}
+                      size="small"
+                    >
+                      <InstagramIcon sx={{ fontSize: '1rem' }} />
+                    </IconButton>
+                    <IconButton
+                      href="https://www.facebook.com/people/PathForge-Learning/61581136042625/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        color: '#1877f2',
+                        p: 0.5,
+                        '&:hover': {
+                          color: '#1877f2',
+                          backgroundColor: 'rgba(24, 119, 242, 0.1)',
+                        },
+                      }}
+                      size="small"
+                    >
+                      <FacebookIcon sx={{ fontSize: '1rem' }} />
+                    </IconButton>
+                  </Box>
+                )}
+              </Box>
             ))}
           </Box>
           
           {/* Contact Info - Desktop Only - Right Aligned */}
-          <Box sx={{ 
-            display: { xs: 'none', lg: 'flex' }, 
-            flexDirection: 'column', 
+          <Box sx={{
+            display: { xs: 'none', lg: 'flex' },
+            flexDirection: 'column',
             alignItems: 'flex-end',
             ml: 4,
             textAlign: 'right'
@@ -258,6 +297,45 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     {item.label}
                   </Button>
                 ))}
+              </Box>
+
+              {/* Social Media Links */}
+              <Box sx={{ mt: 3 }}>
+                <Typography variant="h6" gutterBottom sx={{ color: 'white', fontWeight: 'bold' }}>
+                  Follow Us
+                </Typography>
+                <Box sx={{ display: 'flex', gap: 1 }}>
+                  <IconButton
+                    href="https://www.facebook.com/people/PathForge-Learning/61581136042625/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: '#1877f2',
+                      p: 1,
+                      '&:hover': {
+                        color: '#1877f2',
+                        backgroundColor: 'rgba(24, 119, 242, 0.1)',
+                      },
+                    }}
+                  >
+                    <FacebookIcon />
+                  </IconButton>
+                  <IconButton
+                    href="https://www.instagram.com/pathforgelearning/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: '#e4405f',
+                      p: 1,
+                      '&:hover': {
+                        color: '#e4405f',
+                        backgroundColor: 'rgba(228, 64, 95, 0.1)',
+                      },
+                    }}
+                  >
+                    <InstagramIcon />
+                  </IconButton>
+                </Box>
               </Box>
             </Grid>
           </Grid>
