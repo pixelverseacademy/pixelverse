@@ -66,7 +66,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               {item.icon}
             </ListItemIcon>
             <Button
-              component={RouterLink}
+              startIcon={item.icon} component={RouterLink}
               to={item.path}
               sx={{
                 color: location.pathname === item.path ? '#3498db' : '#ffffff',
@@ -123,7 +123,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             {navigationItems.map((item) => (
               <Button
                 key={item.path}
-                component={RouterLink}
+                startIcon={item.icon} component={RouterLink}
                 to={item.path}
                 sx={{
                   color: 'white',
@@ -239,7 +239,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 {navigationItems.map((item) => (
                   <Button
                     key={item.path}
-                    component={RouterLink}
+                    startIcon={item.icon} component={RouterLink}
                     to={item.path}
                     size="small"
                     sx={{
