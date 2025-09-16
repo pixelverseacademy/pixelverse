@@ -141,7 +141,7 @@ const ContactPage: React.FC = () => {
                 Visit Us
               </Typography>
               <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 2 }}>
-                Come see our facilities
+                Visit us at your school
               </Typography>
               <Typography variant="body1" sx={{ color: '#3498db', fontWeight: 'bold' }}>
                 Durham & Holly Springs, NC

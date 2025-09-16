@@ -213,9 +213,9 @@ const SEOHead: React.FC<{ title: string; description: string; keywords?: string 
 const HomePageWithSEO = () => (
   <>
     <SEOHead
-      title="PathForge Learning - Kids Coding & Robotics Classes in Durham & Holly Springs, NC"
-      description="Leading technology education academy in Durham and Holly Springs, NC. Expert coding, robotics, AI, and STEM classes for kids ages 6-17. Free trial sessions available!"
-      keywords="kids coding Durham, robotics classes Holly Springs, STEM education North Carolina, programming for kids, AI classes children, Minecraft coding, Python programming kids"
+      title="PathForge Learning - Kids Coding PathForge Learning - Kids Coding & Robotics Classes in Durham & Holly Springs, NC Robotics Classes in NC Triangle Area"
+      description="Leading technology education academy serving the Triangle area including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC. Expert coding, robotics, AI, and STEM classes for kids ages 6-17. Free trial sessions available!"
+      keywords="kids coding Triangle NC, robotics classes North Carolina, STEM education Raleigh Durham Cary, programming for kids, AI classes children, Minecraft coding, Python programming kids"
     />
     <HomePage />
   </>
@@ -224,8 +224,8 @@ const HomePageWithSEO = () => (
 const WhyUsPageWithSEO = () => (
   <>
     <SEOHead
-      title="Why Choose PathForge Learning - Expert STEM Education in Durham, NC"
-      description="Discover why PathForge Learning is the top choice for technology education in Durham and Holly Springs. Expert instructors, project-based learning, and proven results."
+      title="Why Choose PathForge Learning - Expert STEM Education in NC Triangle Area"
+      description="Discover why PathForge Learning is the top choice for technology education throughout the Triangle area including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill. Expert instructors, project-based learning, and proven results."
       keywords="best coding school Durham, STEM education benefits, expert instructors, project-based learning, technology education advantages"
     />
     <WhyUsPage />
@@ -236,7 +236,7 @@ const CurriculumPageWithSEO = () => (
   <>
     <SEOHead 
       title="Comprehensive STEM Curriculum - Coding, Robotics & AI Classes for Kids"
-      description="Explore our complete curriculum including Python programming, robotics, AI, Minecraft coding, 3D printing, and more. Ages 6-17. Durham & Holly Springs locations."
+      description="Explore our complete curriculum including Python programming, robotics, AI, Minecraft coding, 3D printing, and more. Ages 6-17. Serving schools throughout the Triangle area including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill."
       keywords="coding curriculum kids, robotics classes curriculum, Python programming kids, AI classes children, Minecraft coding classes, 3D printing education"
     />
     <CurriculumPage />
@@ -246,8 +246,8 @@ const CurriculumPageWithSEO = () => (
 const LocationsPageWithSEO = () => (
   <>
     <SEOHead
-      title="PathForge Learning Locations - Durham & Holly Springs, NC"
-      description="Visit our state-of-the-art facilities in Durham and Holly Springs, NC. Modern computer labs, robotics workshops, and 3D printing facilities. Free parking available."
+      title="PathForge Learning Locations - NC Triangle Area"
+      description="Expert technology education instructors serving schools throughout the Triangle area including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC. We bring cutting-edge coding, robotics, and STEM education directly to your school."
       keywords="coding classes Durham NC, robotics classes Holly Springs, STEM education locations, computer lab Durham, technology education facilities"
     />
     <LocationsPage />
@@ -269,9 +269,9 @@ const PartnershipsPageWithSEO = () => (
 const ContactPageWithSEO = () => (
   <>
     <SEOHead
-      title="Contact PathForge Learning - Durham & Holly Springs Technology Education"
-      description="Get in touch with PathForge Learning. Call (919) 446-4981 or email info@pathforgelearning.com. Free trial sessions available. Serving Durham and Holly Springs, NC."
-      keywords="contact coding school Durham, technology education contact, free trial coding classes, Durham STEM education, Holly Springs robotics classes"
+      title="Contact PathForge Learning - Triangle Area Technology Education"
+      description="Get in touch with PathForge Learning. Call (919) 446-4981 or email info@pathforgelearning.com. Free trial sessions available. Serving schools throughout the Triangle area including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC."
+      keywords="contact coding school Triangle NC, technology education contact, free trial coding classes, Triangle STEM education, North Carolina robotics classes"
     />
     <ContactPage />
   </>
@@ -281,8 +281,8 @@ const CoachesPageWithSEO = () => (
   <>
     <SEOHead
       title="Meet Our Expert Instructors - PathForge Learning"
-      description="Learn from industry professionals and experienced educators at PathForge Learning. Meet our expert coding, robotics, and STEM instructors in Durham and Holly Springs."
-      keywords="coding instructors Durham, robotics teachers Holly Springs, STEM educators, expert technology teachers, coding coaches"
+      description="Learn from industry professionals and experienced educators at PathForge Learning. Meet our expert coding, robotics, and STEM instructors serving schools throughout the Triangle area including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill."
+      keywords="coding instructors Triangle NC, robotics teachers North Carolina, STEM educators, expert technology teachers, coding coaches"
     />
     <CoachesPage />
   </>
