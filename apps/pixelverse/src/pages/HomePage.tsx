@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PathForgeBackground, { getThemeColors } from '../components/PathForgeBackground';
 import {
   Box,
@@ -144,6 +144,15 @@ const HomePage: React.FC = () => {
     );
   };
 
+  // Auto-scroll carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextImage();
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Box sx={{ backgroundColor: '#f0f8ff' }}>
       {/* Hero Section */}
@@ -230,14 +239,14 @@ const HomePage: React.FC = () => {
       {/* Image Carousel */}
       <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
-          Our Robotics and Coding Programs in Action
+          Our Enrichment Programs in Action
         </Typography>
 
         <Box sx={{ position: 'relative', maxWidth: '800px', mx: 'auto' }}>
           <Box
             component="img"
             src={carouselImages[currentImageIndex]}
-            alt={`Robotics program image ${currentImageIndex + 1}`}
+            alt={`Enrichment program image ${currentImageIndex + 1}`}
             sx={{
               width: '100%',
               height: '400px',
