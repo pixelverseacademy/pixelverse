@@ -48,7 +48,7 @@ const ContactPage: React.FC = () => {
 
       {/* Contact Information */}
       <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', color: 'white', mb: 6 }}>
+        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', color: '#3498db', mb: 6 }}>
           Get in Touch
         </Typography>
         
@@ -117,7 +117,7 @@ const ContactPage: React.FC = () => {
             </Paper>
           </Grid>
           
-          <Grid item xs={12} sm={6} md={4}>
+          {/* <Grid item xs={12} sm={6} md={4}>
             <Paper 
               elevation={2} 
               sx={{ 
@@ -147,7 +147,7 @@ const ContactPage: React.FC = () => {
                 Durham & Holly Springs, NC
               </Typography>
             </Paper>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
 
