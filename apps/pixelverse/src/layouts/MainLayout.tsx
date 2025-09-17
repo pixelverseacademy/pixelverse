@@ -23,6 +23,7 @@ import {
   People as PeopleIcon,
   Handshake as PartnershipIcon,
   ContactMail as ContactIcon,
+  Work as WorkIcon,
   Facebook as FacebookIcon,
   Instagram as InstagramIcon,
 } from '@mui/icons-material';
@@ -42,6 +43,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     { label: 'Why Us', path: '/why-us', icon: <CodeIcon /> },
     { label: 'Curriculum', path: '/curriculum', icon: <BuildIcon /> },
     { label: 'Locations', path: '/locations', icon: <LocationIcon /> },
+    { label: 'Careers', path: '/careers', icon: <WorkIcon /> },
     { label: 'Partnerships', path: '/partnerships', icon: <PartnershipIcon /> },
     { label: 'Contact', path: '/contact', icon: <ContactIcon /> },
   ];

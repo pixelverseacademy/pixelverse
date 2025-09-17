@@ -7,6 +7,7 @@ import HomePage from '../pages/HomePage';
 import WhyUsPage from '../pages/WhyUsPage';
 import CurriculumPage from '../pages/CurriculumPage';
 import LocationsPage from '../pages/LocationsPage';
+import CareersPage from '../pages/CareersPage';
 import PartnershipsPage from '../pages/PartnershipsPage';
 import ContactPage from '../pages/ContactPage';
 import CoachesPage from '../pages/CoachesPage';
@@ -481,6 +482,40 @@ const ContactPageWithSEO = () => {
   );
 };
 
+const CareersPageWithSEO = () => {
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pathforgelearning.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Careers",
+        "item": "https://pathforgelearning.com/careers"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <SEOHead
+        title="Careers | Join Our Team | PathForge Learning"
+        description="Join PathForge Learning as a Robotics or Programming Coach. Teach kids coding, robotics & STEM. $14-18/hr, flexible hours, great benefits. Apply now!"
+        keywords="coding coach jobs, robotics coach jobs, STEM teacher jobs, kids coding instructor, technology education jobs, PathForge Learning careers"
+        canonicalUrl="https://pathforgelearning.com/careers"
+        structuredData={breadcrumbStructuredData}
+      />
+      <CareersPage />
+    </>
+  );
+};
+
 const CoachesPageWithSEO = () => {
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
@@ -526,6 +561,7 @@ export function App() {
             <Route path="/why-us" element={<WhyUsPageWithSEO />} />
             <Route path="/curriculum" element={<CurriculumPageWithSEO />} />
             <Route path="/locations" element={<LocationsPageWithSEO />} />
+            <Route path="/careers" element={<CareersPageWithSEO />} />
             <Route path="/partnerships" element={<PartnershipsPageWithSEO />} />
             <Route path="/contact" element={<ContactPageWithSEO />} />
             <Route path="/coaches" element={<CoachesPageWithSEO />} />

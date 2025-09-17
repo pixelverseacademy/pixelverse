@@ -41,6 +41,12 @@ const PathForgeBackground = ({ page }: { page?: string }) => {
           text: '#7b1fa2', // Dark purple for contrast
           secondaryText: '#8e24aa' // Medium purple for secondary text
         };
+      case 'careers':
+        return {
+          background: 'linear-gradient(135deg, #fff8e1 0%, #ffecb3 50%, #ffe082 100%)', // Warm yellow/gold theme
+          text: '#f57f17', // Dark amber for contrast
+          secondaryText: '#ff8f00' // Medium amber for secondary text
+        };
       default:
         return {
           background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%)', // Dark theme for home
@@ -261,6 +267,12 @@ export const getThemeColors = (pageName?: string) => {
         background: 'linear-gradient(135deg, #f3e5f5 0%, #ce93d8 50%, #ba68c8 100%)',
         text: '#7b1fa2',
         secondaryText: '#8e24aa'
+      };
+    case 'careers':
+      return {
+        background: 'linear-gradient(135deg, #fff8e1 0%, #ffecb3 50%, #ffe082 100%)',
+        text: '#f57f17',
+        secondaryText: '#ff8f00'
       };
     default:
       return {

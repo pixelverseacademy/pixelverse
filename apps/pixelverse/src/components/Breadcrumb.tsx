@@ -44,6 +44,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, customItems }) => {
         case 'coaches':
           breadcrumbs.push({ label: 'Coaches', path: '/coaches' });
           break;
+        case 'careers':
+          breadcrumbs.push({ label: 'Careers', path: '/careers' });
+          break;
         default:
           break;
       }
