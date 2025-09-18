@@ -214,7 +214,7 @@ const StemTechnologyPage: React.FC = () => {
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 3 }}>
             <Chip
-              label="Ages 6-17"
+              label="All Ages"
               sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
             />
             <Chip

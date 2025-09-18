@@ -7,6 +7,13 @@ import {
   Grid,
   Card,
   CardContent,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
   Chip,
 } from '@mui/material';
 import {
@@ -14,6 +21,8 @@ import {
   RecordVoiceOver as VoiceIcon,
   Business as BusinessIcon,
   Work as WorkIcon,
+  ExpandMore as ExpandMoreIcon,
+  Check as CheckIcon,
 } from '@mui/icons-material';
 
 const LifeSkillsCareerPrepPage: React.FC = () => {
@@ -90,7 +99,7 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 3 }}>
             <Chip
-              label="Ages 10-17"
+              label="All Ages"
               sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
@@ -140,16 +149,28 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
                     <Typography variant="body1" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
                       {program.description}
                     </Typography>
-                    <Box sx={{ textAlign: 'center' }}>
-                      <Typography variant="subtitle2" sx={{ color: '#2196F3', fontWeight: 'bold', mb: 2 }}>
-                        Program Highlights:
-                      </Typography>
-                      {program.highlights.map((highlight, highlightIndex) => (
-                        <Typography key={highlightIndex} variant="body2" sx={{ color: '#7f8c8d', mb: 1 }}>
-                          • {highlight}
+                    <Accordion sx={{ backgroundColor: '#f0f8f0', border: '1px solid #e0e6ed' }}>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon sx={{ color: '#2196F3' }} />}
+                        sx={{ '& .MuiAccordionSummary-content': { margin: '12px 0' } }}
+                      >
+                        <Typography sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
+                          Program Highlights
                         </Typography>
-                      ))}
-                    </Box>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <List dense>
+                          {program.highlights.map((highlight, highlightIndex) => (
+                            <ListItem key={highlightIndex} sx={{ px: 0 }}>
+                              <ListItemIcon>
+                                <CheckIcon sx={{ color: '#2196F3' }} />
+                              </ListItemIcon>
+                              <ListItemText primary={highlight} sx={{ color: '#7f8c8d' }} />
+                            </ListItem>
+                          ))}
+                        </List>
+                      </AccordionDetails>
+                    </Accordion>
                   </CardContent>
                 </Card>
               </Grid>

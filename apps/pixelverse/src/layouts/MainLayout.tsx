@@ -31,6 +31,8 @@ import {
   Palette as PaletteIcon,
   FitnessCenter as FitnessIcon,
   KeyboardArrowDown as KeyboardArrowDownIcon,
+  ExpandMore as ExpandMoreIcon,
+  ExpandLess as ExpandLessIcon,
 } from '@mui/icons-material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import Breadcrumb from '../components/Breadcrumb';
@@ -39,6 +41,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [programsAnchorEl, setProgramsAnchorEl] = useState<null | HTMLElement>(null);
+  const [mobileProgramsOpen, setMobileProgramsOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -110,8 +113,27 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Button>
           </ListItem>
         ))}
-        {/* Program Buckets in Mobile Drawer */}
-        {programBuckets.map((bucket) => (
+        {/* Programs Section in Mobile Drawer */}
+        <ListItem sx={{ px: 2 }}>
+          <Button
+            startIcon={<BuildIcon />}
+            endIcon={mobileProgramsOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+            onClick={() => setMobileProgramsOpen(!mobileProgramsOpen)}
+            sx={{
+              color: location.pathname.startsWith('/programs') ? '#3498db' : '#ffffff',
+              fontWeight: location.pathname.startsWith('/programs') ? 'bold' : 'normal',
+              textTransform: 'none',
+              justifyContent: 'flex-start',
+              px: 0,
+              '&:hover': {
+                color: '#3498db',
+              },
+            }}
+          >
+            Programs
+          </Button>
+        </ListItem>
+        {mobileProgramsOpen && programBuckets.map((bucket) => (
           <ListItem key={bucket.path} sx={{ px: 4 }}>
             <Button
               component={RouterLink}

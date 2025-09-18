@@ -7,12 +7,22 @@ import {
   Grid,
   Card,
   CardContent,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
   Chip,
 } from '@mui/material';
 import {
   FitnessCenter as FitnessIcon,
   SelfImprovement as YogaIcon,
   Restaurant as NutritionIcon,
+  Extension as ChessIcon,
+  ExpandMore as ExpandMoreIcon,
+  Check as CheckIcon,
 } from '@mui/icons-material';
 
 const HealthSportsWellnessPage: React.FC = () => {
@@ -54,6 +64,18 @@ const HealthSportsWellnessPage: React.FC = () => {
         'Body Image & Self-Care',
       ],
     },
+    {
+      title: 'Chess & Strategy Games',
+      description: 'Develop critical thinking, strategic planning, and problem-solving skills through chess and other strategy games.',
+      icon: <ChessIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
+      highlights: [
+        'Chess Fundamentals',
+        'Strategic Thinking',
+        'Problem-Solving Skills',
+        'Concentration & Focus',
+        'Sportsmanship & Patience',
+      ],
+    },
   ];
 
   return (
@@ -77,11 +99,11 @@ const HealthSportsWellnessPage: React.FC = () => {
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 3 }}>
             <Chip
-              label="Ages 6-17"
+              label="All Ages"
               sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
-              label="3 Programs"
+              label="4 Programs"
               sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
@@ -127,16 +149,28 @@ const HealthSportsWellnessPage: React.FC = () => {
                     <Typography variant="body1" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
                       {program.description}
                     </Typography>
-                    <Box sx={{ textAlign: 'center' }}>
-                      <Typography variant="subtitle2" sx={{ color: '#FF5722', fontWeight: 'bold', mb: 2 }}>
-                        Program Highlights:
-                      </Typography>
-                      {program.highlights.map((highlight, highlightIndex) => (
-                        <Typography key={highlightIndex} variant="body2" sx={{ color: '#7f8c8d', mb: 1 }}>
-                          • {highlight}
+                    <Accordion sx={{ backgroundColor: '#f0f8f0', border: '1px solid #e0e6ed' }}>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon sx={{ color: '#FF5722' }} />}
+                        sx={{ '& .MuiAccordionSummary-content': { margin: '12px 0' } }}
+                      >
+                        <Typography sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
+                          Program Highlights
                         </Typography>
-                      ))}
-                    </Box>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <List dense>
+                          {program.highlights.map((highlight, highlightIndex) => (
+                            <ListItem key={highlightIndex} sx={{ px: 0 }}>
+                              <ListItemIcon>
+                                <CheckIcon sx={{ color: '#FF5722' }} />
+                              </ListItemIcon>
+                              <ListItemText primary={highlight} sx={{ color: '#7f8c8d' }} />
+                            </ListItem>
+                          ))}
+                        </List>
+                      </AccordionDetails>
+                    </Accordion>
                   </CardContent>
                 </Card>
               </Grid>

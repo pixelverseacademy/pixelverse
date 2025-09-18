@@ -152,7 +152,7 @@ const HomePage: React.FC = () => {
             Empowering Minds, Forging Future
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', mb: 6, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            Igniting passions, crafting destinies through comprehensive enrichment programs in STEM & Technology, Creative Arts & Design, Life Skills & Career Prep, Test Prep & Academic Enrichment, and Health, Sports & Wellness for students ages 6-17 in Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC.
+            PathForge Learning offers hands-on STEM enrichment, coding, robotics, and creative programs for kids, teens, and adults. Our after-school classes, camps, and in-school partnerships help learners develop critical thinking, problem-solving, and career-ready skills. We partner with local businesses to provide a wide range of future-ready programs, igniting curiosity and fostering creativity. Join PathForge to explore, create, and grow!
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', mb: 4 }}>
             <Chip
@@ -401,7 +401,7 @@ const HomePage: React.FC = () => {
               },
               {
                 title: 'Expert Instructors',
-                description: 'Learn from experienced professionals passionate about technology education.',
+                description: 'Learn from experienced professionals passionate about enriching education.',
                 icon: <CodeIcon sx={{ fontSize: 50, color: '#3498db' }} />,
               },
               {

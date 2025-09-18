@@ -148,7 +148,7 @@ const SEOHead: React.FC<{
 }> = ({
   title,
   description,
-  keywords = 'coding, robotics, programming, STEM education, kids coding, Durham, Holly Springs, North Carolina',
+  keywords = 'enrichment programs, STEM education, arts education, life skills, academic enrichment, wellness programs, kids activities, Durham, Holly Springs, North Carolina',
   canonicalUrl,
   structuredData
 }) => {
@@ -257,7 +257,7 @@ const organizationStructuredData = {
   "name": "PathForge Learning",
   "url": "https://pathforgelearning.com",
   "logo": "https://pathforgelearning.com/public/logo.png",
-  "description": "Leading technology education academy serving the Triangle area including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC. Expert coding, robotics, AI, and STEM classes for kids ages 6-17.",
+  "description": "Leading enrichment education academy serving the Triangle area including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC. Comprehensive STEM, arts, life skills, academics, and wellness programs for all ages.",
   "address": {
     "@type": "PostalAddress",
     "addressRegion": "NC",
@@ -291,7 +291,7 @@ const websiteStructuredData = {
   "@type": "WebSite",
   "name": "PathForge Learning",
   "url": "https://pathforgelearning.com",
-  "description": "Technology education academy for kids ages 6-17. Coding, robotics, AI, and STEM classes in the Triangle area.",
+  "description": "Comprehensive enrichment education academy for all ages. STEM, arts, life skills, academics, and wellness programs in the Triangle area.",
   "publisher": {
     "@type": "EducationalOrganization",
     "name": "PathForge Learning"
@@ -308,7 +308,7 @@ const HomePageWithSEO = () => (
   <>
     <SEOHead
       title="PathForge Learning | Kids Coding & Robotics Classes | NC Triangle Area"
-      description="Top-rated technology education academy in NC Triangle. Expert coding, robotics, AI & STEM classes for kids ages 6-17. Free trial sessions! Durham, Raleigh, Cary, Apex, Holly Springs."
+      description="Top-rated technology education academy in NC Triangle. Expert coding, robotics, AI & STEM classes for all ages. Free trial sessions! Durham, Raleigh, Cary, Apex, Holly Springs."
       keywords="kids coding classes Triangle NC, robotics classes North Carolina, STEM education Raleigh Durham Cary, programming for kids, AI classes children, Minecraft coding, Python programming kids, technology education academy"
       canonicalUrl="https://pathforgelearning.com"
       structuredData={[organizationStructuredData, websiteStructuredData]}
@@ -375,7 +375,7 @@ const CurriculumPageWithSEO = () => {
     <>
       <SEOHead
         title="STEM Curriculum | Coding, Robotics & AI Classes for Kids | PathForge Learning"
-        description="Complete STEM curriculum for kids ages 6-17. Python programming, robotics, AI, Minecraft coding, 3D printing, Scratch programming. Hands-on technology education in NC Triangle area."
+        description="Complete STEM curriculum for all ages. Python programming, robotics, AI, Minecraft coding, 3D printing, Scratch programming. Hands-on technology education in NC Triangle area."
         keywords="STEM curriculum kids, coding classes children, robotics education, Python programming kids, AI classes children, Minecraft coding classes, 3D printing education, technology curriculum"
         canonicalUrl="https://pathforgelearning.com/curriculum"
         structuredData={breadcrumbStructuredData}
@@ -545,7 +545,7 @@ const CoachesPageWithSEO = () => {
     <>
       <SEOHead
         title="Meet Our Coding Instructors | Expert STEM Teachers | PathForge Learning"
-        description="Meet our expert coding instructors & STEM educators at PathForge Learning. Industry professionals teaching kids ages 6-17. Coding, robotics, AI classes in NC Triangle area."
+        description="Meet our expert coding instructors & STEM educators at PathForge Learning. Industry professionals teaching all ages. Coding, robotics, AI classes in NC Triangle area."
         keywords="coding instructors Triangle NC, robotics teachers North Carolina, STEM educators, expert technology teachers, coding coaches, kids coding teachers"
         canonicalUrl="https://pathforgelearning.com/coaches"
         structuredData={breadcrumbStructuredData}
@@ -585,7 +585,7 @@ const StemTechnologyPageWithSEO = () => {
     <>
       <SEOHead
         title="STEM & Technology Programs | Coding, Robotics & AI Classes | PathForge Learning"
-        description="Comprehensive STEM & Technology programs for kids ages 6-17. Coding, robotics, AI, 3D printing, and more. Hands-on technology education in NC Triangle area."
+        description="Comprehensive STEM & Technology programs for all ages. Coding, robotics, AI, 3D printing, and more. Hands-on technology education in NC Triangle area."
         keywords="STEM programs kids, coding classes children, robotics education, AI classes children, 3D printing education, technology curriculum"
         canonicalUrl="https://pathforgelearning.com/programs/stem-technology"
         structuredData={breadcrumbStructuredData}
