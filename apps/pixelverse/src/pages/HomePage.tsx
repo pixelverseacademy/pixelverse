@@ -29,93 +29,52 @@ import {
   Print as PrintIcon,
   Extension as ScratchIcon,
   Sports as MinecraftIcon,
+  Palette as PaletteIcon,
+  People as PeopleIcon,
+  FitnessCenter as FitnessIcon,
 } from '@mui/icons-material';
 import { Link as RouterLink } from 'react-router-dom';
 
-const courseHighlights = [
+const enrichmentBuckets = [
   {
-    title: 'Engineering & Robotics',
-    description: 'Build and program robots using LEGO, VEX, and micro:bit. Learn engineering principles through hands-on projects.',
-    icon: <BuildIcon sx={{ fontSize: 40 }} />,
-    color: '#3498db',
-    backgroundImage: '/public/programCardImages/robotics 2.jpeg',
-  },
-  {
-    title: 'Minecraft Coding & Modding',
-    description: 'Learn programming by creating mods, designing worlds, and automating tasks in Minecraft.',
-    icon: <MinecraftIcon sx={{ fontSize: 40 }} />,
-    color: '#ff8a65',
-    backgroundImage: '/public/programCardImages/minecraft.png',
-  },
-  {
-    title: 'Python Programming',
-    description: 'Master Python from basics to advanced concepts. Create games, apps, and solve real-world problems.',
+    title: 'STEM & Technology',
+    description: 'Hands-on technology education including coding, robotics, AI, 3D printing, and more. Perfect for future innovators and problem-solvers.',
     icon: <CodeIcon sx={{ fontSize: 40 }} />,
-    color: '#2ecc71',
-    backgroundImage: '/public/programCardImages/Python programming.jpg',
+    color: '#2196F3',
+    path: '/programs/stem-technology',
+    programs: ['Coding (Python, Scratch, Web Dev)', 'Robotics (LEGO, VEX, etc.)', 'Game Design & Animation', 'Generative AI & Machine Learning', 'Electronics & Engineering']
   },
   {
-    title: 'AR and VR Coding',
-    description: 'Create immersive experiences using augmented and virtual reality technologies.',
-    icon: <ARIcon sx={{ fontSize: 40 }} />,
-    color: '#3498db',
-    backgroundImage: '/public/programCardImages/Ar and VR coding.jpg',
+    title: 'Creative Arts & Design',
+    description: 'Unleash creativity through digital art, graphic design, 3D printing, music technology, and storytelling. Express yourself artistically.',
+    icon: <PaletteIcon sx={{ fontSize: 40 }} />,
+    color: '#E91E63',
+    path: '/programs/creative-arts-design',
+    programs: ['Digital Art & Graphic Design', '3D Printing & CAD', 'Music Technology & Production', 'Creative Writing & Storytelling']
   },
   {
-    title: 'Roblox Game Development',
-    description: 'Transform your imagination into interactive Roblox games and share them with the world.',
-    icon: <EsportsIcon sx={{ fontSize: 40 }} />,
-    color: '#ff8a65',
-    backgroundImage: '/public/programCardImages/Roblox game development.png',
+    title: 'Life Skills & Career Prep',
+    description: 'Build essential life skills and career readiness. Develop leadership, communication, entrepreneurship, and professional skills.',
+    icon: <PeopleIcon sx={{ fontSize: 40 }} />,
+    color: '#4CAF50',
+    path: '/programs/life-skills-career-prep',
+    programs: ['Leadership & Teamwork', 'Public Speaking & Debate', 'Entrepreneurship & Financial Literacy', 'Career Exploration Workshops']
   },
   {
-    title: 'AI & Machine Learning',
-    description: 'Explore artificial intelligence and machine learning concepts through hands-on projects.',
-    icon: <AIIcon sx={{ fontSize: 40 }} />,
-    color: '#2ecc71',
-    backgroundImage: '/public/programCardImages/Ai and machine learning.png',
+    title: 'Test Prep & Academic Enrichment',
+    description: 'Excel academically with personalized tutoring, test preparation, and study skills development. Achieve your academic goals.',
+    icon: <SchoolIcon sx={{ fontSize: 40 }} />,
+    color: '#FF9800',
+    path: '/programs/test-prep-academic-enrichment',
+    programs: ['Math & Science Tutoring', 'Reading & Writing Support', 'Standardized Test Prep (SAT, ACT, etc.)', 'Study Skills & Time Management']
   },
   {
-    title: '3D Modeling & Printing',
-    description: 'Design and print 3D objects using professional modeling software and 3D printers.',
-    icon: <PrintIcon sx={{ fontSize: 40 }} />,
-    color: '#3498db',
-    backgroundImage: '/public/programCardImages/3d modeling and printing.png',
-  },
-  {
-    title: 'Scratch Programming',
-    description: 'Learn programming fundamentals through visual, block-based coding with Scratch.',
-    icon: <ScratchIcon sx={{ fontSize: 40 }} />,
-    color: '#ff8a65',
-    backgroundImage: '/public/programCardImages/Scratch programming.png',
-  },
-  {
-    title: 'Content Creation with Drone',
-    description: 'Learn aerial photography, videography, and content creation using drones. Master flight control, camera techniques, and editing software for professional content production.',
-    icon: <DroneIcon sx={{ fontSize: 40 }} />,
-    color: '#2ecc71',
-    backgroundImage: '/public/programCardImages/drone programming.png',
-  },
-  {
-    title: 'Mobile App Development',
-    description: 'Create mobile applications for iOS and Android using modern development tools.',
-    icon: <MobileIcon sx={{ fontSize: 40 }} />,
-    color: '#3498db',
-    backgroundImage: '/public/programCardImages/mobile app development.png',
-  },
-  {
-    title: 'E-sports & Gaming',
-    description: 'Learn game design, competitive gaming strategies, and esports team management.',
-    icon: <EsportsIcon sx={{ fontSize: 40 }} />,
-    color: '#ff8a65',
-    backgroundImage: '/public/programCardImages/esports.png',
-  },
-  {
-    title: 'Web Development',
-    description: 'Build interactive websites and web applications using HTML, CSS, and JavaScript.',
-    icon: <CodeIcon sx={{ fontSize: 40 }} />,
-    color: '#2ecc71',
-    backgroundImage: '/public/programCardImages/web development.png',
+    title: 'Health, Sports & Wellness',
+    description: 'Nurture body and mind through physical fitness, yoga, mindfulness, and nutrition education. Build healthy lifelong habits.',
+    icon: <FitnessIcon sx={{ fontSize: 40 }} />,
+    color: '#FF5722',
+    path: '/programs/health-sports-wellness',
+    programs: ['Physical Fitness & Sports Camps', 'Yoga & Mindfulness', 'Nutrition & Wellness Programs']
   },
 ];
 
@@ -190,11 +149,10 @@ const HomePage: React.FC = () => {
           </Box>
           </Box>
           <Typography variant="h4" sx={{ mb: 4, opacity: 0.9, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            Where Young Minds Build the Future
+            Empowering Minds, Forging Future
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', mb: 6, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            Empowering students ages 6-17 with cutting-edge technology education through
-            hands-on coding, robotics, AI, and STEM programs in Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC.
+            Igniting passions, crafting destinies through comprehensive enrichment programs in STEM & Technology, Creative Arts & Design, Life Skills & Career Prep, Test Prep & Academic Enrichment, and Health, Sports & Wellness for students ages 6-17 in Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', mb: 4 }}>
             <Chip
@@ -362,8 +320,7 @@ const HomePage: React.FC = () => {
             Our Mission
           </Typography>
           <Typography variant="h5" textAlign="center" sx={{ maxWidth: '900px', mx: 'auto', color: '#7f8c8d', lineHeight: 1.6 }}>
-            To inspire and empower the next generation of innovators through comprehensive technology education, 
-            fostering creativity, critical thinking, and problem-solving skills that prepare students for the future.
+            PathForge Learning is transforming the way learners prepare for the future. Through innovative enrichment programs in STEM & Technology, Creative Arts & Design, Life Skills & Career Prep, Test Prep & Academic Enrichment, and Health, Sports & Wellness, we equip students with the skills to create, innovate, and lead. Our programs ensure that all learners gain access to hands-on experiences, empowering every student to unlock their full potential and thrive in a rapidly changing world.
           </Typography>
         </Container>
       </Box>
@@ -374,50 +331,48 @@ const HomePage: React.FC = () => {
           Our Programs
         </Typography>
         <Grid container spacing={4} justifyContent="center">
-          {courseHighlights.map((course, index) => (
+          {enrichmentBuckets.map((bucket, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
                 elevation={2}
                 sx={{
                   height: '100%',
-                  minHeight: '350px',
-                  maxWidth: '350px',
+                  minHeight: '450px',
+                  maxWidth: '400px',
                   mx: 'auto',
                   display: 'flex',
                   flexDirection: 'column',
-                  backgroundColor: '#E3F2FD',
-                  border: '2px solid #2196F3',
+                  backgroundColor: '#f8f9ff',
+                  border: `2px solid ${bucket.color}`,
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(33, 150, 243, 0.4)',
-                    border: '2px solid #E91E63',
+                    boxShadow: `0 12px 40px ${bucket.color}40`,
+                    border: `2px solid ${bucket.color}`,
                   },
+                  cursor: 'pointer',
                 }}
+                component={RouterLink}
+                to={bucket.path}
               >
-                {course.backgroundImage && (
-                  <Box
-                    component="img"
-                    src={course.backgroundImage}
-                    alt={`${course.title} program`}
-                    sx={{
-                      width: '100%',
-                      height: '180px',
-                      objectFit: 'cover',
-                      borderRadius: '4px 4px 0 0',
-                    }}
-                  />
-                )}
                 <CardContent sx={{ flexGrow: 1, p: 3, textAlign: 'center' }}>
-                  <Box sx={{ mb: 2, color: course.color }}>
-                    {course.icon}
+                  <Box sx={{ mb: 2, color: bucket.color }}>
+                    {bucket.icon}
                   </Box>
-                  <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#1565C0' }}>
-                    {course.title}
+                  <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
+                    {bucket.title}
                   </Typography>
-                  <Typography variant="body1" sx={{ color: '#424242', lineHeight: 1.5 }}>
-                    {course.description}
+                  <Typography variant="body1" sx={{ color: '#7f8c8d', lineHeight: 1.5, mb: 3 }}>
+                    {bucket.description}
                   </Typography>
+                  <Typography variant="subtitle2" sx={{ color: bucket.color, fontWeight: 'bold', mb: 2 }}>
+                    Programs Include:
+                  </Typography>
+                  {bucket.programs.map((program, programIndex) => (
+                    <Typography key={programIndex} variant="body2" sx={{ color: '#7f8c8d', mb: 1 }}>
+                      • {program}
+                    </Typography>
+                  ))}
                 </CardContent>
               </Card>
             </Grid>

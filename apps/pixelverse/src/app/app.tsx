@@ -6,6 +6,11 @@ import MainLayout from '../layouts/MainLayout';
 import HomePage from '../pages/HomePage';
 import WhyUsPage from '../pages/WhyUsPage';
 import CurriculumPage from '../pages/CurriculumPage';
+import StemTechnologyPage from '../pages/StemTechnologyPage';
+import CreativeArtsDesignPage from '../pages/CreativeArtsDesignPage';
+import LifeSkillsCareerPrepPage from '../pages/LifeSkillsCareerPrepPage';
+import TestPrepAcademicEnrichmentPage from '../pages/TestPrepAcademicEnrichmentPage';
+import HealthSportsWellnessPage from '../pages/HealthSportsWellnessPage';
 import LocationsPage from '../pages/LocationsPage';
 import CareersPage from '../pages/CareersPage';
 import PartnershipsPage from '../pages/PartnershipsPage';
@@ -550,6 +555,206 @@ const CoachesPageWithSEO = () => {
   );
 };
 
+const StemTechnologyPageWithSEO = () => {
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pathforgelearning.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://pathforgelearning.com/programs"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "STEM & Technology",
+        "item": "https://pathforgelearning.com/programs/stem-technology"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <SEOHead
+        title="STEM & Technology Programs | Coding, Robotics & AI Classes | PathForge Learning"
+        description="Comprehensive STEM & Technology programs for kids ages 6-17. Coding, robotics, AI, 3D printing, and more. Hands-on technology education in NC Triangle area."
+        keywords="STEM programs kids, coding classes children, robotics education, AI classes children, 3D printing education, technology curriculum"
+        canonicalUrl="https://pathforgelearning.com/programs/stem-technology"
+        structuredData={breadcrumbStructuredData}
+      />
+      <StemTechnologyPage />
+    </>
+  );
+};
+
+const CreativeArtsDesignPageWithSEO = () => {
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pathforgelearning.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://pathforgelearning.com/programs"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Creative Arts & Design",
+        "item": "https://pathforgelearning.com/programs/creative-arts-design"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <SEOHead
+        title="Creative Arts & Design Programs | Digital Art, 3D Printing & Music | PathForge Learning"
+        description="Creative Arts & Design programs for kids. Digital art, graphic design, 3D printing, music technology, and creative writing. Unleash artistic potential."
+        keywords="digital art classes kids, graphic design children, 3D printing education, music technology programs, creative writing workshops"
+        canonicalUrl="https://pathforgelearning.com/programs/creative-arts-design"
+        structuredData={breadcrumbStructuredData}
+      />
+      <CreativeArtsDesignPage />
+    </>
+  );
+};
+
+const LifeSkillsCareerPrepPageWithSEO = () => {
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pathforgelearning.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://pathforgelearning.com/programs"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Life Skills & Career Prep",
+        "item": "https://pathforgelearning.com/programs/life-skills-career-prep"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <SEOHead
+        title="Life Skills & Career Prep Programs | Leadership, Public Speaking & Entrepreneurship | PathForge Learning"
+        description="Life Skills & Career Preparation programs for teens. Leadership, public speaking, entrepreneurship, and career exploration workshops."
+        keywords="leadership programs teens, public speaking classes, entrepreneurship education, career preparation workshops, life skills development"
+        canonicalUrl="https://pathforgelearning.com/programs/life-skills-career-prep"
+        structuredData={breadcrumbStructuredData}
+      />
+      <LifeSkillsCareerPrepPage />
+    </>
+  );
+};
+
+const TestPrepAcademicEnrichmentPageWithSEO = () => {
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pathforgelearning.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://pathforgelearning.com/programs"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Test Prep & Academic Enrichment",
+        "item": "https://pathforgelearning.com/programs/test-prep-academic-enrichment"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <SEOHead
+        title="Test Prep & Academic Enrichment | SAT/ACT Prep, Tutoring & Study Skills | PathForge Learning"
+        description="Academic enrichment and test preparation programs. SAT/ACT prep, math/science tutoring, reading/writing support, and study skills development."
+        keywords="SAT prep classes, ACT preparation, math tutoring kids, reading comprehension programs, study skills workshops"
+        canonicalUrl="https://pathforgelearning.com/programs/test-prep-academic-enrichment"
+        structuredData={breadcrumbStructuredData}
+      />
+      <TestPrepAcademicEnrichmentPage />
+    </>
+  );
+};
+
+const HealthSportsWellnessPageWithSEO = () => {
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pathforgelearning.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://pathforgelearning.com/programs"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Health, Sports & Wellness",
+        "item": "https://pathforgelearning.com/programs/health-sports-wellness"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <SEOHead
+        title="Health, Sports & Wellness Programs | Fitness, Yoga & Nutrition | PathForge Learning"
+        description="Health, Sports & Wellness programs for kids. Physical fitness camps, yoga & mindfulness, nutrition education, and wellness programs."
+        keywords="kids fitness camps, yoga classes children, nutrition education programs, wellness workshops teens, sports activities kids"
+        canonicalUrl="https://pathforgelearning.com/programs/health-sports-wellness"
+        structuredData={breadcrumbStructuredData}
+      />
+      <HealthSportsWellnessPage />
+    </>
+  );
+};
+
 export function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -560,6 +765,11 @@ export function App() {
             <Route path="/" element={<HomePageWithSEO />} />
             <Route path="/why-us" element={<WhyUsPageWithSEO />} />
             <Route path="/curriculum" element={<CurriculumPageWithSEO />} />
+            <Route path="/programs/stem-technology" element={<StemTechnologyPageWithSEO />} />
+            <Route path="/programs/creative-arts-design" element={<CreativeArtsDesignPageWithSEO />} />
+            <Route path="/programs/life-skills-career-prep" element={<LifeSkillsCareerPrepPageWithSEO />} />
+            <Route path="/programs/test-prep-academic-enrichment" element={<TestPrepAcademicEnrichmentPageWithSEO />} />
+            <Route path="/programs/health-sports-wellness" element={<HealthSportsWellnessPageWithSEO />} />
             <Route path="/locations" element={<LocationsPageWithSEO />} />
             <Route path="/careers" element={<CareersPageWithSEO />} />
             <Route path="/partnerships" element={<PartnershipsPageWithSEO />} />

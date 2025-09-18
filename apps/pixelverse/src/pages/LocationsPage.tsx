@@ -21,7 +21,7 @@ const LocationsPage: React.FC = () => {
       zipcode: 'NC 27701',
       phone: '(919) 446-4981',
       hours: 'Mon-Fri: 3:00 PM - 8:00 PM\nSat-Sun: 9:00 AM - 5:00 PM',
-      description: 'Our flagship location in the heart of Durham brings cutting-edge technology education directly to your school with expert instructors and hands-on learning.',
+      description: 'Our flagship location in the heart of Durham brings comprehensive enrichment programs directly to your school with expert instructors and hands-on learning.',
     },
     {
       name: 'Holly Springs Location',
@@ -29,7 +29,7 @@ const LocationsPage: React.FC = () => {
       zipcode: 'NC 27540',
       phone: '(919) 446-4981',
       hours: 'Mon-Fri: 3:00 PM - 8:00 PM\nSat-Sun: 9:00 AM - 5:00 PM',
-      description: 'Our newest location offers the same high-quality education with expert instructors bringing technology education directly to your school.',
+      description: 'Our newest location offers the same high-quality enrichment programs with expert instructors bringing comprehensive education directly to your school.',
     },
     {
       name: 'Raleigh Location',
@@ -37,7 +37,7 @@ const LocationsPage: React.FC = () => {
       zipcode: 'NC 27601',
       phone: '(919) 446-4981',
       hours: 'Mon-Fri: 3:00 PM - 8:00 PM\nSat-Sun: 9:00 AM - 5:00 PM',
-      description: 'Located in downtown Raleigh, we provide easy access for families in the capital city with expert instructors bringing technology education to your school.',
+      description: 'Located in downtown Raleigh, we provide easy access for families in the capital city with expert instructors bringing comprehensive enrichment programs to your school.',
     },
     {
       name: 'Cary Location',
@@ -45,7 +45,7 @@ const LocationsPage: React.FC = () => {
       zipcode: 'NC 27511',
       phone: '(919) 446-4981',
       hours: 'Mon-Fri: 3:00 PM - 8:00 PM\nSat-Sun: 9:00 AM - 5:00 PM',
-      description: 'Our Cary location serves the vibrant Cary community with expert instructors bringing technology education directly to your school.',
+      description: 'Our Cary location serves the vibrant Cary community with expert instructors bringing comprehensive enrichment programs directly to your school.',
     },
     {
       name: 'Apex Location',
@@ -53,7 +53,7 @@ const LocationsPage: React.FC = () => {
       zipcode: 'NC 27502',
       phone: '(919) 446-4981',
       hours: 'Mon-Fri: 3:00 PM - 8:00 PM\nSat-Sun: 9:00 AM - 5:00 PM',
-      description: 'Conveniently located in Apex, we offer a welcoming environment for young innovators with expert instructors bringing technology education to your school.',
+      description: 'Conveniently located in Apex, we offer a welcoming environment for young learners with expert instructors bringing comprehensive enrichment programs to your school.',
     },
     {
       name: 'Morrisville Location',
@@ -61,7 +61,7 @@ const LocationsPage: React.FC = () => {
       zipcode: 'NC 27560',
       phone: '(919) 446-4981',
       hours: 'Mon-Fri: 3:00 PM - 8:00 PM\nSat-Sun: 9:00 AM - 5:00 PM',
-      description: 'Serving the Morrisville area with expert instructors, perfect for families seeking quality STEM education close to home.',
+      description: 'Serving the Morrisville area with expert instructors, perfect for families seeking quality enrichment education close to home.',
     },
     {
       name: 'Wake Forest Location',
@@ -69,7 +69,7 @@ const LocationsPage: React.FC = () => {
       zipcode: 'NC 27587',
       phone: '(919) 446-4981',
       hours: 'Mon-Fri: 3:00 PM - 8:00 PM\nSat-Sun: 9:00 AM - 5:00 PM',
-      description: 'Our Wake Forest location provides comprehensive technology education in a community-focused setting with expert instructors.',
+      description: 'Our Wake Forest location provides comprehensive enrichment programs in a community-focused setting with expert instructors.',
     },
     {
       name: 'Chapel Hill Location',
@@ -77,7 +77,7 @@ const LocationsPage: React.FC = () => {
       zipcode: 'NC 27514',
       phone: '(919) 446-4981',
       hours: 'Mon-Fri: 3:00 PM - 8:00 PM\nSat-Sun: 9:00 AM - 5:00 PM',
-      description: 'Located in the heart of Chapel Hill, we combine academic excellence with innovative technology education for young minds through expert instruction.',
+      description: 'Located in the heart of Chapel Hill, we combine academic excellence with innovative enrichment programs for young minds through expert instruction.',
     },
   ];
   return (
@@ -102,8 +102,8 @@ const LocationsPage: React.FC = () => {
             Expert Instructors in Your Area
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            We bring cutting-edge technology education directly to schools throughout the Triangle area, including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC.
-            Our expert instructors work within your school environment to inspire creativity and learning.
+            We bring comprehensive enrichment programs directly to schools throughout the Raleigh-Durham area, including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, Chapel Hill, and Hillsborough, NC.
+            Our expert instructors work within your school environment to inspire creativity and learning across multiple disciplines.
           </Typography>
         </Container>
       </Box>

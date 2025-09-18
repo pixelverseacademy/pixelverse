@@ -12,6 +12,8 @@ import {
   IconButton,
   Container,
   Grid,
+  Menu,
+  MenuItem,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
@@ -26,6 +28,9 @@ import {
   Work as WorkIcon,
   Facebook as FacebookIcon,
   Instagram as InstagramIcon,
+  Palette as PaletteIcon,
+  FitnessCenter as FitnessIcon,
+  KeyboardArrowDown as KeyboardArrowDownIcon,
 } from '@mui/icons-material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import Breadcrumb from '../components/Breadcrumb';
@@ -33,19 +38,36 @@ import Breadcrumb from '../components/Breadcrumb';
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [programsAnchorEl, setProgramsAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleProgramsMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setProgramsAnchorEl(event.currentTarget);
+  };
+
+  const handleProgramsMenuClose = () => {
+    setProgramsAnchorEl(null);
+  };
+
   const navigationItems = [
     { label: 'Home', path: '/', icon: <SchoolIcon /> },
     { label: 'Why Us', path: '/why-us', icon: <CodeIcon /> },
-    { label: 'Curriculum', path: '/curriculum', icon: <BuildIcon /> },
+    { label: 'Programs', path: '/programs', icon: <BuildIcon /> },
     { label: 'Locations', path: '/locations', icon: <LocationIcon /> },
     { label: 'Careers', path: '/careers', icon: <WorkIcon /> },
     { label: 'Partnerships', path: '/partnerships', icon: <PartnershipIcon /> },
     { label: 'Contact', path: '/contact', icon: <ContactIcon /> },
+  ];
+
+  const programBuckets = [
+    { label: 'STEM & Technology', path: '/programs/stem-technology', icon: <CodeIcon sx={{ fontSize: 20 }} /> },
+    { label: 'Creative Arts & Design', path: '/programs/creative-arts-design', icon: <PaletteIcon sx={{ fontSize: 20 }} /> },
+    { label: 'Life Skills & Career Prep', path: '/programs/life-skills-career-prep', icon: <PeopleIcon sx={{ fontSize: 20 }} /> },
+    { label: 'Test Prep & Academic Enrichment', path: '/programs/test-prep-academic-enrichment', icon: <SchoolIcon sx={{ fontSize: 20 }} /> },
+    { label: 'Health, Sports & Wellness', path: '/programs/health-sports-wellness', icon: <FitnessIcon sx={{ fontSize: 20 }} /> },
   ];
 
   const drawer = (
@@ -88,6 +110,28 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Button>
           </ListItem>
         ))}
+        {/* Program Buckets in Mobile Drawer */}
+        {programBuckets.map((bucket) => (
+          <ListItem key={bucket.path} sx={{ px: 4 }}>
+            <Button
+              component={RouterLink}
+              to={bucket.path}
+              sx={{
+                color: location.pathname === bucket.path ? '#3498db' : '#ffffff',
+                fontWeight: location.pathname === bucket.path ? 'bold' : 'normal',
+                textTransform: 'none',
+                justifyContent: 'flex-start',
+                px: 0,
+                fontSize: '0.9rem',
+                '&:hover': {
+                  color: '#3498db',
+                },
+              }}
+            >
+              {bucket.label}
+            </Button>
+          </ListItem>
+        ))}
       </List>
     </Box>
   );
@@ -124,23 +168,81 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </Box>
           
           {/* Desktop Navigation */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1, alignItems: 'center' }}>
-            {navigationItems.map((item) => (
-              <Box key={item.path} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <Button
-                  startIcon={item.icon} component={RouterLink}
-                  to={item.path}
-                  sx={{
-                    color: 'white',
-                    fontWeight: location.pathname === item.path ? 'bold' : 'normal',
-                    textTransform: 'none',
-                    '&:hover': {
-                      backgroundColor: 'rgba(255, 107, 53, 0.1)',
-                    },
-                  }}
-                >
-                  {item.label}
-                </Button>
+           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1, alignItems: 'center' }}>
+             {navigationItems.map((item) => (
+               <Box key={item.path} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                 {item.label === 'Programs' ? (
+                   <>
+                     <Button
+                       startIcon={item.icon}
+                       endIcon={<KeyboardArrowDownIcon />}
+                       onClick={handleProgramsMenuOpen}
+                       sx={{
+                         color: 'white',
+                         fontWeight: location.pathname.startsWith(item.path) ? 'bold' : 'normal',
+                         textTransform: 'none',
+                         '&:hover': {
+                           backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                         },
+                       }}
+                       aria-controls={programsAnchorEl ? 'programs-menu' : undefined}
+                       aria-haspopup="true"
+                       aria-expanded={programsAnchorEl ? 'true' : undefined}
+                     >
+                       {item.label}
+                     </Button>
+                     <Menu
+                       id="programs-menu"
+                       anchorEl={programsAnchorEl}
+                       open={Boolean(programsAnchorEl)}
+                       onClose={handleProgramsMenuClose}
+                       MenuListProps={{
+                         'aria-labelledby': 'programs-button',
+                       }}
+                       sx={{
+                         '& .MuiPaper-root': {
+                           backgroundColor: '#0a1929',
+                           color: 'white',
+                           border: '1px solid #333333',
+                         },
+                       }}
+                     >
+                       {programBuckets.map((bucket) => (
+                         <MenuItem
+                           key={bucket.path}
+                           component={RouterLink}
+                           to={bucket.path}
+                           onClick={handleProgramsMenuClose}
+                           sx={{
+                             color: location.pathname === bucket.path ? '#3498db' : 'white',
+                             fontWeight: location.pathname === bucket.path ? 'bold' : 'normal',
+                             '&:hover': {
+                               backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                             },
+                           }}
+                         >
+                           {bucket.icon}
+                           <Box sx={{ ml: 1 }}>{bucket.label}</Box>
+                         </MenuItem>
+                       ))}
+                     </Menu>
+                   </>
+                 ) : (
+                   <Button
+                     startIcon={item.icon} component={RouterLink}
+                     to={item.path}
+                     sx={{
+                       color: 'white',
+                       fontWeight: location.pathname === item.path ? 'bold' : 'normal',
+                       textTransform: 'none',
+                       '&:hover': {
+                         backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                       },
+                     }}
+                   >
+                     {item.label}
+                   </Button>
+                 )}
                 {item.label === 'Contact' && (
                   <Box sx={{ display: 'flex', gap: 0.5, ml: 1 }}>
                     <IconButton
@@ -256,8 +358,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   mb: 2
                 }}
               >
-                Empowering the next generation of innovators through comprehensive
-                technology education in Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, and Chapel Hill, NC.
+                Empowering the next generation through comprehensive enrichment programs in STEM & Technology, Creative Arts & Design, Life Skills & Career Prep, Test Prep & Academic Enrichment, and Health, Sports & Wellness across the Raleigh-Durham area including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, Chapel Hill, and Hillsborough, NC.
               </Typography>
             </Grid>
             
@@ -272,7 +373,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 Email: info@pathforgelearning.com
               </Typography>
               <Typography variant="body2" sx={{ color: 'white' }}>
-                Locations: Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest & Chapel Hill, NC
+                Locations: Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, Chapel Hill & Hillsborough, NC
               </Typography>
             </Grid>
             

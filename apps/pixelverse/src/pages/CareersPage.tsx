@@ -89,10 +89,10 @@ const CareersPage: React.FC = () => {
             Join Our Team
           </Typography>
           <Typography variant="h4" sx={{ mb: 4, opacity: 0.9, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            Shape the Future of Technology Education
+            Shape the Future of Enrichment Education
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', mb: 6, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            We're looking for energetic, tech-savvy individuals who love working with children and have a passion for learning.
+            We're looking for energetic, creative individuals who love working with children and have a passion for learning across multiple disciplines.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', mb: 4 }}>
             <Chip
@@ -376,7 +376,7 @@ const CareersPage: React.FC = () => {
             Ready to Join Our Team?
           </Typography>
           <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
-            Help shape the future of technology education and make a difference in students' lives.
+            Help shape the future of enrichment education and make a difference in students' lives.
           </Typography>
           <Button
             variant="contained"

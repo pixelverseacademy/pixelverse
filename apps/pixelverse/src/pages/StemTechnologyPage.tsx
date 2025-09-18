@@ -31,7 +31,7 @@ import {
   SportsEsports as EsportsIcon,
 } from '@mui/icons-material';
 
-const CurriculumPage: React.FC = () => {
+const StemTechnologyPage: React.FC = () => {
   const theme = getThemeColors('curriculum');
   const programs = [
     {
@@ -178,6 +178,19 @@ const CurriculumPage: React.FC = () => {
         'Career Opportunities in Gaming',
       ],
     },
+    {
+      title: 'Web Development',
+      icon: <CodeIcon sx={{ fontSize: 40, color: '#2ecc71' }} />,
+      description: 'Build interactive websites and web applications using HTML, CSS, and JavaScript.',
+      backgroundImage: '/public/programCardImages/web development.png',
+      highlights: [
+        'HTML, CSS & JavaScript Fundamentals',
+        'Responsive Web Design',
+        'Frontend Frameworks (React, Vue)',
+        'Backend Development',
+        'Full-Stack Applications',
+      ],
+    },
   ];
 
   return (
@@ -194,10 +207,10 @@ const CurriculumPage: React.FC = () => {
         <PathForgeBackground page="curriculum" />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
           <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: theme.text, mb: 4, position: 'relative', zIndex: 3 }}>
-            Comprehensive STEM Curriculum
+            STEM & Technology Programs
           </Typography>
           <Typography variant="h5" sx={{ mb: 6, opacity: 0.9, color: theme.secondaryText, position: 'relative', zIndex: 3 }}>
-            Igniting passions, crafting destinies through comprehensive enrichment programs
+            Hands-on technology education empowering the next generation of innovators
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 3 }}>
             <Chip
@@ -205,7 +218,7 @@ const CurriculumPage: React.FC = () => {
               sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
-              label="11+ Programs"
+              label="12+ Programs"
               sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
             />
             <Chip
@@ -216,13 +229,13 @@ const CurriculumPage: React.FC = () => {
         </Container>
       </Box>
 
-      {/* Explore Our Programs */}
+      {/* Programs */}
       <Box sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
-            Explore Our Programs
+            Our STEM & Technology Programs
           </Typography>
-          
+
           <Grid container spacing={4} justifyContent="center">
             {programs.map((program, index) => (
               <Grid item xs={12} sm={6} md={6} key={index}>
@@ -300,15 +313,15 @@ const CurriculumPage: React.FC = () => {
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Learning Paths
           </Typography>
-          
+
           <Grid container spacing={4} justifyContent="center">
             <Grid item xs={12} sm={6} md={4}>
-              <Paper 
-                elevation={2} 
-                sx={{ 
-                  p: 4, 
-                  height: '100%', 
-                  backgroundColor: '#f0f8f0', 
+              <Paper
+                elevation={2}
+                sx={{
+                  p: 4,
+                  height: '100%',
+                  backgroundColor: '#f0f8f0',
                   border: '1px solid #e0e6ed',
                   maxWidth: '400px',
                   mx: 'auto',
@@ -343,14 +356,14 @@ const CurriculumPage: React.FC = () => {
                 </List>
               </Paper>
             </Grid>
-            
+
             <Grid item xs={12} sm={6} md={4}>
-              <Paper 
-                elevation={2} 
-                sx={{ 
-                  p: 4, 
-                  height: '100%', 
-                  backgroundColor: '#f0f8f0', 
+              <Paper
+                elevation={2}
+                sx={{
+                  p: 4,
+                  height: '100%',
+                  backgroundColor: '#f0f8f0',
                   border: '1px solid #e0e6ed',
                   maxWidth: '400px',
                   mx: 'auto',
@@ -385,14 +398,14 @@ const CurriculumPage: React.FC = () => {
                 </List>
               </Paper>
             </Grid>
-            
+
             <Grid item xs={12} sm={6} md={4}>
-              <Paper 
-                elevation={2} 
-                sx={{ 
-                  p: 4, 
-                  height: '100%', 
-                  backgroundColor: '#f0f8f0', 
+              <Paper
+                elevation={2}
+                sx={{
+                  p: 4,
+                  height: '100%',
+                  backgroundColor: '#f0f8f0',
                   border: '1px solid #e0e6ed',
                   maxWidth: '400px',
                   mx: 'auto',
@@ -460,4 +473,4 @@ const CurriculumPage: React.FC = () => {
   );
 };
 
-export default CurriculumPage;
+export default StemTechnologyPage;

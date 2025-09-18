@@ -50,12 +50,12 @@ const WhyUsPage: React.FC = () => {
       ],
     },
     {
-      title: 'Comprehensive Curriculum',
-      description: 'From coding fundamentals to advanced AI and robotics, our curriculum covers all aspects of modern technology.',
+      title: 'Comprehensive Enrichment Curriculum',
+      description: 'From STEM fundamentals to creative arts, life skills, academics, and wellness, our curriculum covers all aspects of holistic development.',
       icon: <SchoolIcon sx={{ fontSize: 50, color: '#3498db' }} />,
       benefits: [
-        'K-12 Computer Science Standards aligned',
-        'Progressive skill building',
+        'Multi-disciplinary learning approach',
+        'Progressive skill building across domains',
         'Multiple learning pathways',
         'Regular curriculum updates',
       ],
@@ -72,25 +72,25 @@ const WhyUsPage: React.FC = () => {
       ],
     },
     {
-      title: 'Cutting-Edge Technology',
-      description: 'Access to the latest tools and technologies including robotics kits, VR headsets, and professional software.',
+      title: 'Diverse Learning Environments',
+      description: 'Access to creative studios, performance spaces, fitness facilities, and collaborative workspaces designed for holistic development.',
       icon: <AIIcon sx={{ fontSize: 50, color: '#3498db' }} />,
       benefits: [
-        'Latest hardware and software',
-        'Industry-standard tools',
-        'Hands-on experience with real equipment',
-        'Preparation for future careers',
+        'Creative and performance spaces',
+        'Collaborative learning environments',
+        'Hands-on experience across disciplines',
+        'Preparation for diverse future opportunities',
       ],
     },
     {
-      title: 'Competition Preparation',
-      description: 'Prepare students for prestigious competitions like First LEGO League, VEX Robotics, and coding competitions.',
+      title: 'Personalized Growth Opportunities',
+      description: 'Individualized development plans, mentorship programs, and performance showcases that celebrate each student\'s unique talents.',
       icon: <AwardIcon sx={{ fontSize: 50, color: '#3498db' }} />,
       benefits: [
-        'Competition strategy and skills',
-        'Team building and leadership',
-        'Recognition and awards',
-        'College and career opportunities',
+        'Personalized development plans',
+        'Mentorship and guidance',
+        'Performance showcases and exhibitions',
+        'Recognition of individual achievements',
       ],
     },
   ];
@@ -139,9 +139,9 @@ const WhyUsPage: React.FC = () => {
             Empowering the Next Generation of Innovators
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            We're not just another coding school. We're a comprehensive technology education 
-            program that prepares students for the future through innovative teaching methods, 
-            expert instruction, and hands-on learning experiences.
+            We're not just another enrichment program. We're a comprehensive educational experience
+            that prepares students for the future through innovative teaching methods,
+            expert instruction, and hands-on learning across multiple disciplines.
           </Typography>
         </Container>
       </Box>
@@ -450,16 +450,16 @@ const WhyUsPage: React.FC = () => {
             Our Mission and Values
           </Typography>
           <Typography variant="body1" paragraph sx={{ color: '#7f8c8d', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
-            We believe that every child has the potential to become a creator, innovator, and problem-solver. 
-            Technology education should be accessible, engaging, and empowering for all students.
+            We believe that every child has the potential to become a creator, innovator, and leader.
+            Enrichment education should be accessible, engaging, and empowering for all students across multiple disciplines.
           </Typography>
           <Typography variant="body1" paragraph sx={{ color: '#7f8c8d', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
-            Our mission is to prepare students for the future by teaching them not just how to use technology, 
-            but how to think critically, solve problems creatively, and build solutions that make a difference.
+            Our mission is to prepare students for the future by teaching them not just technical skills,
+            but how to think critically, solve problems creatively, and build solutions that make a difference in STEM, arts, life skills, academics, and wellness.
           </Typography>
           <Typography variant="body1" paragraph sx={{ color: '#7f8c8d', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
-            We believe in the power of hands-on learning, where students don't just consume information 
-            but actively create, experiment, and discover through meaningful projects.
+            We believe in the power of hands-on learning, where students don't just consume information
+            but actively create, experiment, and discover through meaningful projects across all our enrichment programs.
           </Typography>
         </Paper>
       </Container>
@@ -476,16 +476,16 @@ const WhyUsPage: React.FC = () => {
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Chip
-              label="Free Trial Session"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
-            />
-            <Chip
               label="Small Class Sizes"
               sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2ecc71', color: 'white' }}
             />
             <Chip
               label="Expert Instructors"
               sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
+            />
+            <Chip
+              label="Hands-On Learning"
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff9800', color: 'white' }}
             />
           </Box>
         </Container>

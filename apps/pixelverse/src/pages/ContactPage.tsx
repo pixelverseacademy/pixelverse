@@ -42,7 +42,7 @@ const ContactPage: React.FC = () => {
             Get in Touch with Our Team
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            Ready to start your child's technology education journey? We're here to answer 
+            Ready to start your child's enrichment journey? We're here to answer
             your questions and help you choose the perfect program for your student.
           </Typography>
         </Container>
@@ -221,90 +221,62 @@ const ContactPage: React.FC = () => {
         </Typography>
         
         <Grid container spacing={4} justifyContent="center">
-          <Grid item xs={12} sm={6} md={4}>
-            <Card 
-              elevation={2} 
-              sx={{ 
-                height: '100%', 
-                maxWidth: '400px',
-                mx: 'auto',
-                backgroundColor: '#f8f9ff', 
-                border: '1px solid #e0e6ed',
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                  border: '1px solid #3498db',
-                },
-              }}
-            >
-              <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                  Free Trial Session
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                  Experience our teaching methods and meet our instructors with a complimentary trial session.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          
-          <Grid item xs={12} sm={6} md={4}>
-            <Card 
-              elevation={2} 
-              sx={{ 
-                height: '100%', 
-                maxWidth: '400px',
-                mx: 'auto',
-                backgroundColor: '#f8f9ff', 
-                border: '1px solid #e0e6ed',
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                  border: '1px solid #3498db',
-                },
-              }}
-            >
-              <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                  Flexible Scheduling
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                  We offer classes on weekends and after school to fit your family's schedule.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          
-          <Grid item xs={12} sm={6} md={4}>
-            <Card 
-              elevation={2} 
-              sx={{ 
-                height: '100%', 
-                maxWidth: '400px',
-                mx: 'auto',
-                backgroundColor: '#f8f9ff', 
-                border: '1px solid #e0e6ed',
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                  border: '1px solid #3498db',
-                },
-              }}
-            >
-              <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                  Small Class Sizes
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                  Maximum 8 students per class ensures personalized attention and optimal learning.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+           <Grid item xs={12} sm={6} md={6}>
+             <Card
+               elevation={2}
+               sx={{
+                 height: '100%',
+                 maxWidth: '400px',
+                 mx: 'auto',
+                 backgroundColor: '#f8f9ff',
+                 border: '1px solid #e0e6ed',
+                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                 '&:hover': {
+                   transform: 'translateY(-8px)',
+                   boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                   border: '1px solid #3498db',
+                 },
+               }}
+             >
+               <CardContent sx={{ p: 4, textAlign: 'center' }}>
+                 <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
+                   Flexible Scheduling
+                 </Typography>
+                 <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
+                   We offer classes on weekends and after school to fit your family's schedule.
+                 </Typography>
+               </CardContent>
+             </Card>
+           </Grid>
+
+           <Grid item xs={12} sm={6} md={6}>
+             <Card
+               elevation={2}
+               sx={{
+                 height: '100%',
+                 maxWidth: '400px',
+                 mx: 'auto',
+                 backgroundColor: '#f8f9ff',
+                 border: '1px solid #e0e6ed',
+                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                 '&:hover': {
+                   transform: 'translateY(-8px)',
+                   boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
+                   border: '1px solid #3498db',
+                 },
+               }}
+             >
+               <CardContent sx={{ p: 4, textAlign: 'center' }}>
+                 <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
+                   Small Class Sizes
+                 </Typography>
+                 <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
+                   Maximum 8 students per class ensures personalized attention and optimal learning.
+                 </Typography>
+               </CardContent>
+             </Card>
+           </Grid>
+         </Grid>
       </Container>
 
       {/* Call to Action */}
@@ -314,7 +286,7 @@ const ContactPage: React.FC = () => {
             Ready to Get Started?
           </Typography>
           <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
-            Contact us today to schedule your free trial session and see why students 
+            Contact us today to learn more about our enrichment programs and see why students
             love learning with PathForge Learning.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>

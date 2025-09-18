@@ -32,6 +32,30 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, customItems }) => {
         case 'curriculum':
           breadcrumbs.push({ label: 'Curriculum', path: '/curriculum' });
           break;
+        case 'programs':
+          if (pathSegments.length > 1) {
+            const programPath = pathSegments[1];
+            switch (programPath) {
+              case 'stem-technology':
+                breadcrumbs.push({ label: 'STEM & Technology', path: '/programs/stem-technology' });
+                break;
+              case 'creative-arts-design':
+                breadcrumbs.push({ label: 'Creative Arts & Design', path: '/programs/creative-arts-design' });
+                break;
+              case 'life-skills-career-prep':
+                breadcrumbs.push({ label: 'Life Skills & Career Prep', path: '/programs/life-skills-career-prep' });
+                break;
+              case 'test-prep-academic-enrichment':
+                breadcrumbs.push({ label: 'Test Prep & Academic Enrichment', path: '/programs/test-prep-academic-enrichment' });
+                break;
+              case 'health-sports-wellness':
+                breadcrumbs.push({ label: 'Health, Sports & Wellness', path: '/programs/health-sports-wellness' });
+                break;
+              default:
+                break;
+            }
+          }
+          break;
         case 'locations':
           breadcrumbs.push({ label: 'Locations', path: '/locations' });
           break;

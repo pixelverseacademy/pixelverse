@@ -29,7 +29,7 @@ const PartnershipsPage: React.FC = () => {
     {
       title: 'After-School Programs',
       icon: <SchoolIcon sx={{ fontSize: 40, color: '#3498db' }} />,
-      description: 'Bring technology education directly to your school with our comprehensive after-school programs.',
+      description: 'Bring comprehensive enrichment programs directly to your school with our after-school offerings.',
       features: [
         'Customized curriculum for your school',
         'Experienced instructors on-site',
@@ -149,7 +149,7 @@ const PartnershipsPage: React.FC = () => {
             School Partnerships
           </Typography>
           <Typography variant="h5" sx={{ mb: 6, opacity: 0.9, color: theme.secondaryText, position: 'relative', zIndex: 3 }}>
-            Bring cutting-edge technology education to your school
+            Bring comprehensive enrichment programs to your school
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 3 }}>
             <Chip
@@ -429,7 +429,7 @@ const PartnershipsPage: React.FC = () => {
             Ready to Partner with Us?
           </Typography>
           <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
-            Contact us today to discuss how we can bring technology education to your school.
+            Contact us today to discuss how we can bring comprehensive enrichment programs to your school.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Chip
