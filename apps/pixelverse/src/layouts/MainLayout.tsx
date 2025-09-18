@@ -58,7 +58,6 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const navigationItems = [
     { label: 'Home', path: '/', icon: <SchoolIcon /> },
     { label: 'Why Us', path: '/why-us', icon: <CodeIcon /> },
-    { label: 'Programs', path: '/programs', icon: <BuildIcon /> },
     { label: 'Locations', path: '/locations', icon: <LocationIcon /> },
     { label: 'Careers', path: '/careers', icon: <WorkIcon /> },
     { label: 'Partnerships', path: '/partnerships', icon: <PartnershipIcon /> },
@@ -90,69 +89,79 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </Typography>
       </Box>
       <List>
-        {navigationItems.map((item) => (
-          <ListItem key={item.path} sx={{ px: 2 }}>
-            <ListItemIcon sx={{ color: location.pathname === item.path ? '#3498db' : '#7f8c8d' }}>
-              {item.icon}
-            </ListItemIcon>
-            <Button
-              startIcon={item.icon} component={RouterLink}
-              to={item.path}
-              sx={{
-                color: location.pathname === item.path ? '#3498db' : '#ffffff',
-                fontWeight: location.pathname === item.path ? 'bold' : 'normal',
-                textTransform: 'none',
-                justifyContent: 'flex-start',
-                px: 0,
-                '&:hover': {
-                  color: '#3498db',
-                },
-              }}
-            >
-              {item.label}
-            </Button>
-          </ListItem>
-        ))}
-        {/* Programs Section in Mobile Drawer */}
-        <ListItem sx={{ px: 2 }}>
-          <Button
-            startIcon={<BuildIcon />}
-            endIcon={mobileProgramsOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            onClick={() => setMobileProgramsOpen(!mobileProgramsOpen)}
-            sx={{
-              color: location.pathname.startsWith('/programs') ? '#3498db' : '#ffffff',
-              fontWeight: location.pathname.startsWith('/programs') ? 'bold' : 'normal',
-              textTransform: 'none',
-              justifyContent: 'flex-start',
-              px: 0,
-              '&:hover': {
-                color: '#3498db',
-              },
-            }}
-          >
-            Programs
-          </Button>
-        </ListItem>
-        {mobileProgramsOpen && programBuckets.map((bucket) => (
-          <ListItem key={bucket.path} sx={{ px: 4 }}>
-            <Button
-              component={RouterLink}
-              to={bucket.path}
-              sx={{
-                color: location.pathname === bucket.path ? '#3498db' : '#ffffff',
-                fontWeight: location.pathname === bucket.path ? 'bold' : 'normal',
-                textTransform: 'none',
-                justifyContent: 'flex-start',
-                px: 0,
-                fontSize: '0.9rem',
-                '&:hover': {
-                  color: '#3498db',
-                },
-              }}
-            >
-              {bucket.label}
-            </Button>
-          </ListItem>
+        {navigationItems.map((item, index) => (
+          <React.Fragment key={item.path}>
+            <ListItem sx={{ px: 2 }}>
+              <ListItemIcon sx={{ color: location.pathname === item.path ? '#3498db' : '#7f8c8d' }}>
+                {item.icon}
+              </ListItemIcon>
+              <Button
+                startIcon={item.icon} component={RouterLink}
+                to={item.path}
+                onClick={handleDrawerToggle}
+                sx={{
+                  color: location.pathname === item.path ? '#3498db' : '#ffffff',
+                  fontWeight: location.pathname === item.path ? 'bold' : 'normal',
+                  textTransform: 'none',
+                  justifyContent: 'flex-start',
+                  px: 0,
+                  '&:hover': {
+                    color: '#3498db',
+                  },
+                }}
+              >
+                {item.label}
+              </Button>
+            </ListItem>
+            {/* Insert Programs section after Why Us (index 1) */}
+            {index === 1 && (
+              <>
+                <ListItem sx={{ px: 2 }}>
+                  <ListItemIcon sx={{ color: location.pathname.startsWith('/programs') ? '#3498db' : '#7f8c8d' }}>
+                    <BuildIcon />
+                  </ListItemIcon>
+                  <Button
+                    endIcon={mobileProgramsOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    onClick={() => setMobileProgramsOpen(!mobileProgramsOpen)}
+                    sx={{
+                      color: location.pathname.startsWith('/programs') ? '#3498db' : '#ffffff',
+                      fontWeight: location.pathname.startsWith('/programs') ? 'bold' : 'normal',
+                      textTransform: 'none',
+                      justifyContent: 'flex-start',
+                      px: 0,
+                      '&:hover': {
+                        color: '#3498db',
+                      },
+                    }}
+                  >
+                    Programs
+                  </Button>
+                </ListItem>
+                {mobileProgramsOpen && programBuckets.map((bucket) => (
+                  <ListItem key={bucket.path} sx={{ px: 4 }}>
+                    <Button
+                      component={RouterLink}
+                      to={bucket.path}
+                      onClick={handleDrawerToggle}
+                      sx={{
+                        color: location.pathname === bucket.path ? '#3498db' : '#ffffff',
+                        fontWeight: location.pathname === bucket.path ? 'bold' : 'normal',
+                        textTransform: 'none',
+                        justifyContent: 'flex-start',
+                        px: 0,
+                        fontSize: '0.9rem',
+                        '&:hover': {
+                          color: '#3498db',
+                        },
+                      }}
+                    >
+                      {bucket.label}
+                    </Button>
+                  </ListItem>
+                ))}
+              </>
+            )}
+          </React.Fragment>
         ))}
       </List>
     </Box>
