@@ -194,10 +194,25 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </IconButton>
           
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-            <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '40px', width: '40px', marginRight: '12px', marginTop: '-2px', objectFit: 'cover', borderRadius: '50%' }} />
-            <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: 'white' }}>
-                PathForge Learning
-            </Typography>
+            <Box
+              component={RouterLink}
+              to="/"
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                textDecoration: 'none',
+                color: 'inherit',
+                cursor: 'pointer',
+                '&:hover': {
+                  opacity: 0.8,
+                },
+              }}
+            >
+              <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '40px', width: '40px', marginRight: '12px', marginTop: '-2px', objectFit: 'cover', borderRadius: '50%' }} />
+              <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: 'white' }}>
+                  PathForge Learning
+              </Typography>
+            </Box>
         </Box>
           
           {/* Desktop Navigation */}
