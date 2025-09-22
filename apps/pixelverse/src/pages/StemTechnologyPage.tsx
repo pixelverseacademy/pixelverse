@@ -38,7 +38,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'Engineering & Robotics',
       icon: <BuildIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
       description: 'Build and program robots using LEGO Mindstorms, Arduino, and advanced robotics kits. Learn mechanical engineering principles, sensors, and automation.',
-      backgroundImage: '/public/programCardImages/robotics 2.jpeg',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/robotics 2.jpeg',
       highlights: [
         'LEGO Mindstorms EV3 Programming',
         'Arduino Microcontroller Projects',
@@ -51,7 +51,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'Coding, Designing & Modding with Minecraft',
       icon: <CodeIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
       description: 'Learn programming concepts through Minecraft modding, custom world creation, and game design. Perfect introduction to coding for young learners.',
-      backgroundImage: '/public/programCardImages/minecraft.png',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/minecraft.png',
       highlights: [
         'Minecraft Education Edition',
         'JavaScript & Python Scripting',
@@ -64,7 +64,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'Programming in Python',
       icon: <CodeIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
       description: 'Master Python programming from basics to advanced concepts. Build games, web applications, and data analysis projects.',
-      backgroundImage: '/public/programCardImages/Python programming.jpg',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/Python programming.jpg',
       highlights: [
         'Python Fundamentals & Syntax',
         'Object-Oriented Programming',
@@ -77,7 +77,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'AR and VR Coding',
       icon: <PsychologyIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
       description: 'Create immersive augmented and virtual reality experiences. Learn Unity, Unreal Engine, and AR development platforms.',
-      backgroundImage: '/public/programCardImages/Ar and VR coding.jpg',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/Ar and VR coding.jpg',
       highlights: [
         'Unity 3D Development',
         'ARCore & ARKit Integration',
@@ -90,7 +90,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'Transform Your Imagination into Interactive Roblox Games',
       icon: <SmartToyIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
       description: 'Design, build, and publish your own Roblox games. Learn Lua scripting, game mechanics, and monetization strategies.',
-      backgroundImage: '/public/programCardImages/Roblox game development.png',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/Roblox game development.png',
       highlights: [
         'Roblox Studio Development',
         'Lua Programming Language',
@@ -103,7 +103,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'Artificial Intelligence & Machine Learning',
       icon: <PsychologyIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
       description: 'Explore AI concepts through hands-on projects. Build chatbots, image recognition systems, and predictive models.',
-      backgroundImage: '/public/programCardImages/Ai and machine learning.png',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/Ai and machine learning.png',
       highlights: [
         'Machine Learning Fundamentals',
         'Neural Networks & Deep Learning',
@@ -116,7 +116,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'Ignite Innovation with 3D Modeling, Design & Printing',
       icon: <PaletteIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
       description: 'Master 3D design software and bring your creations to life with 3D printing. Learn CAD, modeling, and prototyping.',
-      backgroundImage: '/public/programCardImages/3d modeling and printing.png',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/3d modeling and printing.png',
       highlights: [
         'Tinkercad & Fusion 360',
         '3D Modeling Techniques',
@@ -129,7 +129,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'Scratch-based Programming',
       icon: <CodeIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
       description: 'Perfect introduction to programming for young learners. Create interactive stories, games, and animations using visual programming.',
-      backgroundImage: '/public/programCardImages/Scratch programming.png',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/Scratch programming.png',
       highlights: [
         'Visual Programming Concepts',
         'Interactive Story Creation',
@@ -142,7 +142,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'Content Creation with Drone',
       icon: <FlightIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
       description: 'Master aerial content creation using drones. Learn professional photography, videography techniques, and post-production editing for stunning visual storytelling.',
-      backgroundImage: '/public/programCardImages/drone programming.png',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/drone programming.png',
       highlights: [
         'Professional Aerial Photography',
         'Cinematic Videography Techniques',
@@ -156,7 +156,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'Mobile App Development',
       icon: <PhoneIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
       description: 'Create mobile applications for iOS and Android. Learn app design, development, and publishing processes.',
-      backgroundImage: '/public/programCardImages/mobile app development.png',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/mobile app development.png',
       highlights: [
         'React Native Development',
         'iOS & Android App Creation',
@@ -169,7 +169,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'E-sports',
       icon: <EsportsIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
       description: 'Develop gaming skills, strategy, and teamwork through competitive gaming. Learn about the esports industry and career opportunities.',
-      backgroundImage: '/public/programCardImages/esports.png',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/esports.png',
       highlights: [
         'Competitive Gaming Strategies',
         'Team Communication & Leadership',
@@ -182,7 +182,7 @@ const StemTechnologyPage: React.FC = () => {
       title: 'Web Development',
       icon: <CodeIcon sx={{ fontSize: 40, color: '#2ecc71' }} />,
       description: 'Build interactive websites and web applications using HTML, CSS, and JavaScript.',
-      backgroundImage: '/public/programCardImages/web development.png',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/web development.png',
       highlights: [
         'HTML, CSS & JavaScript Fundamentals',
         'Responsive Web Design',

@@ -32,6 +32,7 @@ const CreativeArtsDesignPage: React.FC = () => {
       title: 'Digital Art & Graphic Design',
       description: 'Learn digital illustration, graphic design principles, and professional tools like Adobe Creative Suite. Create stunning visuals and develop your artistic skills.',
       icon: <PaletteIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
+      backgroundImage: '/public/programCardImages/creativeArts&Design/digital arts.png',
       highlights: [
         'Adobe Photoshop & Illustrator',
         'Digital Illustration Techniques',
@@ -44,6 +45,7 @@ const CreativeArtsDesignPage: React.FC = () => {
       title: '3D Printing & CAD',
       description: 'Master computer-aided design and bring your ideas to life with 3D printing technology. Learn modeling software and prototyping.',
       icon: <PrintIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
+      backgroundImage: '/public/programCardImages/creativeArts&Design/3d printing and CAD.png',
       highlights: [
         'Fusion 360 & Tinkercad',
         '3D Modeling & Prototyping',
@@ -56,6 +58,7 @@ const CreativeArtsDesignPage: React.FC = () => {
       title: 'Music Technology & Production',
       description: 'Explore music production using digital audio workstations, synthesizers, and recording equipment. Create and produce your own music.',
       icon: <MusicIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
+      backgroundImage: '/public/programCardImages/creativeArts&Design/music prod.png',
       highlights: [
         'Digital Audio Workstations (DAWs)',
         'Music Theory & Composition',
@@ -68,6 +71,7 @@ const CreativeArtsDesignPage: React.FC = () => {
       title: 'Creative Writing & Storytelling',
       description: 'Develop your writing skills through creative storytelling, scriptwriting, and narrative development. Express your imagination through words.',
       icon: <BookIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
+      backgroundImage: '/public/programCardImages/creativeArts&Design/creative writing.png',
       highlights: [
         'Creative Writing Techniques',
         'Story Structure & Plot Development',
@@ -139,6 +143,19 @@ const CreativeArtsDesignPage: React.FC = () => {
                     },
                   }}
                 >
+                  {program.backgroundImage && (
+                    <Box
+                      component="img"
+                      src={program.backgroundImage}
+                      alt={`${program.title} program`}
+                      sx={{
+                        width: '100%',
+                        height: '180px',
+                        objectFit: 'cover',
+                        borderRadius: '4px 4px 0 0',
+                      }}
+                    />
+                  )}
                   <CardContent sx={{ p: 4 }}>
                     <Box sx={{ textAlign: 'center', mb: 3 }}>
                       {program.icon}

@@ -32,6 +32,7 @@ const HealthSportsWellnessPage: React.FC = () => {
       title: 'Physical Fitness & Sports Camps',
       description: 'Develop physical fitness, sports skills, and teamwork through engaging camps and activities. Build strength, coordination, and healthy habits.',
       icon: <FitnessIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
+      backgroundImage: '/public/programCardImages/healthSports&Welness/physicalFitness.png',
       highlights: [
         'Physical Fitness Training',
         'Sports Skills Development',
@@ -44,6 +45,7 @@ const HealthSportsWellnessPage: React.FC = () => {
       title: 'Yoga & Mindfulness',
       description: 'Learn yoga poses, breathing techniques, and mindfulness practices. Develop mental clarity, stress management, and physical flexibility.',
       icon: <YogaIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
+      backgroundImage: '/public/programCardImages/healthSports&Welness/yoga.png',
       highlights: [
         'Yoga Poses & Sequences',
         'Breathing Techniques',
@@ -56,6 +58,7 @@ const HealthSportsWellnessPage: React.FC = () => {
       title: 'Nutrition & Wellness Programs',
       description: 'Understand healthy eating, nutrition science, and wellness principles. Learn to make informed choices for lifelong health.',
       icon: <NutritionIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
+      backgroundImage: '/public/programCardImages/healthSports&Welness/nutrition and wellness.png',
       highlights: [
         'Nutrition Education',
         'Healthy Eating Habits',
@@ -68,6 +71,7 @@ const HealthSportsWellnessPage: React.FC = () => {
       title: 'Chess & Strategy Games',
       description: 'Develop critical thinking, strategic planning, and problem-solving skills through chess and other strategy games.',
       icon: <ChessIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
+      backgroundImage: '/public/programCardImages/healthSports&Welness/chess.png',
       highlights: [
         'Chess Fundamentals',
         'Strategic Thinking',
@@ -139,6 +143,19 @@ const HealthSportsWellnessPage: React.FC = () => {
                     },
                   }}
                 >
+                  {program.backgroundImage && (
+                    <Box
+                      component="img"
+                      src={program.backgroundImage}
+                      alt={`${program.title} program`}
+                      sx={{
+                        width: '100%',
+                        height: '180px',
+                        objectFit: 'cover',
+                        borderRadius: '4px 4px 0 0',
+                      }}
+                    />
+                  )}
                   <CardContent sx={{ p: 4 }}>
                     <Box sx={{ textAlign: 'center', mb: 3 }}>
                       {program.icon}

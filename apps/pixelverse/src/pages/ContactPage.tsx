@@ -342,7 +342,7 @@ const ContactPage: React.FC = () => {
               <Button
                 variant="outlined"
                 startIcon={<FacebookIcon sx={{ color: '#1877f2' }} />}
-                href="https://www.facebook.com/people/PathForge-Learning/61581136042625/"
+                                  href="https://www.facebook.com/profile.php?id=61580934554373"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{

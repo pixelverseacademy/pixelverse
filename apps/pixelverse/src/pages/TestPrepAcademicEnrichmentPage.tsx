@@ -32,6 +32,7 @@ const TestPrepAcademicEnrichmentPage: React.FC = () => {
       title: 'Math & Science Tutoring',
       description: 'Personalized tutoring in mathematics and science subjects. Strengthen foundational skills and advance understanding through targeted instruction.',
       icon: <ScienceIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
+      backgroundImage: '/public/programCardImages/testPrep&AcademicEnrich/math and science.png',
       highlights: [
         'Mathematics Tutoring',
         'Science Subject Support',
@@ -44,6 +45,7 @@ const TestPrepAcademicEnrichmentPage: React.FC = () => {
       title: 'Reading & Writing Support',
       description: 'Improve reading comprehension, writing skills, and language arts proficiency. Develop strong communication and analytical abilities.',
       icon: <BookIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
+      backgroundImage: '/public/programCardImages/testPrep&AcademicEnrich/reading and writing.png',
       highlights: [
         'Reading Comprehension',
         'Writing Skills Development',
@@ -56,6 +58,7 @@ const TestPrepAcademicEnrichmentPage: React.FC = () => {
       title: 'Standardized Test Prep (SAT, ACT, etc.)',
       description: 'Comprehensive preparation for standardized tests including SAT, ACT, and other academic assessments. Master test-taking strategies and content.',
       icon: <AssignmentIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
+      backgroundImage: '/public/programCardImages/testPrep&AcademicEnrich/sat and act.png',
       highlights: [
         'SAT/ACT Preparation',
         'Test-Taking Strategies',
@@ -68,6 +71,7 @@ const TestPrepAcademicEnrichmentPage: React.FC = () => {
       title: 'Study Skills & Time Management',
       description: 'Learn effective study techniques, time management strategies, and organizational skills to maximize academic performance.',
       icon: <ScheduleIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
+      backgroundImage: '/public/programCardImages/testPrep&AcademicEnrich/studySkills.png',
       highlights: [
         'Study Techniques',
         'Time Management',
@@ -139,6 +143,19 @@ const TestPrepAcademicEnrichmentPage: React.FC = () => {
                     },
                   }}
                 >
+                  {program.backgroundImage && (
+                    <Box
+                      component="img"
+                      src={program.backgroundImage}
+                      alt={`${program.title} program`}
+                      sx={{
+                        width: '100%',
+                        height: '180px',
+                        objectFit: 'cover',
+                        borderRadius: '4px 4px 0 0',
+                      }}
+                    />
+                  )}
                   <CardContent sx={{ p: 4 }}>
                     <Box sx={{ textAlign: 'center', mb: 3 }}>
                       {program.icon}

@@ -270,7 +270,7 @@ const organizationStructuredData = {
     "contactType": "customer service"
   },
   "sameAs": [
-    "https://www.facebook.com/people/PathForge-Learning/61581136042625/",
+            "https://www.facebook.com/profile.php?id=61580934554373",
     "https://www.instagram.com/pathforgelearning/"
   ],
   "areaServed": [

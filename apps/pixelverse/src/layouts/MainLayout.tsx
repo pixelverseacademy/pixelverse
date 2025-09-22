@@ -58,6 +58,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const navigationItems = [
     { label: 'Home', path: '/', icon: <SchoolIcon /> },
     { label: 'Why Us', path: '/why-us', icon: <CodeIcon /> },
+    { label: 'Programs', path: '/programs', icon: <BuildIcon /> },
     { label: 'Locations', path: '/locations', icon: <LocationIcon /> },
     { label: 'Careers', path: '/careers', icon: <WorkIcon /> },
     { label: 'Partnerships', path: '/partnerships', icon: <PartnershipIcon /> },
@@ -91,30 +92,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <List>
         {navigationItems.map((item, index) => (
           <React.Fragment key={item.path}>
-            <ListItem sx={{ px: 2 }}>
-              <ListItemIcon sx={{ color: location.pathname === item.path ? '#3498db' : '#7f8c8d' }}>
-                {item.icon}
-              </ListItemIcon>
-              <Button
-                startIcon={item.icon} component={RouterLink}
-                to={item.path}
-                onClick={handleDrawerToggle}
-                sx={{
-                  color: location.pathname === item.path ? '#3498db' : '#ffffff',
-                  fontWeight: location.pathname === item.path ? 'bold' : 'normal',
-                  textTransform: 'none',
-                  justifyContent: 'flex-start',
-                  px: 0,
-                  '&:hover': {
-                    color: '#3498db',
-                  },
-                }}
-              >
-                {item.label}
-              </Button>
-            </ListItem>
-            {/* Insert Programs section after Why Us (index 1) */}
-            {index === 1 && (
+            {item.label === 'Programs' ? (
               <>
                 <ListItem sx={{ px: 2 }}>
                   <ListItemIcon sx={{ color: location.pathname.startsWith('/programs') ? '#3498db' : '#7f8c8d' }}>
@@ -149,18 +127,42 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         textTransform: 'none',
                         justifyContent: 'flex-start',
                         px: 0,
-                        fontSize: '0.9rem',
                         '&:hover': {
                           color: '#3498db',
                         },
                       }}
                     >
-                      {bucket.label}
+                      {bucket.icon}
+                      <Box sx={{ ml: 1 }}>{bucket.label}</Box>
                     </Button>
                   </ListItem>
                 ))}
               </>
+            ) : (
+              <ListItem sx={{ px: 2 }}>
+                <ListItemIcon sx={{ color: location.pathname === item.path ? '#3498db' : '#7f8c8d' }}>
+                  {item.icon}
+                </ListItemIcon>
+                <Button
+                  startIcon={item.icon} component={RouterLink}
+                  to={item.path}
+                  onClick={handleDrawerToggle}
+                  sx={{
+                    color: location.pathname === item.path ? '#3498db' : '#ffffff',
+                    fontWeight: location.pathname === item.path ? 'bold' : 'normal',
+                    textTransform: 'none',
+                    justifyContent: 'flex-start',
+                    px: 0,
+                    '&:hover': {
+                      color: '#3498db',
+                    },
+                  }}
+                >
+                  {item.label}
+                </Button>
+              </ListItem>
             )}
+
           </React.Fragment>
         ))}
       </List>
@@ -293,7 +295,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                       <InstagramIcon sx={{ fontSize: '1rem' }} />
                     </IconButton>
                     <IconButton
-                      href="https://www.facebook.com/people/PathForge-Learning/61581136042625/"
+                      href="https://www.facebook.com/profile.php?id=61580934554373"
                       target="_blank"
                       rel="noopener noreferrer"
                       sx={{
@@ -444,7 +446,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 1 }}>
                   <IconButton
-                    href="https://www.facebook.com/people/PathForge-Learning/61581136042625/"
+                    href="https://www.facebook.com/profile.php?id=61580934554373"
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{

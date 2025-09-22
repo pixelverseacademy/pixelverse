@@ -32,6 +32,7 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
       title: 'Leadership & Teamwork',
       description: 'Develop essential leadership skills, team collaboration, and project management abilities through interactive workshops and real-world scenarios.',
       icon: <PeopleIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
+      backgroundImage: '/public/programCardImages/lifeSkills&CareerPrep/Leadership and teamwork.png',
       highlights: [
         'Leadership Development',
         'Team Building Activities',
@@ -44,6 +45,7 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
       title: 'Public Speaking & Debate',
       description: 'Build confidence in public speaking, debate skills, and effective communication. Learn to articulate ideas clearly and persuasively.',
       icon: <VoiceIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
+      backgroundImage: '/public/programCardImages/lifeSkills&CareerPrep/public speaking.png',
       highlights: [
         'Public Speaking Techniques',
         'Debate & Argumentation',
@@ -56,6 +58,7 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
       title: 'Entrepreneurship & Financial Literacy',
       description: 'Learn business fundamentals, financial planning, and entrepreneurial thinking. Understand money management and business creation.',
       icon: <BusinessIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
+      backgroundImage: '/public/programCardImages/lifeSkills&CareerPrep/entrepreneurship.png',
       highlights: [
         'Business Planning',
         'Financial Literacy',
@@ -68,6 +71,7 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
       title: 'Career Exploration Workshops',
       description: 'Explore different career paths, develop professional skills, and prepare for future employment through workshops and mentorship.',
       icon: <WorkIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
+      backgroundImage: '/public/programCardImages/lifeSkills&CareerPrep/career exploration.png',
       highlights: [
         'Career Assessment',
         'Resume Building',
@@ -139,6 +143,19 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
                     },
                   }}
                 >
+                  {program.backgroundImage && (
+                    <Box
+                      component="img"
+                      src={program.backgroundImage}
+                      alt={`${program.title} program`}
+                      sx={{
+                        width: '100%',
+                        height: '180px',
+                        objectFit: 'cover',
+                        borderRadius: '4px 4px 0 0',
+                      }}
+                    />
+                  )}
                   <CardContent sx={{ p: 4 }}>
                     <Box sx={{ textAlign: 'center', mb: 3 }}>
                       {program.icon}
