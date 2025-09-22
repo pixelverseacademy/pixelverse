@@ -42,6 +42,7 @@ const enrichmentBuckets = [
     icon: <CodeIcon sx={{ fontSize: 40 }} />,
     color: '#2196F3',
     path: '/programs/stem-technology',
+    backgroundImage: '/public/mainPageProgramImages/Stem.png',
     programs: ['Coding (Python, Scratch, Web Dev)', 'Robotics (LEGO, VEX, etc.)', 'Game Design & Animation', 'Generative AI & Machine Learning', 'Electronics & Engineering']
   },
   {
@@ -50,6 +51,7 @@ const enrichmentBuckets = [
     icon: <PaletteIcon sx={{ fontSize: 40 }} />,
     color: '#E91E63',
     path: '/programs/creative-arts-design',
+    backgroundImage: '/public/mainPageProgramImages/creative arts.png',
     programs: ['Digital Art & Graphic Design', '3D Printing & CAD', 'Music Technology & Production', 'Creative Writing & Storytelling']
   },
   {
@@ -58,6 +60,7 @@ const enrichmentBuckets = [
     icon: <PeopleIcon sx={{ fontSize: 40 }} />,
     color: '#4CAF50',
     path: '/programs/life-skills-career-prep',
+    backgroundImage: '/public/mainPageProgramImages/likfeSkillsAndCareerPrep.png',
     programs: ['Leadership & Teamwork', 'Public Speaking & Debate', 'Entrepreneurship & Financial Literacy', 'Career Exploration Workshops']
   },
   {
@@ -66,6 +69,7 @@ const enrichmentBuckets = [
     icon: <SchoolIcon sx={{ fontSize: 40 }} />,
     color: '#FF9800',
     path: '/programs/test-prep-academic-enrichment',
+    backgroundImage: '/public/mainPageProgramImages/testPrepandAcademic.png',
     programs: ['Math & Science Tutoring', 'Reading & Writing Support', 'Standardized Test Prep (SAT, ACT, etc.)', 'Study Skills & Time Management']
   },
   {
@@ -74,6 +78,7 @@ const enrichmentBuckets = [
     icon: <FitnessIcon sx={{ fontSize: 40 }} />,
     color: '#FF5722',
     path: '/programs/health-sports-wellness',
+    backgroundImage: '/public/mainPageProgramImages/healthSportsandWelness.png',
     programs: ['Physical Fitness & Sports Camps', 'Yoga & Mindfulness', 'Nutrition & Wellness Programs']
   },
 ];
@@ -330,16 +335,15 @@ const HomePage: React.FC = () => {
         <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
           Our Programs
         </Typography>
-        <Grid container spacing={4} justifyContent="center">
+        <Box sx={{ display: 'flex', flexWrap: { xs: 'wrap', md: 'nowrap' }, gap: 1, justifyContent: 'center', alignItems: 'stretch' }}>
           {enrichmentBuckets.map((bucket, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Box key={index} sx={{ flex: { xs: '1 1 100%', sm: '1 1 48%', md: '1 1 20%' }, minWidth: { md: '220px' }, maxWidth: { xs: '100%', sm: '48%', md: '20%' } }}>
               <Card
                 elevation={2}
                 sx={{
                   height: '100%',
-                  minHeight: '450px',
-                  maxWidth: '400px',
-                  mx: 'auto',
+                  minHeight: '400px',
+                  width: '100%',
                   display: 'flex',
                   flexDirection: 'column',
                   backgroundColor: '#f8f9ff',
@@ -355,6 +359,19 @@ const HomePage: React.FC = () => {
                 component={RouterLink}
                 to={bucket.path}
               >
+                {bucket.backgroundImage && (
+                  <Box
+                    component="img"
+                    src={bucket.backgroundImage}
+                    alt={`${bucket.title} program`}
+                    sx={{
+                      width: '100%',
+                      height: '150px',
+                      objectFit: 'cover',
+                      borderRadius: '4px 4px 0 0',
+                    }}
+                  />
+                )}
                 <CardContent sx={{ flexGrow: 1, p: 3, textAlign: 'center' }}>
                   <Box sx={{ mb: 2, color: bucket.color }}>
                     {bucket.icon}
@@ -375,9 +392,9 @@ const HomePage: React.FC = () => {
                   ))}
                 </CardContent>
               </Card>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
 
       {/* Why Choose Us */}
