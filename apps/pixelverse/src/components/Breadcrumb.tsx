@@ -29,9 +29,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, customItems }) => {
         case 'why-us':
           breadcrumbs.push({ label: 'Why Choose Us', path: '/why-us' });
           break;
-        case 'curriculum':
-          breadcrumbs.push({ label: 'Curriculum', path: '/curriculum' });
-          break;
         case 'programs':
           if (pathSegments.length > 1) {
             const programPath = pathSegments[1];

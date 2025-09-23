@@ -1,11 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import MainLayout from '../layouts/MainLayout';
 import HomePage from '../pages/HomePage';
 import WhyUsPage from '../pages/WhyUsPage';
-import CurriculumPage from '../pages/CurriculumPage';
 import StemTechnologyPage from '../pages/StemTechnologyPage';
 import CreativeArtsDesignPage from '../pages/CreativeArtsDesignPage';
 import LifeSkillsCareerPrepPage from '../pages/LifeSkillsCareerPrepPage';
@@ -351,39 +350,7 @@ const WhyUsPageWithSEO = () => {
   );
 };
 
-const CurriculumPageWithSEO = () => {
-  const breadcrumbStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://pathforgelearning.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Curriculum",
-        "item": "https://pathforgelearning.com/curriculum"
-      }
-    ]
-  };
 
-  return (
-    <>
-      <SEOHead
-        title="STEM Curriculum | Coding, Robotics & AI Classes for Kids | PathForge Learning"
-        description="Complete STEM curriculum for all ages. Python programming, robotics, AI, Minecraft coding, 3D printing, Scratch programming. Hands-on technology education in NC Triangle area."
-        keywords="STEM curriculum kids, coding classes children, robotics education, Python programming kids, AI classes children, Minecraft coding classes, 3D printing education, technology curriculum"
-        canonicalUrl="https://pathforgelearning.com/curriculum"
-        structuredData={breadcrumbStructuredData}
-      />
-      <CurriculumPage />
-    </>
-  );
-};
 
 const LocationsPageWithSEO = () => {
   const breadcrumbStructuredData = {
@@ -764,7 +731,7 @@ export function App() {
           <Routes>
             <Route path="/" element={<HomePageWithSEO />} />
             <Route path="/why-us" element={<WhyUsPageWithSEO />} />
-            <Route path="/curriculum" element={<CurriculumPageWithSEO />} />
+            <Route path="/curriculum" element={<Navigate to="/programs/stem-technology" replace />} />
             <Route path="/programs/stem-technology" element={<StemTechnologyPageWithSEO />} />
             <Route path="/programs/creative-arts-design" element={<CreativeArtsDesignPageWithSEO />} />
             <Route path="/programs/life-skills-career-prep" element={<LifeSkillsCareerPrepPageWithSEO />} />
