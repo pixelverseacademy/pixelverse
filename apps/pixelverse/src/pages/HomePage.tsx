@@ -88,8 +88,6 @@ const carouselImages = [
   '/public/carousel/dycbqxgwtt7bewwncgnj.png',
   '/public/carousel/lylfl41k6b06xaapnffa.png',
   '/public/carousel/sgpvppzrrh984epq4zrb.png',
-  '/public/carousel/IMG_9314.png',
-  '/public/carousel/IMG_9316.png',
 ];
 
 const HomePage: React.FC = () => {
