@@ -46,43 +46,63 @@ export default function Events() {
   };
 
   return (
-    <Box sx={{ 
-      minHeight: '100vh',
-      background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)'
-    }}>
+    <Box>
+      {/* Hero Section */}
+      <Box sx={{ 
+        py: { xs: 8, md: 12 },
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+        textAlign: 'center',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="3"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+          zIndex: 1
+        }
+      }}>
+        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 2 }}>
+          <Typography 
+            variant="h2" 
+            component="h1" 
+            sx={{ 
+              mb: 3, 
+              fontWeight: 700,
+              color: 'white',
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              textShadow: '2px 4px 8px rgba(0,0,0,0.3)',
+              lineHeight: 1.1
+            }}
+          >
+            Events & 
+            <Box component="span" sx={{ 
+              background: 'linear-gradient(45deg, #FFE082, #FFF176)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
+              display: 'inline'
+            }}>
+              Activities
+            </Box>
+          </Typography>
+          <Typography 
+            variant="h5" 
+            sx={{ 
+              color: 'rgba(255,255,255,0.9)',
+              fontWeight: 400,
+              lineHeight: 1.6
+            }}
+          >
+            Discover our past achievements and stay connected with our community
+          </Typography>
+        </Container>
+      </Box>
+
       <Container maxWidth="lg" sx={{ py: 8 }}>
-        {/* Hero Section */}
-        <Fade in={true} timeout={800}>
-          <Box sx={{ textAlign: 'center', mb: 8 }}>
-            <Typography 
-              variant="h2" 
-              component="h1" 
-              sx={{ 
-                mb: 3, 
-                fontWeight: 800,
-                background: 'linear-gradient(45deg, #3498db, #2ecc71)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textShadow: '2px 2px 4px rgba(0,0,0,0.1)'
-              }}
-            >
-              Events & Activities
-            </Typography>
-            <Typography 
-              variant="h5" 
-              sx={{ 
-                color: '#7f8c8d',
-                fontWeight: 400,
-                maxWidth: '600px',
-                mx: 'auto',
-                lineHeight: 1.6
-              }}
-            >
-              Discover our past achievements and stay connected with our community
-            </Typography>
-          </Box>
-        </Fade>
 
         {/* Past Events Section */}
         <Fade in={true} timeout={1000}>

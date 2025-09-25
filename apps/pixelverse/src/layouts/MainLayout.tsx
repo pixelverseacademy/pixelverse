@@ -217,7 +217,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </Box>
           
           {/* Desktop Navigation */}
-           <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'space-between', alignItems: 'center', flex: 1, maxWidth: '600px' }}>
+           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1, alignItems: 'center' }}>
              {navigationItems.map((item) => (
                <Box key={item.path} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                  {item.label === 'Programs' ? (

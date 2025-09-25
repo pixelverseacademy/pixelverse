@@ -83,14 +83,63 @@ export default function Donate() {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Typography variant="h2" component="h1" sx={{ mb: 4, fontWeight: 700, textAlign: 'center' }}>
-        Support Our Mission
-      </Typography>
-      
-      <Typography variant="h6" sx={{ mb: 6, color: 'text.secondary', textAlign: 'center', maxWidth: 600, mx: 'auto' }}>
-        Your donation helps us provide tech education to underserved communities. Every dollar counts and makes a difference!
-      </Typography>
+    <Box>
+      {/* Hero Section */}
+      <Box sx={{ 
+        py: { xs: 8, md: 12 },
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+        textAlign: 'center',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="3"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+          zIndex: 1
+        }
+      }}>
+        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 2 }}>
+                     <Typography 
+             variant="h2" 
+             component="h1" 
+             sx={{ 
+               mb: 3, 
+               fontWeight: 700,
+               color: 'white',
+               fontSize: { xs: '2.5rem', md: '3.5rem' },
+               textShadow: '2px 4px 8px rgba(0,0,0,0.3)',
+               lineHeight: 1.1
+             }}
+           >
+             Support Our 
+             <Box component="span" sx={{ 
+               background: 'linear-gradient(45deg, #FFE082, #FFF176)',
+               backgroundClip: 'text',
+               WebkitBackgroundClip: 'text',
+               color: 'transparent',
+               display: 'inline'
+             }}>
+               Mission
+             </Box>
+           </Typography>
+          <Typography 
+            variant="h5" 
+            sx={{ 
+              color: 'rgba(255,255,255,0.9)',
+              fontWeight: 400,
+              lineHeight: 1.6
+            }}
+          >
+            Your donation helps us provide tech education to underserved communities. Every dollar counts and makes a difference!
+          </Typography>
+        </Container>
+      </Box>
+
+      <Container maxWidth="lg" sx={{ py: 6 }}>
 
       <Box sx={{ 
         display: 'flex',
@@ -292,5 +341,6 @@ export default function Donate() {
         </Box>
       </Box>
     </Container>
+    </Box>
   );
 }
