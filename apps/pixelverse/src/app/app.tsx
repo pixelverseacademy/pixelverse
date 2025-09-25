@@ -15,6 +15,7 @@ import CareersPage from '../pages/CareersPage';
 import PartnershipsPage from '../pages/PartnershipsPage';
 import ContactPage from '../pages/ContactPage';
 import CoachesPage from '../pages/CoachesPage';
+import GivehartApp from '../givehart/App';
 
 // Create a cosmic orange and dark theme
 const theme = createTheme({
@@ -728,23 +729,28 @@ export function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <MainLayout>
-          <Routes>
-            <Route path="/" element={<HomePageWithSEO />} />
-            <Route path="/why-us" element={<WhyUsPageWithSEO />} />
-            <Route path="/curriculum" element={<Navigate to="/programs/stem-technology" replace />} />
-            <Route path="/programs/stem-technology" element={<StemTechnologyPageWithSEO />} />
-            <Route path="/programs/creative-arts-design" element={<CreativeArtsDesignPageWithSEO />} />
-            <Route path="/programs/life-skills-career-prep" element={<LifeSkillsCareerPrepPageWithSEO />} />
-            <Route path="/programs/test-prep-academic-enrichment" element={<TestPrepAcademicEnrichmentPageWithSEO />} />
-            <Route path="/programs/health-sports-wellness" element={<HealthSportsWellnessPageWithSEO />} />
-            <Route path="/locations" element={<LocationsPageWithSEO />} />
-            <Route path="/careers" element={<CareersPageWithSEO />} />
-            <Route path="/partnerships" element={<PartnershipsPageWithSEO />} />
-            <Route path="/contact" element={<ContactPageWithSEO />} />
-            <Route path="/coaches" element={<CoachesPageWithSEO />} />
-          </Routes>
-        </MainLayout>
+        <Routes>
+          <Route path="/givehart/*" element={<GivehartApp />} />
+          <Route path="/*" element={
+            <MainLayout>
+              <Routes>
+                <Route path="/" element={<HomePageWithSEO />} />
+                <Route path="/why-us" element={<WhyUsPageWithSEO />} />
+                <Route path="/curriculum" element={<Navigate to="/programs/stem-technology" replace />} />
+                <Route path="/programs/stem-technology" element={<StemTechnologyPageWithSEO />} />
+                <Route path="/programs/creative-arts-design" element={<CreativeArtsDesignPageWithSEO />} />
+                <Route path="/programs/life-skills-career-prep" element={<LifeSkillsCareerPrepPageWithSEO />} />
+                <Route path="/programs/test-prep-academic-enrichment" element={<TestPrepAcademicEnrichmentPageWithSEO />} />
+                <Route path="/programs/health-sports-wellness" element={<HealthSportsWellnessPageWithSEO />} />
+                <Route path="/locations" element={<LocationsPageWithSEO />} />
+                <Route path="/careers" element={<CareersPageWithSEO />} />
+                <Route path="/partnerships" element={<PartnershipsPageWithSEO />} />
+                <Route path="/contact" element={<ContactPageWithSEO />} />
+                <Route path="/coaches" element={<CoachesPageWithSEO />} />
+              </Routes>
+            </MainLayout>
+          } />
+        </Routes>
       </Router>
     </ThemeProvider>
   );

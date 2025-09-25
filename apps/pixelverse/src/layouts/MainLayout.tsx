@@ -217,7 +217,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </Box>
           
           {/* Desktop Navigation */}
-           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1, alignItems: 'center' }}>
+           <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'space-between', alignItems: 'center', flex: 1, maxWidth: '600px' }}>
              {navigationItems.map((item) => (
                <Box key={item.path} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                  {item.label === 'Programs' ? (
@@ -405,14 +405,13 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         }}
       >
         <Container maxWidth="lg">
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
-                
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
+            <Box sx={{ flex: 1 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-              <Typography variant="h6" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-                PathForge Learning
-              </Typography>
-            </Box>
+                <Typography variant="h6" sx={{ color: '#3498db', fontWeight: 'bold' }}>
+                  PathForge Learning
+                </Typography>
+              </Box>
               <Typography
                 variant="body1"
                 sx={{
@@ -425,9 +424,9 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               >
                 Empowering the next generation through comprehensive enrichment programs in STEM & Technology, Creative Arts & Design, Life Skills & Career Prep, Test Prep & Academic Enrichment, and Health, Sports & Wellness across the Raleigh-Durham area including Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, Chapel Hill, and Hillsborough, NC.
               </Typography>
-            </Grid>
+            </Box>
             
-            <Grid item xs={12} md={4}>
+            <Box sx={{ flex: 1 }}>
               <Typography variant="h6" gutterBottom sx={{ color: 'white', fontWeight: 'bold' }}>
                 Contact Info
               </Typography>
@@ -440,9 +439,9 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <Typography variant="body2" sx={{ color: 'white' }}>
                 Locations: Durham, Holly Springs, Raleigh, Cary, Apex, Morrisville, Wake Forest, Chapel Hill & Hillsborough, NC
               </Typography>
-            </Grid>
+            </Box>
             
-            <Grid item xs={12} md={4}>
+            <Box sx={{ flex: 1 }}>
               <Typography variant="h6" gutterBottom sx={{ color: 'white', fontWeight: 'bold' }}>
                 Quick Links
               </Typography>
@@ -524,8 +523,8 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   </IconButton>
                 </Box>
               </Box>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
           
           <Box sx={{ borderTop: '1px solid #0a1929', mt: 4, pt: 2, textAlign: 'center' }}>
             <Typography variant="body2" sx={{ color: 'white' }}>

@@ -216,6 +216,7 @@ const HomePage: React.FC = () => {
               objectFit: 'cover',
               borderRadius: '12px',
               boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+              border: '4px solid #3498db',
               transition: 'transform 0.3s ease',
               '&:hover': {
                 transform: 'scale(1.02)',
