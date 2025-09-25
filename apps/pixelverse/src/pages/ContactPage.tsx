@@ -17,6 +17,7 @@ import {
   Send as SendIcon,
   Facebook as FacebookIcon,
   Instagram as InstagramIcon,
+  LinkedIn as LinkedInIcon,
 } from '@mui/icons-material';
 
 const ContactPage: React.FC = () => {
@@ -376,6 +377,25 @@ const ContactPage: React.FC = () => {
                 }}
               >
                 Instagram
+              </Button>
+              <Button
+                variant="outlined"
+                startIcon={<LinkedInIcon sx={{ color: '#0077b5' }} />}
+                href="https://www.linkedin.com/company/pathforge-learning"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  borderColor: '#0077b5',
+                  color: '#0077b5',
+                  '&:hover': {
+                    borderColor: '#0077b5',
+                    backgroundColor: 'rgba(0, 119, 181, 0.1)',
+                    transform: 'translateY(-2px)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                LinkedIn
               </Button>
             </Box>
           </Box>

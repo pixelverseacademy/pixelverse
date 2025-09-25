@@ -268,10 +268,11 @@ const organizationStructuredData = {
     "email": "info@pathforgelearning.com",
     "contactType": "customer service"
   },
-  "sameAs": [
-            "https://www.facebook.com/profile.php?id=61580934554373",
-    "https://www.instagram.com/pathforgelearning/"
-  ],
+      "sameAs": [
+      "https://www.facebook.com/profile.php?id=61580934554373",
+      "https://www.instagram.com/pathforgelearning/",
+      "https://www.linkedin.com/company/pathforge-learning"
+    ],
   "areaServed": [
     "Durham, NC",
     "Holly Springs, NC",

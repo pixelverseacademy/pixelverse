@@ -28,6 +28,7 @@ import {
   Work as WorkIcon,
   Facebook as FacebookIcon,
   Instagram as InstagramIcon,
+  LinkedIn as LinkedInIcon,
   Palette as PaletteIcon,
   FitnessCenter as FitnessIcon,
   KeyboardArrowDown as KeyboardArrowDownIcon,
@@ -325,6 +326,22 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     >
                       <FacebookIcon sx={{ fontSize: '1rem' }} />
                     </IconButton>
+                    <IconButton
+                      href="https://www.linkedin.com/company/pathforge-learning"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        color: '#0077b5',
+                        p: 0.5,
+                        '&:hover': {
+                          color: '#0077b5',
+                          backgroundColor: 'rgba(0, 119, 181, 0.1)',
+                        },
+                      }}
+                      size="small"
+                    >
+                      <LinkedInIcon sx={{ fontSize: '1rem' }} />
+                    </IconButton>
                   </Box>
                 )}
               </Box>
@@ -489,6 +506,21 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     }}
                   >
                     <InstagramIcon />
+                  </IconButton>
+                  <IconButton
+                    href="https://www.linkedin.com/company/pathforge-learning"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: '#0077b5',
+                      p: 1,
+                      '&:hover': {
+                        color: '#0077b5',
+                        backgroundColor: 'rgba(0, 119, 181, 0.1)',
+                      },
+                    }}
+                  >
+                    <LinkedInIcon />
                   </IconButton>
                 </Box>
               </Box>
