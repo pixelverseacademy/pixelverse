@@ -366,8 +366,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </Toolbar>
       </AppBar>
 
-      {/* Breadcrumb Navigation */}
-      <Breadcrumb />
+
 
       {/* Mobile Drawer */}
       <Drawer

@@ -4,492 +4,349 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
   Card,
   CardContent,
-  Paper,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Chip,
+  Avatar,
 } from '@mui/material';
 import {
   School as SchoolIcon,
   Code as CodeIcon,
   Build as BuildIcon,
-  Psychology as AIIcon,
   Group as GroupIcon,
   EmojiEvents as AwardIcon,
   CheckCircle as CheckIcon,
+  People as PeopleIcon,
+  Star as StarIcon,
+  Timeline as TimelineIcon,
 } from '@mui/icons-material';
 
 const WhyUsPage: React.FC = () => {
   const theme = getThemeColors('why-us');
+  
+  // Define purple theme colors for Why Us page
+  const primaryColor = '#9C27B0';
+  const secondaryColor = '#BA68C8';
+  
+  const highlights = [
+    {
+      icon: <PeopleIcon sx={{ fontSize: 20 }} />,
+      text: '500+ Students Taught',
+      color: '#9C27B0',
+    },
+    {
+      icon: <StarIcon sx={{ fontSize: 20 }} />,
+      text: '5/5 Rating',
+      color: '#E91E63',
+    },
+    {
+      icon: <AwardIcon sx={{ fontSize: 20 }} />,
+      text: '5+ Years Experience',
+      color: '#FF9800',
+    },
+    {
+      icon: <TimelineIcon sx={{ fontSize: 20 }} />,
+      text: '95% Success Rate',
+      color: '#4CAF50',
+    },
+  ];
+
   const features = [
     {
-      title: 'Project-Based Learning Approach',
-      description: 'Students learn through hands-on projects that solve real-world problems, making learning engaging and practical.',
-      icon: <BuildIcon sx={{ fontSize: 50, color: '#3498db' }} />,
-      benefits: [
-        'Real-world problem solving',
-        'Enhanced creativity and innovation',
-        'Better retention of concepts',
-        'Portfolio building for future opportunities',
-      ],
+      title: 'Hands-On Learning',
+      description: 'Real projects, real skills',
+      icon: <BuildIcon sx={{ fontSize: 24 }} />,
+      color: '#9C27B0',
     },
     {
       title: 'Expert Instructors',
-      description: 'Learn from experienced professionals who are passionate about technology education and student success.',
-      icon: <CodeIcon sx={{ fontSize: 50, color: '#3498db' }} />,
-      benefits: [
-        'Industry experience and expertise',
-        'Personalized teaching approach',
-        'Mentorship and career guidance',
-        'Continuous professional development',
-      ],
+      description: 'Industry professionals',
+      icon: <CodeIcon sx={{ fontSize: 24 }} />,
+      color: '#E91E63',
     },
     {
-      title: 'Comprehensive Enrichment Curriculum',
-      description: 'From STEM fundamentals to creative arts, life skills, academics, and wellness, our curriculum covers all aspects of holistic development.',
-      icon: <SchoolIcon sx={{ fontSize: 50, color: '#3498db' }} />,
-      benefits: [
-        'Multi-disciplinary learning approach',
-        'Progressive skill building across domains',
-        'Multiple learning pathways',
-        'Regular curriculum updates',
-      ],
+      title: 'Small Classes',
+      description: 'Personal attention',
+      icon: <GroupIcon sx={{ fontSize: 24 }} />,
+      color: '#FF9800',
     },
     {
-      title: 'Small Class Sizes',
-      description: 'Personalized attention with small class sizes ensures every student gets the support they need to succeed.',
-      icon: <GroupIcon sx={{ fontSize: 50, color: '#3498db' }} />,
-      benefits: [
-        'Individual attention and support',
-        'Collaborative learning environment',
-        'Peer-to-peer learning opportunities',
-        'Flexible pacing based on student needs',
-      ],
-    },
-    {
-      title: 'Diverse Learning Environments',
-      description: 'Access to creative studios, performance spaces, fitness facilities, and collaborative workspaces designed for holistic development.',
-      icon: <AIIcon sx={{ fontSize: 50, color: '#3498db' }} />,
-      benefits: [
-        'Creative and performance spaces',
-        'Collaborative learning environments',
-        'Hands-on experience across disciplines',
-        'Preparation for diverse future opportunities',
-      ],
-    },
-    {
-      title: 'Personalized Growth Opportunities',
-      description: 'Individualized development plans, mentorship programs, and performance showcases that celebrate each student\'s unique talents.',
-      icon: <AwardIcon sx={{ fontSize: 50, color: '#3498db' }} />,
-      benefits: [
-        'Personalized development plans',
-        'Mentorship and guidance',
-        'Performance showcases and exhibitions',
-        'Recognition of individual achievements',
-      ],
+      title: 'Proven Results',
+      description: 'Track record of success',
+      icon: <CheckIcon sx={{ fontSize: 24 }} />,
+      color: '#4CAF50',
     },
   ];
 
-  const stats = [
-    { number: '500+', label: 'Students Taught' },
-    { number: '95%', label: 'Student Satisfaction' },
-    { number: '50+', label: 'Competition Awards' },
-    { number: '5', label: 'Years of Experience' },
+  const benefits = [
+    {
+      title: 'Future-Ready Skills',
+      description: 'Learn technologies that matter in tomorrow\'s job market',
+      icon: <SchoolIcon sx={{ fontSize: 24 }} />,
+      color: '#2196F3',
+    },
+    {
+      title: 'Portfolio Building',
+      description: 'Create impressive projects for college and career applications',
+      icon: <AwardIcon sx={{ fontSize: 24 }} />,
+      color: '#FF5722',
+    },
+    {
+      title: 'Community Network',
+      description: 'Connect with like-minded peers and mentors',
+      icon: <GroupIcon sx={{ fontSize: 24 }} />,
+      color: '#795548',
+    },
   ];
 
   return (
-    <Box sx={{ backgroundColor: '#f0f8ff' }}>
-      {/* Hero Section */}
-      <Box
-        sx={{
-          background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #64B5F6 100%)',
-          color: 'white',
-          py: { xs: 6, md: 8 },
+    <Box sx={{ minHeight: '100vh', position: 'relative' }}>
+      <PathForgeBackground page="why-us" />
+      
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, py: 4 }}>
+        {/* Hero Section */}
+        <Box sx={{
           textAlign: 'center',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <PathForgeBackground page="why-us" />
-        {/* Cosmic background effect */}
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: `
-              radial-gradient(circle at 20% 50%, rgba(52, 152, 219, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(46, 204, 113, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 40% 80%, rgba(243, 156, 18, 0.3) 0%, transparent 50%)
-            `,
-          }}
-        />
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: theme.text, textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
-            Why Choose PathForge Learning?
+          py: 6,
+          mb: 4,
+        }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 800,
+              mb: 2,
+              color: primaryColor,
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              lineHeight: 1.1,
+            }}
+          >
+            Why Choose PathForge?
           </Typography>
-          <Typography variant="h5" sx={{ mb: 4, opacity: 0.9, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            Empowering the Next Generation of Innovators
+          
+          <Typography
+            variant="h5"
+            sx={{
+              mb: 4,
+              color: theme.text,
+              fontWeight: 400,
+              maxWidth: '600px',
+              mx: 'auto',
+            }}
+          >
+            The Triangle's most trusted learning partner for building tomorrow's innovators
           </Typography>
-          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            We're not just another enrichment program. We're a comprehensive educational experience
-            that prepares students for the future through innovative teaching methods,
-            expert instruction, and hands-on learning across multiple disciplines.
-          </Typography>
-        </Container>
-      </Box>
 
-      {/* Statistics - Centered Layout */}
-      <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f0f8ff' }}>
-        <Grid container spacing={4} justifyContent="center">
-          {stats.map((stat, index) => (
-            <Grid item xs={6} sm={4} md={3} key={index}>
-              <Paper 
-                elevation={2} 
-                sx={{ 
-                  p: 3, 
-                  textAlign: 'center', 
-                  backgroundColor: '#f8f9ff', 
-                  border: '1px solid #e0e6ed',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+          {/* Quick Highlights */}
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 2,
+            justifyContent: 'center',
+            mb: 6,
+          }}>
+            {highlights.map((item, index) => (
+              <Box
+                key={index}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1,
+                  backgroundColor: 'rgba(255,255,255,0.9)',
+                  px: 3,
+                  py: 1.5,
+                  borderRadius: '25px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                  transition: 'all 0.3s ease',
                   '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                    border: '1px solid #3498db',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
                   },
                 }}
               >
-                <Typography variant="h3" component="div" sx={{ fontWeight: 'bold', color: '#3498db' }}>
-                  {stat.number}
+                <Avatar sx={{ 
+                  backgroundColor: item.color, 
+                  width: 36, 
+                  height: 36 
+                }}>
+                  {item.icon}
+                </Avatar>
+                <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                  {item.text}
                 </Typography>
-                <Typography variant="h6" sx={{ color: '#7f8c8d' }}>
-                  {stat.label}
-                </Typography>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+              </Box>
+            ))}
+          </Box>
+        </Box>
 
-      {/* Features - Two Rows, Three Columns */}
-      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
-        <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
+        {/* Why Choose Us Features */}
+        <Box sx={{ mb: 6 }}>
+          <Typography
+            variant="h3"
+            sx={{
+              textAlign: 'center',
+              mb: 4,
+              fontWeight: 700,
+              color: primaryColor,
+            }}
+          >
             What Makes Us Different
           </Typography>
           
-          <Grid container spacing={4} justifyContent="center">
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 2,
+            justifyContent: 'center',
+            maxWidth: '900px',
+            mx: 'auto',
+            mb: 6,
+          }}>
             {features.map((feature, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card 
-                  elevation={2} 
-                  sx={{ 
-                    height: '100%', 
-                    width: '100%',
-                    maxWidth: '400px',
-                    mx: 'auto',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    backgroundColor: '#f0f8ff', 
-                    border: '1px solid #e0e6ed',
-                    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                      border: '1px solid #3498db',
+              <Card
+                key={index}
+                sx={{
+                  minWidth: '200px',
+                  flex: '1 1 auto',
+                  maxWidth: '250px',
+                  borderRadius: '15px',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                    backgroundColor: feature.color,
+                    color: 'white',
+                    '& .MuiAvatar-root': {
+                      backgroundColor: 'white',
+                      color: feature.color,
                     },
-                  }}
-                >
-                  <CardContent sx={{ flexGrow: 1, p: 4 }}>
-                    <Box sx={{ textAlign: 'center', mb: 3 }}>
-                      {feature.icon}
-                    </Box>
-                    <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', textAlign: 'center', color: '#2c3e50' }}>
-                      {feature.title}
-                    </Typography>
-                    <Typography variant="body1" sx={{ mb: 3, textAlign: 'center', color: '#7f8c8d' }}>
-                      {feature.description}
-                    </Typography>
-                    <List dense>
-                      {feature.benefits.map((benefit, idx) => (
-                        <ListItem key={idx} sx={{ px: 0 }}>
-                          <ListItemIcon>
-                            <CheckIcon sx={{ color: '#3498db' }} />
-                          </ListItemIcon>
-                          <ListItemText primary={benefit} sx={{ color: '#7f8c8d' }} />
-                        </ListItem>
-                      ))}
-                    </List>
-                  </CardContent>
-                </Card>
-              </Grid>
+                  },
+                }}
+              >
+                <CardContent sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  p: 3,
+                  '&:last-child': { pb: 3 },
+                }}>
+                  <Avatar sx={{
+                    backgroundColor: feature.color,
+                    width: 56,
+                    height: 56,
+                    transition: 'all 0.3s ease',
+                  }}>
+                    {feature.icon}
+                  </Avatar>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      textAlign: 'center',
+                      fontWeight: 700,
+                      mb: 0.5,
+                    }}
+                  >
+                    {feature.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      textAlign: 'center',
+                      opacity: 0.8,
+                    }}
+                  >
+                    {feature.description}
+                  </Typography>
+                </CardContent>
+              </Card>
             ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* Why Choose Us - One Row, Three Cards */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
-          Why Choose PathForge Learning?
-        </Typography>
-        
-        <Grid container spacing={4} justifyContent="center" alignItems="stretch">
-          <Grid item xs={12} sm={6} md={4}>
-            <Paper 
-              elevation={2} 
-              sx={{ 
-                p: 4, 
-                textAlign: 'center', 
-                height: '100%',
-                maxWidth: '350px',
-                mx: 'auto',
-                backgroundColor: '#f8f9ff', 
-                border: '1px solid #e0e6ed',
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                  border: '1px solid #3498db',
-                },
-              }}
-            >
-              <SchoolIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                Project-Based Learning
-              </Typography>
-              <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                Students learn through hands-on projects that solve real-world problems.
-              </Typography>
-            </Paper>
-          </Grid>
-          
-          <Grid item xs={12} sm={6} md={4}>
-            <Paper 
-              elevation={2} 
-              sx={{ 
-                p: 4, 
-                textAlign: 'center', 
-                height: '100%',
-                maxWidth: '350px',
-                mx: 'auto',
-                backgroundColor: '#f8f9ff', 
-                border: '1px solid #e0e6ed',
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                  border: '1px solid #3498db',
-                },
-              }}
-            >
-              <CodeIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                Expert Instructors
-              </Typography>
-              <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                Learn from experienced professionals passionate about technology education.
-              </Typography>
-            </Paper>
-          </Grid>
-          
-          <Grid item xs={12} sm={6} md={4}>
-            <Paper 
-              elevation={2} 
-              sx={{ 
-                p: 4, 
-                textAlign: 'center', 
-                height: '100%',
-                maxWidth: '350px',
-                mx: 'auto',
-                backgroundColor: '#f8f9ff', 
-                border: '1px solid #e0e6ed',
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                  border: '1px solid #3498db',
-                },
-              }}
-            >
-              <GroupIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                Small Class Sizes
-              </Typography>
-              <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                Personalized attention with small class sizes for optimal learning.
-              </Typography>
-            </Paper>
-          </Grid>
-        </Grid>
-      </Container>
-
-      {/* Why Our Instructors Make the Difference - One Row, Three Cards */}
-      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
-        <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
-            Why Our Instructors Make the Difference
-          </Typography>
-          
-          <Grid container spacing={4} justifyContent="center" alignItems="stretch">
-            <Grid item xs={12} sm={6} md={4}>
-              <Paper 
-                elevation={2} 
-                sx={{ 
-                  p: 4, 
-                  textAlign: 'center', 
-                  height: '100%',
-                  maxWidth: '350px',
-                  mx: 'auto',
-                  backgroundColor: '#f0f8ff', 
-                  border: '1px solid #e0e6ed',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                    border: '1px solid #3498db',
-                  },
-                }}
-              >
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                  Industry Experience
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                  Our instructors bring real-world experience from top tech companies, ensuring students learn current, relevant skills.
-                </Typography>
-              </Paper>
-            </Grid>
-            
-            <Grid item xs={12} sm={6} md={4}>
-              <Paper 
-                elevation={2} 
-                sx={{ 
-                  p: 4, 
-                  textAlign: 'center', 
-                  height: '100%',
-                  maxWidth: '350px',
-                  mx: 'auto',
-                  backgroundColor: '#f0f8ff', 
-                  border: '1px solid #e0e6ed',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                    border: '1px solid #3498db',
-                  },
-                }}
-              >
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                  Educational Expertise
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                  With advanced degrees in education and years of teaching experience, our instructors know how to make complex concepts accessible.
-                </Typography>
-              </Paper>
-            </Grid>
-            
-            <Grid item xs={12} sm={6} md={4}>
-              <Paper 
-                elevation={2} 
-                sx={{ 
-                  p: 4, 
-                  textAlign: 'center', 
-                  height: '100%',
-                  maxWidth: '350px',
-                  mx: 'auto',
-                  backgroundColor: '#f0f8ff', 
-                  border: '1px solid #e0e6ed',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                    border: '1px solid #3498db',
-                  },
-                }}
-              >
-                <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                  Proven Results
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                  Our instructors have helped hundreds of students achieve their goals, from learning their first programming language to winning competitions.
-                </Typography>
-              </Paper>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* What We Believe - Full Width */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
-          What We Believe
-        </Typography>
-        
-        <Paper 
-          elevation={2} 
-          sx={{ 
-            p: 6, 
-            backgroundColor: '#f8f9ff', 
-            border: '1px solid #e0e6ed',
-            transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-            '&:hover': {
-              transform: 'translateY(-8px)',
-              boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-              border: '1px solid #3498db',
-            },
-          }}
-        >
-          <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#3498db', textAlign: 'center', mb: 4 }}>
-            Our Mission and Values
-          </Typography>
-          <Typography variant="body1" paragraph sx={{ color: '#7f8c8d', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
-            We believe that every child has the potential to become a creator, innovator, and leader.
-            Enrichment education should be accessible, engaging, and empowering for all students across multiple disciplines.
-          </Typography>
-          <Typography variant="body1" paragraph sx={{ color: '#7f8c8d', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
-            Our mission is to prepare students for the future by teaching them not just technical skills,
-            but how to think critically, solve problems creatively, and build solutions that make a difference in STEM, arts, life skills, academics, and wellness.
-          </Typography>
-          <Typography variant="body1" paragraph sx={{ color: '#7f8c8d', textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
-            We believe in the power of hands-on learning, where students don't just consume information
-            but actively create, experiment, and discover through meaningful projects across all our enrichment programs.
-          </Typography>
-        </Paper>
-      </Container>
-
-      {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f8f9ff', borderTop: '1px solid #e0e6ed' }}>
-        <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-            Ready to Join Our Community?
-          </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
-            Experience the difference that expert instruction, hands-on learning, 
-            and personalized attention can make in your child's education.
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Chip
-              label="Small Class Sizes"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2ecc71', color: 'white' }}
-            />
-            <Chip
-              label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3498db', color: 'white' }}
-            />
-            <Chip
-              label="Hands-On Learning"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff9800', color: 'white' }}
-            />
           </Box>
-        </Container>
-      </Box>
+        </Box>
+
+        {/* Benefits Section */}
+        <Box sx={{ mb: 6 }}>
+          <Typography
+            variant="h3"
+            sx={{
+              textAlign: 'center',
+              mb: 4,
+              fontWeight: 700,
+              color: primaryColor,
+            }}
+          >
+            Student Benefits
+          </Typography>
+          
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 3,
+            justifyContent: 'center',
+            maxWidth: '1000px',
+            mx: 'auto',
+          }}>
+            {benefits.map((benefit, index) => (
+              <Card
+                key={index}
+                sx={{
+                  minWidth: '280px',
+                  flex: '1 1 auto',
+                  maxWidth: '320px',
+                  borderRadius: '20px',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
+                    backgroundColor: benefit.color,
+                    color: 'white',
+                    '& .MuiAvatar-root': {
+                      backgroundColor: 'white',
+                      color: benefit.color,
+                    },
+                  },
+                }}
+              >
+                <CardContent sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 2,
+                  p: 4,
+                  '&:last-child': { pb: 4 },
+                }}>
+                  <Avatar sx={{
+                    backgroundColor: benefit.color,
+                    width: 64,
+                    height: 64,
+                    transition: 'all 0.3s ease',
+                  }}>
+                    {benefit.icon}
+                  </Avatar>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      textAlign: 'center',
+                      fontWeight: 700,
+                      mb: 1,
+                    }}
+                  >
+                    {benefit.title}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: 'center',
+                      opacity: 0.9,
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {benefit.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
+        </Box>
+      </Container>
     </Box>
   );
 };

@@ -4,471 +4,374 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
   Card,
   CardContent,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Paper,
-  Chip,
+  CardMedia,
+  Avatar,
 } from '@mui/material';
 import {
-  ExpandMore as ExpandMoreIcon,
-  Check as CheckIcon,
   Code as CodeIcon,
   Build as BuildIcon,
-  School as SchoolIcon,
-  Psychology as PsychologyIcon,
-  SmartToy as SmartToyIcon,
-  Palette as PaletteIcon,
-  Flight as FlightIcon,
-  PhoneAndroid as PhoneIcon,
-  SportsEsports as EsportsIcon,
+  Psychology as AIIcon,
+  SmartToy as RobotIcon,
+  SportsEsports as GameIcon,
+  Flight as DroneIcon,
+  PhoneAndroid as MobileIcon,
+  Print as PrintIcon,
+  Extension as ScratchIcon,
+  Sports as MinecraftIcon,
+  Visibility as ARIcon,
 } from '@mui/icons-material';
 
 const StemTechnologyPage: React.FC = () => {
   const theme = getThemeColors('curriculum');
+  
+  // Define blue theme colors for STEM page
+  const primaryColor = '#2196F3';
+  const secondaryColor = '#42A5F5';
+  
   const programs = [
     {
+      title: 'Python Programming',
+      description: 'Master real-world coding with Python',
+      icon: <CodeIcon sx={{ fontSize: 24 }} />,
+      color: '#2196F3',
+      image: '/public/programCardImages/stemAndTechnology/Python programming.jpg',
+      skills: ['Variables & Functions', 'Object-Oriented Programming', 'Game Development', 'Web Applications'],
+    },
+    {
       title: 'Engineering & Robotics',
-      icon: <BuildIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
-      description: 'Build and program robots using LEGO Mindstorms, Arduino, and advanced robotics kits. Learn mechanical engineering principles, sensors, and automation.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/robotics 2.jpeg',
-      highlights: [
-        'LEGO Mindstorms EV3 Programming',
-        'Arduino Microcontroller Projects',
-        'Sensor Integration & Data Collection',
-        'Mechanical Design & 3D Printing',
-        'Competition Team Preparation',
-      ],
+      description: 'Build and program advanced robots',
+      icon: <RobotIcon sx={{ fontSize: 24 }} />,
+      color: '#FF9800',
+      image: '/public/programCardImages/stemAndTechnology/robotics 2.jpeg',
+      skills: ['LEGO Mindstorms', 'Arduino Projects', 'Sensor Integration', 'Competition Prep'],
     },
     {
-      title: 'Coding, Designing & Modding with Minecraft',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
-      description: 'Learn programming concepts through Minecraft modding, custom world creation, and game design. Perfect introduction to coding for young learners.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/minecraft.png',
-      highlights: [
-        'Minecraft Education Edition',
-        'JavaScript & Python Scripting',
-        'Custom Mod Development',
-        '3D World Design & Building',
-        'Redstone Engineering',
-      ],
+      title: 'Game Development',
+      description: 'Create interactive games and experiences',
+      icon: <GameIcon sx={{ fontSize: 24 }} />,
+      color: '#E91E63',
+      image: '/public/programCardImages/stemAndTechnology/Roblox game development.png',
+      skills: ['Unity 3D', 'Game Design', 'Roblox Studio', 'Lua Scripting'],
     },
     {
-      title: 'Programming in Python',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
-      description: 'Master Python programming from basics to advanced concepts. Build games, web applications, and data analysis projects.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Python programming.jpg',
-      highlights: [
-        'Python Fundamentals & Syntax',
-        'Object-Oriented Programming',
-        'Game Development with Pygame',
-        'Web Development with Flask/Django',
-        'Data Science & Visualization',
-      ],
+      title: 'AI & Machine Learning',
+      description: 'Explore artificial intelligence concepts',
+      icon: <AIIcon sx={{ fontSize: 24 }} />,
+      color: '#9C27B0',
+      image: '/public/programCardImages/stemAndTechnology/Ai and machine learning.png',
+      skills: ['Neural Networks', 'Computer Vision', 'Data Analysis', 'AI Ethics'],
     },
     {
-      title: 'AR and VR Coding',
-      icon: <PsychologyIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
-      description: 'Create immersive augmented and virtual reality experiences. Learn Unity, Unreal Engine, and AR development platforms.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Ar and VR coding.jpg',
-      highlights: [
-        'Unity 3D Development',
-        'ARCore & ARKit Integration',
-        'VR Headset Programming',
-        '3D Modeling & Animation',
-        'Interactive Experience Design',
-      ],
-    },
-    {
-      title: 'Transform Your Imagination into Interactive Roblox Games',
-      icon: <SmartToyIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
-      description: 'Design, build, and publish your own Roblox games. Learn Lua scripting, game mechanics, and monetization strategies.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Roblox game development.png',
-      highlights: [
-        'Roblox Studio Development',
-        'Lua Programming Language',
-        'Game Design & Mechanics',
-        '3D Modeling & Animation',
-        'Publishing & Monetization',
-      ],
-    },
-    {
-      title: 'Artificial Intelligence & Machine Learning',
-      icon: <PsychologyIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
-      description: 'Explore AI concepts through hands-on projects. Build chatbots, image recognition systems, and predictive models.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Ai and machine learning.png',
-      highlights: [
-        'Machine Learning Fundamentals',
-        'Neural Networks & Deep Learning',
-        'Computer Vision Projects',
-        'Natural Language Processing',
-        'AI Ethics & Future Applications',
-      ],
-    },
-    {
-      title: 'Ignite Innovation with 3D Modeling, Design & Printing',
-      icon: <PaletteIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
-      description: 'Master 3D design software and bring your creations to life with 3D printing. Learn CAD, modeling, and prototyping.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/3d modeling and printing.png',
-      highlights: [
-        'Tinkercad & Fusion 360',
-        '3D Modeling Techniques',
-        '3D Printing & Prototyping',
-        'Product Design Thinking',
-        'Rapid Prototyping Methods',
-      ],
-    },
-    {
-      title: 'Scratch-based Programming',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
-      description: 'Perfect introduction to programming for young learners. Create interactive stories, games, and animations using visual programming.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Scratch programming.png',
-      highlights: [
-        'Visual Programming Concepts',
-        'Interactive Story Creation',
-        'Game Development Basics',
-        'Animation & Graphics',
-        'Computational Thinking',
-      ],
-    },
-    {
-      title: 'Content Creation with Drone',
-      icon: <FlightIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
-      description: 'Master aerial content creation using drones. Learn professional photography, videography techniques, and post-production editing for stunning visual storytelling.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/drone programming.png',
-      highlights: [
-        'Professional Aerial Photography',
-        'Cinematic Videography Techniques',
-        'Drone Camera Operation & Controls',
-        'Video Editing & Post-Production',
-        'Content Creation for Social Media',
-        'Commercial Photography Projects',
-      ],
+      title: 'Drone Programming',
+      description: 'Code flying robots and aerial content',
+      icon: <DroneIcon sx={{ fontSize: 24 }} />,
+      color: '#00BCD4',
+      image: '/public/programCardImages/stemAndTechnology/drone programming.png',
+      skills: ['Flight Control', 'Autonomous Navigation', 'Aerial Photography', 'Video Editing'],
     },
     {
       title: 'Mobile App Development',
-      icon: <PhoneIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
-      description: 'Create mobile applications for iOS and Android. Learn app design, development, and publishing processes.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/mobile app development.png',
-      highlights: [
-        'React Native Development',
-        'iOS & Android App Creation',
-        'User Interface Design',
-        'App Store Publishing',
-        'Cross-Platform Development',
-      ],
+      description: 'Build apps for iOS and Android',
+      icon: <MobileIcon sx={{ fontSize: 24 }} />,
+      color: '#4CAF50',
+      image: '/public/programCardImages/stemAndTechnology/mobile app development.png',
+      skills: ['React Native', 'App Design', 'User Interface', 'App Store Publishing'],
     },
     {
-      title: 'E-sports',
-      icon: <EsportsIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
-      description: 'Develop gaming skills, strategy, and teamwork through competitive gaming. Learn about the esports industry and career opportunities.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/esports.png',
-      highlights: [
-        'Competitive Gaming Strategies',
-        'Team Communication & Leadership',
-        'Game Analysis & Improvement',
-        'Esports Industry Overview',
-        'Career Opportunities in Gaming',
-      ],
+      title: '3D Printing & CAD',
+      description: 'Design and print your creations',
+      icon: <PrintIcon sx={{ fontSize: 24 }} />,
+      color: '#FF5722',
+      image: '/public/programCardImages/stemAndTechnology/3d modeling and printing.png',
+      skills: ['Fusion 360', '3D Modeling', 'Prototyping', 'Product Design'],
     },
     {
       title: 'Web Development',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#2ecc71' }} />,
-      description: 'Build interactive websites and web applications using HTML, CSS, and JavaScript.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/web development.png',
-      highlights: [
-        'HTML, CSS & JavaScript Fundamentals',
-        'Responsive Web Design',
-        'Frontend Frameworks (React, Vue)',
-        'Backend Development',
-        'Full-Stack Applications',
-      ],
+      description: 'Create modern websites and web apps',
+      icon: <BuildIcon sx={{ fontSize: 24 }} />,
+      color: '#795548',
+      image: '/public/programCardImages/stemAndTechnology/web development.png',
+      skills: ['HTML & CSS', 'JavaScript', 'React Framework', 'Responsive Design'],
+    },
+    {
+      title: 'Scratch Programming',
+      description: 'Visual programming for beginners',
+      icon: <ScratchIcon sx={{ fontSize: 24 }} />,
+      color: '#FF6B35',
+      image: '/public/programCardImages/stemAndTechnology/Scratch programming.png',
+      skills: ['Visual Programming', 'Game Creation', 'Animation', 'Computational Thinking'],
+    },
+    {
+      title: 'Minecraft Coding',
+      description: 'Learn programming through Minecraft',
+      icon: <MinecraftIcon sx={{ fontSize: 24 }} />,
+      color: '#4CAF50',
+      image: '/public/programCardImages/stemAndTechnology/minecraft.png',
+      skills: ['JavaScript Scripting', 'World Building', 'Redstone Engineering', 'Mod Development'],
+    },
+    {
+      title: 'AR & VR Development',
+      description: 'Create immersive virtual experiences',
+      icon: <ARIcon sx={{ fontSize: 24 }} />,
+      color: '#E91E63',
+      image: '/public/programCardImages/stemAndTechnology/Ar and VR coding.jpg',
+      skills: ['Unity 3D', 'ARCore & ARKit', 'VR Headsets', '3D Modeling'],
+    },
+    {
+      title: 'E-Sports',
+      description: 'Competitive gaming and strategy',
+      icon: <GameIcon sx={{ fontSize: 24 }} />,
+      color: '#2196F3',
+      image: '/public/programCardImages/stemAndTechnology/esports.png',
+      skills: ['Gaming Strategy', 'Team Communication', 'Game Analysis', 'Esports Industry'],
+    },
+  ];
+
+  const highlights = [
+    {
+      title: 'Hands-On Projects',
+      description: 'Build real working prototypes',
+      color: '#2196F3',
+    },
+    {
+      title: 'Industry Tools',
+      description: 'Learn professional software',
+      color: '#FF9800',
+    },
+    {
+      title: 'Portfolio Ready',
+      description: 'Create impressive showcases',
+      color: '#4CAF50',
     },
   ];
 
   return (
-    <Box>
-      {/* Hero Section */}
-      <Box sx={{
-        background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 100%)',
-        py: 12,
-        textAlign: 'center',
-        color: 'white',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <PathForgeBackground page="curriculum" />
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: theme.text, mb: 4, position: 'relative', zIndex: 3 }}>
-            STEM & Technology Programs
+    <Box sx={{ minHeight: '100vh', position: 'relative' }}>
+      <PathForgeBackground page="curriculum" />
+      
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, py: 4 }}>
+        {/* Hero Section */}
+        <Box sx={{
+          textAlign: 'center',
+          py: 6,
+          mb: 4,
+        }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 800,
+              mb: 2,
+              color: primaryColor,
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              lineHeight: 1.1,
+            }}
+          >
+            STEM & Technology
           </Typography>
-          <Typography variant="h5" sx={{ mb: 6, opacity: 0.9, color: theme.secondaryText, position: 'relative', zIndex: 3 }}>
-            Hands-on technology education empowering the next generation of innovators
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 3 }}>
-            <Chip
-              label="All Ages"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
-            />
-            <Chip
-              label="12+ Programs"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
-            />
-            <Chip
-              label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff9800', color: 'white', fontWeight: 'bold' }}
-            />
-          </Box>
-        </Container>
-      </Box>
-
-      {/* Programs */}
-      <Box sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
-        <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
-            Our STEM & Technology Programs
+          
+          <Typography
+            variant="h5"
+            sx={{
+              mb: 4,
+              color: theme.text,
+              fontWeight: 400,
+              maxWidth: '600px',
+              mx: 'auto',
+            }}
+          >
+            Code, build, and innovate with cutting-edge technology programs
           </Typography>
 
-          <Grid container spacing={4} justifyContent="center">
-            {programs.map((program, index) => (
-              <Grid item xs={12} sm={6} md={6} key={index}>
-                <Card
-                  sx={{
-                    maxWidth: '500px',
-                    mx: 'auto',
-                    height: '100%',
-                    backgroundColor: '#f8f9ff',
-                    border: '1px solid #e0e6ed',
-                    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                      border: '1px solid #3498db',
-                    },
-                  }}
-                >
-                  {program.backgroundImage && (
-                    <Box
-                      component="img"
-                      src={program.backgroundImage}
-                      alt={`${program.title} program`}
-                      sx={{
-                        width: '100%',
-                        height: '180px',
-                        objectFit: 'cover',
-                        borderRadius: '4px 4px 0 0',
-                      }}
-                    />
-                  )}
-                  <CardContent sx={{ p: 4 }}>
-                    <Box sx={{ textAlign: 'center', mb: 3 }}>
-                      {program.icon}
-                    </Box>
-                    <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', textAlign: 'center' }}>
-                      {program.title}
-                    </Typography>
-                    <Typography variant="body1" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
-                      {program.description}
-                    </Typography>
-                    <Accordion sx={{ backgroundColor: '#f0f8f0', border: '1px solid #e0e6ed' }}>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon sx={{ color: '#3498db' }} />}
-                        sx={{ '& .MuiAccordionSummary-content': { margin: '12px 0' } }}
-                      >
-                        <Typography sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
-                          Program Highlights
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <List dense>
-                          {program.highlights.map((highlight, highlightIndex) => (
-                            <ListItem key={highlightIndex} sx={{ px: 0 }}>
-                              <ListItemIcon>
-                                <CheckIcon sx={{ color: '#3498db' }} />
-                              </ListItemIcon>
-                              <ListItemText primary={highlight} sx={{ color: '#7f8c8d' }} />
-                            </ListItem>
-                          ))}
-                        </List>
-                      </AccordionDetails>
-                    </Accordion>
-                  </CardContent>
-                </Card>
-              </Grid>
+          {/* Quick Highlights */}
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 2,
+            justifyContent: 'center',
+            mb: 6,
+          }}>
+            {highlights.map((item, index) => (
+              <Box
+                key={index}
+                sx={{
+                  backgroundColor: 'rgba(255,255,255,0.9)',
+                  px: 3,
+                  py: 2,
+                  borderRadius: '20px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    backgroundColor: item.color,
+                    color: 'white',
+                  },
+                }}
+              >
+                <Typography variant="h6" sx={{ fontWeight: 700, mb: 0.5 }}>
+                  {item.title}
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.8 }}>
+                  {item.description}
+                </Typography>
+              </Box>
             ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* Learning Paths */}
-      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
-        <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
-            Learning Paths
-          </Typography>
-
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} sm={6} md={4}>
-              <Paper
-                elevation={2}
-                sx={{
-                  p: 4,
-                  height: '100%',
-                  backgroundColor: '#f0f8f0',
-                  border: '1px solid #e0e6ed',
-                  maxWidth: '400px',
-                  mx: 'auto',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                    border: '1px solid #3498db',
-                  },
-                }}
-              >
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', textAlign: 'center' }}>
-                  Beginner Path
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
-                  Ages 6-12
-                </Typography>
-                <List dense>
-                  {[
-                    'Scratch Programming',
-                    'LEGO Robotics Basics',
-                    '3D Modeling Introduction',
-                    'Minecraft Coding',
-                  ].map((item, index) => (
-                    <ListItem key={index} sx={{ px: 0 }}>
-                      <ListItemIcon>
-                        <CheckIcon sx={{ color: '#3498db' }} />
-                      </ListItemIcon>
-                      <ListItemText primary={item} sx={{ color: '#7f8c8d' }} />
-                    </ListItem>
-                  ))}
-                </List>
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={4}>
-              <Paper
-                elevation={2}
-                sx={{
-                  p: 4,
-                  height: '100%',
-                  backgroundColor: '#f0f8f0',
-                  border: '1px solid #e0e6ed',
-                  maxWidth: '400px',
-                  mx: 'auto',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                    border: '1px solid #3498db',
-                  },
-                }}
-              >
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', textAlign: 'center' }}>
-                  Intermediate Path
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
-                  Ages 12-15
-                </Typography>
-                <List dense>
-                  {[
-                    'Python Programming',
-                    'Advanced Robotics',
-                    'Web Development',
-                    'Game Development',
-                  ].map((item, index) => (
-                    <ListItem key={index} sx={{ px: 0 }}>
-                      <ListItemIcon>
-                        <CheckIcon sx={{ color: '#3498db' }} />
-                      </ListItemIcon>
-                      <ListItemText primary={item} sx={{ color: '#7f8c8d' }} />
-                    </ListItem>
-                  ))}
-                </List>
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={4}>
-              <Paper
-                elevation={2}
-                sx={{
-                  p: 4,
-                  height: '100%',
-                  backgroundColor: '#f0f8f0',
-                  border: '1px solid #e0e6ed',
-                  maxWidth: '400px',
-                  mx: 'auto',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                    border: '1px solid #3498db',
-                  },
-                }}
-              >
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', textAlign: 'center' }}>
-                  Advanced Path
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
-                  Ages 14-17
-                </Typography>
-                <List dense>
-                  {[
-                    'AI & Machine Learning',
-                    'AR/VR Development',
-                    'Mobile App Development',
-                    'Cybersecurity',
-                  ].map((item, index) => (
-                    <ListItem key={index} sx={{ px: 0 }}>
-                      <ListItemIcon>
-                        <CheckIcon sx={{ color: '#3498db' }} />
-                      </ListItemIcon>
-                      <ListItemText primary={item} sx={{ color: '#7f8c8d' }} />
-                    </ListItem>
-                  ))}
-                </List>
-              </Paper>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f0f8ff' }}>
-        <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-            Ready to Start Learning?
-          </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
-            Choose the perfect program for your child and begin their technology education journey today.
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Chip
-              label="Hands-On Learning"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
-            />
-            <Chip
-              label="Small Class Sizes"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
-            />
-            <Chip
-              label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff9800', color: 'white', fontWeight: 'bold' }}
-            />
           </Box>
-        </Container>
-      </Box>
+        </Box>
+
+        {/* Programs Grid */}
+        <Box sx={{ mb: 6 }}>
+          <Typography
+            variant="h3"
+            sx={{
+              textAlign: 'center',
+              mb: 4,
+              fontWeight: 700,
+              color: primaryColor,
+            }}
+          >
+            Our Programs
+          </Typography>
+          
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 2,
+            justifyContent: 'center',
+            maxWidth: '1400px',
+            mx: 'auto',
+          }}>
+            {programs.map((program, index) => (
+              <Card
+                key={index}
+                sx={{
+                  minWidth: '280px',
+                  flex: '1 1 auto',
+                  maxWidth: '320px',
+                  borderRadius: '15px',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  overflow: 'hidden',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                    backgroundColor: program.color,
+                    color: 'white',
+                    '& .MuiAvatar-root': {
+                      backgroundColor: 'white',
+                      color: program.color,
+                    },
+                    '& .program-skills': {
+                      color: 'rgba(255,255,255,0.9)',
+                    },
+                    '& .program-description': {
+                      color: 'rgba(255,255,255,0.95)',
+                    },
+                  },
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  height="120"
+                  image={program.image}
+                  alt={program.title}
+                  sx={{
+                    objectFit: 'cover',
+                  }}
+                />
+                <CardContent sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  p: 3,
+                  '&:last-child': { pb: 3 },
+                }}>
+                  <Avatar sx={{
+                    backgroundColor: program.color,
+                    width: 48,
+                    height: 48,
+                    transition: 'all 0.3s ease',
+                  }}>
+                    {program.icon}
+                  </Avatar>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      textAlign: 'center',
+                      fontWeight: 700,
+                      mb: 0.5,
+                      fontSize: '1rem',
+                    }}
+                  >
+                    {program.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    className="program-description"
+                    sx={{
+                      textAlign: 'center',
+                      opacity: 0.8,
+                      mb: 1,
+                      fontSize: '0.85rem',
+                    }}
+                  >
+                    {program.description}
+                  </Typography>
+                  <Box sx={{ width: '100%' }}>
+                    {program.skills.map((skill, idx) => (
+                      <Typography
+                        key={idx}
+                        variant="body2"
+                        className="program-skills"
+                        sx={{
+                          textAlign: 'center',
+                          opacity: 0.7,
+                          fontSize: '0.75rem',
+                          mb: 0.2,
+                        }}
+                      >
+                        • {skill}
+                      </Typography>
+                    ))}
+                  </Box>
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
+        </Box>
+
+        {/* Call to Action */}
+        <Box sx={{
+          textAlign: 'center',
+          py: 4,
+          backgroundColor: 'rgba(255,255,255,0.9)',
+          borderRadius: '20px',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+        }}>
+          <Typography
+            variant="h4"
+            sx={{
+              fontWeight: 700,
+              mb: 2,
+              color: primaryColor,
+            }}
+          >
+            Ready to Start Building?
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              mb: 3,
+              color: theme.text,
+              maxWidth: '500px',
+              mx: 'auto',
+            }}
+          >
+            Join thousands of students who've launched their tech careers with us
+          </Typography>
+        </Box>
+      </Container>
     </Box>
   );
 };
