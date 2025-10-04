@@ -37,143 +37,185 @@ const CareersPage: React.FC = () => {
   const jobPositions = [
     {
       title: 'Robotics Coach',
-      icon: <BuildIcon sx={{ fontSize: 40, color: '#ff6b35' }} />,
-      description: 'Lead robotics workshops and mentor students in building and programming robots using LEGO, VEX, and micro:bit systems.',
-      requirements: [
-        'Experience with robotics platforms (FTC, FRC, FLL)',
-        'Strong interest in engineering and mechanics',
-        'Ability to teach complex concepts in simple terms',
-        'Patience and enthusiasm for working with children'
-      ]
+      icon: <BuildIcon sx={{ fontSize: 40, color: '#8F5BD9' }} />,
+      description: 'Lead robotics workshops and mentor students in building and programming robots using LEGO, VEX, and micro:bit systems. Join our team to inspire the next generation of engineers and innovators.',
+      location: 'Multiple Locations',
+      type: 'Part-time/Full-time',
+      salary: 'Competitive'
     },
     {
       title: 'Programming Coach',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#2ecc71' }} />,
-      description: 'Teach programming fundamentals and guide students through coding projects using Python, Scratch, and game development tools.',
-      requirements: [
-        'Minimum 1 year programming experience',
-        'Familiarity with educational coding platforms',
-        'Experience with Python, JavaScript, or similar languages',
-        'Passion for teaching coding concepts to beginners'
-      ]
+      icon: <CodeIcon sx={{ fontSize: 40, color: '#26A69A' }} />,
+      description: 'Teach programming fundamentals and guide students through coding projects using Python, Scratch, and game development tools. Help students build their first apps and games.',
+      location: 'Remote/On-site',
+      type: 'Part-time',
+      salary: '$25-35/hour'
+    },
+    {
+      title: 'Creative Arts Instructor',
+      icon: <SchoolIcon sx={{ fontSize: 40, color: '#3F5FBF' }} />,
+      description: 'Guide students through digital art, 3D printing, music production, and creative writing projects. Foster creativity and artistic expression in young minds.',
+      location: 'Multiple Locations',
+      type: 'Part-time',
+      salary: '$20-30/hour'
     }
   ];
 
   return (
-    <Box sx={{ backgroundColor: '#f0f8ff' }}>
+    <Box sx={{ backgroundColor: '#F4F4F4', fontFamily: 'Poppins, sans-serif', position: 'relative', minHeight: '100vh' }}>
+      {/* Three.js Background - Applied to entire page */}
+      <PathForgeBackground page="careers" />
+      
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #ff6b35 0%, #ff8a65 50%, #ffa726 100%)',
-          color: 'white',
+          background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
+          backgroundImage: 'url("/public/marketingImages/IMG_9331.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
           py: { xs: 6, md: 8 },
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden',
+          borderRadius: { xs: 0, md: '0 0 50px 50px' },
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.7) 0%, rgba(38, 166, 154, 0.7) 100%)',
+            zIndex: 1,
+          },
         }}
       >
-        <PathForgeBackground page="careers" />
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
           <Typography
             variant="h1"
             component="h1"
             sx={{
               fontWeight: 'bold',
-              color: theme.text,
-              textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+              color: 'white',
               fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem', lg: '4rem' },
               lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 },
-              mb: 3
+              mb: 3,
+              fontFamily: 'Poppins, sans-serif'
             }}
           >
             Join Our Team
           </Typography>
-          <Typography variant="h4" sx={{ mb: 4, opacity: 0.9, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h4" sx={{ mb: 4, color: 'white', fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>
             Shape the Future of Enrichment Education
           </Typography>
-          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', mb: 6, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', mb: 6, color: 'white', fontFamily: 'Nunito, sans-serif' }}>
             We're looking for energetic, creative individuals who love working with children and have a passion for learning across multiple disciplines.
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', mb: 4 }}>
             <Chip
               label="Flexible Hours"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#8F5BD9', color: 'white', fontWeight: 'bold', borderRadius: '25px', fontFamily: 'Poppins, sans-serif' }}
             />
             <Chip
               label="Great Pay"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#26A69A', color: 'white', fontWeight: 'bold', borderRadius: '25px', fontFamily: 'Poppins, sans-serif' }}
             />
             <Chip
               label="Make a Difference"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#9c27b0', color: 'white', fontWeight: 'bold' }}
+              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#3F5FBF', color: 'white', fontWeight: 'bold', borderRadius: '25px', fontFamily: 'Poppins, sans-serif' }}
             />
           </Box>
         </Container>
       </Box>
 
       {/* Job Overview */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
-        <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+      <Container maxWidth="lg" sx={{ 
+        py: 8, 
+        backgroundColor: 'rgba(244, 244, 244, 0.8)', 
+        backdropFilter: 'blur(2px)', 
+        borderRadius: '25px', 
+        my: 4,
+        backgroundImage: 'url("/public/marketingImages/IMG_9154.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        position: 'relative',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(244, 244, 244, 0.85)',
+          borderRadius: '25px',
+          zIndex: 1,
+        },
+        '& > *': {
+          position: 'relative',
+          zIndex: 2,
+        }
+      }}>
+        <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
           Why Work With Us?
         </Typography>
 
-        <Grid container spacing={4} justifyContent="center" sx={{ mb: 8 }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center', mb: 8 }}>
           {[
             {
               title: 'Flexible Scheduling',
               description: 'Part-time positions with 8-35 hours/week. Choose shifts that work for your schedule.',
-              icon: <AccessTimeIcon sx={{ fontSize: 50, color: '#ff6b35' }} />,
+              icon: <AccessTimeIcon sx={{ fontSize: 50, color: '#8F5BD9' }} />,
             },
             {
               title: 'Competitive Pay',
-              description: 'Earn $14-$18/hour with opportunities for growth and performance bonuses.',
-              icon: <AttachMoneyIcon sx={{ fontSize: 50, color: '#2ecc71' }} />,
+              description: 'Earn $20-$35/hour with opportunities for growth and performance bonuses.',
+              icon: <AttachMoneyIcon sx={{ fontSize: 50, color: '#26A69A' }} />,
             },
             {
               title: 'In-Person Work',
-              description: 'Work directly with students in our Triangle area locations. No remote work required.',
-              icon: <LocationOnIcon sx={{ fontSize: 50, color: '#3498db' }} />,
+              description: 'Work directly with students in our Triangle area locations. Build meaningful connections.',
+              icon: <LocationOnIcon sx={{ fontSize: 50, color: '#3F5FBF' }} />,
             },
           ].map((benefit, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Box key={index} sx={{ flex: { xs: '1 1 100%', sm: '1 1 45%', md: '1 1 30%' }, minWidth: '300px', maxWidth: '350px' }}>
               <Paper
                 elevation={2}
                 sx={{
                   p: 4,
                   textAlign: 'center',
                   height: '100%',
-                  maxWidth: '350px',
-                  mx: 'auto',
-                  backgroundColor: '#f8f9ff',
-                  border: '1px solid #e0e6ed',
+                  backgroundColor: 'white',
+                  border: '2px solid #E0E0E0',
+                  borderRadius: '25px',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(255, 107, 53, 0.3)',
-                    border: '1px solid #ff6b35',
+                    boxShadow: '0 20px 50px rgba(143, 91, 217, 0.3)',
+                    border: '2px solid #8F5BD9',
                   },
                 }}
               >
                 <Box sx={{ mb: 2 }}>{benefit.icon}</Box>
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
                   {benefit.title}
                 </Typography>
-                <Typography variant="body1" sx={{ color: '#7f8c8d' }}>
+                <Typography variant="body1" sx={{ color: '#2E3740', fontFamily: 'Nunito, sans-serif' }}>
                   {benefit.description}
                 </Typography>
               </Paper>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
 
         {/* Job Positions */}
-        <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
+        <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
           Open Positions
         </Typography>
 
-        <Grid container spacing={4} justifyContent="center">
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center' }}>
           {jobPositions.map((position, index) => (
-            <Grid item xs={12} md={6} key={index}>
+            <Box key={index} sx={{ flex: { xs: '1 1 100%', md: '1 1 45%' }, minWidth: '400px', maxWidth: '500px' }}>
               <Card
                 elevation={2}
                 sx={{
@@ -198,35 +240,23 @@ const CareersPage: React.FC = () => {
                     {position.description}
                   </Typography>
 
-                  <Accordion
-                    expanded={expanded === `panel${index}`}
-                    onChange={handleChange(`panel${index}`)}
-                    sx={{
-                      backgroundColor: '#f0f8ff',
-                      border: '1px solid #e0e6ed',
-                      '&:before': { display: 'none' },
-                      mb: 3
-                    }}
-                  >
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls={`panel${index}bh-content`}
-                      id={`panel${index}bh-header`}
-                    >
-                      <Typography sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                        Requirements & Qualifications
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Box sx={{ textAlign: 'left' }}>
-                        {position.requirements.map((req, reqIndex) => (
-                          <Typography key={reqIndex} variant="body2" sx={{ color: '#7f8c8d', mb: 1, lineHeight: 1.5 }}>
-                            • {req}
-                          </Typography>
-                        ))}
-                      </Box>
-                    </AccordionDetails>
-                  </Accordion>
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mb: 3 }}>
+                    <Chip
+                      icon={<LocationOnIcon />}
+                      label={position.location}
+                      sx={{ backgroundColor: '#8F5BD9', color: 'white', fontFamily: 'Poppins, sans-serif' }}
+                    />
+                    <Chip
+                      icon={<AccessTimeIcon />}
+                      label={position.type}
+                      sx={{ backgroundColor: '#26A69A', color: 'white', fontFamily: 'Poppins, sans-serif' }}
+                    />
+                    <Chip
+                      icon={<AttachMoneyIcon />}
+                      label={position.salary}
+                      sx={{ backgroundColor: '#3F5FBF', color: 'white', fontFamily: 'Poppins, sans-serif' }}
+                    />
+                  </Box>
 
                   <Button
                     variant="contained"
@@ -239,11 +269,14 @@ const CareersPage: React.FC = () => {
                       px: 4,
                       py: 2,
                       fontSize: '1.1rem',
-                      backgroundColor: '#ff6b35',
+                      backgroundColor: '#26A69A',
+                      borderRadius: '50px',
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: '600',
                       '&:hover': {
-                        backgroundColor: '#e55a2b',
+                        backgroundColor: '#3F5FBF',
                         transform: 'translateY(-2px)',
-                        boxShadow: '0 8px 25px rgba(255, 107, 53, 0.4)',
+                        boxShadow: '0 8px 25px rgba(63, 95, 191, 0.4)',
                       },
                       transition: 'all 0.3s ease',
                     }}
@@ -252,9 +285,9 @@ const CareersPage: React.FC = () => {
                   </Button>
                 </CardContent>
               </Card>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
 
       {/* Job Details Accordion */}

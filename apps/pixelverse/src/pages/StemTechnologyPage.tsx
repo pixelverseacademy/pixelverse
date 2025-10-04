@@ -194,15 +194,15 @@ const StemTechnologyPage: React.FC = () => {
   ];
 
   return (
-    <Box>
+    <Box sx={{ backgroundColor: '#F4F4F4', fontFamily: 'Poppins, sans-serif' }}>
       {/* Hero Section */}
       <Box sx={{
-        background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 100%)',
+        background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
         py: 12,
         textAlign: 'center',
-        color: 'white',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        borderRadius: { xs: 0, md: '0 0 50px 50px' },
       }}>
         <PathForgeBackground page="curriculum" />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>

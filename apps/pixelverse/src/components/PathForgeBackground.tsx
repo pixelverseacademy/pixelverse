@@ -1,231 +1,258 @@
-import React, { useEffect, useState } from 'react';
+import { useRef, useMemo, Suspense } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Stars, OrbitControls, Float, Sphere, Box, Line, MeshDistortMaterial, Environment, Sparkles } from '@react-three/drei';
+import * as THREE from 'three';
 
-const PathForgeBackground = ({ page }: { page?: string }) => {
-  const [reduceMotion, setReduceMotion] = useState(false);
+// Digital Code Flow visualization for educational platform
+const DigitalCodeFlow = () => {
+  const codeFlowRef = useRef<THREE.Group>(null);
 
-  const getThemeColors = (pageName?: string) => {
-    switch (pageName) {
-      case 'curriculum':
-        return {
-          background: 'linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 50%, #e8f5e8 100%)', // Light green theme
-          text: '#2e7d32', // Dark green for contrast
-          secondaryText: '#388e3c' // Medium green for secondary text
-        };
-      case 'locations':
-        return {
-          background: 'linear-gradient(135deg, #fff3e0 0%, #ffcc80 50%, #ffb74d 100%)', // Orange theme
-          text: '#e65100', // Dark orange for contrast
-          secondaryText: '#f57c00' // Medium orange for secondary text
-        };
-      case 'partnerships':
-        return {
-          background: 'linear-gradient(135deg, #fce4ec 0%, #f8bbd9 50%, #e91e63 100%)', // Pink theme
-          text: '#c2185b', // Dark pink for contrast
-          secondaryText: '#e91e63' // Medium pink for secondary text
-        };
-      case 'contact':
-        return {
-          background: 'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #2196f3 100%)', // Blue theme
-          text: '#1565c0', // Dark blue for contrast
-          secondaryText: '#1976d2' // Medium blue for secondary text
-        };
-      case 'why-us':
-        return {
-          background: 'linear-gradient(135deg, #f0f8ff 0%, #e0f2fe 50%, #b3e5fc 100%)', // Light blue theme
-          text: '#0277bd', // Dark blue for contrast
-          secondaryText: '#0288d1' // Medium blue for secondary text
-        };
-      case 'coaches':
-        return {
-          background: 'linear-gradient(135deg, #f3e5f5 0%, #ce93d8 50%, #ba68c8 100%)', // Purple theme
-          text: '#7b1fa2', // Dark purple for contrast
-          secondaryText: '#8e24aa' // Medium purple for secondary text
-        };
-      case 'careers':
-        return {
-          background: 'linear-gradient(135deg, #fff8e1 0%, #ffecb3 50%, #ffe082 100%)', // Warm yellow/gold theme
-          text: '#f57f17', // Dark amber for contrast
-          secondaryText: '#ff8f00' // Medium amber for secondary text
-        };
-      default:
-        return {
-          background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%)', // Dark theme for home
-          text: '#ffffff', // White for dark background
-          secondaryText: '#b0b0b0' // Light gray for secondary text
-        };
+  useFrame((state) => {
+    if (codeFlowRef.current) {
+      codeFlowRef.current.rotation.y = state.clock.elapsedTime * 0.08;
+      codeFlowRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.05) * 0.05;
     }
-  };
-
-  const theme = getThemeColors(page);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduceMotion(mediaQuery.matches);
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      setReduceMotion(e.matches);
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-
-    return () => {
-      mediaQuery.removeEventListener('change', handleChange);
-    };
-  }, []);
+  });
 
   return (
-    <div
-      style={{
-        position: 'absolute',
+    <group ref={codeFlowRef}>
+      {/* Binary/Code streams */}
+      {Array.from({ length: 15 }, (_, i) => (
+        <Float key={`binary-${i}`} speed={0.8 + i * 0.1} rotationIntensity={0} floatIntensity={2.5}>
+          <Box args={[0.02, 0.8 + Math.random() * 0.4, 0.02]} position={[
+            (Math.random() - 0.5) * 12,
+            (Math.random() - 0.5) * 8,
+            (Math.random() - 0.5) * 6 - 3
+          ]}>
+            <meshStandardMaterial
+              color={Math.random() > 0.5 ? '#4a90e2' : '#7b68ee'}
+              emissive={Math.random() > 0.5 ? '#4a90e2' : '#7b68ee'}
+              emissiveIntensity={0.2}
+              transparent
+              opacity={0.7}
+            />
+          </Box>
+        </Float>
+      ))}
+
+      {/* Data cubes (representing databases/APIs) */}
+      {Array.from({ length: 8 }, (_, i) => (
+        <Float key={`cube-${i}`} speed={1.5 + i * 0.2} rotationIntensity={1.5} floatIntensity={1}>
+          <Box args={[0.4, 0.4, 0.4]} position={[
+            (Math.random() - 0.5) * 10,
+            (Math.random() - 0.5) * 6,
+            (Math.random() - 0.5) * 4 - 2
+          ]}>
+            <MeshDistortMaterial
+              color={['#4a90e2', '#7b68ee', '#5ba0f2', '#89c4e8', '#b8d8f0'][i % 5]}
+              attach="material"
+              distort={0.05}
+              speed={0.5}
+              roughness={0.2}
+              metalness={0.7}
+              emissive={['#4a90e2', '#7b68ee', '#5ba0f2', '#89c4e8', '#b8d8f0'][i % 5]}
+              emissiveIntensity={0.1}
+            />
+          </Box>
+        </Float>
+      ))}
+
+      {/* Flowing connection lines */}
+      {Array.from({ length: 12 }, (_, i) => {
+        const startX = (Math.random() - 0.5) * 8;
+        const startY = (Math.random() - 0.5) * 6;
+        const endX = startX + (Math.random() - 0.5) * 4;
+        const endY = startY + (Math.random() - 0.5) * 4;
+        const points = [
+          new THREE.Vector3(startX, startY, -3),
+          new THREE.Vector3(endX, endY, -3)
+        ];
+
+        return (
+          <Line
+            key={`flow-${i}`}
+            points={points}
+            color="#00aaff"
+            lineWidth={1}
+            transparent
+            opacity={0.4}
+          />
+        );
+      })}
+
+      {/* Central server/core */}
+      <Float speed={1} rotationIntensity={1} floatIntensity={0.8}>
+        <Box args={[1.2, 1.2, 1.2]} position={[0, 0, -4]}>
+          <MeshDistortMaterial
+            color="#4a90e2"
+            attach="material"
+            distort={0.02}
+            speed={0.5}
+            roughness={0.1}
+            metalness={0.9}
+            emissive="#4a90e2"
+            emissiveIntensity={0.15}
+          />
+        </Box>
+      </Float>
+
+      {/* API endpoints (small spheres) */}
+      {Array.from({ length: 25 }, (_, i) => (
+        <Float key={`api-${i}`} speed={0.5 + i * 0.05} rotationIntensity={0} floatIntensity={2}>
+          <Sphere args={[0.03, 8, 8]} position={[
+            (Math.random() - 0.5) * 14,
+            (Math.random() - 0.5) * 10,
+            (Math.random() - 0.5) * 8 - 4
+          ]}>
+            <meshBasicMaterial
+              color={['#4a90e2', '#7b68ee', '#5ba0f2', '#89c4e8', '#b8d8f0'][i % 5]}
+              transparent
+              opacity={0.8}
+            />
+          </Sphere>
+        </Float>
+      ))}
+    </group>
+  );
+};
+
+// Particle system component
+const ParticleField = () => {
+  const particlesRef = useRef<THREE.Points>(null);
+
+  const particles = useMemo(() => {
+    const count = 1000;
+    const positions = new Float32Array(count * 3);
+    const colors = new Float32Array(count * 3);
+
+    for (let i = 0; i < count; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+
+      colors[i * 3] = Math.random() * 0.5 + 0.5; // R
+      colors[i * 3 + 1] = Math.random() * 0.5 + 0.5; // G
+      colors[i * 3 + 2] = Math.random() * 0.5 + 0.5; // B
+    }
+
+    return { positions, colors };
+  }, []);
+
+  useFrame((state) => {
+    if (particlesRef.current) {
+      particlesRef.current.rotation.y = state.clock.elapsedTime * 0.05;
+      particlesRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.03) * 0.1;
+    }
+  });
+
+  return (
+    <points ref={particlesRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={particles.positions.length / 3}
+          array={particles.positions}
+          itemSize={3}
+          args={[particles.positions, 3]}
+        />
+        <bufferAttribute
+          attach="attributes-color"
+          count={particles.colors.length / 3}
+          array={particles.colors}
+          itemSize={3}
+          args={[particles.colors, 3]}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.02}
+        vertexColors
+        transparent
+        opacity={0.6}
+        sizeAttenuation
+      />
+    </points>
+  );
+};
+
+const PathForgeBackground = ({ page }: { page?: string }) => {
+  return (
+    <>
+      {/* Light background base */}
+      <div style={{
+        position: 'fixed',
         top: 0,
         left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 0,
-        background: theme.background,
-        overflow: 'hidden',
-      }}
-      aria-hidden="true"
-    >
-      {!reduceMotion && (
-        <>
-          {/* Animated Paths/Trails */}
-          {Array.from({ length: 8 }, (_, i) => (
-            <div
-              key={`path-${i}`}
-              style={{
-                position: 'absolute',
-                width: '2px',
-                height: `${Math.random() * 200 + 100}px`,
-                background: `linear-gradient(to bottom, #3498db, #2ecc71, #e74c3c)`,
-                borderRadius: '1px',
-                top: `${Math.random() * 80 + 10}%`,
-                left: `${Math.random() * 90 + 5}%`,
-                transform: `rotate(${Math.random() * 360}deg)`,
-                animation: `pathGlow${i % 4} ${Math.random() * 12 + 10}s infinite ease-in-out`,
-                opacity: 0.7,
-                boxShadow: '0 0 10px #3498db, 0 0 20px #3498db, 0 0 30px #3498db',
-              }}
-            />
-          ))}
+        width: '100vw',
+        height: '100vh',
+        zIndex: -10,
+        background: '#F4F4F4',
+        pointerEvents: 'none'
+      }} />
+      
+      {/* Three.js overlay with reduced opacity */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: -9,
+        opacity: 0.15,
+        pointerEvents: 'none'
+      }}>
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 75 }}
+        style={{ width: '100%', height: '100%' }}
+        gl={{ alpha: true, antialias: true }}
+        dpr={[1, 2]}
+      >
+        <Suspense fallback={null}>
+          {/* Ambient lighting for better visibility */}
+          <ambientLight intensity={0.4} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#4a90e2" />
 
-          {/* Forging Sparks */}
-          {Array.from({ length: 15 }, (_, i) => (
-            <div
-              key={`spark-${i}`}
-              style={{
-                position: 'absolute',
-                width: `${Math.random() * 4 + 2}px`,
-                height: `${Math.random() * 4 + 2}px`,
-                background: `radial-gradient(circle, #ffd700, #ff6b35, transparent)`,
-                borderRadius: '50%',
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animation: `sparkle${i % 3} ${Math.random() * 6 + 5}s infinite ease-in-out`,
-                opacity: Math.random() * 0.8 + 0.2,
-                boxShadow: '0 0 6px #ffd700',
-              }}
-            />
-          ))}
+          {/* Environment for reflections */}
+          <Environment preset="night" />
 
+          {/* Subtle star field for depth */}
+          <Stars
+            radius={300}
+            depth={50}
+            count={500}
+            factor={4}
+            saturation={0}
+            fade={true}
+            speed={0.2}
+          />
 
-          {/* Construction Elements */}
-          {Array.from({ length: 6 }, (_, i) => (
-            <div
-              key={`construct-${i}`}
-              style={{
-                position: 'absolute',
-                width: `${Math.random() * 30 + 20}px`,
-                height: `${Math.random() * 30 + 20}px`,
-                background: `linear-gradient(45deg, #34495e, #2c3e50)`,
-                border: '2px solid #3498db',
-                borderRadius: '4px',
-                top: `${Math.random() * 70 + 15}%`,
-                left: `${Math.random() * 80 + 10}%`,
-                animation: `construct${i % 2} ${Math.random() * 15 + 12}s infinite ease-in-out`,
-                opacity: 0.6,
-                transform: `rotate(${Math.random() * 45}deg)`,
-              }}
-            >
-              {/* Mini grid pattern */}
-              <div
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  backgroundImage: `
-                    linear-gradient(rgba(52, 152, 219, 0.3) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(52, 152, 219, 0.3) 1px, transparent 1px)
-                  `,
-                  backgroundSize: '6px 6px',
-                }}
-              />
-            </div>
-          ))}
+          {/* Digital code flow visualization */}
+          <DigitalCodeFlow />
 
-          <style>{`
-            @keyframes pathGlow0 {
-              0% { opacity: 0.4; transform: scaleY(1) rotate(0deg) translateX(-40vw) translateY(-30vh); }
-              25% { opacity: 0.7; transform: scaleY(1.1) rotate(90deg) translateX(20vw) translateY(20vh); }
-              50% { opacity: 0.9; transform: scaleY(1.2) rotate(180deg) translateX(40vw) translateY(-10vh); }
-              75% { opacity: 0.6; transform: scaleY(1.05) rotate(270deg) translateX(-20vw) translateY(30vh); }
-              100% { opacity: 0.4; transform: scaleY(1) rotate(360deg) translateX(-40vw) translateY(-30vh); }
-            }
-            @keyframes pathGlow1 {
-              0% { opacity: 0.5; transform: scaleY(1) rotate(0deg) translateX(35vw) translateY(25vh); }
-              33% { opacity: 0.8; transform: scaleY(1.15) rotate(120deg) translateX(-30vw) translateY(-20vh); }
-              66% { opacity: 0.9; transform: scaleY(1.25) rotate(240deg) translateX(25vw) translateY(15vh); }
-              100% { opacity: 0.5; transform: scaleY(1) rotate(360deg) translateX(35vw) translateY(25vh); }
-            }
-            @keyframes pathGlow2 {
-              0% { opacity: 0.3; transform: scaleY(1) rotate(0deg) translateX(-25vw) translateY(35vh); }
-              50% { opacity: 0.8; transform: scaleY(1.1) rotate(180deg) translateX(30vw) translateY(-25vh); }
-              100% { opacity: 0.3; transform: scaleY(1) rotate(360deg) translateX(-25vw) translateY(35vh); }
-            }
-            @keyframes pathGlow3 {
-              0% { opacity: 0.6; transform: scaleY(1) rotate(0deg) translateX(30vw) translateY(-20vh); }
-              40% { opacity: 0.9; transform: scaleY(1.3) rotate(144deg) translateX(-35vw) translateY(25vh); }
-              80% { opacity: 0.7; transform: scaleY(1.1) rotate(288deg) translateX(15vw) translateY(-30vh); }
-              100% { opacity: 0.6; transform: scaleY(1) rotate(360deg) translateX(30vw) translateY(-20vh); }
-            }
+          {/* Particle field */}
+          <ParticleField />
 
-            @keyframes sparkle0 {
-              0% { transform: scale(0.8) rotate(0deg) translateX(-45vw) translateY(-35vh); opacity: 0.4; }
-              25% { transform: scale(1.1) rotate(90deg) translateX(25vw) translateY(15vh); opacity: 0.8; }
-              50% { transform: scale(1.3) rotate(180deg) translateX(35vw) translateY(-25vh); opacity: 1; }
-              75% { transform: scale(1.1) rotate(270deg) translateX(-15vw) translateY(30vh); opacity: 0.7; }
-              100% { transform: scale(0.8) rotate(360deg) translateX(-45vw) translateY(-35vh); opacity: 0.4; }
-            }
-            @keyframes sparkle1 {
-              0% { transform: scale(0.9) rotate(0deg) translateX(40vw) translateY(20vh); opacity: 0.5; }
-              33% { transform: scale(1.2) rotate(120deg) translateX(-35vw) translateY(-30vh); opacity: 0.9; }
-              66% { transform: scale(1.4) rotate(240deg) translateX(20vw) translateY(25vh); opacity: 1; }
-              100% { transform: scale(0.9) rotate(360deg) translateX(40vw) translateY(20vh); opacity: 0.5; }
-            }
-            @keyframes sparkle2 {
-              0% { transform: scale(0.7) rotate(0deg) translateX(-30vw) translateY(40vh); opacity: 0.3; }
-              50% { transform: scale(1.2) rotate(180deg) translateX(45vw) translateY(-20vh); opacity: 0.9; }
-              100% { transform: scale(0.7) rotate(360deg) translateX(-30vw) translateY(40vh); opacity: 0.3; }
-            }
+          {/* Colorful data particles */}
+          <Sparkles
+            count={30}
+            scale={[10, 10, 10]}
+            size={2}
+            speed={0.3}
+            opacity={0.8}
+            color="#ffffff"
+          />
 
-            @keyframes construct0 {
-              0% { transform: translateY(-40vh) translateX(-35vw) rotate(0deg) scale(1); }
-              20% { transform: translateY(20vh) translateX(25vw) rotate(72deg) scale(1.05); }
-              40% { transform: translateY(-15vh) translateX(40vw) rotate(144deg) scale(1.1); }
-              60% { transform: translateY(35vh) translateX(-20vw) rotate(216deg) scale(1.05); }
-              80% { transform: translateY(10vh) translateX(-45vw) rotate(288deg) scale(0.95); }
-              100% { transform: translateY(-40vh) translateX(-35vw) rotate(360deg) scale(1); }
-            }
-            @keyframes construct1 {
-              0% { transform: translateX(30vw) translateY(25vh) rotate(0deg); }
-              25% { transform: translateX(-40vw) translateY(-30vh) rotate(90deg); }
-              50% { transform: translateX(35vw) translateY(20vh) rotate(180deg); }
-              75% { transform: translateX(-25vw) translateY(-35vh) rotate(270deg); }
-              100% { transform: translateX(30vw) translateY(25vh) rotate(360deg); }
-            }
-          `}</style>
-        </>
-      )}
-    </div>
+          <OrbitControls
+            enableZoom={false}
+            enablePan={false}
+            enableRotate={false}
+            autoRotate
+            autoRotateSpeed={0.1}
+          />
+        </Suspense>
+      </Canvas>
+      </div>
+    </>
   );
 };
 

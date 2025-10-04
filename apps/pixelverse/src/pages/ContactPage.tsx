@@ -22,27 +22,27 @@ import {
 
 const ContactPage: React.FC = () => {
   return (
-    <Box sx={{ backgroundColor: '#f0f8ff' }}>
+    <Box sx={{ backgroundColor: '#F4F4F4', fontFamily: 'Poppins, sans-serif' }}>
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #64B5F6 100%)',
-          color: 'white',
+          background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
           py: { xs: 6, md: 8 },
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden',
+          borderRadius: { xs: 0, md: '0 0 50px 50px' },
         }}
       >
         <PathForgeBackground page="contact" />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
             Contact Us
           </Typography>
-          <Typography variant="h5" sx={{ mb: 4, opacity: 0.9, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h5" sx={{ mb: 4, color: '#2E3740', fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>
             Get in Touch with Our Team
           </Typography>
-          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', color: '#2E3740', fontFamily: 'Nunito, sans-serif' }}>
             Ready to start your child's enrichment journey? We're here to answer
             your questions and help you choose the perfect program for your student.
           </Typography>
@@ -50,8 +50,8 @@ const ContactPage: React.FC = () => {
       </Box>
 
       {/* Contact Information */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', color: '#3498db', mb: 6 }}>
+      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: 'rgba(244, 244, 244, 0.8)', backdropFilter: 'blur(2px)', borderRadius: '25px', my: 4 }}>
+        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', color: '#8F5BD9', mb: 6, fontFamily: 'Poppins, sans-serif' }}>
           Get in Touch
         </Typography>
         
@@ -75,7 +75,7 @@ const ContactPage: React.FC = () => {
                 },
               }}
             >
-              <EmailIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
+              <EmailIcon sx={{ fontSize: 50, color: '#8F5BD9', mb: 2 }} />
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
                 Email Us
               </Typography>

@@ -30,7 +30,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Project-Based Learning Approach',
       description: 'Students learn through hands-on projects that solve real-world problems, making learning engaging and practical.',
-      icon: <BuildIcon sx={{ fontSize: 50, color: '#3498db' }} />,
+        icon: <BuildIcon sx={{ fontSize: 50, color: '#8F5BD9' }} />,
       benefits: [
         'Real-world problem solving',
         'Enhanced creativity and innovation',
@@ -41,7 +41,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Expert Instructors',
       description: 'Learn from experienced professionals who are passionate about technology education and student success.',
-      icon: <CodeIcon sx={{ fontSize: 50, color: '#3498db' }} />,
+        icon: <CodeIcon sx={{ fontSize: 50, color: '#26A69A' }} />,
       benefits: [
         'Industry experience and expertise',
         'Personalized teaching approach',
@@ -52,7 +52,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Comprehensive Enrichment Curriculum',
       description: 'From STEM fundamentals to creative arts, life skills, academics, and wellness, our curriculum covers all aspects of holistic development.',
-      icon: <SchoolIcon sx={{ fontSize: 50, color: '#3498db' }} />,
+        icon: <SchoolIcon sx={{ fontSize: 50, color: '#3F5FBF' }} />,
       benefits: [
         'Multi-disciplinary learning approach',
         'Progressive skill building across domains',
@@ -63,7 +63,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Small Class Sizes',
       description: 'Personalized attention with small class sizes ensures every student gets the support they need to succeed.',
-      icon: <GroupIcon sx={{ fontSize: 50, color: '#3498db' }} />,
+        icon: <GroupIcon sx={{ fontSize: 50, color: '#8F5BD9' }} />,
       benefits: [
         'Individual attention and support',
         'Collaborative learning environment',
@@ -74,7 +74,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Diverse Learning Environments',
       description: 'Access to creative studios, performance spaces, fitness facilities, and collaborative workspaces designed for holistic development.',
-      icon: <AIIcon sx={{ fontSize: 50, color: '#3498db' }} />,
+        icon: <AIIcon sx={{ fontSize: 50, color: '#26A69A' }} />,
       benefits: [
         'Creative and performance spaces',
         'Collaborative learning environments',
@@ -85,7 +85,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Personalized Growth Opportunities',
       description: 'Individualized development plans, mentorship programs, and performance showcases that celebrate each student\'s unique talents.',
-      icon: <AwardIcon sx={{ fontSize: 50, color: '#3498db' }} />,
+        icon: <AwardIcon sx={{ fontSize: 50, color: '#3F5FBF' }} />,
       benefits: [
         'Personalized development plans',
         'Mentorship and guidance',
@@ -103,19 +103,22 @@ const WhyUsPage: React.FC = () => {
   ];
 
   return (
-    <Box sx={{ backgroundColor: '#f0f8ff' }}>
+    <Box sx={{ backgroundColor: '#F4F4F4', fontFamily: 'Poppins, sans-serif', position: 'relative', minHeight: '100vh' }}>
+      {/* Three.js Background - Applied to entire page */}
+      <PathForgeBackground page="why-us" />
+      
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, #2196F3 0%, #42A5F5 50%, #64B5F6 100%)',
-          color: 'white',
+          background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
           py: { xs: 6, md: 8 },
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden',
+          borderRadius: { xs: 0, md: '0 0 50px 50px' },
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\\"60\\" height=\\"60\\" viewBox=\\"0 0 60 60\\" xmlns=\\"http://www.w3.org/2000/svg\\"%3E%3Cg fill=\\"none\\" fill-rule=\\"evenodd\\"%3E%3Cg fill=\\"%238F5BD9\\" fill-opacity=\\"0.05\\"%3E%3Ccircle cx=\\"30\\" cy=\\"30\\" r=\\"4\\"//%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
         }}
       >
-        <PathForgeBackground page="why-us" />
         {/* Cosmic background effect */}
         <Box
           sx={{
@@ -132,13 +135,13 @@ const WhyUsPage: React.FC = () => {
           }}
         />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: theme.text, textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
             Why Choose PathForge Learning?
           </Typography>
-          <Typography variant="h5" sx={{ mb: 4, opacity: 0.9, color: theme.secondaryText, textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h5" sx={{ mb: 4, color: '#2E3740', fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>
             Empowering the Next Generation of Innovators
           </Typography>
-          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
+          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', color: '#2E3740', fontFamily: 'Nunito, sans-serif' }}>
             We're not just another enrichment program. We're a comprehensive educational experience
             that prepares students for the future through innovative teaching methods,
             expert instruction, and hands-on learning across multiple disciplines.
@@ -147,63 +150,78 @@ const WhyUsPage: React.FC = () => {
       </Box>
 
       {/* Statistics - Centered Layout */}
-      <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f0f8ff' }}>
-        <Grid container spacing={4} justifyContent="center">
+      <Container maxWidth="lg" sx={{ 
+        py: 6, 
+        backgroundColor: 'rgba(244, 244, 244, 0.8)', 
+        backdropFilter: 'blur(2px)', 
+        borderRadius: '25px', 
+        my: 4,
+        backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\\"20\\" height=\\"20\\" viewBox=\\"0 0 20 20\\" xmlns=\\"http://www.w3.org/2000/svg\\"%3E%3Cg fill=\\"none\\" fill-rule=\\"evenodd\\"%3E%3Cg fill=\\"%233F5FBF\\" fill-opacity=\\"0.04\\"%3E%3Crect width=\\"4\\" height=\\"4\\"//%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'
+      }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center' }}>
           {stats.map((stat, index) => (
-            <Grid item xs={6} sm={4} md={3} key={index}>
+            <Box key={index} sx={{ flex: { xs: '1 1 45%', sm: '1 1 22%' }, minWidth: '200px', maxWidth: '250px' }}>
               <Paper 
                 elevation={2} 
                 sx={{ 
                   p: 3, 
                   textAlign: 'center', 
-                  backgroundColor: '#f8f9ff', 
-                  border: '1px solid #e0e6ed',
+                  backgroundColor: 'white', 
+                  border: '2px solid #E0E0E0',
+                  borderRadius: '25px',
                   transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                    border: '1px solid #3498db',
+                    boxShadow: '0 20px 50px rgba(143, 91, 217, 0.3)',
+                    border: '2px solid #8F5BD9',
                   },
                 }}
               >
-                <Typography variant="h3" component="div" sx={{ fontWeight: 'bold', color: '#3498db' }}>
+                <Typography variant="h3" component="div" sx={{ fontWeight: 'bold', color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
                   {stat.number}
                 </Typography>
-                <Typography variant="h6" sx={{ color: '#7f8c8d' }}>
+                <Typography variant="h6" sx={{ color: '#2E3740', fontFamily: 'Nunito, sans-serif' }}>
                   {stat.label}
                 </Typography>
               </Paper>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
 
       {/* Features - Two Rows, Three Columns */}
-      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
+      <Box sx={{ 
+        backgroundColor: 'rgba(244, 244, 244, 0.9)', 
+        py: 8, 
+        borderRadius: '25px', 
+        mx: 2, 
+        my: 4, 
+        backdropFilter: 'blur(3px)',
+        backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\\"40\\" height=\\"40\\" viewBox=\\"0 0 40 40\\" xmlns=\\"http://www.w3.org/2000/svg\\"%3E%3Cg fill=\\"none\\" fill-rule=\\"evenodd\\"%3E%3Cg fill=\\"%2326A69A\\" fill-opacity=\\"0.03\\"%3E%3Cpath d=\\"M20 20l20-20H20v20z\\"//%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'
+      }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
             What Makes Us Different
           </Typography>
           
-          <Grid container spacing={4} justifyContent="center">
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center' }}>
             {features.map((feature, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
+              <Box key={index} sx={{ flex: { xs: '1 1 100%', sm: '1 1 45%', md: '1 1 30%' }, minWidth: '320px', maxWidth: '400px' }}>
                 <Card 
                   elevation={2} 
                   sx={{ 
                     height: '100%', 
                     width: '100%',
-                    maxWidth: '400px',
-                    mx: 'auto',
                     display: 'flex',
                     flexDirection: 'column',
-                    backgroundColor: '#f0f8ff', 
-                    border: '1px solid #e0e6ed',
+                    backgroundColor: 'white', 
+                    border: '2px solid #E0E0E0',
+                    borderRadius: '25px',
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                      border: '1px solid #3498db',
+                      boxShadow: '0 20px 50px rgba(143, 91, 217, 0.3)',
+                      border: '2px solid #8F5BD9',
                     },
                   }}
                 >
@@ -211,27 +229,27 @@ const WhyUsPage: React.FC = () => {
                     <Box sx={{ textAlign: 'center', mb: 3 }}>
                       {feature.icon}
                     </Box>
-                    <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', textAlign: 'center', color: '#2c3e50' }}>
+                    <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', textAlign: 'center', color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
                       {feature.title}
                     </Typography>
-                    <Typography variant="body1" sx={{ mb: 3, textAlign: 'center', color: '#7f8c8d' }}>
+                    <Typography variant="body1" sx={{ mb: 3, textAlign: 'center', color: '#2E3740', fontFamily: 'Nunito, sans-serif' }}>
                       {feature.description}
                     </Typography>
                     <List dense>
                       {feature.benefits.map((benefit, idx) => (
                         <ListItem key={idx} sx={{ px: 0 }}>
                           <ListItemIcon>
-                            <CheckIcon sx={{ color: '#3498db' }} />
+                            <CheckIcon sx={{ color: '#26A69A' }} />
                           </ListItemIcon>
-                          <ListItemText primary={benefit} sx={{ color: '#7f8c8d' }} />
+                          <ListItemText primary={benefit} sx={{ color: '#2E3740', fontFamily: 'Nunito, sans-serif' }} />
                         </ListItem>
                       ))}
                     </List>
                   </CardContent>
                 </Card>
-              </Grid>
+              </Box>
             ))}
-          </Grid>
+          </Box>
         </Container>
       </Box>
 

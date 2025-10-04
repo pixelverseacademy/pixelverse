@@ -171,14 +171,14 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', fontFamily: 'Poppins, sans-serif' }}>
       <AppBar
         position="sticky"
         sx={{
-          background: 'rgba(10, 25, 41, 0.95)',
+          background: 'linear-gradient(135deg, #2E3740 0%, #1a1f26 100%)',
           backdropFilter: 'blur(15px)',
-          borderBottom: 'none',
-          boxShadow: 'none',
+          borderBottom: '3px solid #8F5BD9',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
           margin: 0,
           padding: 0,
         }}
@@ -209,10 +209,39 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 },
               }}
             >
-              <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '40px', width: '40px', marginRight: '12px', marginTop: '-2px', objectFit: 'cover', borderRadius: '50%' }} />
-              <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: 'white' }}>
+              <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '60px', width: '60px', marginRight: '16px', objectFit: 'cover', borderRadius: '50%', boxShadow: '0 4px 12px rgba(143, 91, 217, 0.3)' }} />
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                <Typography variant="h6" component="div" sx={{ 
+                  fontWeight: '800', 
+                  color: '#8F5BD9', 
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: '1.5rem',
+                  letterSpacing: '0.5px',
+                  background: 'linear-gradient(45deg, #8F5BD9 30%, #26A69A 90%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  filter: 'drop-shadow(0 2px 4px rgba(143, 91, 217, 0.3))',
+                  lineHeight: 1.2,
+                  '&:hover': {
+                    transform: 'scale(1.02)',
+                  },
+                  transition: 'transform 0.3s ease',
+                }}>
                   PathForge Learning
-              </Typography>
+                </Typography>
+                <Typography variant="caption" sx={{ 
+                  fontFamily: 'Nunito, sans-serif',
+                  fontSize: '0.75rem',
+                  color: '#26A69A',
+                  fontWeight: '600',
+                  letterSpacing: '0.3px',
+                  fontStyle: 'italic',
+                  lineHeight: 1,
+                }}>
+                  Empowering Minds, Forging Future
+                </Typography>
+              </Box>
             </Box>
         </Box>
           
@@ -230,9 +259,13 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                          color: 'white',
                          fontWeight: location.pathname.startsWith(item.path) ? 'bold' : 'normal',
                          textTransform: 'none',
+                         fontFamily: 'Poppins, sans-serif',
                          '&:hover': {
-                           backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                           backgroundColor: 'rgba(143, 91, 217, 0.2)',
+                           color: '#8F5BD9',
+                           transform: 'translateY(-2px)',
                          },
+                         transition: 'all 0.3s ease',
                        }}
                        aria-controls={programsAnchorEl ? 'programs-menu' : undefined}
                        aria-haspopup="true"
@@ -284,9 +317,13 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                        color: 'white',
                        fontWeight: location.pathname === item.path ? 'bold' : 'normal',
                        textTransform: 'none',
+                       fontFamily: 'Poppins, sans-serif',
                        '&:hover': {
-                         backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                         backgroundColor: 'rgba(143, 91, 217, 0.2)',
+                         color: '#8F5BD9',
+                         transform: 'translateY(-2px)',
                        },
+                       transition: 'all 0.3s ease',
                      }}
                    >
                      {item.label}
@@ -356,10 +393,10 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             ml: 4,
             textAlign: 'right'
           }}>
-            <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2 }}>
+            <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2, fontFamily: 'Nunito, sans-serif', fontWeight: '600' }}>
               (919) 446-4981
             </Typography>
-            <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2 }}>
+            <Typography variant="body2" sx={{ color: 'white', fontSize: '0.875rem', lineHeight: 1.2, fontFamily: 'Nunito, sans-serif', fontWeight: '600' }}>
             info@pathforgelearning.com
           </Typography>
           </Box>
