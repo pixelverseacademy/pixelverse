@@ -37,12 +37,16 @@ import {
 } from '@mui/icons-material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import Breadcrumb from '../components/Breadcrumb';
+import { getThemeColors } from '../components/PathForgeBackground';
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [programsAnchorEl, setProgramsAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileProgramsOpen, setMobileProgramsOpen] = useState(false);
+
+  // Get theme colors for consistent styling
+  const theme = getThemeColors('navbar');
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -175,12 +179,13 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <AppBar
         position="sticky"
         sx={{
-          background: 'linear-gradient(135deg, #2E3740 0%, #1a1f26 100%)',
-          backdropFilter: 'blur(15px)',
-          borderBottom: '3px solid #8F5BD9',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+          background: `linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f1419 100%)`,
+          backdropFilter: 'blur(20px)',
+          borderBottom: '4px solid #8F5BD9',
+          boxShadow: '0 12px 40px rgba(143, 91, 217, 0.4)',
           margin: 0,
           padding: 0,
+          minHeight: '80px',
         }}
       >
         <Toolbar sx={{ minHeight: '64px', px: 0, py: 0 }}>
@@ -209,23 +214,25 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 },
               }}
             >
-              <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '60px', width: '60px', marginRight: '16px', objectFit: 'cover', borderRadius: '50%', boxShadow: '0 4px 12px rgba(143, 91, 217, 0.3)' }} />
-              <Typography variant="h6" component="div" sx={{
-                fontWeight: '800',
-                color: '#8F5BD9',
+              <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '70px', width: '70px', marginRight: '20px', objectFit: 'cover', borderRadius: '50%', boxShadow: '0 6px 20px rgba(143, 91, 217, 0.5)', border: '3px solid rgba(255, 255, 255, 0.2)' }} />
+              <Typography variant="h5" component="div" sx={{
+                fontWeight: '900',
+                color: '#ffffff',
                 fontFamily: 'Poppins, sans-serif',
-                fontSize: '1.5rem',
-                letterSpacing: '0.5px',
-                background: 'linear-gradient(45deg, #8F5BD9 30%, #26A69A 90%)',
+                fontSize: '1.8rem',
+                letterSpacing: '1px',
+                background: 'linear-gradient(45deg, #8F5BD9 0%, #26A69A 50%, #3F5FBF 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                filter: 'drop-shadow(0 2px 4px rgba(143, 91, 217, 0.3))',
-                lineHeight: 1.2,
+                filter: 'drop-shadow(0 3px 8px rgba(143, 91, 217, 0.6))',
+                lineHeight: 1.1,
+                textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
                 '&:hover': {
-                  transform: 'scale(1.02)',
+                  transform: 'scale(1.05)',
+                  filter: 'drop-shadow(0 4px 12px rgba(143, 91, 217, 0.8))',
                 },
-                transition: 'transform 0.3s ease',
+                transition: 'all 0.3s ease',
               }}>
                 PathForge Learning
               </Typography>
@@ -247,10 +254,18 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                          fontWeight: location.pathname.startsWith(item.path) ? 'bold' : 'normal',
                          textTransform: 'none',
                          fontFamily: 'Poppins, sans-serif',
+                         fontSize: '1.1rem',
+                         px: 2,
+                         py: 1.5,
+                         borderRadius: '25px',
+                         backgroundColor: location.pathname.startsWith(item.path) ? 'rgba(143, 91, 217, 0.3)' : 'transparent',
+                         border: location.pathname.startsWith(item.path) ? '2px solid #8F5BD9' : '2px solid transparent',
                          '&:hover': {
-                           backgroundColor: 'rgba(143, 91, 217, 0.2)',
+                           backgroundColor: 'rgba(143, 91, 217, 0.3)',
                            color: '#8F5BD9',
-                           transform: 'translateY(-2px)',
+                           transform: 'translateY(-3px) scale(1.05)',
+                           border: '2px solid #8F5BD9',
+                           boxShadow: '0 8px 25px rgba(143, 91, 217, 0.4)',
                          },
                          transition: 'all 0.3s ease',
                        }}
@@ -305,10 +320,18 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                        fontWeight: location.pathname === item.path ? 'bold' : 'normal',
                        textTransform: 'none',
                        fontFamily: 'Poppins, sans-serif',
+                       fontSize: '1.1rem',
+                       px: 2,
+                       py: 1.5,
+                       borderRadius: '25px',
+                       backgroundColor: location.pathname === item.path ? 'rgba(143, 91, 217, 0.3)' : 'transparent',
+                       border: location.pathname === item.path ? '2px solid #8F5BD9' : '2px solid transparent',
                        '&:hover': {
-                         backgroundColor: 'rgba(143, 91, 217, 0.2)',
+                         backgroundColor: 'rgba(143, 91, 217, 0.3)',
                          color: '#8F5BD9',
-                         transform: 'translateY(-2px)',
+                         transform: 'translateY(-3px) scale(1.05)',
+                         border: '2px solid #8F5BD9',
+                         boxShadow: '0 8px 25px rgba(143, 91, 217, 0.4)',
                        },
                        transition: 'all 0.3s ease',
                      }}
@@ -324,15 +347,17 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                       rel="noopener noreferrer"
                       sx={{
                         color: '#e4405f',
-                        p: 0.5,
+                        p: 1,
                         '&:hover': {
                           color: '#e4405f',
                           backgroundColor: 'rgba(228, 64, 95, 0.1)',
+                          transform: 'scale(1.1)',
                         },
+                        transition: 'all 0.3s ease',
                       }}
-                      size="small"
+                      size="large"
                     >
-                      <InstagramIcon sx={{ fontSize: '1rem' }} />
+                      <InstagramIcon sx={{ fontSize: '1.8rem' }} />
                     </IconButton>
                     <IconButton
                       href="https://www.facebook.com/profile.php?id=61580934554373"
@@ -340,15 +365,17 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                       rel="noopener noreferrer"
                       sx={{
                         color: '#1877f2',
-                        p: 0.5,
+                        p: 1,
                         '&:hover': {
                           color: '#1877f2',
                           backgroundColor: 'rgba(24, 119, 242, 0.1)',
+                          transform: 'scale(1.1)',
                         },
+                        transition: 'all 0.3s ease',
                       }}
-                      size="small"
+                      size="large"
                     >
-                      <FacebookIcon sx={{ fontSize: '1rem' }} />
+                      <FacebookIcon sx={{ fontSize: '1.8rem' }} />
                     </IconButton>
                     <IconButton
                       href="https://www.linkedin.com/company/pathforge-learning"
@@ -356,15 +383,17 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                       rel="noopener noreferrer"
                       sx={{
                         color: '#0077b5',
-                        p: 0.5,
+                        p: 1,
                         '&:hover': {
                           color: '#0077b5',
                           backgroundColor: 'rgba(0, 119, 181, 0.1)',
+                          transform: 'scale(1.1)',
                         },
+                        transition: 'all 0.3s ease',
                       }}
-                      size="small"
+                      size="large"
                     >
-                      <LinkedInIcon sx={{ fontSize: '1rem' }} />
+                      <LinkedInIcon sx={{ fontSize: '1.8rem' }} />
                     </IconButton>
                   </Box>
                 )}
