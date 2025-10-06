@@ -48,3 +48,6 @@ test-output
 # Large media files
 apps/pixelverse/src/public/marketing.m4v
 apps/pixelverse/src/public/ourProgramsVideos
+apps/pixelverse/src/public/instagramUpload
+apps/pixelverse/src/public/marketingImages
+apps/pixelverse/src/public/programCardImages
