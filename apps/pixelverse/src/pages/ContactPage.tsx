@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import PathForgeBackground, { getThemeColors } from '../components/PathForgeBackground';
 import {
   Box,
@@ -23,11 +24,12 @@ import {
 
 const ContactPage: React.FC = () => {
   const theme = getThemeColors('contact');
+  const location = useLocation();
 
-  // Scroll to top when component mounts
+  // Scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [location.pathname]);
   const stats = [
     { number: '24hr', label: 'Response Time' },
     { number: '100%', label: 'Personal Service' },

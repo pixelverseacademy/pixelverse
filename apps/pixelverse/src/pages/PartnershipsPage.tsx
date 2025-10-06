@@ -28,11 +28,12 @@ import {
 
 const PartnershipsPage: React.FC = () => {
   const theme = getThemeColors('partnerships');
+  const location = useLocation();
 
-  // Scroll to top when component mounts
+  // Scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [location.pathname]);
   const stats = [
     { number: '50+', label: 'Partner Schools' },
     { number: '10K+', label: 'Students Served' },
