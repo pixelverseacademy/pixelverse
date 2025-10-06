@@ -90,6 +90,12 @@ const HomePage: React.FC = () => {
   const theme = getThemeColors('home');
   const location = useLocation();
 
+  // Determine video source based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const videoSrc = isLocalhost
+    ? '/public/marketing.m4v'
+    : 'https://cccd98bc7163ddee58318c33670ff7e5.r2.cloudflarestorage.com/pixel-verse-videos/marketing.m4v';
+
   // Scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -135,7 +141,7 @@ const HomePage: React.FC = () => {
               filter: 'brightness(0.7)',
             }}
           >
-            <source src="/public/marketing.m4v" type="video/mp4" />
+            <source src={videoSrc} type="video/mp4" />
             Your browser does not support the video tag.
           </Box>
           {/* Gradient Overlay */}

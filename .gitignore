@@ -44,3 +44,6 @@ Thumbs.db
 .github/instructions/nx.instructions.md
 
 test-output
+
+# Large media files
+apps/pixelverse/src/public/marketing.m4v
