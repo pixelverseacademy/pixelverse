@@ -34,7 +34,7 @@ const ContactPage: React.FC = () => {
           borderRadius: { xs: 0, md: '0 0 50px 50px' },
         }}
       >
-        <PathForgeBackground page="contact" />
+        {/* <PathForgeBackground page="contact" /> */}
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
             Contact Us

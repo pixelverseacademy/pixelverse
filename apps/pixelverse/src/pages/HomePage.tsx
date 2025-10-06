@@ -15,6 +15,8 @@ import {
 import {
   ArrowBack as ArrowBackIcon,
   ArrowForward as ArrowForwardIcon,
+  RocketLaunch as RocketIcon,
+  PlayArrow as PlayIcon,
 } from '@mui/icons-material';
 import {
   School as SchoolIcon,
@@ -42,7 +44,7 @@ const enrichmentBuckets = [
     icon: <CodeIcon sx={{ fontSize: 40 }} />,
     color: '#8F5BD9',
     path: '/programs/stem-technology',
-    backgroundImage: '/public/mainPageProgramImages/Stem.png',
+    backgroundVideo: '/public/ourProgramsVideos/stem.mp4',
     programs: ['Coding (Python, Scratch, Web Dev)', 'Robotics (LEGO, VEX, etc.)', 'Game Design & Animation', 'Generative AI & Machine Learning', 'Electronics & Engineering']
   },
   {
@@ -51,7 +53,7 @@ const enrichmentBuckets = [
     icon: <PaletteIcon sx={{ fontSize: 40 }} />,
     color: '#26A69A',
     path: '/programs/creative-arts-design',
-    backgroundImage: '/public/mainPageProgramImages/creative arts.png',
+    backgroundVideo: '/public/ourProgramsVideos/arts.mp4',
     programs: ['Digital Art & Graphic Design', '3D Printing & CAD', 'Music Technology & Production', 'Creative Writing & Storytelling']
   },
   {
@@ -60,7 +62,7 @@ const enrichmentBuckets = [
     icon: <PeopleIcon sx={{ fontSize: 40 }} />,
     color: '#3F5FBF',
     path: '/programs/life-skills-career-prep',
-    backgroundImage: '/public/mainPageProgramImages/likfeSkillsAndCareerPrep.png',
+    backgroundVideo: '/public/ourProgramsVideos/life skills.mp4',
     programs: ['Leadership & Teamwork', 'Public Speaking & Debate', 'Entrepreneurship & Financial Literacy', 'Career Exploration Workshops']
   },
   {
@@ -69,7 +71,7 @@ const enrichmentBuckets = [
     icon: <SchoolIcon sx={{ fontSize: 40 }} />,
     color: '#8F5BD9',
     path: '/programs/test-prep-academic-enrichment',
-    backgroundImage: '/public/mainPageProgramImages/testPrepandAcademic.png',
+    backgroundVideo: '/public/ourProgramsVideos/test prep.mp4',
     programs: ['Math & Science Tutoring', 'Reading & Writing Support', 'Standardized Test Prep (SAT, ACT, etc.)', 'Study Skills & Time Management']
   },
   {
@@ -78,54 +80,24 @@ const enrichmentBuckets = [
     icon: <FitnessIcon sx={{ fontSize: 40 }} />,
     color: '#26A69A',
     path: '/programs/health-sports-wellness',
-    backgroundImage: '/public/mainPageProgramImages/healthSportsandWelness.png',
+    backgroundVideo: '/public/ourProgramsVideos/health.mp4',
     programs: ['Physical Fitness & Sports Camps', 'Yoga & Mindfulness', 'Nutrition & Wellness Programs']
   },
 ];
 
-const carouselImages = [
-  '/public/carousel/degorddg33dc0iqx1utg.png',
-  '/public/carousel/dycbqxgwtt7bewwncgnj.png',
-  '/public/carousel/lylfl41k6b06xaapnffa.png',
-  '/public/carousel/sgpvppzrrh984epq4zrb.png',
-  '/public/carousel/IMG_9314.png',
-  '/public/carousel/IMG_9316.png',
-];
 
 const HomePage: React.FC = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const theme = getThemeColors('home');
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
-    );
-  };
-
-  // Auto-scroll carousel
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextImage();
-    }, 4000); // Change image every 4 seconds
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <Box sx={{ position: 'relative', minHeight: '100vh', fontFamily: 'Poppins, sans-serif' }}>
       {/* Three.js Background - Applied to entire page */}
-      <PathForgeBackground page="home" />
+      {/* <PathForgeBackground page="home" /> */}
       
       {/* Hero Section with Background Slideshow */}
       <Box
         sx={{
-          minHeight: { xs: '70vh', md: '80vh' },
+          minHeight: { xs: '70vh', md: '100vh' },
           py: { xs: 8, md: 12 },
           position: 'relative',
           overflow: 'hidden',
@@ -134,7 +106,7 @@ const HomePage: React.FC = () => {
           justifyContent: 'center',
         }}
       >
-        {/* Background Slideshow */}
+        {/* Background Video */}
         <Box sx={{
           position: 'absolute',
           top: 0,
@@ -142,26 +114,24 @@ const HomePage: React.FC = () => {
           right: 0,
           bottom: 0,
           zIndex: 0,
+          overflow: 'hidden',
         }}>
-          {carouselImages.map((image, index) => (
-            <Box
-              key={index}
-              component="img"
-              src={image}
-              alt={`Background ${index + 1}`}
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                opacity: index === currentImageIndex ? 1 : 0,
-                transition: 'opacity 1s ease-in-out',
-                filter: 'brightness(0.7)',
-              }}
-            />
-          ))}
+          <Box
+            component="video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            sx={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              filter: 'brightness(0.7)',
+            }}
+          >
+            <source src="/public/marketing.m4v" type="video/mp4" />
+            Your browser does not support the video tag.
+          </Box>
           {/* Gradient Overlay */}
           <Box sx={{
             position: 'absolute',
@@ -169,8 +139,29 @@ const HomePage: React.FC = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.75) 0%, rgba(38, 166, 154, 0.75) 100%)',
+            background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
           }} />
+
+          {/* Play Button Overlay */}
+          <Box sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 2,
+            pointerEvents: 'none',
+          }}>
+            <PlayIcon sx={{
+              fontSize: { xs: '2.5rem', md: '3rem' },
+              color: 'white',
+              filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))',
+              animation: 'pulse 2s ease-in-out infinite',
+              '@keyframes pulse': {
+                '0%, 100%': { transform: 'scale(1)', opacity: 1 },
+                '50%': { transform: 'scale(1.1)', opacity: 0.8 }
+              }
+            }} />
+          </Box>
         </Box>
 
         {/* Content */}
@@ -190,54 +181,54 @@ const HomePage: React.FC = () => {
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', mb: 4 }}>
             <Chip
               label="Hands-On Learning"
-              sx={{ 
-                px: 3, py: 1, fontSize: '1rem', 
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: '#8F5BD9', 
+              sx={{
+                px: 3, py: 1, fontSize: '1rem',
+                backgroundColor: '#8F5BD9',
+                color: 'white',
                 fontWeight: '700',
                 fontFamily: 'Poppins, sans-serif',
                 borderRadius: '25px',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+                boxShadow: '0 4px 15px rgba(143, 91, 217, 0.3)',
                 '&:hover': {
-                  backgroundColor: 'white',
+                  backgroundColor: '#26A69A',
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 6px 20px rgba(38, 166, 154, 0.4)',
                 },
                 transition: 'all 0.3s ease',
               }}
             />
             <Chip
               label="Small Class Sizes"
-              sx={{ 
-                px: 3, py: 1, fontSize: '1rem', 
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: '#26A69A', 
+              sx={{
+                px: 3, py: 1, fontSize: '1rem',
+                backgroundColor: '#26A69A',
+                color: 'white',
                 fontWeight: '700',
                 fontFamily: 'Poppins, sans-serif',
                 borderRadius: '25px',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+                boxShadow: '0 4px 15px rgba(38, 166, 154, 0.3)',
                 '&:hover': {
-                  backgroundColor: 'white',
+                  backgroundColor: '#3F5FBF',
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 6px 20px rgba(63, 95, 191, 0.4)',
                 },
                 transition: 'all 0.3s ease',
               }}
             />
             <Chip
               label="Expert Instructors"
-              sx={{ 
-                px: 3, py: 1, fontSize: '1rem', 
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: '#3F5FBF', 
+              sx={{
+                px: 3, py: 1, fontSize: '1rem',
+                backgroundColor: '#3F5FBF',
+                color: 'white',
                 fontWeight: '700',
                 fontFamily: 'Poppins, sans-serif',
                 borderRadius: '25px',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+                boxShadow: '0 4px 15px rgba(63, 95, 191, 0.3)',
                 '&:hover': {
-                  backgroundColor: 'white',
+                  backgroundColor: '#8F5BD9',
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 6px 20px rgba(143, 91, 217, 0.4)',
                 },
                 transition: 'all 0.3s ease',
               }}
@@ -253,17 +244,16 @@ const HomePage: React.FC = () => {
               px: 8,
               py: 2.5,
               fontSize: '1.3rem',
-              backgroundColor: 'white',
-              color: '#8F5BD9',
+              backgroundColor: '#3F5FBF',
+              color: 'white',
               borderRadius: '50px',
               fontFamily: 'Poppins, sans-serif',
               fontWeight: '700',
-              boxShadow: '0 8px 30px rgba(0, 0, 0, 0.3)',
+              boxShadow: '0 8px 30px rgba(63, 95, 191, 0.3)',
               '&:hover': {
-                backgroundColor: '#26A69A',
-                color: 'white',
+                backgroundColor: '#8F5BD9',
                 transform: 'translateY(-5px)',
-                boxShadow: '0 12px 40px rgba(38, 166, 154, 0.5)',
+                boxShadow: '0 12px 40px rgba(143, 91, 217, 0.5)',
               },
               transition: 'all 0.3s ease',
             }}
@@ -271,230 +261,301 @@ const HomePage: React.FC = () => {
             Start Your Journey Today
           </Button>
 
-          {/* Dots Indicator */}
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 6, gap: 2 }}>
-            {carouselImages.map((_, index) => (
-              <Box
-                key={index}
-                onClick={() => setCurrentImageIndex(index)}
-                sx={{
-                  width: index === currentImageIndex ? 32 : 12,
-                  height: 12,
-                  borderRadius: '6px',
-                  backgroundColor: index === currentImageIndex ? 'white' : 'rgba(255, 255, 255, 0.5)',
-                  cursor: 'pointer',
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  boxShadow: index === currentImageIndex ? '0 4px 15px rgba(255, 255, 255, 0.5)' : 'none',
-                  '&:hover': {
-                    backgroundColor: 'white',
-                    transform: 'scale(1.2)',
-                  },
-                }}
-              />
-            ))}
-          </Box>
         </Container>
       </Box>
 
 
 
       {/* Mission Statement */}
-      <Container maxWidth="lg" sx={{ my: 6 }}>
-        <Card sx={{ 
-          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+      <Box sx={{ my: 4, mx: 4 }}>
+        <Card sx={{
+          background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
           backdropFilter: 'blur(10px)',
           borderRadius: '25px',
           overflow: 'hidden',
-          boxShadow: '0 12px 40px rgba(143, 91, 217, 0.3)',
-          border: '2px solid #8F5BD9',
+          boxShadow: '0 12px 40px rgba(143, 91, 217, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+          width: '100%',
+          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+          '&:hover': {
+            transform: 'translateY(-5px) scale(1.01)',
+            boxShadow: '0 20px 60px rgba(143, 91, 217, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+          },
         }}>
-          {/* Image on top */}
-          <Box
-            component="img"
-            src="/public/marketingImages/IMG_9331.png"
-            alt="PathForge Learning Mission"
-            sx={{
-              width: '100%',
-              height: { xs: '250px', md: '350px' },
-              objectFit: 'cover',
-            }}
-          />
-          
-          {/* Text content below */}
+          {/* Text content */}
           <Box sx={{ p: { xs: 4, md: 6 } }}>
-            <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ 
-              fontWeight: 'bold', 
-              mb: 3, 
-              color: '#8F5BD9', 
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: { xs: '2rem', md: '2.5rem' }
+            <Box sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              mb: 3,
+              gap: 2
             }}>
-              Our Mission
-            </Typography>
-            <Typography variant="h5" textAlign="center" sx={{ 
-              color: '#1a1f26', 
-              lineHeight: 1.8, 
-              fontFamily: 'Nunito, sans-serif', 
-              fontWeight: '600', 
-              mb: 2,
-              fontSize: { xs: '1.2rem', md: '1.5rem' }
+              <RocketIcon sx={{
+                fontSize: { xs: '2.5rem', md: '3rem' },
+                color: '#8F5BD9',
+                filter: 'drop-shadow(0 2px 4px rgba(143, 91, 217, 0.3))',
+                animation: 'float 3s ease-in-out infinite',
+                '@keyframes float': {
+                  '0%, 100%': { transform: 'translateY(0px)' },
+                  '50%': { transform: 'translateY(-5px)' }
+                }
+              }} />
+              <Typography variant="h3" component="h2" textAlign="center" sx={{
+                fontWeight: 'bold',
+                color: '#8F5BD9',
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: { xs: '1.8rem', md: '2.2rem' },
+                background: 'linear-gradient(45deg, #8F5BD9 30%, #26A69A 90%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                filter: 'drop-shadow(0 2px 4px rgba(143, 91, 217, 0.2))'
+              }}>
+                Our Mission
+              </Typography>
+            </Box>
+            <Typography variant="h5" textAlign="center" sx={{
+              color: '#1a1f26',
+              lineHeight: 1.6,
+              fontFamily: 'Nunito, sans-serif',
+              fontWeight: '600',
+              mb: 1.5,
+              fontSize: { xs: '1.1rem', md: '1.3rem' }
             }}>
               PathForge Learning is transforming the way learners prepare for the future.
             </Typography>
-            <Typography variant="body1" textAlign="center" sx={{ 
-              color: '#2E3740', 
-              lineHeight: 1.8, 
-              fontFamily: 'Nunito, sans-serif', 
+            <Typography variant="body1" textAlign="center" sx={{
+              color: '#2E3740',
+              lineHeight: 1.6,
+              fontFamily: 'Nunito, sans-serif',
               fontWeight: '500',
-              maxWidth: '900px',
+              maxWidth: '1000px',
               mx: 'auto',
-              fontSize: { xs: '1rem', md: '1.1rem' }
+              fontSize: { xs: '0.95rem', md: '1rem' }
             }}>
               Through innovative enrichment programs in STEM & Technology, Creative Arts & Design, Life Skills & Career Prep, Test Prep & Academic Enrichment, and Health, Sports & Wellness, we equip students with the skills to create, innovate, and lead. Our programs ensure that all learners gain access to hands-on experiences, empowering every student to unlock their full potential and thrive in a rapidly changing world.
             </Typography>
           </Box>
         </Card>
-      </Container>
+      </Box>
 
       {/* Our Programs Section */}
-      <Box sx={{ 
-        py: 8, 
+      <Box sx={{
+        py: 8,
         my: 4,
-        backgroundImage: 'url("/public/marketingImages/IMG_9344.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-        position: 'relative',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.85) 0%, rgba(38, 166, 154, 0.85) 100%)',
-          zIndex: 1,
-        },
-        '& > *': {
-          position: 'relative',
-          zIndex: 2,
-        }
+        width: '100%',
       }}>
-        <Container maxWidth="lg">
-          <Box textAlign="center" sx={{ mb: 6 }}>
-            <Typography variant="h3" component="h2" gutterBottom sx={{ 
-              fontWeight: 'bold', 
-              color: 'white', 
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: { xs: '2rem', md: '2.8rem' },
-              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.3)',
-              mb: 2
-            }}>
-              Explore Our Programs
-            </Typography>
-            <Typography variant="h6" sx={{ 
-              color: 'rgba(255, 255, 255, 0.95)', 
-              fontFamily: 'Nunito, sans-serif',
-              maxWidth: '800px',
-              mx: 'auto',
-              fontWeight: '500',
-              textShadow: '1px 1px 4px rgba(0, 0, 0, 0.2)',
-              fontSize: { xs: '1rem', md: '1.2rem' }
-            }}>
-              Discover comprehensive enrichment programs designed to inspire creativity, build essential skills, and prepare students for future success
-            </Typography>
-          </Box>
-        <Box sx={{ display: 'flex', flexWrap: { xs: 'wrap', md: 'nowrap' }, gap: 1, justifyContent: 'center', alignItems: 'stretch' }}>
-          {enrichmentBuckets.map((bucket, index) => (
-            <Box key={index} sx={{ flex: { xs: '1 1 100%', sm: '1 1 48%', md: '1 1 20%' }, minWidth: { md: '220px' }, maxWidth: { xs: '100%', sm: '48%', md: '20%' } }}>
-              <Card
-                elevation={8}
-                sx={{
-                  height: '100%',
-                  minHeight: '400px',
-                  width: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  backgroundColor: 'rgba(255, 255, 255, 0.98)',
-                  backdropFilter: 'blur(10px)',
-                  border: `3px solid ${bucket.color}`,
-                  borderRadius: '20px',
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
-                  '&:hover': {
-                    transform: 'translateY(-12px) scale(1.02)',
-                    boxShadow: `0 20px 60px ${bucket.color}60`,
-                    border: `3px solid ${bucket.color}`,
-                    backgroundColor: 'rgba(255, 255, 255, 1)',
-                  },
-                  cursor: 'pointer',
-                }}
-                component={RouterLink}
-                to={bucket.path}
-              >
-                {bucket.backgroundImage && (
-                  <Box
-                    component="img"
-                    src={bucket.backgroundImage}
-                    alt={`${bucket.title} program`}
-                    sx={{
-                      width: '100%',
-                      height: '150px',
-                      objectFit: 'cover',
-                      borderRadius: '4px 4px 0 0',
-                    }}
-                  />
-                )}
-                <CardContent sx={{ flexGrow: 1, p: 3, textAlign: 'center' }}>
-                  <Box sx={{ mb: 2, color: bucket.color }}>
-                    {bucket.icon}
-                  </Box>
-                  <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: bucket.color, fontFamily: 'Poppins, sans-serif', fontSize: '1.3rem' }}>
-                    {bucket.title}
-                  </Typography>
-                  <Typography variant="body1" sx={{ color: '#2E3740', lineHeight: 1.6, mb: 3, fontFamily: 'Nunito, sans-serif', fontWeight: '500', fontSize: '0.95rem' }}>
-                    {bucket.description}
-                  </Typography>
-                  <Typography variant="subtitle2" sx={{ color: bucket.color, fontWeight: 'bold', mb: 2, fontFamily: 'Poppins, sans-serif', fontSize: '0.9rem' }}>
-                    Programs Include:
-                  </Typography>
-                  {bucket.programs.map((program, programIndex) => (
-                    <Typography key={programIndex} variant="body2" sx={{ color: '#1a1f26', mb: 1, fontFamily: 'Nunito, sans-serif', fontWeight: '500', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                      • {program}
-                    </Typography>
-                  ))}
-                </CardContent>
-              </Card>
-            </Box>
-          ))}
+        <Box textAlign="center" sx={{ mb: 6, px: 2 }}>
+          <Typography variant="h3" component="h2" gutterBottom sx={{
+            fontWeight: 'bold',
+            color: '#8F5BD9',
+            fontFamily: 'Poppins, sans-serif',
+            fontSize: { xs: '2rem', md: '2.8rem' },
+            mb: 2
+          }}>
+            Explore Our Programs
+          </Typography>
+          <Typography variant="h6" sx={{
+            color: '#2E3740',
+            fontFamily: 'Nunito, sans-serif',
+            maxWidth: '800px',
+            mx: 'auto',
+            fontWeight: '500',
+            fontSize: { xs: '1rem', md: '1.2rem' }
+          }}>
+            Discover comprehensive enrichment programs designed to inspire creativity, build essential skills, and prepare students for future success
+          </Typography>
         </Box>
-        </Container>
+
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0, px: 2 }}>
+          {enrichmentBuckets.map((bucket, index) => {
+            // Unique background colors for each program - slightly darker for better distinction
+            const backgroundColors = [
+              'linear-gradient(135deg, rgba(143, 91, 217, 0.08) 0%, rgba(143, 91, 217, 0.04) 100%)', // STEM
+              'linear-gradient(135deg, rgba(38, 166, 154, 0.08) 0%, rgba(38, 166, 154, 0.04) 100%)',  // Creative Arts
+              'linear-gradient(135deg, rgba(63, 95, 191, 0.08) 0%, rgba(63, 95, 191, 0.04) 100%)',   // Life Skills
+              'linear-gradient(135deg, rgba(255, 152, 0, 0.08) 0%, rgba(255, 152, 0, 0.04) 100%)',  // Test Prep
+              'linear-gradient(135deg, rgba(76, 175, 80, 0.08) 0%, rgba(76, 175, 80, 0.04) 100%)'    // Health & Wellness
+            ];
+
+            return (
+              <Box
+                key={index}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 4,
+                  flexWrap: 'wrap',
+                  flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
+                  py: 3,
+                  px: 3,
+                  background: backgroundColors[index],
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    background: backgroundColors[index].replace('0.04', '0.06').replace('0.08', '0.12'),
+                  },
+                }}
+              >
+                {/* Video - Slightly enlarged (15% increase) */}
+                <Box
+                  component="video"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  sx={{
+                    width: { xs: '100%', md: '460px' }, // 15% increase from 400px
+                    height: { xs: '287px', md: '345px' }, // 15% increase from 250px/300px
+                    objectFit: 'cover',
+                    borderRadius: '20px',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+                    flexShrink: 0,
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                      transform: 'scale(1.02)',
+                    },
+                  }}
+                >
+                  <source src={bucket.backgroundVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </Box>
+
+              {/* Content */}
+              <Box sx={{
+                flex: 1,
+                minWidth: { xs: '300px', md: '400px' },
+                maxWidth: { xs: '100%', md: '500px' },
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center'
+              }}>
+                <Box sx={{ mb: 3, color: bucket.color }}>
+                  {bucket.icon}
+                </Box>
+                <Typography variant="h5" component="h3" gutterBottom sx={{
+                  fontWeight: 'bold',
+                  color: bucket.color,
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: { xs: '1.5rem', md: '1.8rem' },
+                  mb: 2
+                }}>
+                  {bucket.title}
+                </Typography>
+                <Typography variant="body1" sx={{
+                  color: '#2E3740',
+                  lineHeight: 1.6,
+                  mb: 3,
+                  fontFamily: 'Nunito, sans-serif',
+                  fontWeight: '500',
+                  fontSize: { xs: '1rem', md: '1.1rem' }
+                }}>
+                  {bucket.description}
+                </Typography>
+                <Typography variant="subtitle2" sx={{
+                  color: bucket.color,
+                  fontWeight: 'bold',
+                  mb: 2,
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: { xs: '0.9rem', md: '1rem' }
+                }}>
+                  Programs Include:
+                </Typography>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1, maxWidth: '100%', mb: 3 }}>
+                  {bucket.programs.map((program, programIndex) => {
+                    const chipColors = ['#8F5BD9', '#26A69A', '#3F5FBF'];
+                    const chipColor = chipColors[programIndex % chipColors.length];
+                    return (
+                      <Chip
+                        key={programIndex}
+                        label={program}
+                        size="small"
+                        sx={{
+                          color: 'white',
+                          backgroundColor: chipColor,
+                          fontFamily: 'Nunito, sans-serif',
+                          fontWeight: '500',
+                          fontSize: { xs: '0.8rem', md: '0.9rem' },
+                          boxShadow: `0 2px 8px ${chipColor}40`,
+                          '&:hover': {
+                            backgroundColor: chipColor + 'CC',
+                            transform: 'translateY(-1px)',
+                            boxShadow: `0 4px 12px ${chipColor}60`,
+                          },
+                          transition: 'all 0.2s ease',
+                        }}
+                      />
+                    );
+                  })}
+                </Box>
+                <Button
+                  variant="contained"
+                  component={RouterLink}
+                  to={bucket.path}
+                  sx={{
+                    px: 4,
+                    py: 1.5,
+                    fontSize: '1rem',
+                    backgroundColor: bucket.color,
+                    color: 'white',
+                    borderRadius: '25px',
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: '600',
+                    boxShadow: `0 4px 15px ${bucket.color}40`,
+                    '&:hover': {
+                      backgroundColor: bucket.color + 'CC',
+                      transform: 'translateY(-2px)',
+                      boxShadow: `0 8px 25px ${bucket.color}60`,
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Learn More
+                </Button>
+              </Box>
+            </Box>
+          );
+        })}
+        </Box>
       </Box>
 
       {/* Why Choose Us */}
-      <Box sx={{ 
-        py: 8, 
+      <Box sx={{
+        py: 8,
         my: 4,
-        backgroundImage: 'url("/public/marketingImages/IMG_9344.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
         position: 'relative',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.85) 0%, rgba(38, 166, 154, 0.85) 100%)',
-          zIndex: 1,
-        },
+        overflow: 'hidden',
         '& > *': {
           position: 'relative',
           zIndex: 2,
         }
       }}>
+        {/* Background Image */}
+        <Box
+          component="img"
+          src="/public/Instagram upload/4a5fe117-ec9d-43ee-b032-5f5c33484851.png"
+          alt="Background"
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 1,
+          }}
+        />
+        {/* Translucent Gradient Overlay */}
+        <Box sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.9) 0%, rgba(38, 166, 154, 0.9) 100%)',
+          zIndex: 1,
+        }} />
         <Container maxWidth="lg">
           <Box textAlign="center" sx={{ mb: 6 }}>
             <Typography
@@ -527,14 +588,14 @@ const HomePage: React.FC = () => {
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center', alignItems: 'stretch' }}>
             {[
               {
-                title: 'Project-Based Learning',
-                description: 'Students learn through hands-on projects that solve real-world problems.',
-                icon: <SchoolIcon sx={{ fontSize: 50, color: '#8F5BD9' }} />,
-              },
-              {
                 title: 'Expert Instructors',
                 description: 'Learn from experienced professionals passionate about enriching education.',
                 icon: <CodeIcon sx={{ fontSize: 50, color: '#26A69A' }} />,
+              },
+              {
+                title: 'Project-Based Learning',
+                description: 'Students learn through hands-on projects that solve real-world problems.',
+                icon: <SchoolIcon sx={{ fontSize: 50, color: '#8F5BD9' }} />,
               },
               {
                 title: 'Small Class Sizes',
@@ -542,26 +603,38 @@ const HomePage: React.FC = () => {
                 icon: <ScienceIcon sx={{ fontSize: 50, color: '#3F5FBF' }} />,
               },
             ].map((feature, index) => (
-              <Box key={index} sx={{ flex: { xs: '1 1 100%', sm: '1 1 45%', md: '1 1 30%' }, minWidth: '300px', maxWidth: '350px' }}>
-                <Paper 
-                  elevation={2} 
-                  sx={{ 
-                    p: 4, 
-                    textAlign: 'center', 
+              <Box key={index} sx={{ flex: { xs: '1 1 100%', sm: '1 1 45%', md: '1 1 30%' }, minWidth: '300px', maxWidth: '350px', height: '320px' }}>
+                <Paper
+                  elevation={2}
+                  sx={{
+                    p: 4,
+                    textAlign: 'center',
                     height: '100%',
                     maxWidth: '350px',
                     mx: 'auto',
-                    backgroundColor: 'white', 
-                    border: '2px solid #E0E0E0',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    overflow: 'hidden',
+                    backgroundColor: index === 0 ? 'rgba(143, 91, 217, 0.1)' : index === 1 ? 'rgba(38, 166, 154, 0.1)' : 'rgba(63, 95, 191, 0.1)',
+                    border: `2px solid ${index === 0 ? '#8F5BD9' : index === 1 ? '#26A69A' : '#3F5FBF'}`,
                     borderRadius: '25px',
                     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
-                      boxShadow: '0 20px 50px rgba(143, 91, 217, 0.3)',
-                      border: '2px solid #8F5BD9',
+                      boxShadow: `0 20px 50px ${index === 0 ? 'rgba(143, 91, 217, 0.3)' : index === 1 ? 'rgba(38, 166, 154, 0.3)' : 'rgba(63, 95, 191, 0.3)'}`,
+                      border: `2px solid ${index === 0 ? '#8F5BD9' : index === 1 ? '#26A69A' : '#3F5FBF'}`,
+                      backgroundColor: index === 0 ? 'rgba(143, 91, 217, 0.15)' : index === 1 ? 'rgba(38, 166, 154, 0.15)' : 'rgba(63, 95, 191, 0.15)',
                     },
                   }}
                 >
+                  <Box sx={{
+                    backgroundColor: index === 0 ? '#F8F5FF' : index === 1 ? '#F0F9F8' : '#F5F7FF',
+                    borderRadius: '15px',
+                    p: 2,
+                    boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.05)',
+                    border: `1px solid ${index === 0 ? '#8F5BD9' : index === 1 ? '#26A69A' : '#3F5FBF'}20`
+                  }}>
                   <Box sx={{ mb: 2 }}>{feature.icon}</Box>
                   <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#8F5BD9', fontFamily: 'Poppins, sans-serif', textShadow: '1px 1px 2px rgba(255, 255, 255, 0.8)' }}>
                     {feature.title}
@@ -569,6 +642,7 @@ const HomePage: React.FC = () => {
                   <Typography variant="body1" sx={{ color: '#1a1f26', fontFamily: 'Nunito, sans-serif', fontWeight: '600', textShadow: '0px 1px 2px rgba(255, 255, 255, 0.7)' }}>
                     {feature.description}
                   </Typography>
+                  </Box>
                 </Paper>
               </Box>
             ))}
@@ -577,39 +651,58 @@ const HomePage: React.FC = () => {
       </Box>
 
       {/* Call to Action */}
-      <Box sx={{ 
-        py: 8, 
-        textAlign: 'center', 
-        backgroundColor: 'rgba(244, 244, 244, 0.9)', 
-        backdropFilter: 'blur(3px)', 
-        borderRadius: '25px', 
-        mx: 2, 
+      <Box sx={{
+        py: 8,
+        textAlign: 'center',
+        background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
+        borderRadius: '25px',
+        mx: 2,
         my: 4,
-        backgroundImage: 'url("/public/marketingImages/IMG_9317.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        position: 'relative',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(255, 255, 255, 0.15)',
-          borderRadius: '25px',
-          zIndex: 1,
+        boxShadow: '0 12px 40px rgba(143, 91, 217, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(10px)',
+        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        '&:hover': {
+          transform: 'translateY(-5px) scale(1.01)',
+          boxShadow: '0 20px 60px rgba(143, 91, 217, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
         },
-        '& > *': {
-          position: 'relative',
-          zIndex: 2,
-        }
       }}>
         <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
-            Ready to Start Your Journey?
-          </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#2E3740', fontFamily: 'Nunito, sans-serif' }}>
+          <Box sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            mb: 3,
+            gap: 2
+          }}>
+            <PlayIcon sx={{
+              fontSize: { xs: '2.5rem', md: '3rem' },
+              color: '#8F5BD9',
+              filter: 'drop-shadow(0 2px 4px rgba(143, 91, 217, 0.3))',
+              animation: 'pulse 2s ease-in-out infinite',
+              '@keyframes pulse': {
+                '0%, 100%': { transform: 'scale(1)', opacity: 1 },
+                '50%': { transform: 'scale(1.1)', opacity: 0.8 }
+              }
+            }} />
+            <Typography variant="h4" component="h2" sx={{
+              fontWeight: 'bold',
+              color: '#8F5BD9',
+              fontFamily: 'Poppins, sans-serif',
+              background: 'linear-gradient(45deg, #8F5BD9 30%, #26A69A 90%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              filter: 'drop-shadow(0 2px 4px rgba(143, 91, 217, 0.3))'
+            }}>
+              Ready to Start Your Journey?
+            </Typography>
+          </Box>
+          <Typography variant="h6" sx={{
+            mb: 4,
+            color: '#2E3740',
+            fontFamily: 'Nunito, sans-serif',
+            fontWeight: '500'
+          }}>
             Join hundreds of students who are already building the future with technology.
           </Typography>
           <Button
@@ -617,18 +710,18 @@ const HomePage: React.FC = () => {
             size="large"
             component={RouterLink}
             to="/contact"
-            sx={{ 
-              px: 6, 
-              py: 2, 
+            sx={{
+              px: 6,
+              py: 2,
               fontSize: '1.1rem',
-              backgroundColor: '#26A69A',
+              backgroundColor: '#8F5BD9',
               borderRadius: '50px',
               fontFamily: 'Poppins, sans-serif',
               fontWeight: '600',
               '&:hover': {
-                backgroundColor: '#3F5FBF',
+                backgroundColor: '#26A69A',
                 transform: 'translateY(-3px)',
-                boxShadow: '0 12px 35px rgba(63, 95, 191, 0.4)',
+                boxShadow: '0 12px 35px rgba(38, 166, 154, 0.4)',
               },
               transition: 'all 0.3s ease',
             }}

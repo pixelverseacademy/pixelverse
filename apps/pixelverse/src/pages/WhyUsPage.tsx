@@ -105,7 +105,7 @@ const WhyUsPage: React.FC = () => {
   return (
     <Box sx={{ backgroundColor: '#F4F4F4', fontFamily: 'Poppins, sans-serif', position: 'relative', minHeight: '100vh' }}>
       {/* Three.js Background - Applied to entire page */}
-      <PathForgeBackground page="why-us" />
+      {/* <PathForgeBackground page="why-us" /> */}
       
       {/* Hero Section */}
       <Box

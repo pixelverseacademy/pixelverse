@@ -210,38 +210,25 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               }}
             >
               <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '60px', width: '60px', marginRight: '16px', objectFit: 'cover', borderRadius: '50%', boxShadow: '0 4px 12px rgba(143, 91, 217, 0.3)' }} />
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                <Typography variant="h6" component="div" sx={{ 
-                  fontWeight: '800', 
-                  color: '#8F5BD9', 
-                  fontFamily: 'Poppins, sans-serif',
-                  fontSize: '1.5rem',
-                  letterSpacing: '0.5px',
-                  background: 'linear-gradient(45deg, #8F5BD9 30%, #26A69A 90%)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  filter: 'drop-shadow(0 2px 4px rgba(143, 91, 217, 0.3))',
-                  lineHeight: 1.2,
-                  '&:hover': {
-                    transform: 'scale(1.02)',
-                  },
-                  transition: 'transform 0.3s ease',
-                }}>
-                  PathForge Learning
-                </Typography>
-                <Typography variant="caption" sx={{ 
-                  fontFamily: 'Nunito, sans-serif',
-                  fontSize: '0.75rem',
-                  color: '#26A69A',
-                  fontWeight: '600',
-                  letterSpacing: '0.3px',
-                  fontStyle: 'italic',
-                  lineHeight: 1,
-                }}>
-                  Empowering Minds, Forging Future
-                </Typography>
-              </Box>
+              <Typography variant="h6" component="div" sx={{
+                fontWeight: '800',
+                color: '#8F5BD9',
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '1.5rem',
+                letterSpacing: '0.5px',
+                background: 'linear-gradient(45deg, #8F5BD9 30%, #26A69A 90%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                filter: 'drop-shadow(0 2px 4px rgba(143, 91, 217, 0.3))',
+                lineHeight: 1.2,
+                '&:hover': {
+                  transform: 'scale(1.02)',
+                },
+                transition: 'transform 0.3s ease',
+              }}>
+                PathForge Learning
+              </Typography>
             </Box>
         </Box>
           
@@ -480,36 +467,8 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Grid>
             
             <Grid item xs={12} md={4}>
-              <Typography variant="h6" gutterBottom sx={{ color: 'white', fontWeight: 'bold' }}>
-                Quick Links
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 1 }}>
-                {navigationItems.map((item) => (
-                  <Button
-                    key={item.path}
-                    startIcon={item.icon} component={RouterLink}
-                    to={item.path}
-                    size="small"
-                    sx={{
-                      color: 'white',
-                      textTransform: 'none',
-                      fontSize: '0.875rem',
-                      minWidth: 'auto',
-                      px: 1,
-                      py: 0.5,
-                      '&:hover': {
-                        color: '#3498db',
-                        backgroundColor: 'rgba(255, 107, 53, 0.1)',
-                      },
-                    }}
-                  >
-                    {item.label}
-                  </Button>
-                ))}
-              </Box>
-
               {/* Social Media Links */}
-              <Box sx={{ mt: 3 }}>
+              <Box>
                 <Typography variant="h6" gutterBottom sx={{ color: 'white', fontWeight: 'bold' }}>
                   Follow Us
                 </Typography>

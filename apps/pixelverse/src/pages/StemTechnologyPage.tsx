@@ -204,7 +204,7 @@ const StemTechnologyPage: React.FC = () => {
         overflow: 'hidden',
         borderRadius: { xs: 0, md: '0 0 50px 50px' },
       }}>
-        <PathForgeBackground page="curriculum" />
+        {/* <PathForgeBackground page="curriculum" /> */}
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
           <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: theme.text, mb: 4, position: 'relative', zIndex: 3 }}>
             STEM & Technology Programs
