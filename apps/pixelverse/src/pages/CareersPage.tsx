@@ -70,7 +70,7 @@ const CareersPage: React.FC = () => {
       <Box
         sx={{
           background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
-          backgroundImage: 'url("/public/marketingImages/IMG_9331.png")',
+          backgroundImage: 'url("/public/marketingImages/IMG_9344.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',

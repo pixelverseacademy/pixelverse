@@ -16,6 +16,7 @@ import {
   ListItemText,
   Paper,
   Chip,
+  Button,
 } from '@mui/material';
 import {
   ExpandMore as ExpandMoreIcon,
@@ -29,286 +30,370 @@ import {
   Flight as FlightIcon,
   PhoneAndroid as PhoneIcon,
   SportsEsports as EsportsIcon,
+  Extension as ExtensionIcon,
+  Visibility as VisibilityIcon,
+  Sports as SportsIcon,
 } from '@mui/icons-material';
+import { Link as RouterLink } from 'react-router-dom';
 
 const StemTechnologyPage: React.FC = () => {
   const theme = getThemeColors('curriculum');
+  const stats = [
+    { number: '12+', label: 'STEM Programs' },
+    { number: '500+', label: 'Students Coded' },
+    { number: '50+', label: 'Projects Built' },
+    { number: '5', label: 'Years Innovating' },
+  ];
   const programs = [
     {
       title: 'Engineering & Robotics',
-      icon: <BuildIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
       description: 'Build and program robots using LEGO Mindstorms, Arduino, and advanced robotics kits. Learn mechanical engineering principles, sensors, and automation.',
+      icon: <CodeIcon sx={{ fontSize: 40 }} />,
+      color: '#8F5BD9',
+      path: '/programs/stem-technology',
       backgroundImage: '/public/programCardImages/stemAndTechnology/robotics 2.jpeg',
-      highlights: [
-        'LEGO Mindstorms EV3 Programming',
-        'Arduino Microcontroller Projects',
-        'Sensor Integration & Data Collection',
-        'Mechanical Design & 3D Printing',
-        'Competition Team Preparation',
-      ],
+      programs: ['LEGO Mindstorms EV3 Programming', 'Arduino Microcontroller Projects', 'Sensor Integration & Data Collection', 'Mechanical Design & 3D Printing']
     },
     {
-      title: 'Coding, Designing & Modding with Minecraft',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
-      description: 'Learn programming concepts through Minecraft modding, custom world creation, and game design. Perfect introduction to coding for young learners.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/minecraft.png',
-      highlights: [
-        'Minecraft Education Edition',
-        'JavaScript & Python Scripting',
-        'Custom Mod Development',
-        '3D World Design & Building',
-        'Redstone Engineering',
-      ],
-    },
-    {
-      title: 'Programming in Python',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
+      title: 'Python Programming',
       description: 'Master Python programming from basics to advanced concepts. Build games, web applications, and data analysis projects.',
+      icon: <CodeIcon sx={{ fontSize: 40 }} />,
+      color: '#26A69A',
+      path: '/programs/stem-technology',
       backgroundImage: '/public/programCardImages/stemAndTechnology/Python programming.jpg',
-      highlights: [
-        'Python Fundamentals & Syntax',
-        'Object-Oriented Programming',
-        'Game Development with Pygame',
-        'Web Development with Flask/Django',
-        'Data Science & Visualization',
-      ],
+      programs: ['Python Fundamentals & Syntax', 'Object-Oriented Programming', 'Game Development with Pygame', 'Data Science & Visualization']
     },
     {
-      title: 'AR and VR Coding',
-      icon: <PsychologyIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
-      description: 'Create immersive augmented and virtual reality experiences. Learn Unity, Unreal Engine, and AR development platforms.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Ar and VR coding.jpg',
-      highlights: [
-        'Unity 3D Development',
-        'ARCore & ARKit Integration',
-        'VR Headset Programming',
-        '3D Modeling & Animation',
-        'Interactive Experience Design',
-      ],
-    },
-    {
-      title: 'Transform Your Imagination into Interactive Roblox Games',
-      icon: <SmartToyIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
-      description: 'Design, build, and publish your own Roblox games. Learn Lua scripting, game mechanics, and monetization strategies.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Roblox game development.png',
-      highlights: [
-        'Roblox Studio Development',
-        'Lua Programming Language',
-        'Game Design & Mechanics',
-        '3D Modeling & Animation',
-        'Publishing & Monetization',
-      ],
-    },
-    {
-      title: 'Artificial Intelligence & Machine Learning',
-      icon: <PsychologyIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
+      title: 'AI & Machine Learning',
       description: 'Explore AI concepts through hands-on projects. Build chatbots, image recognition systems, and predictive models.',
+      icon: <PsychologyIcon sx={{ fontSize: 40 }} />,
+      color: '#3F5FBF',
+      path: '/programs/stem-technology',
       backgroundImage: '/public/programCardImages/stemAndTechnology/Ai and machine learning.png',
-      highlights: [
-        'Machine Learning Fundamentals',
-        'Neural Networks & Deep Learning',
-        'Computer Vision Projects',
-        'Natural Language Processing',
-        'AI Ethics & Future Applications',
-      ],
-    },
-    {
-      title: 'Ignite Innovation with 3D Modeling, Design & Printing',
-      icon: <PaletteIcon sx={{ fontSize: 40, color: '#4CAF50' }} />,
-      description: 'Master 3D design software and bring your creations to life with 3D printing. Learn CAD, modeling, and prototyping.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/3d modeling and printing.png',
-      highlights: [
-        'Tinkercad & Fusion 360',
-        '3D Modeling Techniques',
-        '3D Printing & Prototyping',
-        'Product Design Thinking',
-        'Rapid Prototyping Methods',
-      ],
-    },
-    {
-      title: 'Scratch-based Programming',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#9C27B0' }} />,
-      description: 'Perfect introduction to programming for young learners. Create interactive stories, games, and animations using visual programming.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Scratch programming.png',
-      highlights: [
-        'Visual Programming Concepts',
-        'Interactive Story Creation',
-        'Game Development Basics',
-        'Animation & Graphics',
-        'Computational Thinking',
-      ],
-    },
-    {
-      title: 'Content Creation with Drone',
-      icon: <FlightIcon sx={{ fontSize: 40, color: '#E91E63' }} />,
-      description: 'Master aerial content creation using drones. Learn professional photography, videography techniques, and post-production editing for stunning visual storytelling.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/drone programming.png',
-      highlights: [
-        'Professional Aerial Photography',
-        'Cinematic Videography Techniques',
-        'Drone Camera Operation & Controls',
-        'Video Editing & Post-Production',
-        'Content Creation for Social Media',
-        'Commercial Photography Projects',
-      ],
-    },
-    {
-      title: 'Mobile App Development',
-      icon: <PhoneIcon sx={{ fontSize: 40, color: '#FF5722' }} />,
-      description: 'Create mobile applications for iOS and Android. Learn app design, development, and publishing processes.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/mobile app development.png',
-      highlights: [
-        'React Native Development',
-        'iOS & Android App Creation',
-        'User Interface Design',
-        'App Store Publishing',
-        'Cross-Platform Development',
-      ],
-    },
-    {
-      title: 'E-sports',
-      icon: <EsportsIcon sx={{ fontSize: 40, color: '#2196F3' }} />,
-      description: 'Develop gaming skills, strategy, and teamwork through competitive gaming. Learn about the esports industry and career opportunities.',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/esports.png',
-      highlights: [
-        'Competitive Gaming Strategies',
-        'Team Communication & Leadership',
-        'Game Analysis & Improvement',
-        'Esports Industry Overview',
-        'Career Opportunities in Gaming',
-      ],
+      programs: ['Machine Learning Fundamentals', 'Neural Networks & Deep Learning', 'Computer Vision Projects', 'AI Ethics & Future Applications']
     },
     {
       title: 'Web Development',
-      icon: <CodeIcon sx={{ fontSize: 40, color: '#2ecc71' }} />,
       description: 'Build interactive websites and web applications using HTML, CSS, and JavaScript.',
+      icon: <CodeIcon sx={{ fontSize: 40 }} />,
+      color: '#8F5BD9',
+      path: '/programs/stem-technology',
       backgroundImage: '/public/programCardImages/stemAndTechnology/web development.png',
-      highlights: [
-        'HTML, CSS & JavaScript Fundamentals',
-        'Responsive Web Design',
-        'Frontend Frameworks (React, Vue)',
-        'Backend Development',
-        'Full-Stack Applications',
-      ],
+      programs: ['HTML, CSS & JavaScript Fundamentals', 'Responsive Web Design', 'Frontend Frameworks', 'Full-Stack Applications']
+    },
+    {
+      title: 'Mobile App Development',
+      description: 'Create mobile applications for iOS and Android. Learn app design, development, and publishing processes.',
+      icon: <PhoneIcon sx={{ fontSize: 40 }} />,
+      color: '#26A69A',
+      path: '/programs/stem-technology',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/mobile app development.png',
+      programs: ['React Native Development', 'iOS & Android App Creation', 'UI/UX Design', 'App Store Publishing']
+    },
+    {
+      title: '3D Modeling & Printing',
+      description: 'Master 3D design software and bring your creations to life with 3D printing. Learn CAD, modeling, and prototyping.',
+      icon: <PaletteIcon sx={{ fontSize: 40 }} />,
+      color: '#3F5FBF',
+      path: '/programs/stem-technology',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/3d modeling and printing.png',
+      programs: ['Tinkercad & Fusion 360', '3D Modeling Techniques', '3D Printing & Prototyping', 'Product Design Thinking']
+    },
+    {
+      title: 'Scratch Programming',
+      description: 'Perfect introduction to programming for young learners. Create interactive stories, games, and animations using visual programming.',
+      icon: <ExtensionIcon sx={{ fontSize: 40 }} />,
+      color: '#8F5BD9',
+      path: '/programs/stem-technology',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/Scratch programming.png',
+      programs: ['Visual Programming Concepts', 'Interactive Story Creation', 'Game Development Basics', 'Computational Thinking']
+    },
+    {
+      title: 'AR & VR Coding',
+      description: 'Create immersive augmented and virtual reality experiences. Learn Unity, Unreal Engine, and AR development platforms.',
+      icon: <VisibilityIcon sx={{ fontSize: 40 }} />,
+      color: '#26A69A',
+      path: '/programs/stem-technology',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/Ar and VR coding.jpg',
+      programs: ['Unity 3D Development', 'ARCore & ARKit Integration', 'VR Headset Programming', '3D Modeling & Animation']
+    },
+    {
+      title: 'Roblox Game Development',
+      description: 'Design, build, and publish your own Roblox games. Learn Lua scripting, game mechanics, and monetization strategies.',
+      icon: <SmartToyIcon sx={{ fontSize: 40 }} />,
+      color: '#3F5FBF',
+      path: '/programs/stem-technology',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/Roblox game development.png',
+      programs: ['Roblox Studio Development', 'Lua Programming Language', 'Game Design & Mechanics', 'Publishing & Monetization']
+    },
+    {
+      title: 'Minecraft Coding',
+      description: 'Learn programming concepts through Minecraft modding, custom world creation, and game design. Perfect introduction to coding for young learners.',
+      icon: <SportsIcon sx={{ fontSize: 40 }} />,
+      color: '#8F5BD9',
+      path: '/programs/stem-technology',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/minecraft.png',
+      programs: ['Minecraft Education Edition', 'JavaScript & Python Scripting', 'Custom Mod Development', 'Redstone Engineering']
+    },
+    {
+      title: 'Drone Programming',
+      description: 'Master aerial content creation using drones. Learn professional photography, videography techniques, and post-production editing.',
+      icon: <FlightIcon sx={{ fontSize: 40 }} />,
+      color: '#26A69A',
+      path: '/programs/stem-technology',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/drone programming.png',
+      programs: ['Professional Aerial Photography', 'Cinematic Videography Techniques', 'Drone Camera Operation', 'Video Editing & Post-Production']
+    },
+    {
+      title: 'E-sports',
+      description: 'Develop gaming skills, strategy, and teamwork through competitive gaming. Learn about the esports industry and career opportunities.',
+      icon: <EsportsIcon sx={{ fontSize: 40 }} />,
+      color: '#3F5FBF',
+      path: '/programs/stem-technology',
+      backgroundImage: '/public/programCardImages/stemAndTechnology/esports.png',
+      programs: ['Competitive Gaming Strategies', 'Team Communication & Leadership', 'Game Analysis & Improvement', 'Esports Industry Overview']
     },
   ];
 
   return (
     <Box sx={{ backgroundColor: '#F4F4F4', fontFamily: 'Poppins, sans-serif' }}>
       {/* Hero Section */}
-      <Box sx={{
-        background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
-        py: 12,
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-        borderRadius: { xs: 0, md: '0 0 50px 50px' },
-      }}>
-        {/* <PathForgeBackground page="curriculum" /> */}
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: theme.text, mb: 4, position: 'relative', zIndex: 3 }}>
+      <Box
+        sx={{
+          minHeight: { xs: '50vh', md: '60vh' },
+          py: { xs: 6, md: 8 },
+          position: 'relative',
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {/* Background Image */}
+        <Box sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 0,
+        }}>
+          <Box
+            component="img"
+            src="/public/Instagram upload/7313934c-05ed-40fe-b6c2-14126fc67fbc.png"
+            alt="STEM Technology Hero"
+            sx={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              filter: 'brightness(0.7)',
+            }}
+          />
+          {/* Gradient Overlay */}
+          <Box sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.8) 0%, rgba(38, 166, 154, 0.8) 100%)',
+          }} />
+        </Box>
+
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', fontFamily: 'Poppins, sans-serif', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
             STEM & Technology Programs
           </Typography>
-          <Typography variant="h5" sx={{ mb: 6, opacity: 0.9, color: theme.secondaryText, position: 'relative', zIndex: 3 }}>
-            Hands-on technology education empowering the next generation of innovators
+          <Typography variant="h5" sx={{ mb: 4, color: 'white', fontFamily: 'Poppins, sans-serif', fontWeight: '600', textShadow: '1px 1px 4px rgba(0, 0, 0, 0.5)' }}>
+            Empowering the Next Generation of Innovators
           </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 3 }}>
-            <Chip
-              label="All Ages"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
-            />
-            <Chip
-              label="12+ Programs"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
-            />
-            <Chip
-              label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff9800', color: 'white', fontWeight: 'bold' }}
-            />
+          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', mb: 4, color: 'white', fontFamily: 'Nunito, sans-serif', textShadow: '1px 1px 3px rgba(0, 0, 0, 0.5)' }}>
+            Hands-on technology education from coding to robotics, AI to web development. Build the future with expert guidance.
+          </Typography>
+
+          {/* Stats Chips */}
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 2,
+            justifyContent: 'center',
+            mt: 2,
+          }}>
+            {stats.map((stat, index) => (
+              <Chip
+                key={index}
+                label={`${stat.number} ${stat.label}`}
+                sx={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  color: '#8F5BD9',
+                  fontWeight: 'bold',
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: { xs: '0.9rem', md: '1rem' },
+                  px: 2,
+                  py: 1,
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 6px 16px rgba(0, 0, 0, 0.3)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
+              />
+            ))}
           </Box>
         </Container>
       </Box>
 
+
       {/* Programs */}
       <Box sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{
+            fontWeight: 'bold',
+            mb: 6,
+            color: '#3498db',
+            fontFamily: 'Poppins, sans-serif'
+          }}>
             Our STEM & Technology Programs
           </Typography>
 
-          <Grid container spacing={4} justifyContent="center">
-            {programs.map((program, index) => (
-              <Grid item xs={12} sm={6} md={6} key={index}>
-                <Card
-                  sx={{
-                    maxWidth: '500px',
-                    mx: 'auto',
-                    height: '100%',
-                    backgroundColor: '#f8f9ff',
-                    border: '1px solid #e0e6ed',
-                    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                      border: '1px solid #3498db',
-                    },
-                  }}
-                >
-                  {program.backgroundImage && (
-                    <Box
-                      component="img"
-                      src={program.backgroundImage}
-                      alt={`${program.title} program`}
-                      sx={{
-                        width: '100%',
-                        height: '180px',
-                        objectFit: 'cover',
-                        borderRadius: '4px 4px 0 0',
-                      }}
-                    />
-                  )}
-                  <CardContent sx={{ p: 4 }}>
-                    <Box sx={{ textAlign: 'center', mb: 3 }}>
+          {programs.map((program, index) => {
+            // Unique background colors for each program
+            const backgroundColors = [
+              '#f8f9ff', // Light blue-white
+              '#f0f8f0', // Light green-white
+              '#fff8f8', // Light red-white
+              '#f8f0ff', // Light purple-white
+              '#fff8f0', // Light orange-white
+              '#f0fff8', // Light teal-white
+              '#f8fff0', // Light yellow-white
+              '#fff0f8', // Light pink-white
+              '#f0f8ff', // Light blue-white (repeat)
+              '#f8f0f8', // Light magenta-white
+              '#f0ffff', // Light cyan-white
+              '#ffffe0'  // Light cream
+            ];
+
+            return (
+              <Box
+                key={index}
+                sx={{
+                  mb: index < programs.length - 1 ? 4 : 0,
+                  py: 4,
+                  px: 3,
+                  backgroundColor: backgroundColors[index % backgroundColors.length],
+                  borderRadius: '15px',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                  },
+                }}
+              >
+                <Box sx={{
+                  display: 'flex',
+                  flexDirection: { xs: 'column', md: 'row' },
+                  alignItems: { xs: 'center', md: 'flex-start' },
+                  gap: 4,
+                  maxWidth: '1200px',
+                  mx: 'auto'
+                }}>
+                  {/* Image */}
+                  <Box
+                    component="img"
+                    src={program.backgroundImage}
+                    alt={`${program.title} program`}
+                    sx={{
+                      width: { xs: '100%', md: '350px' },
+                      height: { xs: '220px', md: '250px' },
+                      objectFit: 'cover',
+                      borderRadius: '15px',
+                      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                      flexShrink: 0,
+                    }}
+                  />
+
+                  {/* Content */}
+                  <Box sx={{
+                    flex: 1,
+                    textAlign: { xs: 'center', md: 'left' },
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center'
+                  }}>
+                    <Box sx={{ mb: 3, color: program.color, textAlign: 'center' }}>
                       {program.icon}
                     </Box>
-                    <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50', textAlign: 'center' }}>
+                    <Typography variant="h5" component="h3" gutterBottom sx={{
+                      fontWeight: 'bold',
+                      color: program.color,
+                      fontFamily: 'Poppins, sans-serif',
+                      fontSize: { xs: '1.5rem', md: '1.8rem' },
+                      mb: 2,
+                      textAlign: 'center'
+                    }}>
                       {program.title}
                     </Typography>
-                    <Typography variant="body1" sx={{ color: '#7f8c8d', textAlign: 'center', mb: 3 }}>
+                    <Typography variant="body1" sx={{
+                      color: '#2E3740',
+                      lineHeight: 1.6,
+                      mb: 4,
+                      fontFamily: 'Nunito, sans-serif',
+                      fontWeight: '500',
+                      fontSize: { xs: '1rem', md: '1.1rem' },
+                      textAlign: 'center'
+                    }}>
                       {program.description}
                     </Typography>
-                    <Accordion sx={{ backgroundColor: '#f0f8f0', border: '1px solid #e0e6ed' }}>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon sx={{ color: '#3498db' }} />}
-                        sx={{ '& .MuiAccordionSummary-content': { margin: '12px 0' } }}
-                      >
-                        <Typography sx={{ color: '#2c3e50', fontWeight: 'bold' }}>
-                          Program Highlights
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <List dense>
-                          {program.highlights.map((highlight, highlightIndex) => (
-                            <ListItem key={highlightIndex} sx={{ px: 0 }}>
-                              <ListItemIcon>
-                                <CheckIcon sx={{ color: '#3498db' }} />
-                              </ListItemIcon>
-                              <ListItemText primary={highlight} sx={{ color: '#7f8c8d' }} />
-                            </ListItem>
-                          ))}
-                        </List>
-                      </AccordionDetails>
-                    </Accordion>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+                    <Typography variant="subtitle2" sx={{
+                      color: program.color,
+                      fontWeight: 'bold',
+                      mb: 2,
+                      fontFamily: 'Poppins, sans-serif',
+                      fontSize: { xs: '0.9rem', md: '1rem' },
+                      textAlign: 'center'
+                    }}>
+                      Programs Include:
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}>
+                      {program.programs.map((item, itemIndex) => {
+                        const chipColors = ['#8F5BD9', '#26A69A', '#3F5FBF'];
+                        const chipColor = chipColors[itemIndex % chipColors.length];
+                        return (
+                          <Chip
+                            key={itemIndex}
+                            label={item}
+                            size="small"
+                            sx={{
+                              color: 'white',
+                              backgroundColor: chipColor,
+                              fontFamily: 'Nunito, sans-serif',
+                              fontWeight: '500',
+                              fontSize: { xs: '0.8rem', md: '0.9rem' },
+                              boxShadow: `0 2px 8px ${chipColor}40`,
+                              '&:hover': {
+                                backgroundColor: chipColor + 'CC',
+                                transform: 'translateY(-1px)',
+                                boxShadow: `0 4px 12px ${chipColor}60`,
+                              },
+                              transition: 'all 0.2s ease',
+                            }}
+                          />
+                        );
+                      })}
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+            );
+          })}
         </Container>
       </Box>
 
       {/* Learning Paths */}
-      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
+      <Box sx={{ backgroundColor: '#f0f8ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
         <Container maxWidth="lg">
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
             Learning Paths
@@ -321,7 +406,7 @@ const StemTechnologyPage: React.FC = () => {
                 sx={{
                   p: 4,
                   height: '100%',
-                  backgroundColor: '#f0f8f0',
+                  backgroundColor: '#f8f9ff',
                   border: '1px solid #e0e6ed',
                   maxWidth: '400px',
                   mx: 'auto',
@@ -363,7 +448,7 @@ const StemTechnologyPage: React.FC = () => {
                 sx={{
                   p: 4,
                   height: '100%',
-                  backgroundColor: '#f0f8f0',
+                  backgroundColor: '#f8f9ff',
                   border: '1px solid #e0e6ed',
                   maxWidth: '400px',
                   mx: 'auto',
@@ -405,7 +490,7 @@ const StemTechnologyPage: React.FC = () => {
                 sx={{
                   p: 4,
                   height: '100%',
-                  backgroundColor: '#f0f8f0',
+                  backgroundColor: '#f8f9ff',
                   border: '1px solid #e0e6ed',
                   maxWidth: '400px',
                   mx: 'auto',
@@ -444,31 +529,6 @@ const StemTechnologyPage: React.FC = () => {
         </Container>
       </Box>
 
-      {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f0f8ff' }}>
-        <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-            Ready to Start Learning?
-          </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
-            Choose the perfect program for your child and begin their technology education journey today.
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Chip
-              label="Hands-On Learning"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#4caf50', color: 'white', fontWeight: 'bold' }}
-            />
-            <Chip
-              label="Small Class Sizes"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#2196f3', color: 'white', fontWeight: 'bold' }}
-            />
-            <Chip
-              label="Expert Instructors"
-              sx={{ px: 3, py: 1, fontSize: '1rem', backgroundColor: '#ff9800', color: 'white', fontWeight: 'bold' }}
-            />
-          </Box>
-        </Container>
-      </Box>
     </Box>
   );
 };
