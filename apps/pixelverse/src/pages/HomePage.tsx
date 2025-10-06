@@ -35,7 +35,7 @@ import {
   People as PeopleIcon,
   FitnessCenter as FitnessIcon,
 } from '@mui/icons-material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 const enrichmentBuckets = [
   {
@@ -88,6 +88,12 @@ const enrichmentBuckets = [
 
 const HomePage: React.FC = () => {
   const theme = getThemeColors('home');
+  const location = useLocation();
+
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <Box sx={{ position: 'relative', minHeight: '100vh', fontFamily: 'Poppins, sans-serif' }}>

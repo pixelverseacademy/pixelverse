@@ -1,5 +1,5 @@
-import React from 'react';
-import PathForgeBackground from '../components/PathForgeBackground';
+import React, { useEffect } from 'react';
+import PathForgeBackground, { getThemeColors } from '../components/PathForgeBackground';
 import {
   Box,
   Container,
@@ -9,11 +9,12 @@ import {
   CardContent,
   Paper,
   Button,
+  Chip,
 } from '@mui/material';
 import {
   Email as EmailIcon,
   Phone as PhoneIcon,
-  LocationOn as LocationIcon,
+  LocationOn as LocationOnIcon,
   Send as SendIcon,
   Facebook as FacebookIcon,
   Instagram as InstagramIcon,
@@ -21,276 +22,181 @@ import {
 } from '@mui/icons-material';
 
 const ContactPage: React.FC = () => {
+  const theme = getThemeColors('contact');
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const stats = [
+    { number: '24hr', label: 'Response Time' },
+    { number: '100%', label: 'Personal Service' },
+    { number: '5', label: 'Contact Methods' },
+    { number: 'Always', label: 'Here to Help' },
+  ];
+  const contactMethods = [
+    {
+      title: 'Email Support',
+      description: 'Send us an email anytime and receive a personalized response within 24 hours. We love hearing from parents and students!',
+      image: '/public/Instagram upload/4a5fe117-ec9d-43ee-b032-5f5c33484851.png',
+      contact: 'info@pathforgelearning.com',
+      benefits: [
+        '24/7 email support',
+        'Personalized responses',
+        'Detailed program information',
+        'Flexible communication',
+      ],
+    },
+    {
+      title: 'Phone Support',
+      description: 'Speak directly with our team during business hours. Get immediate answers to your questions about programs, scheduling, and enrollment.',
+      image: '/public/Instagram upload/5aa5d9b0-9aac-458c-b870-6f3262186d01.png',
+      contact: '(919) 446-4981',
+      benefits: [
+        'Direct phone support',
+        'Immediate answers',
+        'Schedule consultations',
+        'Enrollment assistance',
+      ],
+    },
+    {
+      title: 'School-Based Programs',
+      description: 'We bring our expert instructors directly to your school, making it convenient for your family while maintaining the familiar school environment.',
+      image: '/public/Instagram upload/29ef747a-5d0e-4769-9b78-bf13237540dd.png',
+      contact: 'Contact Your School',
+      benefits: [
+        'Convenient location',
+        'Familiar environment',
+        'Expert instructors',
+        'Integrated scheduling',
+      ],
+    },
+  ];
+
   return (
     <Box sx={{ backgroundColor: '#F4F4F4', fontFamily: 'Poppins, sans-serif' }}>
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
+          minHeight: { xs: '50vh', md: '60vh' },
           py: { xs: 6, md: 8 },
-          textAlign: 'center',
           position: 'relative',
           overflow: 'hidden',
-          borderRadius: { xs: 0, md: '0 0 50px 50px' },
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        {/* <PathForgeBackground page="contact" /> */}
+        {/* Background Image */}
+        <Box sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 0,
+        }}>
+          <Box
+            component="img"
+            src="/public/Instagram upload/29ef747a-5d0e-4769-9b78-bf13237540dd.png"
+            alt="Contact Hero"
+            sx={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              filter: 'brightness(0.7)',
+            }}
+          />
+          {/* Gradient Overlay */}
+          <Box sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.8) 0%, rgba(38, 166, 154, 0.8) 100%)',
+          }} />
+        </Box>
+
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: '#8F5BD9', fontFamily: 'Poppins, sans-serif' }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: 'white', fontFamily: 'Poppins, sans-serif', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)' }}>
             Contact Us
           </Typography>
-          <Typography variant="h5" sx={{ mb: 4, color: '#2E3740', fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>
+          <Typography variant="h5" sx={{ mb: 4, color: 'white', fontFamily: 'Poppins, sans-serif', fontWeight: '600', textShadow: '1px 1px 4px rgba(0, 0, 0, 0.5)' }}>
             Get in Touch with Our Team
           </Typography>
-          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', color: '#2E3740', fontFamily: 'Nunito, sans-serif' }}>
-            Ready to start your child's enrichment journey? We're here to answer
-            your questions and help you choose the perfect program for your student.
+          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto', mb: 4, color: 'white', fontFamily: 'Nunito, sans-serif', textShadow: '1px 1px 3px rgba(0, 0, 0, 0.5)' }}>
+            Ready to start your child's enrichment journey? We're here to answer your questions and help you choose the perfect program for your student.
           </Typography>
-        </Container>
-      </Box>
 
-      {/* Contact Information */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: 'rgba(244, 244, 244, 0.8)', backdropFilter: 'blur(2px)', borderRadius: '25px', my: 4 }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', color: '#8F5BD9', mb: 6, fontFamily: 'Poppins, sans-serif' }}>
-          Get in Touch
-        </Typography>
-        
-        <Grid container spacing={4} justifyContent="center" alignItems="stretch">
-          <Grid item xs={12} sm={6} md={4}>
-            <Paper 
-              elevation={2} 
-              sx={{ 
-                p: 4, 
-                textAlign: 'center', 
-                height: '100%',
-                maxWidth: '350px',
-                mx: 'auto',
-                backgroundColor: '#f8f9ff', 
-                border: '1px solid #e0e6ed',
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                  border: '1px solid #3498db',
-                },
-              }}
-            >
-              <EmailIcon sx={{ fontSize: 50, color: '#8F5BD9', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                Email Us
-              </Typography>
-              <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 2 }}>
-                Send us an email anytime
-              </Typography>
-              <Typography variant="body1" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-                info@pathforgelearning.com
-              </Typography>
-            </Paper>
-          </Grid>
-          
-          <Grid item xs={12} sm={6} md={4}>
-            <Paper 
-              elevation={2} 
-              sx={{ 
-                p: 4, 
-                textAlign: 'center', 
-                height: '100%',
-                maxWidth: '350px',
-                mx: 'auto',
-                backgroundColor: '#f8f9ff', 
-                border: '1px solid #e0e6ed',
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                  border: '1px solid #3498db',
-                },
-              }}
-            >
-              <PhoneIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                Call Us
-              </Typography>
-              <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 2 }}>
-                Speak with our team directly
-              </Typography>
-              <Typography variant="body1" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-                (919) 446-4981
-              </Typography>
-            </Paper>
-          </Grid>
-          
-          {/* <Grid item xs={12} sm={6} md={4}>
-            <Paper 
-              elevation={2} 
-              sx={{ 
-                p: 4, 
-                textAlign: 'center', 
-                height: '100%',
-                maxWidth: '350px',
-                mx: 'auto',
-                backgroundColor: '#f8f9ff', 
-                border: '1px solid #e0e6ed',
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                  border: '1px solid #3498db',
-                },
-              }}
-            >
-              <LocationIcon sx={{ fontSize: 50, color: '#3498db', mb: 2 }} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                Visit Us
-              </Typography>
-              <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 2 }}>
-                Visit us at your school
-              </Typography>
-              <Typography variant="body1" sx={{ color: '#3498db', fontWeight: 'bold' }}>
-                Durham & Holly Springs, NC
-              </Typography>
-            </Paper>
-          </Grid> */}
-        </Grid>
-      </Container>
-
-      {/* Inquiry Form */}
-      <Box sx={{ backgroundColor: '#f8f9ff', py: 8, borderTop: '1px solid #e0e6ed' }}>
-        <Container maxWidth="lg">
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
-            Send Us a Message
-          </Typography>
-          
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} md={8} lg={6}>
-              <Paper 
-                elevation={2} 
-                sx={{ 
-                  p: 4, 
-                  backgroundColor: '#f0f8f0', 
-                  border: '1px solid #e0e6ed',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+          {/* Stats Chips */}
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 2,
+            justifyContent: 'center',
+            mt: 2,
+          }}>
+            {stats.map((stat, index) => (
+              <Chip
+                key={index}
+                label={`${stat.number} ${stat.label}`}
+                sx={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  color: '#8F5BD9',
+                  fontWeight: 'bold',
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: { xs: '0.9rem', md: '1rem' },
+                  px: 2,
+                  py: 1,
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
                   '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                    border: '1px solid #3498db',
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 6px 16px rgba(0, 0, 0, 0.3)',
                   },
+                  transition: 'all 0.3s ease',
                 }}
-              >
-                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold', mb: 3, color: '#2c3e50', textAlign: 'center' }}>
-                  Program Information Request
-                </Typography>
-                <Typography variant="body1" sx={{ color: '#7f8c8d', mb: 4, textAlign: 'center' }}>
-                  Fill out the form below to learn more about our programs, pricing, and availability. 
-                  We'll get back to you within 24 hours!
-                </Typography>
-                
-                <Box sx={{ textAlign: 'center' }}>
-                  <Button
-                    variant="contained"
-                    size="large"
-                    startIcon={<SendIcon />}
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSesruEj54YRUllPxQ7fN8PqtVIKN_T3XcjqRE90RZ3hLLb-RA/viewform?usp=header"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{ 
-                      px: 6, 
-                      py: 2, 
-                      fontSize: '1.1rem',
-                      backgroundColor: '#3498db',
-                      '&:hover': {
-                        backgroundColor: '#fff0e6',
-                        transform: 'translateY(-2px)',
-                        boxShadow: '0 8px 25px rgba(255, 107, 53, 0.4)',
-                      },
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    Open Inquiry Form
-                  </Button>
-                </Box>
-              </Paper>
-            </Grid>
-          </Grid>
+              />
+            ))}
+          </Box>
         </Container>
       </Box>
 
-      {/* Program Information */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f0f8ff' }}>
-        <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#3498db' }}>
-          Program Information
-        </Typography>
-        
-        <Grid container spacing={4} justifyContent="center">
-           <Grid item xs={12} sm={6} md={6}>
-             <Card
-               elevation={2}
-               sx={{
-                 height: '100%',
-                 maxWidth: '400px',
-                 mx: 'auto',
-                 backgroundColor: '#f8f9ff',
-                 border: '1px solid #e0e6ed',
-                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                 '&:hover': {
-                   transform: 'translateY(-8px)',
-                   boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                   border: '1px solid #3498db',
-                 },
-               }}
-             >
-               <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                 <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                   Flexible Scheduling
-                 </Typography>
-                 <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                   We offer classes on weekends and after school to fit your family's schedule.
-                 </Typography>
-               </CardContent>
-             </Card>
-           </Grid>
 
-           <Grid item xs={12} sm={6} md={6}>
-             <Card
-               elevation={2}
-               sx={{
-                 height: '100%',
-                 maxWidth: '400px',
-                 mx: 'auto',
-                 backgroundColor: '#f8f9ff',
-                 border: '1px solid #e0e6ed',
-                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                 '&:hover': {
-                   transform: 'translateY(-8px)',
-                   boxShadow: '0 12px 40px rgba(52, 152, 219, 0.3)',
-                   border: '1px solid #3498db',
-                 },
-               }}
-             >
-               <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                 <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                   Small Class Sizes
-                 </Typography>
-                 <Typography variant="body2" sx={{ color: '#7f8c8d' }}>
-                   Maximum 8 students per class ensures personalized attention and optimal learning.
-                 </Typography>
-               </CardContent>
-             </Card>
-           </Grid>
-         </Grid>
-      </Container>
-
-      {/* Call to Action */}
-      <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f8f9ff', borderTop: '1px solid #e0e6ed' }}>
-        <Container maxWidth="md">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
+      {/* Contact Details Section */}
+      <Box sx={{
+        py: 8,
+        my: 4,
+        backgroundColor: '#F4F4F4',
+        borderTop: '1px solid #e0e6ed'
+      }}>
+        <Container maxWidth="lg">
+          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{
+            fontWeight: 'bold',
+            color: '#8F5BD9',
+            fontFamily: 'Poppins, sans-serif',
+            fontSize: { xs: '2rem', md: '2.8rem' },
+            mb: 2
+          }}>
             Ready to Get Started?
           </Typography>
-          <Typography variant="h6" sx={{ mb: 4, color: '#7f8c8d' }}>
-            Contact us today to learn more about our enrichment programs and see why students
-            love learning with PathForge Learning.
+          <Typography variant="h6" sx={{
+            color: '#2E3740',
+            fontFamily: 'Nunito, sans-serif',
+            maxWidth: '800px',
+            mx: 'auto',
+            fontWeight: '500',
+            fontSize: { xs: '1rem', md: '1.2rem' },
+            textAlign: 'center',
+            mb: 6
+          }}>
+            Contact us today to learn more about our enrichment programs and see why students love learning with PathForge Learning.
           </Typography>
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+
+          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', mb: 4 }}>
             <Button
               variant="contained"
               size="large"
@@ -300,11 +206,14 @@ const ContactPage: React.FC = () => {
                 px: 4,
                 py: 2,
                 fontSize: '1rem',
-                backgroundColor: '#3498db',
+                backgroundColor: '#8F5BD9',
+                borderRadius: '50px',
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: '600',
                 '&:hover': {
-                  backgroundColor: '#fff0e6',
+                  backgroundColor: '#26A69A',
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 8px 25px rgba(255, 107, 53, 0.4)',
+                  boxShadow: '0 8px 25px rgba(38, 166, 154, 0.4)',
                 },
                 transition: 'all 0.3s ease',
               }}
@@ -312,7 +221,7 @@ const ContactPage: React.FC = () => {
               Email Us
             </Button>
             <Button
-              variant="outlined"
+              variant="contained"
               size="large"
               startIcon={<PhoneIcon />}
               href="tel:+19194464981"
@@ -320,12 +229,15 @@ const ContactPage: React.FC = () => {
                 px: 4,
                 py: 2,
                 fontSize: '1rem',
-                borderColor: '#3498db',
-                color: '#3498db',
+                backgroundColor: 'white',
+                color: '#26A69A',
+                borderRadius: '50px',
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: '600',
                 '&:hover': {
-                  borderColor: '#ff8a65',
-                  backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                  backgroundColor: '#f5f5f5',
                   transform: 'translateY(-2px)',
+                  boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)',
                 },
                 transition: 'all 0.3s ease',
               }}
@@ -334,21 +246,57 @@ const ContactPage: React.FC = () => {
             </Button>
           </Box>
 
+          {/* Open Inquiry Form */}
+          <Box sx={{ textAlign: 'center', mb: 4 }}>
+            <Button
+              variant="contained"
+              size="large"
+              startIcon={<SendIcon />}
+              href="https://docs.google.com/forms/d/e/1FAIpQLSesruEj54YRUllPxQ7fN8PqtVIKN_T3XcjqRE90RZ3hLLb-RA/viewform?usp=header"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                px: 6,
+                py: 2,
+                fontSize: '1.1rem',
+                backgroundColor: '#26A69A',
+                borderRadius: '50px',
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: '600',
+                '&:hover': {
+                  backgroundColor: '#3F5FBF',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 8px 25px rgba(63, 95, 191, 0.4)',
+                },
+                transition: 'all 0.3s ease',
+              }}
+            >
+              Open Inquiry Form
+            </Button>
+          </Box>
+
           {/* Social Media Links */}
-          <Box sx={{ mt: 4, textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ mb: 2, color: '#2c3e50' }}>
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography variant="h6" sx={{
+              mb: 3,
+              color: '#8F5BD9',
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 'bold'
+            }}>
               Follow Us on Social Media
             </Typography>
-            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Button
                 variant="outlined"
                 startIcon={<FacebookIcon sx={{ color: '#1877f2' }} />}
-                                  href="https://www.facebook.com/profile.php?id=61580934554373"
+                href="https://www.facebook.com/profile.php?id=61580934554373"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
                   borderColor: '#1877f2',
                   color: '#1877f2',
+                  borderRadius: '50px',
+                  fontFamily: 'Poppins, sans-serif',
                   '&:hover': {
                     borderColor: '#1877f2',
                     backgroundColor: 'rgba(24, 119, 242, 0.1)',
@@ -368,6 +316,8 @@ const ContactPage: React.FC = () => {
                 sx={{
                   borderColor: '#e4405f',
                   color: '#e4405f',
+                  borderRadius: '50px',
+                  fontFamily: 'Poppins, sans-serif',
                   '&:hover': {
                     borderColor: '#e4405f',
                     backgroundColor: 'rgba(228, 64, 95, 0.1)',
@@ -387,6 +337,8 @@ const ContactPage: React.FC = () => {
                 sx={{
                   borderColor: '#0077b5',
                   color: '#0077b5',
+                  borderRadius: '50px',
+                  fontFamily: 'Poppins, sans-serif',
                   '&:hover': {
                     borderColor: '#0077b5',
                     backgroundColor: 'rgba(0, 119, 181, 0.1)',
@@ -401,6 +353,7 @@ const ContactPage: React.FC = () => {
           </Box>
         </Container>
       </Box>
+
     </Box>
   );
 };
