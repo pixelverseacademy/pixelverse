@@ -38,6 +38,26 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const StemTechnologyPage: React.FC = () => {
   const theme = getThemeColors('curriculum');
+
+  // Determine asset sources based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/',
+      'programCardImages': 'programCardImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
   const stats = [
     { number: '12+', label: 'STEM Programs' },
     { number: '500+', label: 'Students Coded' },
@@ -51,7 +71,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <CodeIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/robotics 2.jpeg',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/robotics 2.jpeg'),
       programs: ['LEGO Mindstorms EV3 Programming', 'Arduino Microcontroller Projects', 'Sensor Integration & Data Collection', 'Mechanical Design & 3D Printing']
     },
     {
@@ -60,7 +80,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <CodeIcon sx={{ fontSize: 40 }} />,
       color: '#26A69A',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Python programming.jpg',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/Python programming.jpg'),
       programs: ['Python Fundamentals & Syntax', 'Object-Oriented Programming', 'Game Development with Pygame', 'Data Science & Visualization']
     },
     {
@@ -69,7 +89,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <PsychologyIcon sx={{ fontSize: 40 }} />,
       color: '#3F5FBF',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Ai and machine learning.png',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/Ai and machine learning.png'),
       programs: ['Machine Learning Fundamentals', 'Neural Networks & Deep Learning', 'Computer Vision Projects', 'AI Ethics & Future Applications']
     },
     {
@@ -78,7 +98,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <CodeIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/web development.png',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/web development.png'),
       programs: ['HTML, CSS & JavaScript Fundamentals', 'Responsive Web Design', 'Frontend Frameworks', 'Full-Stack Applications']
     },
     {
@@ -87,7 +107,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <PhoneIcon sx={{ fontSize: 40 }} />,
       color: '#26A69A',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/mobile app development.png',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/mobile app development.png'),
       programs: ['React Native Development', 'iOS & Android App Creation', 'UI/UX Design', 'App Store Publishing']
     },
     {
@@ -96,7 +116,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <PaletteIcon sx={{ fontSize: 40 }} />,
       color: '#3F5FBF',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/3d modeling and printing.png',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/3d modeling and printing.png'),
       programs: ['Tinkercad & Fusion 360', '3D Modeling Techniques', '3D Printing & Prototyping', 'Product Design Thinking']
     },
     {
@@ -105,7 +125,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <ExtensionIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Scratch programming.png',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/Scratch programming.png'),
       programs: ['Visual Programming Concepts', 'Interactive Story Creation', 'Game Development Basics', 'Computational Thinking']
     },
     {
@@ -114,7 +134,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <VisibilityIcon sx={{ fontSize: 40 }} />,
       color: '#26A69A',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Ar and VR coding.jpg',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/Ar and VR coding.jpg'),
       programs: ['Unity 3D Development', 'ARCore & ARKit Integration', 'VR Headset Programming', '3D Modeling & Animation']
     },
     {
@@ -123,7 +143,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <SmartToyIcon sx={{ fontSize: 40 }} />,
       color: '#3F5FBF',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/Roblox game development.png',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/Roblox game development.png'),
       programs: ['Roblox Studio Development', 'Lua Programming Language', 'Game Design & Mechanics', 'Publishing & Monetization']
     },
     {
@@ -132,7 +152,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <SportsIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/minecraft.png',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/minecraft.png'),
       programs: ['Minecraft Education Edition', 'JavaScript & Python Scripting', 'Custom Mod Development', 'Redstone Engineering']
     },
     {
@@ -141,7 +161,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <FlightIcon sx={{ fontSize: 40 }} />,
       color: '#26A69A',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/drone programming.png',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/drone programming.png'),
       programs: ['Professional Aerial Photography', 'Cinematic Videography Techniques', 'Drone Camera Operation', 'Video Editing & Post-Production']
     },
     {
@@ -150,7 +170,7 @@ const StemTechnologyPage: React.FC = () => {
       icon: <EsportsIcon sx={{ fontSize: 40 }} />,
       color: '#3F5FBF',
       path: '/programs/stem-technology',
-      backgroundImage: '/public/programCardImages/stemAndTechnology/esports.png',
+      backgroundImage: getAssetUrl('programCardImages', 'stemAndTechnology/esports.png'),
       programs: ['Competitive Gaming Strategies', 'Team Communication & Leadership', 'Game Analysis & Improvement', 'Esports Industry Overview']
     },
   ];
@@ -180,7 +200,7 @@ const StemTechnologyPage: React.FC = () => {
         }}>
           <Box
             component="img"
-            src="/public/Instagram upload/7313934c-05ed-40fe-b6c2-14126fc67fbc.png"
+            src={getAssetUrl('instagramUpload', '7313934c-05ed-40fe-b6c2-14126fc67fbc.png')}
             alt="STEM Technology Hero"
             sx={{
               width: '100%',

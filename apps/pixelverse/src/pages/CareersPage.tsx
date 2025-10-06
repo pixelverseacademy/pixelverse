@@ -25,6 +25,26 @@ import {
 const CareersPage: React.FC = () => {
   const theme = getThemeColors('careers');
 
+  // Determine asset sources based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/',
+      'programCardImages': 'programCardImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
+
   const jobPositions = [
     {
       title: 'Robotics Coach',
@@ -80,7 +100,7 @@ const CareersPage: React.FC = () => {
         }}>
           <Box
             component="img"
-            src="/public/Instagram upload/29ef747a-5d0e-4769-9b78-bf13237540dd.png"
+            src={getAssetUrl('instagramUpload', '29ef747a-5d0e-4769-9b78-bf13237540dd.png')}
             alt="Careers Hero"
             sx={{
               width: '100%',
@@ -185,7 +205,7 @@ const CareersPage: React.FC = () => {
             {
               title: 'Flexible Scheduling & Work-Life Balance',
               description: 'Enjoy part-time positions with 8-35 hours/week and choose shifts that work for your schedule. We understand the importance of work-life balance.',
-              image: '/public/marketingImages/6d44d417-cc7a-4fb2-ba56-eb604e178e25.png',
+              image: getAssetUrl('marketingImages', '6d44d417-cc7a-4fb2-ba56-eb604e178e25.png'),
               benefits: [
                 'Part-time flexibility',
                 'Choose your schedule',
@@ -196,7 +216,7 @@ const CareersPage: React.FC = () => {
             {
               title: 'Competitive Pay & Growth Opportunities',
               description: 'Earn competitive wages starting at $20-$35/hour with clear paths for advancement and performance bonuses as you develop your skills.',
-              image: '/public/marketingImages/86b9f21e-3dea-466f-b7c8-5eb6884faca3.png',
+              image: getAssetUrl('marketingImages', '86b9f21e-3dea-466f-b7c8-5eb6884faca3.png'),
               benefits: [
                 'Competitive hourly rates',
                 'Performance bonuses',
@@ -207,7 +227,7 @@ const CareersPage: React.FC = () => {
             {
               title: 'Meaningful Impact on Young Minds',
               description: 'Work directly with students in our Triangle area locations, building meaningful connections and witnessing the joy of learning firsthand.',
-              image: '/public/marketingImages/183af8c2-76f9-4885-aea0-04b44183954f.png',
+              image: getAssetUrl('marketingImages', '183af8c2-76f9-4885-aea0-04b44183954f.png'),
               benefits: [
                 'Direct student impact',
                 'Meaningful connections',
@@ -338,7 +358,7 @@ const CareersPage: React.FC = () => {
         {/* Background Image */}
         <Box
           component="img"
-          src="/public/Instagram upload/5aa5d9b0-9aac-458c-b870-6f3262186d01.png"
+          src={getAssetUrl('instagramUpload', '5aa5d9b0-9aac-458c-b870-6f3262186d01.png')}
           alt="Open Positions Background"
           sx={{
             position: 'absolute',

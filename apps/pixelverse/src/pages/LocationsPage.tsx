@@ -25,6 +25,26 @@ import {
 } from '@mui/icons-material';
 const LocationsPage: React.FC = () => {
   const theme = getThemeColors('locations');
+
+  // Determine asset sources based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/',
+      'programCardImages': 'programCardImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
   const stats = [
     { number: '8', label: 'Locations Served' },
     { number: '50+', label: 'Schools Partnered' },
@@ -35,7 +55,7 @@ const LocationsPage: React.FC = () => {
     {
       title: 'Convenient School-Based Programs',
       description: 'We bring expert instructors directly to your school, eliminating transportation hassles and fitting seamlessly into your existing schedule.',
-      image: '/public/Instagram upload/da865aa3-b937-4fe9-b0e8-a02e9ecaf5d8.png',
+      image: getAssetUrl('instagramUpload', 'da865aa3-b937-4fe9-b0e8-a02e9ecaf5d8.png'),
       benefits: [
         'No transportation needed',
         'Familiar school environment',
@@ -46,7 +66,7 @@ const LocationsPage: React.FC = () => {
     {
       title: 'Expert Instructors in Your Area',
       description: 'Our certified instructors are located throughout the Triangle area, bringing specialized knowledge and passion for teaching to your community.',
-      image: '/public/Instagram upload/d2186c4a-81b2-4678-a6f0-3cc110817208.png',
+      image: getAssetUrl('instagramUpload', 'd2186c4a-81b2-4678-a6f0-3cc110817208.png'),
       benefits: [
         'Local area expertise',
         'Certified educators',
@@ -57,7 +77,7 @@ const LocationsPage: React.FC = () => {
     {
       title: 'Comprehensive Coverage',
       description: 'From Durham to Chapel Hill, we serve the entire Research Triangle area with consistent quality and comprehensive program offerings.',
-      image: '/public/Instagram upload/fd9a8cc0-ee1d-48e1-8cbd-6806fd209e06.png',
+      image: getAssetUrl('instagramUpload', 'fd9a8cc0-ee1d-48e1-8cbd-6806fd209e06.png'),
       benefits: [
         'Wide geographic coverage',
         'Consistent program quality',
@@ -157,7 +177,7 @@ const LocationsPage: React.FC = () => {
         }}>
           <Box
             component="img"
-            src="/public/Instagram upload/29ef747a-5d0e-4769-9b78-bf13237540dd.png"
+            src={getAssetUrl('instagramUpload', '29ef747a-5d0e-4769-9b78-bf13237540dd.png')}
             alt="Locations Hero"
             sx={{
               width: '100%',
@@ -376,7 +396,7 @@ const LocationsPage: React.FC = () => {
         {/* Background Image */}
         <Box
           component="img"
-          src="/public/Instagram upload/5aa5d9b0-9aac-458c-b870-6f3262186d01.png"
+          src={getAssetUrl('instagramUpload', '5aa5d9b0-9aac-458c-b870-6f3262186d01.png')}
           alt="Service Areas Background"
           sx={{
             position: 'absolute',

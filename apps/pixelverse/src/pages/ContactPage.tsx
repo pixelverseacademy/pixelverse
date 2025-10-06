@@ -26,6 +26,26 @@ const ContactPage: React.FC = () => {
   const theme = getThemeColors('contact');
   const location = useLocation();
 
+  // Determine asset sources based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/',
+      'programCardImages': 'programCardImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
+
   // Scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,7 +60,7 @@ const ContactPage: React.FC = () => {
     {
       title: 'Email Support',
       description: 'Send us an email anytime and receive a personalized response within 24 hours. We love hearing from parents and students!',
-      image: '/public/Instagram upload/4a5fe117-ec9d-43ee-b032-5f5c33484851.png',
+      image: getAssetUrl('instagramUpload', '4a5fe117-ec9d-43ee-b032-5f5c33484851.png'),
       contact: 'info@pathforgelearning.com',
       benefits: [
         '24/7 email support',
@@ -52,7 +72,7 @@ const ContactPage: React.FC = () => {
     {
       title: 'Phone Support',
       description: 'Speak directly with our team during business hours. Get immediate answers to your questions about programs, scheduling, and enrollment.',
-      image: '/public/Instagram upload/5aa5d9b0-9aac-458c-b870-6f3262186d01.png',
+      image: getAssetUrl('instagramUpload', '5aa5d9b0-9aac-458c-b870-6f3262186d01.png'),
       contact: '(919) 446-4981',
       benefits: [
         'Direct phone support',
@@ -64,7 +84,7 @@ const ContactPage: React.FC = () => {
     {
       title: 'School-Based Programs',
       description: 'We bring our expert instructors directly to your school, making it convenient for your family while maintaining the familiar school environment.',
-      image: '/public/Instagram upload/29ef747a-5d0e-4769-9b78-bf13237540dd.png',
+      image: getAssetUrl('instagramUpload', '29ef747a-5d0e-4769-9b78-bf13237540dd.png'),
       contact: 'Contact Your School',
       benefits: [
         'Convenient location',
@@ -100,7 +120,7 @@ const ContactPage: React.FC = () => {
         }}>
           <Box
             component="img"
-            src="/public/Instagram upload/29ef747a-5d0e-4769-9b78-bf13237540dd.png"
+            src={getAssetUrl('instagramUpload', '29ef747a-5d0e-4769-9b78-bf13237540dd.png')}
             alt="Contact Hero"
             sx={{
               width: '100%',

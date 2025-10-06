@@ -28,6 +28,26 @@ import {
 
 const LifeSkillsCareerPrepPage: React.FC = () => {
   const theme = getThemeColors('curriculum');
+
+  // Determine asset sources based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/',
+      'programCardImages': 'programCardImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
   const stats = [
     { number: '4', label: 'Life Skills Programs' },
     { number: '300+', label: 'Students Empowered' },
@@ -41,7 +61,7 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
       icon: <PeopleIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/life-skills-career-prep',
-      backgroundImage: '/public/programCardImages/lifeSkills&CareerPrep/Leadership and teamwork.png',
+      backgroundImage: getAssetUrl('programCardImages', 'lifeSkills&CareerPrep/Leadership and teamwork.png'),
       programs: ['Leadership Development', 'Team Building Activities', 'Project Management Skills', 'Communication Strategies']
     },
     {
@@ -50,7 +70,7 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
       icon: <VoiceIcon sx={{ fontSize: 40 }} />,
       color: '#26A69A',
       path: '/programs/life-skills-career-prep',
-      backgroundImage: '/public/programCardImages/lifeSkills&CareerPrep/public speaking.png',
+      backgroundImage: getAssetUrl('programCardImages', 'lifeSkills&CareerPrep/public speaking.png'),
       programs: ['Public Speaking Techniques', 'Debate & Argumentation', 'Presentation Skills', 'Active Listening']
     },
     {
@@ -59,7 +79,7 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
       icon: <BusinessIcon sx={{ fontSize: 40 }} />,
       color: '#3F5FBF',
       path: '/programs/life-skills-career-prep',
-      backgroundImage: '/public/programCardImages/lifeSkills&CareerPrep/entrepreneurship.png',
+      backgroundImage: getAssetUrl('programCardImages', 'lifeSkills&CareerPrep/entrepreneurship.png'),
       programs: ['Business Planning', 'Financial Literacy', 'Budgeting & Saving', 'Investment Basics']
     },
     {
@@ -68,7 +88,7 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
       icon: <WorkIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/life-skills-career-prep',
-      backgroundImage: '/public/programCardImages/lifeSkills&CareerPrep/career exploration.png',
+      backgroundImage: getAssetUrl('programCardImages', 'lifeSkills&CareerPrep/career exploration.png'),
       programs: ['Career Assessment', 'Resume Building', 'Interview Skills', 'Professional Networking']
     },
   ];
@@ -98,7 +118,7 @@ const LifeSkillsCareerPrepPage: React.FC = () => {
         }}>
           <Box
             component="img"
-            src="/public/Instagram upload/7313934c-05ed-40fe-b6c2-14126fc67fbc.png"
+            src={getAssetUrl('instagramUpload', '7313934c-05ed-40fe-b6c2-14126fc67fbc.png')}
             alt="Life Skills Hero"
             sx={{
               width: '100%',

@@ -28,6 +28,26 @@ import {
 
 const HealthSportsWellnessPage: React.FC = () => {
   const theme = getThemeColors('curriculum');
+
+  // Determine asset sources based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/',
+      'programCardImages': 'programCardImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
   const stats = [
     { number: '4', label: 'Wellness Programs' },
     { number: '300+', label: 'Students Active' },
@@ -41,7 +61,7 @@ const HealthSportsWellnessPage: React.FC = () => {
       icon: <FitnessIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/health-sports-wellness',
-      backgroundImage: '/public/programCardImages/healthSports&Welness/physicalFitness.png',
+      backgroundImage: getAssetUrl('programCardImages', 'healthSports&Welness/physicalFitness.png'),
       programs: ['Physical Fitness Training', 'Sports Skills Development', 'Team Sports Activities', 'Health & Wellness Education']
     },
     {
@@ -50,7 +70,7 @@ const HealthSportsWellnessPage: React.FC = () => {
       icon: <YogaIcon sx={{ fontSize: 40 }} />,
       color: '#26A69A',
       path: '/programs/health-sports-wellness',
-      backgroundImage: '/public/programCardImages/healthSports&Welness/yoga.png',
+      backgroundImage: getAssetUrl('programCardImages', 'healthSports&Welness/yoga.png'),
       programs: ['Yoga Poses & Sequences', 'Breathing Techniques', 'Mindfulness Meditation', 'Stress Management']
     },
     {
@@ -59,7 +79,7 @@ const HealthSportsWellnessPage: React.FC = () => {
       icon: <NutritionIcon sx={{ fontSize: 40 }} />,
       color: '#3F5FBF',
       path: '/programs/health-sports-wellness',
-      backgroundImage: '/public/programCardImages/healthSports&Welness/nutrition and wellness.png',
+      backgroundImage: getAssetUrl('programCardImages', 'healthSports&Welness/nutrition and wellness.png'),
       programs: ['Nutrition Education', 'Healthy Eating Habits', 'Meal Planning', 'Wellness Principles']
     },
     {
@@ -68,7 +88,7 @@ const HealthSportsWellnessPage: React.FC = () => {
       icon: <ChessIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/health-sports-wellness',
-      backgroundImage: '/public/programCardImages/healthSports&Welness/chess.png',
+      backgroundImage: getAssetUrl('programCardImages', 'healthSports&Welness/chess.png'),
       programs: ['Chess Fundamentals', 'Strategic Thinking', 'Problem-Solving Skills', 'Concentration & Focus']
     },
   ];
@@ -98,7 +118,7 @@ const HealthSportsWellnessPage: React.FC = () => {
         }}>
           <Box
             component="img"
-            src="/public/Instagram upload/7313934c-05ed-40fe-b6c2-14126fc67fbc.png"
+            src={getAssetUrl('instagramUpload', '7313934c-05ed-40fe-b6c2-14126fc67fbc.png')}
             alt="Health Wellness Hero"
             sx={{
               width: '100%',

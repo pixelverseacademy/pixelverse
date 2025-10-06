@@ -30,6 +30,26 @@ const PartnershipsPage: React.FC = () => {
   const theme = getThemeColors('partnerships');
   const location = useLocation();
 
+  // Determine asset sources based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/',
+      'programCardImages': 'programCardImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
+
   // Scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -45,7 +65,7 @@ const PartnershipsPage: React.FC = () => {
       title: 'After-School Programs',
       icon: <SchoolIcon sx={{ fontSize: 40, color: '#26A69A' }} />,
       description: 'Bring comprehensive enrichment programs directly to your school with our after-school offerings.',
-      backgroundImage: '/public/Instagram upload/77ea1212-e3ed-48a4-8468-ed61d2d699ce.png',
+      backgroundImage: getAssetUrl('instagramUpload', '77ea1212-e3ed-48a4-8468-ed61d2d699ce.png'),
       features: [
         'Customized curriculum for your school',
         'Experienced instructors on-site',
@@ -58,7 +78,7 @@ const PartnershipsPage: React.FC = () => {
       title: 'Summer Camps',
       icon: <GroupIcon sx={{ fontSize: 40, color: '#26A69A' }} />,
       description: 'Intensive technology camps during summer break to keep students engaged and learning.',
-      backgroundImage: '/public/Instagram upload/350ae5f9-cc38-4139-84e0-7d3a2408c8c1.png',
+      backgroundImage: getAssetUrl('instagramUpload', '350ae5f9-cc38-4139-84e0-7d3a2408c8c1.png'),
       features: [
         'Week-long intensive programs',
         'Multiple age group options',
@@ -71,7 +91,7 @@ const PartnershipsPage: React.FC = () => {
       title: 'Teacher Training',
       icon: <TrendingUpIcon sx={{ fontSize: 40, color: '#26A69A' }} />,
       description: 'Professional development workshops to help your teachers integrate technology into their classrooms.',
-      backgroundImage: '/public/Instagram upload/946640e2-6454-46ae-a866-3ac9cbab5217.png',
+      backgroundImage: getAssetUrl('instagramUpload', '946640e2-6454-46ae-a866-3ac9cbab5217.png'),
       features: [
         'Hands-on training sessions',
         'Curriculum integration strategies',
@@ -84,7 +104,7 @@ const PartnershipsPage: React.FC = () => {
       title: 'Competition Teams',
       icon: <SupportIcon sx={{ fontSize: 40, color: '#26A69A' }} />,
       description: 'Form and train robotics and coding competition teams to represent your school.',
-      backgroundImage: '/public/Instagram upload/7313934c-05ed-40fe-b6c2-14126fc67fbc.png',
+      backgroundImage: getAssetUrl('instagramUpload', '7313934c-05ed-40fe-b6c2-14126fc67fbc.png'),
       features: [
         'Team formation and management',
         'Competition preparation',
@@ -168,7 +188,7 @@ const PartnershipsPage: React.FC = () => {
         {/* Background Image */}
         <Box
           component="img"
-          src="/public/Instagram upload/4a5fe117-ec9d-43ee-b032-5f5c33484851.png"
+          src={getAssetUrl('instagramUpload', '4a5fe117-ec9d-43ee-b032-5f5c33484851.png')}
           alt="Partnerships Hero"
           sx={{
             position: 'absolute',

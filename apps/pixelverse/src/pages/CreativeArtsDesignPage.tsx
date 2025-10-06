@@ -28,6 +28,26 @@ import {
 
 const CreativeArtsDesignPage: React.FC = () => {
   const theme = getThemeColors('curriculum');
+
+  // Determine asset sources based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/',
+      'programCardImages': 'programCardImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
   const stats = [
     { number: '4', label: 'Creative Programs' },
     { number: '200+', label: 'Artworks Created' },
@@ -41,7 +61,7 @@ const CreativeArtsDesignPage: React.FC = () => {
       icon: <PaletteIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/creative-arts-design',
-      backgroundImage: '/public/programCardImages/creativeArts&Design/digital arts.png',
+      backgroundImage: getAssetUrl('programCardImages', 'creativeArts&Design/digital arts.png'),
       programs: ['Adobe Photoshop & Illustrator', 'Digital Illustration Techniques', 'Graphic Design Principles', 'Logo & Branding Design']
     },
     {
@@ -50,7 +70,7 @@ const CreativeArtsDesignPage: React.FC = () => {
       icon: <PrintIcon sx={{ fontSize: 40 }} />,
       color: '#26A69A',
       path: '/programs/creative-arts-design',
-      backgroundImage: '/public/programCardImages/creativeArts&Design/3d printing and CAD.png',
+      backgroundImage: getAssetUrl('programCardImages', 'creativeArts&Design/3d printing and CAD.png'),
       programs: ['Fusion 360 & Tinkercad', '3D Modeling & Prototyping', '3D Printing Operations', 'Product Design Thinking']
     },
     {
@@ -59,7 +79,7 @@ const CreativeArtsDesignPage: React.FC = () => {
       icon: <MusicIcon sx={{ fontSize: 40 }} />,
       color: '#3F5FBF',
       path: '/programs/creative-arts-design',
-      backgroundImage: '/public/programCardImages/creativeArts&Design/music prod.png',
+      backgroundImage: getAssetUrl('programCardImages', 'creativeArts&Design/music prod.png'),
       programs: ['Digital Audio Workstations (DAWs)', 'Music Theory & Composition', 'Recording & Mixing Techniques', 'Electronic Music Production']
     },
     {
@@ -68,7 +88,7 @@ const CreativeArtsDesignPage: React.FC = () => {
       icon: <BookIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/creative-arts-design',
-      backgroundImage: '/public/programCardImages/creativeArts&Design/creative writing.png',
+      backgroundImage: getAssetUrl('programCardImages', 'creativeArts&Design/creative writing.png'),
       programs: ['Creative Writing Techniques', 'Story Structure & Plot Development', 'Character Development', 'Scriptwriting for Media']
     },
   ];
@@ -98,7 +118,7 @@ const CreativeArtsDesignPage: React.FC = () => {
         }}>
           <Box
             component="img"
-            src="/public/Instagram upload/4a5fe117-ec9d-43ee-b032-5f5c33484851.png"
+            src={getAssetUrl('instagramUpload', '4a5fe117-ec9d-43ee-b032-5f5c33484851.png')}
             alt="Creative Arts Hero"
             sx={{
               width: '100%',

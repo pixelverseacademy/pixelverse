@@ -26,11 +26,30 @@ import {
 
 const WhyUsPage: React.FC = () => {
   const theme = getThemeColors('why-us');
+
+  // Determine asset sources based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
   const features = [
     {
       title: 'Project-Based Learning Approach',
       description: 'Students learn through hands-on projects that solve real-world problems, making learning engaging and practical.',
-      image: '/public/Instagram upload/4a5fe117-ec9d-43ee-b032-5f5c33484851.png',
+      image: getAssetUrl('instagramUpload', '4a5fe117-ec9d-43ee-b032-5f5c33484851.png'),
       benefits: [
         'Real-world problem solving',
         'Enhanced creativity and innovation',
@@ -41,7 +60,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Expert Instructors',
       description: 'Learn from experienced professionals who are passionate about technology education and student success.',
-      image: '/public/Instagram upload/5aa5d9b0-9aac-458c-b870-6f3262186d01.png',
+      image: getAssetUrl('instagramUpload', '5aa5d9b0-9aac-458c-b870-6f3262186d01.png'),
       benefits: [
         'Industry experience and expertise',
         'Personalized teaching approach',
@@ -52,7 +71,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Comprehensive Enrichment Curriculum',
       description: 'From STEM fundamentals to creative arts, life skills, academics, and wellness, our curriculum covers all aspects of holistic development.',
-      image: '/public/Instagram upload/29ef747a-5d0e-4769-9b78-bf13237540dd.png',
+      image: getAssetUrl('instagramUpload', '29ef747a-5d0e-4769-9b78-bf13237540dd.png'),
       benefits: [
         'Multi-disciplinary learning approach',
         'Progressive skill building across domains',
@@ -63,7 +82,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Small Class Sizes',
       description: 'Personalized attention with small class sizes ensures every student gets the support they need to succeed.',
-      image: '/public/Instagram upload/77ea1212-e3ed-48a4-8468-ed61d2d699ce.png',
+      image: getAssetUrl('instagramUpload', '77ea1212-e3ed-48a4-8468-ed61d2d699ce.png'),
       benefits: [
         'Individual attention and support',
         'Collaborative learning environment',
@@ -74,7 +93,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Diverse Learning Environments',
       description: 'Access to creative studios, performance spaces, fitness facilities, and collaborative workspaces designed for holistic development.',
-      image: '/public/Instagram upload/350ae5f9-cc38-4139-84e0-7d3a2408c8c1.png',
+      image: getAssetUrl('instagramUpload', '350ae5f9-cc38-4139-84e0-7d3a2408c8c1.png'),
       benefits: [
         'Creative and performance spaces',
         'Collaborative learning environments',
@@ -85,7 +104,7 @@ const WhyUsPage: React.FC = () => {
     {
       title: 'Personalized Growth Opportunities',
       description: 'Individualized development plans, mentorship programs, and performance showcases that celebrate each student\'s unique talents.',
-      image: '/public/Instagram upload/946640e2-6454-46ae-a866-3ac9cbab5217.png',
+      image: getAssetUrl('instagramUpload', '946640e2-6454-46ae-a866-3ac9cbab5217.png'),
       benefits: [
         'Personalized development plans',
         'Mentorship and guidance',
@@ -130,7 +149,7 @@ const WhyUsPage: React.FC = () => {
         }}>
           <Box
             component="img"
-            src="/public/Instagram upload/29ef747a-5d0e-4769-9b78-bf13237540dd.png"
+            src={getAssetUrl('instagramUpload', '29ef747a-5d0e-4769-9b78-bf13237540dd.png')}
             alt="PathForge Learning Hero"
             sx={{
               width: '100%',
@@ -356,7 +375,7 @@ const WhyUsPage: React.FC = () => {
         {/* Background Image */}
         <Box
           component="img"
-          src="/public/Instagram upload/5aa5d9b0-9aac-458c-b870-6f3262186d01.png"
+          src={getAssetUrl('instagramUpload', '5aa5d9b0-9aac-458c-b870-6f3262186d01.png')}
           alt="Instructors Background"
           sx={{
             position: 'absolute',

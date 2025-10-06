@@ -41,27 +41,36 @@ const HomePage: React.FC = () => {
   const theme = getThemeColors('home');
   const location = useLocation();
 
-  // Determine video sources based on environment
-  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
 
   const getVideoSrc = (programName: string) => {
     const videoMap: { [key: string]: string } = {
       'stem': 'stem.mp4',
       'arts': 'arts.mp4',
-      'life skills': 'life%20skills.mp4',
-      'test prep': 'test%20prep.mp4',
+      'life skills': 'life skills.mp4',
+      'test prep': 'test prep.mp4',
       'health': 'health.mp4',
       'marketing': 'marketing.m4v'
     };
 
     const filename = videoMap[programName.toLowerCase()] || `${programName}.mp4`;
-    return isLocalhost
-      ? `/public/marketing.m4v`
-      : `https://pathforgelearning.com/${filename}`;
+    return getAssetUrl('ourProgramsVideos', filename);
   };
-
-  const videoSrc = getVideoSrc('marketing');
-
+  const videoSrc = getAssetUrl('marketing', 'marketing.m4v');
   const enrichmentBuckets = [
     {
       title: 'STEM & Technology',
@@ -560,7 +569,7 @@ const HomePage: React.FC = () => {
         {/* Background Image */}
         <Box
           component="img"
-          src="/public/Instagram upload/4a5fe117-ec9d-43ee-b032-5f5c33484851.png"
+          src={getAssetUrl('instagramUpload', '4a5fe117-ec9d-43ee-b032-5f5c33484851.png')}
           alt="Background"
           sx={{
             position: 'absolute',

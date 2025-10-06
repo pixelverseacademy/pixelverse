@@ -28,6 +28,26 @@ import {
 
 const TestPrepAcademicEnrichmentPage: React.FC = () => {
   const theme = getThemeColors('curriculum');
+
+  // Determine asset sources based on environment
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  const getAssetUrl = (folder: string, filename: string) => {
+    // Special case for root-level files
+    if (folder === 'marketing') {
+      return `https://cdn.pathforgelearning.com/${filename}`;
+    }
+
+    const cdnMap: { [key: string]: string } = {
+      'ourProgramsVideos': 'ourProgramsVideos/',
+      'instagramUpload': 'instagramUpload/',
+      'marketingImages': 'marketingImages/',
+      'programCardImages': 'programCardImages/'
+    };
+
+    const cdnFolder = cdnMap[folder] || `${folder}/`;
+    return `https://cdn.pathforgelearning.com/${cdnFolder}${filename}`;
+  };
   const stats = [
     { number: '4', label: 'Academic Programs' },
     { number: '500+', label: 'Students Tutored' },
@@ -41,7 +61,7 @@ const TestPrepAcademicEnrichmentPage: React.FC = () => {
       icon: <ScienceIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/test-prep-academic-enrichment',
-      backgroundImage: '/public/programCardImages/testPrep&AcademicEnrich/math and science.png',
+      backgroundImage: getAssetUrl('programCardImages', 'testPrep&AcademicEnrich/math and science.png'),
       programs: ['Mathematics Tutoring', 'Science Subject Support', 'Problem-Solving Strategies', 'Concept Reinforcement']
     },
     {
@@ -50,7 +70,7 @@ const TestPrepAcademicEnrichmentPage: React.FC = () => {
       icon: <BookIcon sx={{ fontSize: 40 }} />,
       color: '#26A69A',
       path: '/programs/test-prep-academic-enrichment',
-      backgroundImage: '/public/programCardImages/testPrep&AcademicEnrich/reading and writing.png',
+      backgroundImage: getAssetUrl('programCardImages', 'testPrep&AcademicEnrich/reading and writing.png'),
       programs: ['Reading Comprehension', 'Writing Skills Development', 'Grammar & Vocabulary', 'Literary Analysis']
     },
     {
@@ -59,7 +79,7 @@ const TestPrepAcademicEnrichmentPage: React.FC = () => {
       icon: <AssignmentIcon sx={{ fontSize: 40 }} />,
       color: '#3F5FBF',
       path: '/programs/test-prep-academic-enrichment',
-      backgroundImage: '/public/programCardImages/testPrep&AcademicEnrich/sat and act.png',
+      backgroundImage: getAssetUrl('programCardImages', 'testPrep&AcademicEnrich/sat and act.png'),
       programs: ['SAT/ACT Preparation', 'Test-Taking Strategies', 'Practice Exams', 'Score Improvement']
     },
     {
@@ -68,7 +88,7 @@ const TestPrepAcademicEnrichmentPage: React.FC = () => {
       icon: <ScheduleIcon sx={{ fontSize: 40 }} />,
       color: '#8F5BD9',
       path: '/programs/test-prep-academic-enrichment',
-      backgroundImage: '/public/programCardImages/testPrep&AcademicEnrich/studySkills.png',
+      backgroundImage: getAssetUrl('programCardImages', 'testPrep&AcademicEnrich/studySkills.png'),
       programs: ['Study Techniques', 'Time Management', 'Organization Skills', 'Note-Taking Methods']
     },
   ];
@@ -98,7 +118,7 @@ const TestPrepAcademicEnrichmentPage: React.FC = () => {
         }}>
           <Box
             component="img"
-            src="/public/Instagram upload/7313934c-05ed-40fe-b6c2-14126fc67fbc.png"
+            src={getAssetUrl('instagramUpload', '7313934c-05ed-40fe-b6c2-14126fc67fbc.png')}
             alt="Test Prep Hero"
             sx={{
               width: '100%',
