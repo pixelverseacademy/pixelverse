@@ -37,64 +37,78 @@ import {
 } from '@mui/icons-material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 
-const enrichmentBuckets = [
-  {
-    title: 'STEM & Technology',
-    description: 'Hands-on technology education including coding, robotics, AI, 3D printing, and more. Perfect for future innovators and problem-solvers.',
-    icon: <CodeIcon sx={{ fontSize: 40 }} />,
-    color: '#8F5BD9',
-    path: '/programs/stem-technology',
-    backgroundVideo: '/public/ourProgramsVideos/stem.mp4',
-    programs: ['Coding (Python, Scratch, Web Dev)', 'Robotics (LEGO, VEX, etc.)', 'Game Design & Animation', 'Generative AI & Machine Learning', 'Electronics & Engineering']
-  },
-  {
-    title: 'Creative Arts & Design',
-    description: 'Unleash creativity through digital art, graphic design, 3D printing, music technology, and storytelling. Express yourself artistically.',
-    icon: <PaletteIcon sx={{ fontSize: 40 }} />,
-    color: '#26A69A',
-    path: '/programs/creative-arts-design',
-    backgroundVideo: '/public/ourProgramsVideos/arts.mp4',
-    programs: ['Digital Art & Graphic Design', '3D Printing & CAD', 'Music Technology & Production', 'Creative Writing & Storytelling']
-  },
-  {
-    title: 'Life Skills & Career Prep',
-    description: 'Build essential life skills and career readiness. Develop leadership, communication, entrepreneurship, and professional skills.',
-    icon: <PeopleIcon sx={{ fontSize: 40 }} />,
-    color: '#3F5FBF',
-    path: '/programs/life-skills-career-prep',
-    backgroundVideo: '/public/ourProgramsVideos/life skills.mp4',
-    programs: ['Leadership & Teamwork', 'Public Speaking & Debate', 'Entrepreneurship & Financial Literacy', 'Career Exploration Workshops']
-  },
-  {
-    title: 'Test Prep & Academic Enrichment',
-    description: 'Excel academically with personalized tutoring, test preparation, and study skills development. Achieve your academic goals.',
-    icon: <SchoolIcon sx={{ fontSize: 40 }} />,
-    color: '#8F5BD9',
-    path: '/programs/test-prep-academic-enrichment',
-    backgroundVideo: '/public/ourProgramsVideos/test prep.mp4',
-    programs: ['Math & Science Tutoring', 'Reading & Writing Support', 'Standardized Test Prep (SAT, ACT, etc.)', 'Study Skills & Time Management']
-  },
-  {
-    title: 'Health, Sports & Wellness',
-    description: 'Nurture body and mind through physical fitness, yoga, mindfulness, and nutrition education. Build healthy lifelong habits.',
-    icon: <FitnessIcon sx={{ fontSize: 40 }} />,
-    color: '#26A69A',
-    path: '/programs/health-sports-wellness',
-    backgroundVideo: '/public/ourProgramsVideos/health.mp4',
-    programs: ['Physical Fitness & Sports Camps', 'Yoga & Mindfulness', 'Nutrition & Wellness Programs']
-  },
-];
-
-
 const HomePage: React.FC = () => {
   const theme = getThemeColors('home');
   const location = useLocation();
 
-  // Determine video source based on environment
+  // Determine video sources based on environment
   const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  const videoSrc = isLocalhost
-    ? '/public/marketing.m4v'
-    : 'https://cccd98bc7163ddee58318c33670ff7e5.r2.cloudflarestorage.com/pixel-verse-videos/marketing.m4v';
+
+  const getVideoSrc = (programName: string) => {
+    const videoMap: { [key: string]: string } = {
+      'stem': 'stem.mp4',
+      'arts': 'arts.mp4',
+      'life skills': 'life%20skills.mp4',
+      'test prep': 'test%20prep.mp4',
+      'health': 'health.mp4',
+      'marketing': 'marketing.m4v'
+    };
+
+    const filename = videoMap[programName.toLowerCase()] || `${programName}.mp4`;
+    return isLocalhost
+      ? `/public/marketing.m4v`
+      : `https://pathforgelearning.com/${filename}`;
+  };
+
+  const videoSrc = getVideoSrc('marketing');
+
+  const enrichmentBuckets = [
+    {
+      title: 'STEM & Technology',
+      description: 'Hands-on technology education including coding, robotics, AI, 3D printing, and more. Perfect for future innovators and problem-solvers.',
+      icon: <CodeIcon sx={{ fontSize: 40 }} />,
+      color: '#8F5BD9',
+      path: '/programs/stem-technology',
+      backgroundVideo: getVideoSrc('stem'),
+      programs: ['Coding (Python, Scratch, Web Dev)', 'Robotics (LEGO, VEX, etc.)', 'Game Design & Animation', 'Generative AI & Machine Learning', 'Electronics & Engineering']
+    },
+    {
+      title: 'Creative Arts & Design',
+      description: 'Unleash creativity through digital art, graphic design, 3D printing, music technology, and storytelling. Express yourself artistically.',
+      icon: <PaletteIcon sx={{ fontSize: 40 }} />,
+      color: '#26A69A',
+      path: '/programs/creative-arts-design',
+      backgroundVideo: getVideoSrc('arts'),
+      programs: ['Digital Art & Graphic Design', '3D Printing & CAD', 'Music Technology & Production', 'Creative Writing & Storytelling']
+    },
+    {
+      title: 'Life Skills & Career Prep',
+      description: 'Build essential life skills and career readiness. Develop leadership, communication, entrepreneurship, and professional skills.',
+      icon: <PeopleIcon sx={{ fontSize: 40 }} />,
+      color: '#3F5FBF',
+      path: '/programs/life-skills-career-prep',
+      backgroundVideo: getVideoSrc('life skills'),
+      programs: ['Leadership & Teamwork', 'Public Speaking & Debate', 'Entrepreneurship & Financial Literacy', 'Career Exploration Workshops']
+    },
+    {
+      title: 'Test Prep & Academic Enrichment',
+      description: 'Excel academically with personalized tutoring, test preparation, and study skills development. Achieve your academic goals.',
+      icon: <SchoolIcon sx={{ fontSize: 40 }} />,
+      color: '#8F5BD9',
+      path: '/programs/test-prep-academic-enrichment',
+      backgroundVideo: getVideoSrc('test prep'),
+      programs: ['Math & Science Tutoring', 'Reading & Writing Support', 'Standardized Test Prep (SAT, ACT, etc.)', 'Study Skills & Time Management']
+    },
+    {
+      title: 'Health, Sports & Wellness',
+      description: 'Nurture body and mind through physical fitness, yoga, mindfulness, and nutrition education. Build healthy lifelong habits.',
+      icon: <FitnessIcon sx={{ fontSize: 40 }} />,
+      color: '#26A69A',
+      path: '/programs/health-sports-wellness',
+      backgroundVideo: getVideoSrc('health'),
+      programs: ['Physical Fitness & Sports Camps', 'Yoga & Mindfulness', 'Nutrition & Wellness Programs']
+    },
+  ];
 
   // Scroll to top when route changes
   useEffect(() => {
