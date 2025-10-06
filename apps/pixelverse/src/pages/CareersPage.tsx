@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PathForgeBackground, { getThemeColors } from '../components/PathForgeBackground';
 import {
   Box,
@@ -9,13 +9,9 @@ import {
   Card,
   CardContent,
   Paper,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
   Chip,
 } from '@mui/material';
 import {
-  ExpandMore as ExpandMoreIcon,
   Work as WorkIcon,
   AccessTime as AccessTimeIcon,
   AttachMoney as AttachMoneyIcon,
@@ -27,12 +23,7 @@ import {
 } from '@mui/icons-material';
 
 const CareersPage: React.FC = () => {
-  const [expanded, setExpanded] = useState<string | false>(false);
   const theme = getThemeColors('careers');
-
-  const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : false);
-  };
 
   const jobPositions = [
     {
@@ -290,117 +281,6 @@ const CareersPage: React.FC = () => {
         </Box>
       </Container>
 
-      {/* Job Details Accordion */}
-      <Container maxWidth="lg" sx={{ py: 8, backgroundColor: '#f8f9ff' }}>
-        <Typography variant="h3" component="h2" textAlign="center" gutterBottom sx={{ fontWeight: 'bold', mb: 6, color: '#ff6b35' }}>
-          Position Details
-        </Typography>
-
-        <Box sx={{ maxWidth: '800px', mx: 'auto' }}>
-          <Accordion
-            expanded={expanded === 'panel-details'}
-            onChange={handleChange('panel-details')}
-            sx={{
-              backgroundColor: '#f0f8ff',
-              border: '1px solid #e0e6ed',
-              '&:before': { display: 'none' },
-              mb: 2
-            }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel-details-content"
-              id="panel-details-header"
-            >
-              <Typography sx={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                Job Description & Requirements
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Box sx={{ textAlign: 'left', lineHeight: 1.6 }}>
-                <Typography variant="h6" sx={{ color: '#ff6b35', mb: 2, fontWeight: 'bold' }}>
-                  About PathForge Learning
-                </Typography>
-                <Typography variant="body1" sx={{ color: '#7f8c8d', mb: 3 }}>
-                  We're looking for energetic, tech-savvy individuals who love working with children and have a passion for learning. Our ideal candidates bring a positive attitude, confidence, enthusiasm for new challenges, and a strong desire to make a meaningful impact on kids' lives in a fun and engaging way.
-                </Typography>
-
-                <Typography variant="h6" sx={{ color: '#ff6b35', mb: 2, fontWeight: 'bold' }}>
-                  Our Coaches' Role
-                </Typography>
-                <Typography variant="body1" sx={{ color: '#7f8c8d', mb: 3 }}>
-                  At PathForge Learning, our coaches play a vital role in inspiring and guiding students as they develop their coding and STEM skills. If you're excited to join a creative, collaborative, and dedicated team, we encourage you to apply! No matter your experience level, all necessary training will be provided. High school and college students with a passion for coding are welcome to apply.
-                </Typography>
-
-                <Typography variant="h6" sx={{ color: '#ff6b35', mb: 2, fontWeight: 'bold' }}>
-                  Position Details
-                </Typography>
-                <Box sx={{ mb: 3 }}>
-                  <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 1 }}>
-                    <strong>Part-time:</strong> 8–35 hours/week (initially)
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 1 }}>
-                    <strong>Pay:</strong> $14–18/hr
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 1 }}>
-                    <strong>Schedule Options:</strong> 4–6 hour shifts, Monday–Friday, Weekends and day camps as needed
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 1 }}>
-                    <strong>Morning–afternoon shifts</strong>
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#7f8c8d', mb: 3 }}>
-                    <strong>Work Location:</strong> In person
-                  </Typography>
-                </Box>
-
-                <Typography variant="h6" sx={{ color: '#ff6b35', mb: 2, fontWeight: 'bold' }}>
-                  Skills & Qualifications
-                </Typography>
-                <Typography variant="body1" sx={{ color: '#7f8c8d', mb: 3 }}>
-                  Experience working with children in camps, tutoring, child care, or after-school programs. Background or strong interest in one or more of the following: Robotics (FTC, FRC, FLL), 3D modeling, CAD, Computer programming experience (minimum 1 year).
-                </Typography>
-
-                <Typography variant="h6" sx={{ color: '#ff6b35', mb: 2, fontWeight: 'bold' }}>
-                  Key Responsibilities
-                </Typography>
-                <Box sx={{ mb: 3 }}>
-                  {[
-                    'Develop and tailor curriculum to meet students\' individual needs',
-                    'Teach and lead lessons and projects using the curriculum',
-                    'Encourage creativity by helping students brainstorm project ideas',
-                    'Communicate with parents regarding student progress',
-                    'Support team performance and maintain high-quality standards',
-                    'Assist in training new coaches',
-                    'Demonstrate charisma and the ability to work independently'
-                  ].map((responsibility, idx) => (
-                    <Typography key={idx} variant="body2" sx={{ color: '#7f8c8d', mb: 1 }}>
-                      • {responsibility}
-                    </Typography>
-                  ))}
-                </Box>
-
-                <Typography variant="h6" sx={{ color: '#ff6b35', mb: 2, fontWeight: 'bold' }}>
-                  Traits & Values We Look For
-                </Typography>
-                <Box sx={{ mb: 3 }}>
-                  {[
-                    'Attention to Detail: Take pride in your work and deliver outstanding service',
-                    'Growth Mindset: Be curious and open to learning, always pushing boundaries',
-                    'Empathy: Listen, understand, and appreciate the perspectives of others',
-                    'Accountability: Own your work and actions, and take responsibility for outcomes',
-                    'Positivity & Resilience: Bring energy, encouragement, and perseverance',
-                    'Fun & Enthusiasm: Enjoy your work, engage with joy, and foster a positive environment'
-                  ].map((trait, idx) => (
-                    <Typography key={idx} variant="body2" sx={{ color: '#7f8c8d', mb: 1 }}>
-                      • {trait}
-                    </Typography>
-                  ))}
-                </Box>
-              </Box>
-            </AccordionDetails>
-          </Accordion>
-        </Box>
-      </Container>
 
       {/* Call to Action */}
       <Box sx={{ py: 8, textAlign: 'center', backgroundColor: '#f0f8ff' }}>
