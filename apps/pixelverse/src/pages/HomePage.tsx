@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PathForgeBackground, { getThemeColors } from '../components/PathForgeBackground';
 import {
   Box,
@@ -40,6 +40,8 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 const HomePage: React.FC = () => {
   const theme = getThemeColors('home');
   const location = useLocation();
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const getAssetUrl = (folder: string, filename: string) => {
     // Special case for root-level files
@@ -124,6 +126,24 @@ const HomePage: React.FC = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  const handleVideoPlay = () => {
+    setIsVideoPlaying(true);
+  };
+
+  const handleVideoPause = () => {
+    setIsVideoPlaying(false);
+  };
+
+  const toggleVideoPlayback = () => {
+    if (videoRef.current) {
+      if (isVideoPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+    }
+  };
+
   return (
     <Box sx={{ position: 'relative', minHeight: '100vh', fontFamily: 'Poppins, sans-serif' }}>
       {/* Three.js Background - Applied to entire page */}
@@ -153,10 +173,13 @@ const HomePage: React.FC = () => {
         }}>
           <Box
             component="video"
+            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
+            onPlay={handleVideoPlay}
+            onPause={handleVideoPause}
             sx={{
               width: '100%',
               height: '100%',
@@ -177,23 +200,36 @@ const HomePage: React.FC = () => {
             background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
           }} />
 
-          {/* Play Button Overlay */}
-          <Box sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            zIndex: 2,
-            pointerEvents: 'none',
-          }}>
+          {/* Play/Pause Button Overlay */}
+          <Box
+            onClick={toggleVideoPlayback}
+            sx={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              zIndex: 2,
+              cursor: 'pointer',
+              opacity: isVideoPlaying ? 0 : 1,
+              transition: 'opacity 0.3s ease-in-out',
+              '&:hover': {
+                opacity: 1,
+              },
+            }}
+          >
             <PlayIcon sx={{
-              fontSize: { xs: '2.5rem', md: '3rem' },
+              fontSize: { xs: '3rem', md: '4rem' },
               color: 'white',
-              filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))',
-              animation: 'pulse 2s ease-in-out infinite',
+              filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7))',
+              animation: isVideoPlaying ? 'none' : 'pulse 2s ease-in-out infinite',
               '@keyframes pulse': {
                 '0%, 100%': { transform: 'scale(1)', opacity: 1 },
                 '50%': { transform: 'scale(1.1)', opacity: 0.8 }
+              },
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.1)',
+                filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.9))',
               }
             }} />
           </Box>
