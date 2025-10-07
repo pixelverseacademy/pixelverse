@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
   const theme = getThemeColors('home');
   const location = useLocation();
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMediaLoading, setIsMediaLoading] = useState(true);
 
   const getAssetUrl = (folder: string, filename: string) => {
     // Special case for root-level files
@@ -72,7 +72,195 @@ const HomePage: React.FC = () => {
     const filename = videoMap[programName.toLowerCase()] || `${programName}.mp4`;
     return getAssetUrl('ourProgramsVideos', filename);
   };
-  const videoSrc = getAssetUrl('marketing', 'marketing.m4v');
+  // Media slideshow configuration - Videos first, then images
+  const mediaItems = [
+    { type: 'video', src: 'https://cdn.pathforgelearning.com/homepageHero/7231310-uhd_3840_2160_25fps.mp4', duration: 10000 }, // 10 seconds
+    { type: 'image', src: 'https://cdn.pathforgelearning.com/homepageHero/pexels-robo-wunderkind-3698151-5665500.jpg', duration: 5000 }, // 5 seconds
+    { type: 'image', src: 'https://cdn.pathforgelearning.com/homepageHero/pexels-vanessa-loring-7869238.jpg', duration: 5000 }, // 5 seconds
+    { type: 'image', src: 'https://cdn.pathforgelearning.com/homepageHero/pexels-pixmike-998067.jpg', duration: 5000 }, // 5 seconds
+    { type: 'video', src: 'https://cdn.pathforgelearning.com/homepageHero/7868123-uhd_3840_2160_25fps.mp4', duration: 10000 }, // 10 seconds
+  ];
+
+  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
+  const [nextMediaIndex, setNextMediaIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const slideshowTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const preloadRefs = useRef<(HTMLVideoElement | HTMLImageElement)[]>([]);
+
+  const currentMedia = mediaItems[currentMediaIndex];
+  const nextMedia = mediaItems[nextMediaIndex];
+
+  // Preload next media item
+  const preloadNextMedia = (index: number) => {
+    const media = mediaItems[index];
+    if (media.type === 'video') {
+      const video = document.createElement('video');
+      video.preload = 'metadata';
+      video.src = media.src;
+      preloadRefs.current[index] = video;
+    } else {
+      const img = document.createElement('img');
+      img.src = media.src;
+      preloadRefs.current[index] = img;
+    }
+  };
+
+  // Initialize preloading
+  useEffect(() => {
+    mediaItems.forEach((_, index) => {
+      const nextIndex = (index + 1) % mediaItems.length;
+      preloadNextMedia(nextIndex);
+    });
+  }, []);
+
+  const startSlideshowTimer = (duration: number) => {
+    if (slideshowTimerRef.current) {
+      clearTimeout(slideshowTimerRef.current);
+    }
+
+    if (duration > 0) {
+      // For images, use the specified duration
+      slideshowTimerRef.current = setTimeout(() => {
+        console.log('Image timer expired, advancing to next media');
+        advanceToNextMedia();
+      }, duration);
+    } else {
+      // For videos, set a fallback timer in case onEnded doesn't fire
+      // Use a shorter fallback to skip bad videos quickly
+      slideshowTimerRef.current = setTimeout(() => {
+        console.log('Video fallback timer triggered (10s), advancing to next media');
+        advanceToNextMedia();
+      }, 10000); // 10 second fallback for videos
+    }
+  };
+
+  const advanceToNextMedia = () => {
+    console.log('Advancing to next media from:', currentMedia.src);
+    setIsTransitioning(true);
+
+    setTimeout(() => {
+      const newIndex = (currentMediaIndex + 1) % mediaItems.length;
+      const newNextIndex = (newIndex + 1) % mediaItems.length;
+
+      console.log('New media index:', newIndex, 'Next index:', newNextIndex);
+      setCurrentMediaIndex(newIndex);
+      setNextMediaIndex(newNextIndex);
+
+      // Preload the item after next
+      const preloadIndex = (newNextIndex + 1) % mediaItems.length;
+      preloadNextMedia(preloadIndex);
+
+      setIsTransitioning(false);
+
+      // Reset video state for new media
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+      }
+
+      // Start timer for new media
+      const newMedia = mediaItems[newIndex];
+      console.log('Starting timer for new media:', newMedia.type, newMedia.duration);
+      startSlideshowTimer(newMedia.duration);
+    }, 0); // Instant switch
+  };
+
+  const handleVideoEnded = () => {
+    console.log('Video ended naturally, advancing to next media');
+    console.log('Video src that ended:', currentMedia.src);
+    advanceToNextMedia();
+  };
+
+  const handleVideoLoadStart = () => {
+    console.log('Video load started for:', currentMedia.src);
+    setIsMediaLoading(true);
+  };
+
+  const handleVideoDurationChange = () => {
+    if (videoRef.current) {
+      console.log('Video duration changed to:', videoRef.current.duration, 'seconds');
+    }
+  };
+
+  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    console.error('Video error:', e);
+    console.log('Video src that failed:', currentMedia.src);
+    // Advance to next media on error after a short delay
+    setTimeout(() => {
+      console.log('Advancing due to video error');
+      advanceToNextMedia();
+    }, 2000);
+  };
+
+  const handleVideoStalled = () => {
+    console.warn('Video stalled, might be network issue');
+  };
+
+  const handleVideoWaiting = () => {
+    console.log('Video is waiting/buffering');
+  };
+
+  const handleVideoCanPlay = () => {
+    console.log('Video can play, setting loading to false');
+    setIsMediaLoading(false);
+
+    // Log video duration for debugging
+    if (videoRef.current) {
+      console.log('Video duration:', videoRef.current.duration, 'seconds');
+    }
+
+    // For videos, set timer based on actual duration instead of fallback
+    if (currentMedia.type === 'video' && videoRef.current) {
+      const duration = videoRef.current.duration * 1000; // convert to ms
+      console.log('Setting video timer to actual duration:', duration, 'ms');
+      startSlideshowTimer(duration);
+    }
+
+    // Ensure video actually starts playing
+    if (videoRef.current && videoRef.current.paused) {
+      console.log('Forcing video to play');
+      videoRef.current.play().catch(e => {
+        console.error('Failed to start video playback:', e);
+      });
+    }
+  };
+
+  const handleVideoTimeUpdate = () => {
+    if (videoRef.current) {
+      const currentTime = videoRef.current.currentTime;
+      const duration = videoRef.current.duration;
+      console.log(`Video progress: ${currentTime.toFixed(1)}s / ${duration.toFixed(1)}s`);
+    }
+  };
+
+  const handleImageLoad = () => {
+    // Start timer when image loads
+    startSlideshowTimer(currentMedia.duration);
+  };
+
+  // Initialize slideshow
+  useEffect(() => {
+    console.log('Initializing slideshow for media:', currentMedia);
+    startSlideshowTimer(currentMedia.duration);
+    return () => {
+      if (slideshowTimerRef.current) {
+        clearTimeout(slideshowTimerRef.current);
+      }
+    };
+  }, [currentMediaIndex]);
+
+  // Force start slideshow on mount
+  useEffect(() => {
+    console.log('Component mounted, starting slideshow');
+    // Start with a short delay to ensure DOM is ready
+    const initialTimer = setTimeout(() => {
+      startSlideshowTimer(currentMedia.duration);
+    }, 1000);
+
+    return () => clearTimeout(initialTimer);
+  }, []);
+
   const enrichmentBuckets = [
     {
       title: 'STEM & Technology',
@@ -144,6 +332,14 @@ const HomePage: React.FC = () => {
     }
   };
 
+  const handleMediaLoaded = () => {
+    setIsMediaLoading(false);
+  };
+
+  const handleMediaLoadStart = () => {
+    setIsMediaLoading(true);
+  };
+
   return (
     <Box sx={{ position: 'relative', minHeight: '100vh', fontFamily: 'Poppins, sans-serif' }}>
       {/* Three.js Background - Applied to entire page */}
@@ -161,7 +357,7 @@ const HomePage: React.FC = () => {
           justifyContent: 'center',
         }}
       >
-        {/* Background Video */}
+        {/* Background Media Slideshow */}
         <Box sx={{
           position: 'absolute',
           top: 0,
@@ -170,26 +366,208 @@ const HomePage: React.FC = () => {
           bottom: 0,
           zIndex: 0,
           overflow: 'hidden',
+          background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.05) 0%, rgba(38, 166, 154, 0.05) 100%)',
         }}>
-          <Box
-            component="video"
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            onPlay={handleVideoPlay}
-            onPause={handleVideoPause}
-            sx={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              filter: 'brightness(0.7)',
-            }}
-          >
-            <source src={videoSrc} type="video/mp4" />
-            Your browser does not support the video tag.
+          {/* Current Media */}
+          <Box sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            opacity: 1,
+          }}>
+            {currentMedia.type === 'video' ? (
+              <Box
+                component="video"
+                key={currentMedia.src}
+                ref={videoRef}
+                autoPlay
+                muted
+                playsInline
+                loop={false}
+                onPlay={() => {
+                  console.log('Video started playing:', currentMedia.src);
+                  handleVideoPlay();
+                }}
+                onPause={handleVideoPause}
+                onLoadedData={() => {
+                  console.log('Video loaded data:', currentMedia.src);
+                  handleMediaLoaded();
+                }}
+                onLoadStart={handleVideoLoadStart}
+                onEnded={handleVideoEnded}
+                onError={handleVideoError}
+                onCanPlay={handleVideoCanPlay}
+                onStalled={handleVideoStalled}
+                onWaiting={handleVideoWaiting}
+                onTimeUpdate={handleVideoTimeUpdate}
+                onDurationChange={handleVideoDurationChange}
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  filter: 'brightness(0.7)',
+                }}
+              >
+                <source src={currentMedia.src} type="video/mp4" />
+                Your browser does not support the video tag.
+              </Box>
+            ) : (
+              <Box
+                component="img"
+                ref={imageRef}
+                src={currentMedia.src}
+                alt={`Hero background ${currentMediaIndex + 1}`}
+                onLoad={handleMediaLoaded}
+                onLoadStart={handleMediaLoadStart}
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  filter: 'brightness(0.7)',
+                }}
+              />
+            )}
           </Box>
+
+          {/* Loading Screen Overlay */}
+          {isMediaLoading && (
+            <Box sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 3,
+              background: 'linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 50%, rgba(15, 20, 25, 0.95) 100%)',
+              backdropFilter: 'blur(10px)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              animation: 'fadeIn 0.5s ease-in-out',
+              '@keyframes fadeIn': {
+                '0%': { opacity: 0 },
+                '100%': { opacity: 1 }
+              }
+            }}>
+              {/* Animated Logo */}
+              <Box sx={{
+                mb: 4,
+                animation: 'logoFloat 3s ease-in-out infinite',
+                '@keyframes logoFloat': {
+                  '0%, 100%': { transform: 'translateY(0px) scale(1)' },
+                  '50%': { transform: 'translateY(-10px) scale(1.05)' }
+                }
+              }}>
+                <img
+                  src="/public/logo.png"
+                  alt="PathForge Learning Logo"
+                  style={{
+                    height: '80px',
+                    width: '80px',
+                    objectFit: 'cover',
+                    borderRadius: '50%',
+                    boxShadow: '0 8px 32px rgba(143, 91, 217, 0.5)',
+                    border: '4px solid rgba(255, 255, 255, 0.2)'
+                  }}
+                />
+              </Box>
+
+              {/* Loading Text */}
+              <Typography
+                variant="h4"
+                sx={{
+                  color: 'white',
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: '700',
+                  mb: 2,
+                  textAlign: 'center',
+                  background: 'linear-gradient(45deg, #8F5BD9 30%, #26A69A 90%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  filter: 'drop-shadow(0 2px 4px rgba(143, 91, 217, 0.3))',
+                  animation: 'textGlow 2s ease-in-out infinite alternate',
+                  '@keyframes textGlow': {
+                    '0%': { filter: 'drop-shadow(0 2px 4px rgba(143, 91, 217, 0.3))' },
+                    '100%': { filter: 'drop-shadow(0 2px 8px rgba(143, 91, 217, 0.6))' }
+                  }
+                }}
+              >
+                PathForge Learning
+              </Typography>
+
+              {/* Loading Subtitle */}
+              <Typography
+                variant="h6"
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  fontFamily: 'Nunito, sans-serif',
+                  fontWeight: '500',
+                  mb: 4,
+                  textAlign: 'center',
+                  maxWidth: '400px'
+                }}
+              >
+                Empowering minds, forging futures...
+              </Typography>
+
+              {/* Loading Spinner */}
+              <Box sx={{ position: 'relative', mb: 3 }}>
+                {/* Outer Ring */}
+                <Box sx={{
+                  width: '80px',
+                  height: '80px',
+                  border: '4px solid rgba(143, 91, 217, 0.2)',
+                  borderTop: '4px solid #8F5BD9',
+                  borderRadius: '50%',
+                  animation: 'spin 1.5s linear infinite',
+                  '@keyframes spin': {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(360deg)' }
+                  }
+                }} />
+
+                {/* Inner Ring */}
+                <Box sx={{
+                  position: 'absolute',
+                  top: '8px',
+                  left: '8px',
+                  width: '64px',
+                  height: '64px',
+                  border: '3px solid rgba(38, 166, 154, 0.2)',
+                  borderBottom: '3px solid #26A69A',
+                  borderRadius: '50%',
+                  animation: 'spinReverse 2s linear infinite',
+                  '@keyframes spinReverse': {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(-360deg)' }
+                  }
+                }} />
+              </Box>
+
+              {/* Loading Progress Text */}
+              <Typography
+                variant="body2"
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.6)',
+                  fontFamily: 'Nunito, sans-serif',
+                  fontWeight: '400',
+                  textAlign: 'center',
+                  animation: 'fadeInOut 2s ease-in-out infinite',
+                  '@keyframes fadeInOut': {
+                    '0%, 100%': { opacity: 0.6 },
+                    '50%': { opacity: 1 }
+                  }
+                }}
+              >
+                Preparing your experience...
+              </Typography>
+            </Box>
+          )}
+
           {/* Gradient Overlay */}
           <Box sx={{
             position: 'absolute',
@@ -198,40 +576,34 @@ const HomePage: React.FC = () => {
             right: 0,
             bottom: 0,
             background: 'linear-gradient(135deg, rgba(143, 91, 217, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%)',
+            opacity: isMediaLoading ? 0 : 1,
+            transition: 'opacity 0.5s ease-in-out',
           }} />
 
-          {/* Play/Pause Button Overlay */}
+
+          {/* Debug: Manual advance button (remove in production) */}
           <Box
-            onClick={toggleVideoPlayback}
+            onClick={advanceToNextMedia}
             sx={{
               position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              zIndex: 2,
+              top: '20px',
+              right: '20px',
+              zIndex: 10,
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              color: 'white',
+              padding: '8px 12px',
+              borderRadius: '4px',
               cursor: 'pointer',
-              opacity: isVideoPlaying ? 0 : 1,
-              transition: 'opacity 0.3s ease-in-out',
+              fontSize: '12px',
+              fontFamily: 'monospace',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
               '&:hover': {
-                opacity: 1,
-              },
+                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+              }
             }}
           >
-            <PlayIcon sx={{
-              fontSize: { xs: '3rem', md: '4rem' },
-              color: 'white',
-              filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7))',
-              animation: isVideoPlaying ? 'none' : 'pulse 2s ease-in-out infinite',
-              '@keyframes pulse': {
-                '0%, 100%': { transform: 'scale(1)', opacity: 1 },
-                '50%': { transform: 'scale(1.1)', opacity: 0.8 }
-              },
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                transform: 'scale(1.1)',
-                filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.9))',
-              }
-            }} />
+            Next ({currentMediaIndex + 1}/5) - {currentMedia.type}
           </Box>
         </Box>
 

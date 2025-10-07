@@ -214,12 +214,12 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 },
               }}
             >
-              <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '70px', width: '70px', marginRight: '20px', objectFit: 'cover', borderRadius: '50%', boxShadow: '0 6px 20px rgba(143, 91, 217, 0.5)', border: '3px solid rgba(255, 255, 255, 0.2)' }} />
+              <img src="/public/logo.png" alt="PathForge Learning Logo" style={{ height: '60px', width: '60px', marginRight: '15px', objectFit: 'cover', borderRadius: '50%', boxShadow: '0 6px 20px rgba(143, 91, 217, 0.5)', border: '3px solid rgba(255, 255, 255, 0.2)' }} />
               <Typography variant="h5" component="div" sx={{
                 fontWeight: '900',
                 color: '#ffffff',
                 fontFamily: 'Poppins, sans-serif',
-                fontSize: '1.8rem',
+                fontSize: '1.5rem',
                 letterSpacing: '1px',
                 background: 'linear-gradient(45deg, #8F5BD9 0%, #26A69A 50%, #3F5FBF 100%)',
                 backgroundClip: 'text',
@@ -254,9 +254,9 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                          fontWeight: location.pathname.startsWith(item.path) ? 'bold' : 'normal',
                          textTransform: 'none',
                          fontFamily: 'Poppins, sans-serif',
-                         fontSize: '1.1rem',
-                         px: 2,
-                         py: 1.5,
+                         fontSize: '0.9rem',
+                         px: 1,
+                         py: 1,
                          borderRadius: '25px',
                          backgroundColor: location.pathname.startsWith(item.path) ? 'rgba(143, 91, 217, 0.3)' : 'transparent',
                          border: location.pathname.startsWith(item.path) ? '2px solid #8F5BD9' : '2px solid transparent',
@@ -320,9 +320,9 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                        fontWeight: location.pathname === item.path ? 'bold' : 'normal',
                        textTransform: 'none',
                        fontFamily: 'Poppins, sans-serif',
-                       fontSize: '1.1rem',
-                       px: 2,
-                       py: 1.5,
+                       fontSize: '0.9rem',
+                       px: 1,
+                       py: 1,
                        borderRadius: '25px',
                        backgroundColor: location.pathname === item.path ? 'rgba(143, 91, 217, 0.3)' : 'transparent',
                        border: location.pathname === item.path ? '2px solid #8F5BD9' : '2px solid transparent',
